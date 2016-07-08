@@ -7,7 +7,7 @@
     <title>Home</title>
     <link href="style.css" rel="stylesheet" />
     <script src="jquery-3.0.0.js"></script>
-    <script src="script.js" type="text/javascript"></script>
+    <script src="script.js"></script>
 </head>
 <body>
     <form id="form1" runat="server">
