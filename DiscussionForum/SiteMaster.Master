@@ -1,0 +1,52 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="SiteMaster.master.cs" Inherits="DiscussionForum.SiteMaster" %>
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title><%: Page.Title %></title>
+    <link rel="stylesheet" href="~/Content/bootstrap.min.css"/>
+    
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"/>
+
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <form id="form1" runat="server">
+            <nav class="navbar navbar-default navbar-fixed-top">
+                <div class="container">
+                    <div class="navbar-header">
+                        <a class="navbar-brand logo" href="http://bootstrapdesigntools.com/">Bootstrap Design Tools</a>
+                        <a class="navbar-brand" href="#">
+                            <img src="https://image.freepik.com/free-icon/instagram-social-network-logo-of-photo-camera_318-65117.png" style="width: 15%;">SmartSet</a>
+                    </div>
+                    <div  class="navbar-collapse collapse" aria-expanded="false" style="height: 1px;">
+                        <!--<ul class="nav navbar-nav navbar-right">
+                            <li><a href="../navbar/">Default</a></li>
+                            <li><a href="../navbar-static-top/">Static top</a></li>
+                            <li class="active"><a href="./">Fixed top <span class="sr-only">(current)</span></a></li>
+                        </ul>-->
+
+                        <ul class="nav navbar-nav navbar-right">
+                            <li><a href="#"><span class="glyphicon glyphicon-user"></span>Sign Up</a></li>
+                            <li><a href="#"><span class="glyphicon glyphicon-log-in"></span>Login</a></li>
+                        </ul>
+                    </div>
+
+
+                </div>
+            </nav>
+            <div class="container">
+            <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+            </asp:ContentPlaceHolder>
+                </div>
+            <hr />
+            <footer>
+                <p>&copy; <%: DateTime.Now.Year %> - SmartSet</p>
+            </footer>
+    </form>
+</body>
+</html>
