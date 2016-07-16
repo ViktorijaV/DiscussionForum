@@ -7,46 +7,77 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title><%: Page.Title %></title>
-    <link rel="stylesheet" href="~/Content/bootstrap.min.css"/>
-    
-  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"/>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="~/Content/Css/bootstrap.min.css" rel="stylesheet" />
+
+    <!-- Custom CSS -->
+    <link href="~/Content/Css/sb-admin-2.css" rel="stylesheet" />
+
+    <!-- Custom Fonts -->
+    <link href="~/Content/Fonts/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
+
+    <link rel="stylesheet" href="~/Content/Css/Style.css" />
 
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
+
+    <script src="Scripts/jquery.min.js"></script>
+    
+    <script src="Content/Js/bootstrap.min.js"></script>
 </head>
 <body>
     <form id="form1" runat="server">
-            <nav class="navbar navbar-default navbar-fixed-top">
-                <div class="container">
-                    <div class="navbar-header">
-                        <a class="navbar-brand logo" href="http://bootstrapdesigntools.com/">Bootstrap Design Tools</a>
-                        <a class="navbar-brand" href="#">
-                            <img src="https://image.freepik.com/free-icon/instagram-social-network-logo-of-photo-camera_318-65117.png" style="width: 15%;">SmartSet</a>
-                    </div>
-                    <div  class="navbar-collapse collapse" aria-expanded="false" style="height: 1px;">
-                        <!--<ul class="nav navbar-nav navbar-right">
-                            <li><a href="../navbar/">Default</a></li>
-                            <li><a href="../navbar-static-top/">Static top</a></li>
-                            <li class="active"><a href="./">Fixed top <span class="sr-only">(current)</span></a></li>
-                        </ul>-->
+        <div>
 
-                        <ul class="nav navbar-nav navbar-right">
-                            <li><a href="#"><span class="glyphicon glyphicon-user"></span>Sign Up</a></li>
-                            <li><a href="#"><span class="glyphicon glyphicon-log-in"></span>Login</a></li>
+            <!-- Navigation -->
+            <nav class="navbar navbar-default navbar-fixed-top" role="navigation" style="margin-bottom: 0">
+                <div class="navbar-header">
+                    <a class="navbar-brand" href="Home.aspx">
+                        <img src="https://eclipse.org/artwork/images/v2/logo-800x188.png" style="width: 140px;">
+                    </a>
+                </div>
+                <!-- /.navbar-header -->
+
+                <ul class="nav navbar-top-links navbar-right" style="margin: 5px;">
+                    <li class="dropdown" style="border-radius: 100%; border: 1px solid #34B3A0;">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" style="border-radius: 100%; border: 1px solid #34B3A0;"><i class="fa fa-user"></i><i class="fa fa-caret-down pull-right"></i></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#">Profile <span class="fa fa-cog pull-right"></span></a></li>
+                            <li class="divider"></li>
+                            <li><a href="#">Notifications <span class="badge pull-right">42 </span></a></li>
+                            <li class="divider"></li>
+                            <li><a href="#">Sign Out <span class="fa fa-sign-out pull-right"></span></a></li>
                         </ul>
-                    </div>
+                    </li>
+                </ul>
+
+                <!-- /.navbar-top-links -->
+                <ul class="nav navbar-top-links navbar-right">
+                    <li>
+                        <asp:LinkButton ID="btnLogin" runat="server" CssClass="btn btn-navbar" PostBackUrl="~/Login.aspx">
+                        <span class="fa fa-sign-in"></span>&nbsp;Sign In</asp:LinkButton>
+                    </li>
+                    <li>
+                        <asp:LinkButton ID="btnRegister" runat="server" CssClass="btn btn-navbar" PostBackUrl="~/Register.aspx">
+                        <span class="fa fa-sign-in"></span>&nbsp;Register</asp:LinkButton>
+                    </li>
+                </ul>
+                <!-- /.navbar-top-links -->
 
 
-                </div>
             </nav>
-            <div class="container">
-            <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
-            </asp:ContentPlaceHolder>
-                </div>
+
+            <div class="container" style="padding: 50px;">
+                <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+                </asp:ContentPlaceHolder>
+            </div>
             <hr />
             <footer>
                 <p>&copy; <%: DateTime.Now.Year %> - SmartSet</p>
             </footer>
+
+        </div>
     </form>
 </body>
 </html>
