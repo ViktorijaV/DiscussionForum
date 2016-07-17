@@ -94,11 +94,13 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Content\Css\bootstrap.min.css" />
-    <Content Include="Content\Fonts\font-awesome\css\font-awesome.min.css" />
-    <Content Include="Content\Css\sb-admin-2.css" />
+    <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Fonts\font-awesome\css\font-awesome.min.css" />
+    <Content Include="Content\sb-admin-2.css" />
+    <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Login.aspx" />
     <Content Include="packages.config" />
+    <Content Include="Scripts\jquery.min.js" />
     <Content Include="SiteMaster.Master" />
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
@@ -111,7 +113,7 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Content\Css\Style.css" />
+    <Content Include="Content\Style.css" />
     <Content Include="CreateNewTopic.aspx" />
     <Content Include="Global.asax" />
     <Content Include="Home.aspx" />
@@ -183,7 +185,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Content\Fonts\font-awesome\fonts\" />
+    <Folder Include="Fonts\font-awesome\fonts\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

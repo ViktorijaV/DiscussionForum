@@ -7,12 +7,12 @@
     <title></title>
 
     <!-- Bootstrap Core CSS -->
-    <link href="~/Content/Css/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
 
     <!-- Custom Fonts -->
-    <link href="~/Content/Fonts/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
+    <link href="~/Fonts/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
 
-    <link rel="stylesheet" href="~/Content/Css/Style.css" />
+    <link rel="stylesheet" href="~/Content/Style.css" />
 </head>
 <body>
     <form id="form1" runat="server">

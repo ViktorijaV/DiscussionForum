@@ -9,22 +9,22 @@
     <title><%: Page.Title %></title>
 
     <!-- Bootstrap Core CSS -->
-    <link href="~/Content/Css/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
 
     <!-- Custom CSS -->
-    <link href="~/Content/Css/sb-admin-2.css" rel="stylesheet" />
+    <link href="~/Content/sb-admin-2.css" rel="stylesheet" />
 
     <!-- Custom Fonts -->
-    <link href="~/Content/Fonts/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
+    <link href="~/Fonts/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
 
-    <link rel="stylesheet" href="~/Content/Css/Style.css" />
+    <link rel="stylesheet" href="~/Content/Style.css" />
 
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
 
     <script src="Scripts/jquery.min.js"></script>
     
-    <script src="Content/Js/bootstrap.min.js"></script>
+    <script src="Scripts/bootstrap.min.js"></script>
 </head>
 <body>
     <form id="form1" runat="server">
@@ -60,7 +60,7 @@
                     </li>
                     <li>
                         <asp:LinkButton ID="btnRegister" runat="server" CssClass="btn btn-navbar" PostBackUrl="~/Register.aspx">
-                        <span class="fa fa-sign-in"></span>&nbsp;Register</asp:LinkButton>
+                        <span class="fa fa-user"></span>&nbsp;Register</asp:LinkButton>
                     </li>
                 </ul>
                 <!-- /.navbar-top-links -->
