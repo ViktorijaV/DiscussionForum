@@ -97,6 +97,7 @@
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Fonts\font-awesome\css\font-awesome.min.css" />
     <Content Include="Content\sb-admin-2.css" />
+    <Content Include="Fonts\font-awesome\fonts\fontawesome-webfont.svg" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Login.aspx" />
     <Content Include="packages.config" />
@@ -105,6 +106,10 @@
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="Fonts\font-awesome\fonts\fontawesome-webfont.eot" />
+    <Content Include="Fonts\font-awesome\fonts\fontawesome-webfont.ttf" />
+    <Content Include="Fonts\font-awesome\fonts\fontawesome-webfont.woff" />
+    <Content Include="Fonts\font-awesome\fonts\FontAwesome.otf" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -185,7 +190,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Fonts\font-awesome\fonts\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
