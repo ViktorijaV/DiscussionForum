@@ -13,13 +13,13 @@ namespace DiscussionForum {
     public partial class Register {
         
         /// <summary>
-        /// lblEmail control.
+        /// form1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblEmail;
+        protected global::System.Web.UI.HtmlControls.HtmlForm form1;
         
         /// <summary>
         /// txtEmail control.
@@ -31,15 +31,6 @@ namespace DiscussionForum {
         protected global::System.Web.UI.WebControls.TextBox txtEmail;
         
         /// <summary>
-        /// lblPassword control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblPassword;
-        
-        /// <summary>
         /// txtPassword control.
         /// </summary>
         /// <remarks>
@@ -47,15 +38,6 @@ namespace DiscussionForum {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtPassword;
-        
-        /// <summary>
-        /// lblRepeatPassword control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblRepeatPassword;
         
         /// <summary>
         /// txtRepeatPassword control.
@@ -67,15 +49,6 @@ namespace DiscussionForum {
         protected global::System.Web.UI.WebControls.TextBox txtRepeatPassword;
         
         /// <summary>
-        /// lblFullName control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblFullName;
-        
-        /// <summary>
         /// txtFullName control.
         /// </summary>
         /// <remarks>
@@ -85,22 +58,22 @@ namespace DiscussionForum {
         protected global::System.Web.UI.WebControls.TextBox txtFullName;
         
         /// <summary>
-        /// lblGender control.
+        /// male control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblGender;
+        protected global::System.Web.UI.WebControls.RadioButton male;
         
         /// <summary>
-        /// lblBirthday control.
+        /// female control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblBirthday;
+        protected global::System.Web.UI.WebControls.RadioButton female;
         
         /// <summary>
         /// txtBirthday control.

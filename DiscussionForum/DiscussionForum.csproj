@@ -102,6 +102,7 @@
     <Content Include="Login.aspx" />
     <Content Include="packages.config" />
     <Content Include="Scripts\jquery.min.js" />
+    <Content Include="Scripts\validateRegister.js" />
     <Content Include="SiteMaster.Master" />
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
@@ -131,7 +132,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="App_Code\Category.cs" />
-    <Content Include="App_Code\User.cs" />
+    <Compile Include="App_Code\User.cs" />
     <Content Include="App_Code\Comment.cs" />
     <Content Include="App_Code\Post.cs" />
     <Compile Include="CreateNewTopic.aspx.cs">
@@ -190,6 +191,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Storage\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

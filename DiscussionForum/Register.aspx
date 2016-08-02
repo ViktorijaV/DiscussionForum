@@ -1,33 +1,89 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/SiteMaster.Master" AutoEventWireup="true" CodeBehind="Register.aspx.cs" Inherits="DiscussionForum.Register" %>
+﻿<%@ Page Title="" Language="C#" AutoEventWireup="true" CodeBehind="Register.aspx.cs" Inherits="DiscussionForum.Register" %>
 
-<asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
-</asp:Content>
-<asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <div class="container form-group">
-        <asp:Label ID="lblEmail" runat="server" Text="Label">Email:</asp:Label>
-        <br />
-        <asp:TextBox ID="txtEmail" runat="server" TextMode="Email"></asp:TextBox>
-        <br />
-        <asp:Label ID="lblPassword" runat="server" Text="Label">Password:</asp:Label>
-        <br />
-        <asp:TextBox ID="txtPassword" runat="server" TextMode="Password"></asp:TextBox>
-        <br />
-        <asp:Label ID="lblRepeatPassword" runat="server" Text="Label">RepeatPassword:</asp:Label>
-        <br />
-        <asp:TextBox ID="txtRepeatPassword" runat="server" TextMode="Password"></asp:TextBox>
-        <br />
-        <asp:Label ID="lblFullName" runat="server" Text="Label">FullName:</asp:Label>
-        <br />
-        <asp:TextBox ID="txtFullName" runat="server" TextMode="SingleLine"></asp:TextBox>
-        <br />
-        <asp:Label ID="lblGender" runat="server" Text="Label">Select Gender:</asp:Label>
-        <br />
-        <br />
-        <asp:Label ID="lblBirthday" runat="server" Text="Label">Select Birthday:</asp:Label>
-        <br />
-        <asp:TextBox ID="txtBirthday" runat="server" TextMode="Date"></asp:TextBox>
-        <br />
-        <br />
-        <asp:Button ID="btnRegister" runat="server" Text="Register" />
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title>SmartSet-Register</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+
+    <!-- Custom Fonts -->
+    <link href="~/Fonts/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
+
+    <link href="~/Content/Style.css" rel="stylesheet" />
+
+    <script src="Scripts/jquery.min.js"></script>
+    <script src="Scripts/validateRegister.js"></script>
+
+</head>
+<body>
+    <div class="container">
+        <form id="form1" runat="server">
+            <div class="row">
+                <div class="col-xs-offset-3 col-xs-6">
+                    <img class="fit-in-div" src="https://eclipse.org/artwork/images/v2/logo-800x188.png" />
+                </div>
+            </div>
+            <div class="row row-centered">
+                <div class="col-xs-offset-4 col-xs-4">
+                    <div id="error" class="alert alert-danger"></div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-offset-4 col-xs-4 input-group">
+                    <span class="input-group-addon"><i class="fa fa-envelope"></i></span>
+                    <asp:TextBox ID="txtEmail" CssClass="form-control" runat="server" TextMode="Email" placeholder="Email"></asp:TextBox>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-offset-4 col-xs-4 input-group">
+                    <span class="input-group-addon"><i class="fa fa-lock"></i></span>
+                    <asp:TextBox ID="txtPassword" CssClass="form-control" runat="server" TextMode="Password" placeholder="Password"></asp:TextBox>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-offset-4 col-xs-4 input-group">
+                    <span class="input-group-addon"><i class="fa fa-lock"></i></span>
+                    <asp:TextBox ID="txtRepeatPassword" CssClass="form-control" runat="server" TextMode="Password" placeholder="Repeat Password"></asp:TextBox>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-offset-4 col-xs-4 input-group">
+                    <span class="input-group-addon"><i class="fa fa-user"></i></span>
+                    <asp:TextBox ID="txtFullName" CssClass="form-control" runat="server" TextMode="SingleLine" placeholder="Full Name"></asp:TextBox>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-offset-4 col-xs-4 input-group">
+                    <label for="usr">Select your gender:</label>
+                    <div>
+                        <label class="radio-inline">
+                            <asp:RadioButton ID="male" runat="server" Checked="True" Text="Male" GroupName="Gender"></asp:RadioButton></label>
+                        <label class="radio-inline">
+                            <asp:RadioButton ID="female" runat="server" Text="Female" GroupName="Gender"></asp:RadioButton>
+                        </label>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-offset-4 col-xs-4 input-group">
+                    <label for="usr">Select your birthday date:</label>
+                    <div class="input-group">
+                        <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
+                        <asp:TextBox ID="txtBirthday" CssClass="form-control" runat="server" TextMode="Date" placeholder="Birthday"></asp:TextBox>
+                    </div>
+                </div>
+            </div>
+            <asp:Button ID="btnRegister" style="display: none;" runat="server" OnClick="btnRegister_Click" />
+
+        </form>
+        <div class="row">
+            <div class="col-xs-offset-4 col-xs-4">
+                <button id="btn" class="btn btn-default pull-right" onclick="validate()">Register</button>
+            </div>
+        </div>
+
     </div>
-</asp:Content>
+</body>

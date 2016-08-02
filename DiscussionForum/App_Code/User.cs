@@ -53,7 +53,7 @@ namespace DiscussionForum.App_Code
 
         private static bool isValidFullName(string fullName)
         {
-            const string VALID_FULLNAME_REGEX = @"([A-Za-z -]+){6,}";
+            const string VALID_FULLNAME_REGEX = @"([A-Za-z -]+){6,20}";
             if (Regex.IsMatch(fullName, VALID_FULLNAME_REGEX))
                 return true;
 
@@ -62,7 +62,7 @@ namespace DiscussionForum.App_Code
 
         private static bool IsValidPassword(string password)
         {
-            if (Regex.IsMatch(password, @"((?=.*\w)(?=.*[!#$%&'()*+,-./:;<=>?@[\]^_`{|}~]).{6,})"))
+            if (Regex.IsMatch(password, @"((?=.*\w)(?=.*[!#$%&'()*+,-./:;<=>?@[\]^_`{|}~]).{6,16})"))
                 return true;
 
             return false;
