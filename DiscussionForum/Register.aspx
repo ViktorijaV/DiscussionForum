@@ -23,7 +23,7 @@
         <form id="form1" runat="server">
             <div class="row">
                 <div class="col-xs-offset-3 col-xs-6">
-                    <img class="fit-in-div" src="https://eclipse.org/artwork/images/v2/logo-800x188.png" />
+                    <img class="fit-in-div" src="Storage/logo.png" />
                 </div>
             </div>
             <div class="row row-centered">
