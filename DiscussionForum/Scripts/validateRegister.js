@@ -51,4 +51,4 @@ function validate() {
     $("#error").text("");
     $("#error").hide();
     $('#btnRegister').trigger('click');
-}
+}

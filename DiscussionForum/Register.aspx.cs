@@ -17,6 +17,10 @@ namespace DiscussionForum
                 user = DiscussionForum.App_Code.User.RegisterUser(txtEmail.Text, txtFullName.Text, txtPassword.Text, txtRepeatPassword.Text, Gender.Male, Convert.ToDateTime(txtBirthday.Text));
             else
                 user = DiscussionForum.App_Code.User.RegisterUser(txtEmail.Text, txtFullName.Text, txtPassword.Text, txtRepeatPassword.Text, Gender.Female, Convert.ToDateTime(txtBirthday.Text));
+
+            string message = "Please click on the link to confirm your registretion: " +
+                "<a href='localhost:54296/ConfirmRegistration.aspx?code=" + user.RegistrationConfirmationCode+"</a>";
+            EMailSender.SendEmail("Confirm your registration", message, user.Email);
         }
     }
 }

@@ -127,12 +127,14 @@
     <Content Include="Register.aspx" />
     <Content Include="Scripts\ai.0.15.0-build58334.js" />
     <Content Include="Scripts\ai.0.15.0-build58334.min.js" />
+    <Content Include="Storage\logoWithLetters.png" />
     <Content Include="Topic.aspx" />
     <Content Include="UserProfile.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="App_Code\Category.cs" />
+    <Compile Include="App_Code\EMailSender.cs" />
     <Compile Include="App_Code\User.cs" />
     <Content Include="App_Code\Comment.cs" />
     <Content Include="App_Code\Post.cs" />
@@ -192,7 +194,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Storage\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

@@ -16,7 +16,7 @@
 
     <script src="Scripts/jquery.min.js"></script>
     <script src="Scripts/validateRegister.js"></script>
-     <script src="Scripts/JavaScript.js"></script>
+    <script src="Scripts/JavaScript.js"></script>
 
 </head>
 <body>
@@ -24,7 +24,9 @@
         <form id="form1" runat="server">
             <div class="row">
                 <div class="col-xs-offset-3 col-xs-6">
-                    <img class="fit-in-div" src="Storage/logo.png" />
+                    <a href="Home.aspx">
+                        <img class="fit-in-div" src="Storage/logoWithLetters.png" />
+                    </a>
                 </div>
             </div>
             <div class="row row-centered">
@@ -77,13 +79,8 @@
                     </div>
                 </div>
             </div>
-            <asp:Button ID="btnRegister" style="display: none;" runat="server" OnClick="btnRegister_Click" />
+            <asp:Button ID="btnRegister" Style="display: none;" runat="server" OnClick="btnRegister_Click" />
 
-        <asp:Label ID="lblLocation" runat="server" Text="Label">Location:</asp:Label>
-        <pre id="location"></pre>
-        <br />
-        <asp:Label ID="lblCountry" runat="server" Text="Label">Country:</asp:Label>
-        <pre id="country"></pre>
 
         </form>
         <div class="row">
@@ -93,4 +90,10 @@
         </div>
 
     </div>
+
+    <asp:Label ID="lblLocation" runat="server" Text="Label">Location:</asp:Label>
+    <pre id="location"></pre>
+    <br />
+    <asp:Label ID="lblCountry" runat="server" Text="Label">Country:</asp:Label>
+    <pre id="country"></pre>
 </body>
