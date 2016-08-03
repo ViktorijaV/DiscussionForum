@@ -16,6 +16,7 @@
 
     <script src="Scripts/jquery.min.js"></script>
     <script src="Scripts/validateRegister.js"></script>
+     <script src="Scripts/JavaScript.js"></script>
 
 </head>
 <body>
@@ -77,6 +78,12 @@
                 </div>
             </div>
             <asp:Button ID="btnRegister" style="display: none;" runat="server" OnClick="btnRegister_Click" />
+
+        <asp:Label ID="lblLocation" runat="server" Text="Label">Location:</asp:Label>
+        <pre id="location"></pre>
+        <br />
+        <asp:Label ID="lblCountry" runat="server" Text="Label">Country:</asp:Label>
+        <pre id="country"></pre>
 
         </form>
         <div class="row">

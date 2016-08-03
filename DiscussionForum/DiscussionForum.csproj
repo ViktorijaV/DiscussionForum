@@ -101,6 +101,7 @@
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Login.aspx" />
     <Content Include="packages.config" />
+    <Content Include="Scripts\JavaScript.js" />
     <Content Include="Scripts\jquery.min.js" />
     <Content Include="Scripts\validateRegister.js" />
     <Content Include="SiteMaster.Master" />
