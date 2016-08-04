@@ -16,6 +16,11 @@ body {
     }
 }
 
+.nav-brand {
+    height: 80px;
+    padding: 10px;
+}
+
 
 /*
    --- Register page ---
