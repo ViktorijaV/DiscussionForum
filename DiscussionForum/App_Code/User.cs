@@ -8,7 +8,7 @@ namespace DiscussionForum.App_Code
         protected User()
         {
             DateCreated = DateTime.Now;
-            IsConfirmed = false;
+            Confirmed = false;
         }
 
         public static User RegisterUser(string email, string fullName, string password, string repeatedPassword, Gender gender, DateTime birthday, string avatarUrl = "", string country = "", string faculty = "")
@@ -28,16 +28,15 @@ namespace DiscussionForum.App_Code
                 throw new Exception("Passwords doesn't match");
 
             user.Email = email;
-            user.UserName = email; // for now, username == email. Change later...
             user.Password = password; // TODO: encrypt password
-            user.FullName = fullName;
-            user.RegistrationConfirmationCode = Guid.NewGuid().ToString();
+            user.ConfirmationCode = Guid.NewGuid().ToString();
             user.Role = Role.User;
             user.Gender = gender;
-            user.Birthday = birthday;
-            user.AvatarUrl = avatarUrl;
+            user.Birthdate = birthday;
+            user.Avatar = avatarUrl;
             user.Country = country;
             user.Faculty = faculty;
+            user.Location = null;
 
             return user;
         }
@@ -68,19 +67,19 @@ namespace DiscussionForum.App_Code
             return false;
         }
 
-        public int Id { get; set; }
+        public int ID { get; set; }
         public string Email { get; set; }
-        public string UserName { get; set; }
         public string Password { get; set; }
-        public string FullName { get; set; }
+        public string Fullname { get; set; }
         public DateTime DateCreated { get; set; }
-        public bool IsConfirmed { get; set; }
-        public string RegistrationConfirmationCode { get; set; }
+        public bool Confirmed { get; set; }
+        public string ConfirmationCode { get; set; }
         public Role Role { get; set; }
         public Gender Gender { get; set; }
-        public DateTime Birthday { get; set; }
-        public string AvatarUrl { get; set; }
+        public DateTime Birthdate { get; set; }
+        public string Avatar { get; set; }
         public string Country { get; set; }
+        public string Location { get; set; }
         public string Faculty { get; set; }
     }
     public enum Role

@@ -26,13 +26,13 @@ namespace DiscussionForum
                 user = DiscussionForum.App_Code.User.RegisterUser(txtEmail.Text, txtFullName.Text, txtPassword.Text, txtRepeatPassword.Text, Gender.Female, Convert.ToDateTime(txtBirthday.Text));
 
             string message = "Please click on the link to confirm your registretion: " +
-                "<a href=\"localhost:54296/Confirmation.aspx?code=" + user.RegistrationConfirmationCode + "\" >Link</a>";
+                "<a href=\"localhost:54296/Confirmation.aspx?code=" + user.ConfirmationCode + "\" >Link</a>";
             EMailSender.SendEmail("Confirm your registration", message, user.Email);
 
             SqlConnection connection = new SqlConnection(ConfigurationManager.ConnectionStrings["myConnection"].ToString());
-            string query = "INSERT INTO Users (Username, Password, Confirmed, Role, Birthdate, Datecreated, Email, Fullname, Gender, Faculty, Country, Avatar)" +
-                "values(@Username, @Password, @IsConfirmed, @Role, @Birthday, @DateCreated, @Email, @FullName, @Gender, @Faculty, @Country, @AvatarUrl)";
-            connection.Execute(query, new { user.UserName, user.Password, user.IsConfirmed, user.Role, user.Birthday, user.DateCreated, user.Email, user.FullName, user.Gender, user.Faculty, user.Country, user.AvatarUrl });
+            string query = "INSERT INTO Users (Email, Password, Confirmed, Role, Birthdate, Datecreated, Fullname, Gender, Faculty, Country, Avatar)" +
+                "values(@Email, @Password, @Confirmed, @Role, @Birthdate, @DateCreated, @Fullname, @Gender, @Faculty, @Country, @AvatarUrl)";
+            connection.Execute(query, new { user.Email, user.Password, user.Confirmed, user.Role, user.Birthdate, user.DateCreated, user.Fullname, user.Gender, user.Faculty, user.Country, user.Avatar });
 
             Server.Transfer("Confirmation.aspx", true);
         }
