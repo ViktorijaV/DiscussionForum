@@ -46,7 +46,7 @@
 
                                 <div class="form-group">
                                     <div class="col-sm-12 controls">
-                                        <button runat="server" id="btnLogin" onserverclick="btnLogin_Click" type="submit" class="btn btn-primary pull-right"><i class="fa fa-sign-in"></i>&nbsp;Log in</button>
+                                        <button runat="server" id="btnLogin" type="submit" class="btn btn-primary pull-right"><i class="fa fa-sign-in"></i>&nbsp;Log in</button>
                                     </div>
                                 </div>
                                 <div class="form-group">

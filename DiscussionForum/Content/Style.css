@@ -16,6 +16,23 @@ body {
     }
 }
 
+
+/*
+   --- Register page ---
+*/
+
+.row-centered {
+    text-align: center;
+}
+
+/*
+   --- Register page ---
+*/
+
+.input-group {
+    margin-bottom: 0px;
+}
+
 #btnLogin, #btnRegister {
     padding: 10px;
     min-height: 0px;
