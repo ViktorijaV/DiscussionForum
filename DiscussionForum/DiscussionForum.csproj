@@ -138,12 +138,12 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="App_Code\Category.cs" />
+    <Compile Include="App_Code\Category.cs" />
     <Compile Include="App_Code\EMailSender.cs" />
     <Content Include="App_Code\Topic.cs" />
     <Compile Include="App_Code\User.cs" />
-    <Content Include="App_Code\Comment.cs" />
-    <Content Include="App_Code\Post.cs" />
+    <Compile Include="App_Code\Comment.cs" />
+    <Compile Include="App_Code\Topic.cs" />
     <Compile Include="Confirmation.aspx.cs">
       <DependentUpon>Confirmation.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
