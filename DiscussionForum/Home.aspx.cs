@@ -39,14 +39,6 @@ namespace DiscussionForum
         {
 
 
-            ListBox1.DataSource = lista;
-            ListBox1.DataBind();
-
-            ListBox2.DataSource = lista;
-            ListBox2.DataBind();
-
-            ListBox3.DataSource = lista;
-            ListBox3.DataBind();
 
         }
 
