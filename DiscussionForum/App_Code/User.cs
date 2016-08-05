@@ -30,6 +30,7 @@ namespace DiscussionForum.App_Code
             user.Email = email;
             user.Password = password; // TODO: encrypt password
             user.ConfirmationCode = Guid.NewGuid().ToString();
+            user.Fullname = fullName;
             user.Role = Role.User;
             user.Gender = gender;
             user.Birthdate = birthday;

@@ -140,6 +140,7 @@
   <ItemGroup>
     <Content Include="App_Code\Category.cs" />
     <Compile Include="App_Code\EMailSender.cs" />
+    <Content Include="App_Code\Topic.cs" />
     <Compile Include="App_Code\User.cs" />
     <Content Include="App_Code\Comment.cs" />
     <Content Include="App_Code\Post.cs" />
