@@ -60,7 +60,7 @@
             </div>
             <div class="row">
                 <div class="col-xs-offset-4 col-xs-4 input-group">
-                    <label for="usr">Select your gender:</label>
+                    <label for="usr">Gender</label>
                     <div>
                         <label class="radio-inline">
                             <asp:RadioButton ID="male" runat="server" Checked="True" Text="Male" GroupName="Gender"></asp:RadioButton></label>
@@ -72,7 +72,7 @@
             </div>
             <div class="row">
                 <div class="col-xs-offset-4 col-xs-4 input-group">
-                    <label for="usr">Select your birthday date:</label>
+                    <label for="usr">Birthdate</label>
                     <div class="input-group">
                         <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
                         <asp:TextBox ID="txtBirthday" CssClass="form-control" runat="server" TextMode="Date" placeholder="Birthday"></asp:TextBox>
@@ -88,12 +88,12 @@
                 <button id="btn" class="btn btn-default pull-right" onclick="validate()">Register</button>
             </div>
         </div>
-
     </div>
-
+    <!-- This will be moved to PROFILE & EDIT PROFILE -->
     <asp:Label ID="lblLocation" runat="server" Text="Label">Location:</asp:Label>
     <pre id="location"></pre>
-    <br />
+    <br /> <!-- Location can be edited and Country cannot. -->
     <asp:Label ID="lblCountry" runat="server" Text="Label">Country:</asp:Label>
     <pre id="country"></pre>
+    <!-- -------------------------------------------- -->
 </body>

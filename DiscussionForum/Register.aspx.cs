@@ -25,7 +25,7 @@ namespace DiscussionForum
             else
                 user = DiscussionForum.App_Code.User.RegisterUser(txtEmail.Text, txtFullName.Text, txtPassword.Text, txtRepeatPassword.Text, Gender.Female, Convert.ToDateTime(txtBirthday.Text));
 
-            string message = "Please click on the link to confirm your registretion: " +
+            string message = "Please click on the link to confirm your registration: " +
                 "<a href=\"localhost:54296/Confirmation.aspx?code=" + user.ConfirmationCode + "\" >Link</a>";
             EMailSender.SendEmail("Confirm your registration", message, user.Email);
 
