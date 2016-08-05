@@ -16,9 +16,9 @@ body {
     }
 }
 
-.nav-brand {
+.navbar-brand {
     height: 80px;
-    padding: 10px;
+    padding: 5px 15px;
 }
 
 
