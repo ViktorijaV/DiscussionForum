@@ -34,12 +34,12 @@
             <nav class="navbar navbar-default navbar-fixed-top" role="navigation" style="margin-bottom: 0">
                 <div class="navbar-header">
                     <a class="navbar-brand" href="Home.aspx">
-                        <img src="Storage/logoWithLetters.png" class="fit-in-div">
+                        <img src="Storage/logoWithLetters.png" class="fit-in-div" />
                     </a>
                 </div>
                 <!-- /.navbar-header -->
 
-                <ul class="nav navbar-top-links navbar-right" style="margin: 5px;">
+                <%--<ul class="nav navbar-top-links navbar-right" style="margin: 5px;">
                     <li class="dropdown" style="border-radius: 100%; border: 1px solid #34B3A0;">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" style="border-radius: 100%; border: 1px solid #34B3A0;"><i class="fa fa-user"></i><i class="fa fa-caret-down pull-right"></i></a>
                         <ul class="dropdown-menu">
@@ -50,16 +50,16 @@
                             <li><a href="#">Sign Out <span class="fa fa-sign-out pull-right"></span></a></li>
                         </ul>
                     </li>
-                </ul>
+                </ul>--%>
 
                 <!-- /.navbar-top-links -->
                 <ul class="nav navbar-top-links navbar-right">
                     <li>
-                        <asp:LinkButton ID="btnLogin" runat="server" CssClass="btn btn-navbar" PostBackUrl="~/Login.aspx">
+                        <asp:LinkButton ID="btnLogin" runat="server" CssClass="btn btn-default" PostBackUrl="~/Login.aspx">
                         <span class="fa fa-sign-in"></span>&nbsp;Sign In</asp:LinkButton>
                     </li>
                     <li>
-                        <asp:LinkButton ID="btnRegister" runat="server" CssClass="btn btn-navbar" PostBackUrl="~/Register.aspx">
+                        <asp:LinkButton ID="btnRegister" runat="server" CssClass="btn btn-default" PostBackUrl="~/Register.aspx">
                         <span class="fa fa-user"></span>&nbsp;Register</asp:LinkButton>
                     </li>
                 </ul>

@@ -108,7 +108,7 @@
     <Content Include="packages.config" />
     <Content Include="Scripts\JavaScript.js" />
     <Content Include="Scripts\jquery.min.js" />
-    <Content Include="Scripts\validateRegister.js" />
+    <Content Include="Scripts\validation.js" />
     <Content Include="SiteMaster.Master" />
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>

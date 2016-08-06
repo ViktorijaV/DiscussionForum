@@ -12,57 +12,58 @@
     <!-- Custom Fonts -->
     <link href="~/Fonts/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
 
-    <link rel="stylesheet" href="~/Content/Style.css" />
+    <link href="~/Content/Style.css" rel="stylesheet" />
+
+    <script src="Scripts/jquery.min.js"></script>
+    <script src="Scripts/validation.js"></script>
+
 </head>
 <body>
-    <form id="form1" runat="server">
-            <div class="container">
-
-                <div id="loginbox" class="mainbox col-md-6 col-md-offset-3 col-sm-6 col-sm-offset-3">
-
-                    <div class="row">
-                            <img class="fit-in-div" src="https://eclipse.org/artwork/images/v2/logo-800x188.png" />
-                       
-                    </div>
-
-                    <div class="panel panel-default">
-                        <div class="panel-heading">
-                            <div class="panel-title text-center">SmartSet</div>
-                        </div>
-
-                        <div class="panel-body">
-
-                            <form name="form" id="form" class="form-horizontal" enctype="multipart/form-data">
-
-                                <div class="input-group">
-                                    <span class="input-group-addon"><i class="fa fa-user"></i></span>
-                                    <input id="user" type="text" class="form-control" name="user" value="" placeholder="User" />
-                                </div>
-
-                                <div class="input-group">
-                                    <span class="input-group-addon"><i class="fa fa-lock"></i></span>
-                                    <input id="password" type="password" class="form-control" name="password" placeholder="Password">
-                                </div>
-
-                                <div class="form-group">
-                                    <div class="col-sm-12 controls">
-                                        <button runat="server" id="btnLogin" type="submit" class="btn btn-primary pull-right"><i class="fa fa-sign-in"></i>&nbsp;Log in</button>
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <div class="col-md-12 control">
-                                        <div style=""border-top: 1px solid#888; padding-top: 15px; font-size: 85%">
-                                            Don't have an account! 
-                                        <a href="Register.aspx">Sign Up Here</a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </form>
-
-                        </div>
-                    </div>
+    <div class="container">
+        <form id="form2" runat="server">
+            <div class="row">
+                <div class="col-xs-offset-3 col-xs-6">
+                    <a href="Home.aspx">
+                        <img class="fit-in-div" src="Storage/logoWithLetters.png" />
+                    </a>
                 </div>
             </div>
-    </form>
+            <div class="row row-centered">
+                <div class="col-xs-offset-4 col-xs-4">
+                    <div id="error" class="alert alert-danger"></div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-offset-4 col-xs-4 input-group">
+                    <span class="input-group-addon"><i class="fa fa-envelope"></i></span>
+                    <asp:TextBox ID="txtEmail" CssClass="form-control" runat="server" TextMode="Email" placeholder="Email"></asp:TextBox>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-offset-4 col-xs-4 input-group">
+                    <span class="input-group-addon"><i class="fa fa-lock"></i></span>
+                    <asp:TextBox ID="txtPassword" CssClass="form-control" runat="server" TextMode="Password" placeholder="Password"></asp:TextBox>
+                </div>
+            </div>
+            <asp:Button ID="btnLoginServer" Style="display: none;" runat="server" OnClick="btnLogin_Click" />
+
+
+        </form>
+        <div class="row">
+            <div class="col-xs-offset-4 col-xs-4">
+                <button id="btn" class="btn btn-default pull-right" onclick="validateLogin()"><i class="fa fa-sign-in"></i>&nbsp;Login</button>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-xs-offset-4 col-xs-4">
+                <div style="padding-top: 30px; font-size: 90%">
+                    Don't have an account! 
+                    <a href="Register.aspx">Register Here</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
 </body>
 </html>

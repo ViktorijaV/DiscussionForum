@@ -15,7 +15,7 @@
     <link href="~/Content/Style.css" rel="stylesheet" />
 
     <script src="Scripts/jquery.min.js"></script>
-    <script src="Scripts/validateRegister.js"></script>
+    <script src="Scripts/validation.js"></script>
     <script src="Scripts/JavaScript.js"></script>
 
 </head>
@@ -85,7 +85,15 @@
         </form>
         <div class="row">
             <div class="col-xs-offset-4 col-xs-4">
-                <button id="btn" class="btn btn-default pull-right" onclick="validate()">Register</button>
+                <button id="btn" class="btn btn-default pull-right" onclick="validateRegister()"><i class="fa fa-sign-in"></i>&nbsp;Register</button>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-offset-4 col-xs-4">
+                <div style="padding-top:30px; font-size: 90%">
+                    Already have an account? 
+                    <a href="Login.aspx">Login Here</a>
+                </div>
             </div>
         </div>
     </div>
