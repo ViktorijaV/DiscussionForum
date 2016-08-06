@@ -33,6 +33,18 @@ body {
     border-color: #ccc;
 }
 
+.btn-default:active {
+    color: #333;
+    background-color: #d1d2de;
+    border-color: #ccc;
+}
+
+.btn-default:focus {
+    color: #333;
+    background-color: #d1d2de;
+    border-color: #ccc;
+}
+
 .fit-in-div {
     max-height: 100%;
     max-width: 100%;
@@ -55,7 +67,7 @@ body {
 }
 
 
-a.dropdown-toggle {
+/*a.dropdown-toggle {
     color: #34B3A0;
 }
 
@@ -87,4 +99,4 @@ a.dropdown-toggle {
         top: -12px;
         right: 14px;
         z-index: 9;
-    }
+    }*/

@@ -23,8 +23,9 @@
     </asp:ContentPlaceHolder>
 
     <script src="Scripts/jquery.min.js"></script>
-    
     <script src="Scripts/bootstrap.min.js"></script>
+    <script src="Scripts/logout.js"></script>
+
 </head>
 <body>
     <form id="form1" runat="server">
@@ -38,31 +39,35 @@
                     </a>
                 </div>
                 <!-- /.navbar-header -->
-
-                <%--<ul class="nav navbar-top-links navbar-right" style="margin: 5px;">
-                    <li class="dropdown" style="border-radius: 100%; border: 1px solid #34B3A0;">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" style="border-radius: 100%; border: 1px solid #34B3A0;"><i class="fa fa-user"></i><i class="fa fa-caret-down pull-right"></i></a>
+                <asp:Panel ID="panelAuthorized" runat="server">
+                    <div class="dropdown pull-right" style="padding: 10px; min-height: 0px; margin: 15px 10px 15px 10px;">
+                        <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown" aria-expanded="false" style="">
+                            <i class="fa fa-user"></i>&nbsp;&nbsp;<span class="caret"></span>
+                        </button>
                         <ul class="dropdown-menu">
-                            <li><a href="#">Profile <span class="fa fa-cog pull-right"></span></a></li>
+                            <li><a href="#"><i class="fa fa-cog"></i>&nbsp;&nbsp;My Profile</a></li>
+                            <li><a href="#"><i class="fa fa-history"></i>&nbsp;&nbsp;Activity</a></li>
                             <li class="divider"></li>
-                            <li><a href="#">Notifications <span class="badge pull-right">42 </span></a></li>
-                            <li class="divider"></li>
-                            <li><a href="#">Sign Out <span class="fa fa-sign-out pull-right"></span></a></li>
+                            <li onclick="logout()"><a href="#"><i class="fa fa-sign-out"></i>&nbsp;&nbsp;Log out</a></li>
                         </ul>
-                    </li>
-                </ul>--%>
+                    </div>
+                    <asp:Button ID="btnLogOut" Style="display: none;" runat="server" OnClick="btnLogOut_Click" />
+                </asp:Panel>
 
                 <!-- /.navbar-top-links -->
-                <ul class="nav navbar-top-links navbar-right">
-                    <li>
-                        <asp:LinkButton ID="btnLogin" runat="server" CssClass="btn btn-default" PostBackUrl="~/Login.aspx">
+                <asp:Panel ID="panelAnonymous" runat="server">
+
+                    <ul class="nav navbar-top-links navbar-right">
+                        <li>
+                            <asp:LinkButton ID="btnLogin" runat="server" CssClass="btn btn-default" PostBackUrl="~/Login.aspx">
                         <span class="fa fa-sign-in"></span>&nbsp;Sign In</asp:LinkButton>
-                    </li>
-                    <li>
-                        <asp:LinkButton ID="btnRegister" runat="server" CssClass="btn btn-default" PostBackUrl="~/Register.aspx">
+                        </li>
+                        <li>
+                            <asp:LinkButton ID="btnRegister" runat="server" CssClass="btn btn-default" PostBackUrl="~/Register.aspx">
                         <span class="fa fa-user"></span>&nbsp;Register</asp:LinkButton>
-                    </li>
-                </ul>
+                        </li>
+                    </ul>
+                </asp:Panel>
                 <!-- /.navbar-top-links -->
 
 

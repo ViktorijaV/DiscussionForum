@@ -11,7 +11,20 @@ namespace DiscussionForum
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            //if (HttpContext.Current.User.Identity.IsAuthenticated)
+            if (!IsPostBack)
+            {
+                if (HttpContext.Current.User.Identity.IsAuthenticated)
+                    panelAnonymous.Attributes.Add("style", "display:none");
+
+                else
+                    panelAuthorized.Attributes.Add("style", "display:none");
+            }
+        }
+
+        protected void btnLogOut_Click(object sender, EventArgs e)
+        {
+            //log out user
+            Server.Transfer("Home.aspx", false);
         }
     }
 }
