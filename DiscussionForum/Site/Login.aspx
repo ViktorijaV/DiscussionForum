@@ -7,12 +7,12 @@
     <title></title>
 
     <!-- Bootstrap Core CSS -->
-    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/Site/Content/bootstrap.min.css" rel="stylesheet" />
 
     <!-- Custom Fonts -->
-    <link href="~/Fonts/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
+    <link href="~/Site/Fonts/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
 
-    <link href="~/Content/Style.css" rel="stylesheet" />
+    <link href="~/Site/Content/Style.css" rel="stylesheet" />
 
     <script src="Scripts/jquery.min.js"></script>
     <script src="Scripts/validation.js"></script>
@@ -24,7 +24,7 @@
             <div class="row">
                 <div class="col-xs-offset-3 col-xs-6">
                     <a href="Home.aspx">
-                        <img class="fit-in-div" src="Storage/logoWithLetters.png" />
+                        <img class="fit-in-div" src="../Storage/logoWithLetters.png" />
                     </a>
                 </div>
             </div>
@@ -64,6 +64,11 @@
             </div>
         </div>
     </div>
-
+    <hr />
+    <footer class="footer">
+        <div class="container">
+            <p class="m-b-0 text-muted">&copy; <%: DateTime.Now.Year %> - SmartSet</p>
+        </div>
+    </footer>
 </body>
 </html>

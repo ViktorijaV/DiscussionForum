@@ -9,13 +9,13 @@
     <title><%: Page.Title %></title>
 
     <!-- Bootstrap Core CSS -->
-    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/Site/Content/bootstrap.min.css" rel="stylesheet" />
 
     <!-- Custom CSS -->
-    <link href="~/Content/sb-admin-2.css" rel="stylesheet" />
+    <link href="~/Site/Content/sb-admin-2.css" rel="stylesheet" />
 
     <!-- Custom Fonts -->
-    <link href="~/Fonts/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
+    <link href="~/Site/Fonts/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
 
     <link rel="stylesheet" href="~/Content/Style.css" />
 
@@ -35,7 +35,7 @@
             <nav class="navbar navbar-default navbar-fixed-top" role="navigation" style="margin-bottom: 0">
                 <div class="navbar-header">
                     <a class="navbar-brand" href="Home.aspx">
-                        <img src="Storage/logoWithLetters.png" class="fit-in-div" />
+                        <img src="../Storage/logoWithLetters.png" class="fit-in-div" />
                     </a>
                 </div>
                 <!-- /.navbar-header -->
@@ -59,11 +59,11 @@
 
                     <ul class="nav navbar-top-links navbar-right">
                         <li>
-                            <asp:LinkButton ID="btnLogin" runat="server" CssClass="btn btn-default" PostBackUrl="~/Login.aspx">
+                            <asp:LinkButton ID="btnLogin" runat="server" CssClass="btn btn-default" PostBackUrl="~/Site/Login.aspx">
                         <span class="fa fa-sign-in"></span>&nbsp;Sign In</asp:LinkButton>
                         </li>
                         <li>
-                            <asp:LinkButton ID="btnRegister" runat="server" CssClass="btn btn-default" PostBackUrl="~/Register.aspx">
+                            <asp:LinkButton ID="btnRegister" runat="server" CssClass="btn btn-default" PostBackUrl="~/Site/Register.aspx">
                         <span class="fa fa-user"></span>&nbsp;Register</asp:LinkButton>
                         </li>
                     </ul>

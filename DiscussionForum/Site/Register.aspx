@@ -7,12 +7,12 @@
     <title>SmartSet-Register</title>
 
     <!-- Bootstrap Core CSS -->
-    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/Site/Content/bootstrap.min.css" rel="stylesheet" />
 
     <!-- Custom Fonts -->
-    <link href="~/Fonts/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
+    <link href="~/Site/Fonts/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
 
-    <link href="~/Content/Style.css" rel="stylesheet" />
+    <link href="~/Site/Content/Style.css" rel="stylesheet" />
 
     <script src="Scripts/jquery.min.js"></script>
     <script src="Scripts/validation.js"></script>
@@ -25,7 +25,7 @@
             <div class="row">
                 <div class="col-xs-offset-3 col-xs-6">
                     <a href="Home.aspx">
-                        <img class="fit-in-div" src="Storage/logoWithLetters.png" />
+                        <img class="fit-in-div" src="../Storage/logoWithLetters.png" />
                     </a>
                 </div>
             </div>
@@ -90,17 +90,25 @@
         </div>
         <div class="row">
             <div class="col-xs-offset-4 col-xs-4">
-                <div style="padding-top:30px; font-size: 90%">
+                <div style="padding-top: 30px; font-size: 90%">
                     Already have an account? 
                     <a href="Login.aspx">Login Here</a>
                 </div>
             </div>
         </div>
     </div>
+    <hr />
+    <footer class="footer">
+        <div class="container">
+            <p class="m-b-0 text-muted">&copy; <%: DateTime.Now.Year %> - SmartSet</p>
+        </div>
+    </footer>
+
     <!-- This will be moved to PROFILE & EDIT PROFILE -->
     <asp:Label ID="lblLocation" runat="server" Text="Label">Location:</asp:Label>
     <pre id="location"></pre>
-    <br /> <!-- Location can be edited and Country cannot. -->
+    <br />
+    <!-- Location can be edited and Country cannot. -->
     <asp:Label ID="lblCountry" runat="server" Text="Label">Country:</asp:Label>
     <pre id="country"></pre>
     <!-- -------------------------------------------- -->

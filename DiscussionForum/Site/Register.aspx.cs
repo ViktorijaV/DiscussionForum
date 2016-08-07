@@ -33,7 +33,7 @@ namespace DiscussionForum
 
             registerUser(connection, user);
 
-            Server.Transfer("Confirmation.aspx", true);
+            Server.Transfer("Site/Confirmation.aspx", true);
         }
 
         private bool checkForExistingUser(SqlConnection connection, string email)

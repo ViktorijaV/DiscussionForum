@@ -102,19 +102,19 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Confirmation.aspx" />
+    <Content Include="Site\Confirmation.aspx" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Fonts\font-awesome\css\font-awesome.min.css" />
     <Content Include="Content\sb-admin-2.css" />
     <Content Include="Fonts\font-awesome\fonts\fontawesome-webfont.svg" />
     <Content Include="Scripts\bootstrap.min.js" />
-    <Content Include="Login.aspx" />
+    <Content Include="Site\Login.aspx" />
     <Content Include="packages.config" />
     <Content Include="Scripts\JavaScript.js" />
     <Content Include="Scripts\jquery.min.js" />
     <Content Include="Scripts\logout.js" />
     <Content Include="Scripts\validation.js" />
-    <Content Include="SiteMaster.Master" />
+    <Content Include="Site\SiteMaster.Master" />
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
@@ -131,15 +131,15 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\Style.css" />
-    <Content Include="CreateNewTopic.aspx" />
+    <Content Include="Site\CreateNewTopic.aspx" />
     <Content Include="Global.asax" />
-    <Content Include="Home.aspx" />
-    <Content Include="Register.aspx" />
+    <Content Include="Site\Home.aspx" />
+    <Content Include="Site\Register.aspx" />
     <Content Include="Scripts\ai.0.15.0-build58334.js" />
     <Content Include="Scripts\ai.0.15.0-build58334.min.js" />
     <Content Include="Storage\logoWithLetters.png" />
-    <Content Include="Topic.aspx" />
-    <Content Include="UserProfile.aspx" />
+    <Content Include="Site\Topic.aspx" />
+    <Content Include="Site\UserProfile.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -151,69 +151,70 @@
     <Compile Include="App_Code\User.cs" />
     <Compile Include="App_Code\Comment.cs" />
     <Compile Include="App_Code\Topic.cs" />
-    <Compile Include="Confirmation.aspx.cs">
+    <Compile Include="Site\Confirmation.aspx.cs">
       <DependentUpon>Confirmation.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Confirmation.aspx.designer.cs">
+    <Compile Include="Site\Confirmation.aspx.designer.cs">
       <DependentUpon>Confirmation.aspx</DependentUpon>
     </Compile>
-    <Compile Include="CreateNewTopic.aspx.cs">
+    <Compile Include="Site\CreateNewTopic.aspx.cs">
       <DependentUpon>CreateNewTopic.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="CreateNewTopic.aspx.designer.cs">
+    <Compile Include="Site\CreateNewTopic.aspx.designer.cs">
       <DependentUpon>CreateNewTopic.aspx</DependentUpon>
     </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Home.aspx.cs">
+    <Compile Include="Site\Home.aspx.cs">
       <DependentUpon>Home.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Home.aspx.designer.cs">
+    <Compile Include="Site\Home.aspx.designer.cs">
       <DependentUpon>Home.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Login.aspx.cs">
+    <Compile Include="Site\Login.aspx.cs">
       <DependentUpon>Login.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Login.aspx.designer.cs">
+    <Compile Include="Site\Login.aspx.designer.cs">
       <DependentUpon>Login.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Register.aspx.cs">
+    <Compile Include="Site\Register.aspx.cs">
       <DependentUpon>Register.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Register.aspx.designer.cs">
+    <Compile Include="Site\Register.aspx.designer.cs">
       <DependentUpon>Register.aspx</DependentUpon>
     </Compile>
-    <Compile Include="SiteMaster.Master.cs">
+    <Compile Include="Site\SiteMaster.Master.cs">
       <DependentUpon>SiteMaster.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="SiteMaster.Master.designer.cs">
+    <Compile Include="Site\SiteMaster.Master.designer.cs">
       <DependentUpon>SiteMaster.Master</DependentUpon>
     </Compile>
-    <Compile Include="Topic.aspx.cs">
+    <Compile Include="Site\Topic.aspx.cs">
       <DependentUpon>Topic.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Topic.aspx.designer.cs">
+    <Compile Include="Site\Topic.aspx.designer.cs">
       <DependentUpon>Topic.aspx</DependentUpon>
     </Compile>
-    <Compile Include="UserProfile.aspx.cs">
+    <Compile Include="Site\UserProfile.aspx.cs">
       <DependentUpon>UserProfile.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="UserProfile.aspx.designer.cs">
+    <Compile Include="Site\UserProfile.aspx.designer.cs">
       <DependentUpon>UserProfile.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Site\Admin\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

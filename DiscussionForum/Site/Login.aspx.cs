@@ -25,7 +25,7 @@ namespace DiscussionForum
                 error.InnerText = errorMessage;
 
             //TODO: implement returlurl 
-            else Response.Redirect("Home.aspx");
+            else Response.Redirect("Site/Home.aspx");
         }
 
         private string loginUser(SqlConnection connection, string email, string password)
