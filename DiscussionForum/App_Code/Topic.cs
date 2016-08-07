@@ -7,6 +7,8 @@ namespace DiscussionForum.App_Code
 {
     public class Topic
     {
+        protected Topic() { }
+
         public Topic(int creatorId, int categoryId, string name, string description)
         {
             CreatorID = creatorId;
@@ -18,6 +20,7 @@ namespace DiscussionForum.App_Code
             Reported = false;
             Closed = false;
         }
+
         public int ID { get; private set; }
         public int CreatorID { get; private set; }
         public int CategoryID { get; private set; }

@@ -7,10 +7,13 @@ namespace DiscussionForum.App_Code
 {
     public class Category
     {
+        protected Category() { }
+
         public Category(string name)
         {
             Name = name;
         }
+
         public int ID { get; private set; }
         public string Name { get; private set; }
     }

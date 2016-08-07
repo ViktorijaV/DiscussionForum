@@ -133,7 +133,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Site\Content\style.css" />
-    <Content Include="Site\CreateNewTopic.aspx" />
+    <Content Include="Site\CreateTopic.aspx" />
     <Content Include="Global.asax" />
     <Content Include="Site\Home.aspx" />
     <Content Include="Site\Register.aspx" />
@@ -149,10 +149,9 @@
     <Compile Include="AppServices\FormsAuthenticationService.cs" />
     <Compile Include="App_Code\Category.cs" />
     <Compile Include="AppServices\EMailSender.cs" />
-    <Content Include="App_Code\Topic.cs" />
+    <Compile Include="App_Code\Topic.cs" />
     <Compile Include="App_Code\User.cs" />
     <Compile Include="App_Code\Comment.cs" />
-    <Compile Include="App_Code\Topic.cs" />
     <Compile Include="Site\Admin\CreateCategory.aspx.cs">
       <DependentUpon>CreateCategory.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -174,12 +173,12 @@
     <Compile Include="Site\Confirmation.aspx.designer.cs">
       <DependentUpon>Confirmation.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Site\CreateNewTopic.aspx.cs">
-      <DependentUpon>CreateNewTopic.aspx</DependentUpon>
+    <Compile Include="Site\CreateTopic.aspx.cs">
+      <DependentUpon>CreateTopic.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Site\CreateNewTopic.aspx.designer.cs">
-      <DependentUpon>CreateNewTopic.aspx</DependentUpon>
+    <Compile Include="Site\CreateTopic.aspx.designer.cs">
+      <DependentUpon>CreateTopic.aspx</DependentUpon>
     </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>

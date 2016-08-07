@@ -7,6 +7,8 @@ namespace DiscussionForum.App_Code
 {
     public class Comment
     {
+        protected Comment() { }
+
         public Comment(int topicId, int commenterId, string content)
         {
             TopicID = topicId;
@@ -17,6 +19,7 @@ namespace DiscussionForum.App_Code
             Reported = false;
             Closed = false;
         }
+
         public int ID { get; private set; }
         public int TopicID { get; private set; }
         public int CommenterID { get; private set; }

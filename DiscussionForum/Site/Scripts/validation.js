@@ -1,20 +1,44 @@
 ﻿$(document).ready(function () {
+
     $("#error").show();
     if ($("#error").text() == "") {
         $("#error").hide();
     }
+
+    $("[id$='error']").show();
+    if ($("[id$='error']").text() == "") {
+        $("[id$='error']").hide();
+    }
 });
 
-function validateCreateCategory() {
-    if ($("#txtName").val() == "") {
-        $("#error").show();
-        $("#error").text("Name is required. Please enter name.");
+function validateCreateTopic() {
+    if ($("[id$='txtName']").val() == "") {
+        $("[id$='error']").show();
+        $("[id$='error']").text("Name is required. Please enter name.");
         return false;
     }
-    $("#error").text("");
-    $("#error").hide();
-    console.log("Yes");
-    //$('#btnSubmit').trigger('click');
+
+    if ($("[id$='txtDescription']").val() == "") {
+        $("[id$='error']").show();
+        $("[id$='error']").text("Description is required. Please enter description.");
+        return false;
+    }
+
+    $("[id$='error']").text("");
+    $("[id$='error']").hide();
+    $("[id$='btnSubmit']").trigger('click');
+}
+
+function validateCreateCategory() {
+    if ($("[id$='txtName']").val() == "") {
+        $("[id$='error']").show();
+        $("[id$='error']").text("Name is required. Please enter name.");
+        return false;
+    }
+
+    $("[id$='error']").text("");
+    $("[id$='error']").hide();
+    $("[id$='btnSubmit']").trigger('click');
 }
 
 function logout() {
