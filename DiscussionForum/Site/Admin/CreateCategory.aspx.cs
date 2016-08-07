@@ -1,5 +1,9 @@
-﻿using System;
+﻿using Dapper;
+using DiscussionForum.App_Code;
+using System;
 using System.Collections.Generic;
+using System.Configuration;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
@@ -12,6 +16,22 @@ namespace DiscussionForum.Site.Admin
         protected void Page_Load(object sender, EventArgs e)
         {
 
+        }
+
+        protected void btnSumbit_Click(object sender, EventArgs e)
+        {
+            var category = new Category(txtName.Text);
+
+            SqlConnection connection = new SqlConnection(ConfigurationManager.ConnectionStrings["myConnection"].ToString());
+
+            createCategory(connection, category);
+        }
+
+        private void createCategory(SqlConnection connection, Category category)
+        {
+            string query = "INSERT INTO Categories (Name)" +
+            "values(@Name)";
+            connection.Execute(query, new { category.Name });
         }
     }
 }

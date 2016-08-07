@@ -5,6 +5,18 @@
     }
 });
 
+function validateCreateCategory() {
+    if ($("#txtName").val() == "") {
+        $("#error").show();
+        $("#error").text("Name is required. Please enter name.");
+        return false;
+    }
+    $("#error").text("");
+    $("#error").hide();
+    console.log("Yes");
+    //$('#btnSubmit').trigger('click');
+}
+
 function logout() {
     $('#btnLogOut').trigger('click');
 }
