@@ -7,7 +7,7 @@ using System.Data.SqlClient;
 using System.Linq;
 using System.Web;
 
-namespace DiscussionForum
+namespace DiscussionForum.Site
 {
     public partial class Login : System.Web.UI.Page
     {

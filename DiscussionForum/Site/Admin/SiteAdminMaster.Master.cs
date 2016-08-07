@@ -4,7 +4,7 @@ using System.Configuration;
 using System.Data.SqlClient;
 using System.Web;
 
-namespace DiscussionForum
+namespace DiscussionForum.Site.Admin
 {
     public partial class SiteAdminMaster : System.Web.UI.MasterPage
     {

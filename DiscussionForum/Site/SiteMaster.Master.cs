@@ -4,7 +4,7 @@ using System.Configuration;
 using System.Data.SqlClient;
 using System.Web;
 
-namespace DiscussionForum
+namespace DiscussionForum.Site
 {
     public partial class SiteMaster : System.Web.UI.MasterPage
     {
@@ -15,7 +15,6 @@ namespace DiscussionForum
 
             else
                 panelAuthorized.Attributes.Add("style", "display:none");
-
         }
 
         protected void btnLogOut_Click(object sender, EventArgs e)

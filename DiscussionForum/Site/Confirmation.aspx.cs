@@ -5,7 +5,7 @@ using System.Configuration;
 using System.Data.SqlClient;
 using System.Linq;
 
-namespace DiscussionForum
+namespace DiscussionForum.Site
 {
     public partial class Confirmation : System.Web.UI.Page
     {

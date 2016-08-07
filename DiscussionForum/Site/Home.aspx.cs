@@ -4,7 +4,7 @@ using System.Configuration;
 using System.Data.SqlClient;
 using System.Web.UI.WebControls;
 
-namespace DiscussionForum
+namespace DiscussionForum.Site
 {
     public partial class Home : System.Web.UI.Page
     {

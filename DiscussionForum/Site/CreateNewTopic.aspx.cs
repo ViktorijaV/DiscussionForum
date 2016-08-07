@@ -5,7 +5,7 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
-namespace DiscussionForum
+namespace DiscussionForum.Site
 {
     public partial class CreateNewTopic : System.Web.UI.Page
     {

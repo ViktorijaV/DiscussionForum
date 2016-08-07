@@ -10,7 +10,7 @@
 namespace DiscussionForum.Site.Admin {
     
     
-    public partial class WebForm1 {
+    public partial class CreateCategory {
         
         /// <summary>
         /// error control.

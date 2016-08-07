@@ -6,7 +6,7 @@ using System.Configuration;
 using Dapper;
 using System.Linq;
 
-namespace DiscussionForum
+namespace DiscussionForum.Site
 {
     public partial class Register : System.Web.UI.Page
     {

@@ -60,3 +60,8 @@
         background-color: #d1d2de;
         border-color: #ccc;
     }
+
+.fit-in-div {
+    max-height: 100%;
+    max-width: 100%;
+}

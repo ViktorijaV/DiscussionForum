@@ -7,7 +7,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace DiscussionForum {
+namespace DiscussionForum.Site {
     
     
     public partial class CreateNewTopic {
