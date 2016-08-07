@@ -5,6 +5,10 @@
     }
 });
 
+function logout() {
+    $('#btnLogOut').trigger('click');
+}
+
 function validateLogin() {
     if ($("#txtEmail").val() == "") {
         $("#error").show();

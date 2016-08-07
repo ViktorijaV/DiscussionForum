@@ -16,6 +16,23 @@ body {
     }
 }
 
+.navbar-top-links {
+    margin-right: 0;
+}
+
+.navbar-top-links li {
+    display: inline-block;
+}
+
+.navbar-top-links li:last-child {
+    margin-right: 15px;
+}
+
+.navbar-top-links li a {
+    padding: 15px;
+    min-height: 50px;
+}
+
 .navbar-brand {
     height: 80px;
     padding: 5px 15px;
@@ -65,38 +82,3 @@ body {
     min-height: 0px;
     margin: 15px 10px 15px 10px;
 }
-
-
-/*a.dropdown-toggle {
-    color: #34B3A0;
-}
-
-
-.dropdown ul.dropdown-menu {
-    border-radius: 4px;
-    box-shadow: none;
-    margin-top: 20px;
-    width: 200px;
-}
-
-    .dropdown ul.dropdown-menu:before {
-        content: "";
-        border-bottom: 10px solid #fff;
-        border-right: 10px solid transparent;
-        border-left: 10px solid transparent;
-        position: absolute;
-        top: -10px;
-        right: 16px;
-        z-index: 10;
-    }
-
-    .dropdown ul.dropdown-menu:after {
-        content: "";
-        border-bottom: 12px solid #ccc;
-        border-right: 12px solid transparent;
-        border-left: 12px solid transparent;
-        position: absolute;
-        top: -12px;
-        right: 14px;
-        z-index: 9;
-    }*/

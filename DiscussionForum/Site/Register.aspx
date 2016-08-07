@@ -12,7 +12,8 @@
     <!-- Custom Fonts -->
     <link href="~/Site/Fonts/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
 
-    <link href="~/Site/Content/Style.css" rel="stylesheet" />
+    <!-- Custom CSS -->
+    <link href="~/Site/Content/style.css" rel="stylesheet" />
 
     <script src="Scripts/jquery.min.js"></script>
     <script src="Scripts/validation.js"></script>

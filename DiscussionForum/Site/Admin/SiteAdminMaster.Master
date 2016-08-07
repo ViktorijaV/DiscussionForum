@@ -1,4 +1,4 @@
-﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="SiteMaster.master.cs" Inherits="DiscussionForum.SiteMaster" %>
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="SiteAdminMaster.Master.cs" Inherits="DiscussionForum.SiteMaster" %>
 
 <!DOCTYPE html>
 
@@ -13,16 +13,15 @@
 
     <!-- Custom Fonts -->
     <link href="~/Site/Fonts/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
-    
+
     <!-- Custom CSS -->
-    <link rel="stylesheet" href="~/Site/Content/style.css" />
+    <link href="~/Site/Content/admin-style.css" rel="stylesheet" />
 
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
 
-    <script src="Scripts/jquery.min.js"></script>
-    <script src="Scripts/bootstrap.min.js"></script>
-    <script src="Scripts/validation.js"></script>
+    <script src="../Scripts/jquery.min.js"></script>
+    <script src="../Scripts/bootstrap.min.js"></script>
 
 </head>
 <body>
@@ -33,7 +32,7 @@
             <nav class="navbar navbar-default navbar-fixed-top" role="navigation" style="margin-bottom: 0">
                 <div class="navbar-header">
                     <a class="navbar-brand" href="Home.aspx">
-                        <img src="../Storage/logoWithLetters.png" class="fit-in-div" />
+                        <img src="../../Storage/logoWithLetters.png" class="fit-in-div" />
                     </a>
                 </div>
                 <!-- /.navbar-header -->
@@ -51,23 +50,6 @@
                     </div>
                     <asp:Button ID="btnLogOut" Style="display: none;" runat="server" OnClick="btnLogOut_Click" />
                 </asp:Panel>
-
-                <!-- /.navbar-top-links -->
-                <asp:Panel ID="panelAnonymous" runat="server">
-
-                    <ul class="nav navbar-top-links navbar-right">
-                        <li>
-                            <asp:LinkButton ID="btnLogin" runat="server" CssClass="btn btn-default" PostBackUrl="~/Site/Login.aspx">
-                        <span class="fa fa-sign-in"></span>&nbsp;Sign In</asp:LinkButton>
-                        </li>
-                        <li>
-                            <asp:LinkButton ID="btnRegister" runat="server" CssClass="btn btn-default" PostBackUrl="~/Site/Register.aspx">
-                        <span class="fa fa-user"></span>&nbsp;Register</asp:LinkButton>
-                        </li>
-                    </ul>
-                </asp:Panel>
-                <!-- /.navbar-top-links -->
-
 
             </nav>
 

@@ -102,7 +102,9 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Site\Admin\CreateCategory.aspx" />
     <Content Include="Site\Confirmation.aspx" />
+    <Content Include="Site\Content\admin-style.css" />
     <Content Include="Site\Content\bootstrap.min.css" />
     <Content Include="Site\Fonts\font-awesome\css\font-awesome.min.css" />
     <Content Include="Site\Content\sb-admin-2.css" />
@@ -112,7 +114,6 @@
     <Content Include="packages.config" />
     <Content Include="Site\Scripts\JavaScript.js" />
     <Content Include="Site\Scripts\jquery.min.js" />
-    <Content Include="Site\Scripts\logout.js" />
     <Content Include="Site\Scripts\validation.js" />
     <Content Include="Site\SiteMaster.Master" />
     <Content Include="ApplicationInsights.config">
@@ -122,6 +123,7 @@
     <Content Include="Site\Fonts\font-awesome\fonts\fontawesome-webfont.ttf" />
     <Content Include="Site\Fonts\font-awesome\fonts\fontawesome-webfont.woff" />
     <Content Include="Site\Fonts\font-awesome\fonts\FontAwesome.otf" />
+    <Content Include="Site\Admin\SiteAdminMaster.Master" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -130,7 +132,7 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Site\Content\Style.css" />
+    <Content Include="Site\Content\style.css" />
     <Content Include="Site\CreateNewTopic.aspx" />
     <Content Include="Global.asax" />
     <Content Include="Site\Home.aspx" />
@@ -151,6 +153,20 @@
     <Compile Include="App_Code\User.cs" />
     <Compile Include="App_Code\Comment.cs" />
     <Compile Include="App_Code\Topic.cs" />
+    <Compile Include="Site\Admin\CreateCategory.aspx.cs">
+      <DependentUpon>CreateCategory.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Site\Admin\CreateCategory.aspx.designer.cs">
+      <DependentUpon>CreateCategory.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Site\Admin\SiteAdminMaster.Master.cs">
+      <DependentUpon>SiteAdminMaster.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Site\Admin\SiteAdminMaster.Master.designer.cs">
+      <DependentUpon>SiteAdminMaster.Master</DependentUpon>
+    </Compile>
     <Compile Include="Site\Confirmation.aspx.cs">
       <DependentUpon>Confirmation.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -214,7 +230,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Site\Admin\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
