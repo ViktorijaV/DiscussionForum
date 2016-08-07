@@ -1,9 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using Dapper;
+using DiscussionForum.App_Code;
+using DiscussionForum.AppServices;
+using System;
+using System.Configuration;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Web;
-using System.Web.UI;
-using System.Web.UI.WebControls;
 
 namespace DiscussionForum
 {
@@ -15,7 +17,34 @@ namespace DiscussionForum
         }
         protected void btnLogin_Click(object sender, EventArgs e)
         {
+            SqlConnection connection = new SqlConnection(ConfigurationManager.ConnectionStrings["myConnection"].ToString());
 
+            string errorMessage = loginUser(connection, txtEmail.Text, txtPassword.Text);
+
+            if (errorMessage != "")
+                error.InnerText = errorMessage;
+
+            //TODO: implement returlurl 
+            else Response.Redirect("Home.aspx");
+        }
+
+        private string loginUser(SqlConnection connection, string email, string password)
+        {
+            string sql = $"SELECT * FROM Users WHERE Email='{email}'";
+            var user = connection.Query<User>(sql).FirstOrDefault();
+
+            if (user == null)
+                return "User with that email does not exists! Please register.";
+
+            if (user.Confirmed == false)
+                return "Your account is not confirmed! Please confirm your account.";
+
+            if (user.Password != password)
+                return "Wrong password!";
+
+            var authenticationService = new FormsAuthenticationService(HttpContext.Current, new SqlConnection(ConfigurationManager.ConnectionStrings["myConnection"].ToString()));
+            authenticationService.SignIn(user, true);
+            return "";
         }
     }
 }

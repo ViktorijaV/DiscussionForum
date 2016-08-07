@@ -1,5 +1,8 @@
-﻿$(document).ready(function(){
-    $("#error").hide();
+﻿$(document).ready(function () {
+    $("#error").show();
+    if ($("#error").text() == "") {
+        $("#error").hide();
+    }
 });
 
 function validateLogin() {

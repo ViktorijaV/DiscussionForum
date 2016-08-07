@@ -78,8 +78,10 @@
                 </asp:ContentPlaceHolder>
             </div>
             <hr />
-            <footer>
-                <p>&copy; <%: DateTime.Now.Year %> - SmartSet</p>
+            <footer class="footer">
+                <div class="container">
+                    <p class="m-b-0 text-muted">&copy; <%: DateTime.Now.Year %> - SmartSet</p>
+                </div>
             </footer>
 
         </div>

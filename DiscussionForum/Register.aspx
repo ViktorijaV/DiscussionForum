@@ -31,7 +31,7 @@
             </div>
             <div class="row row-centered">
                 <div class="col-xs-offset-4 col-xs-4">
-                    <div id="error" class="alert alert-danger"></div>
+                    <div id="error" runat="server" class="alert alert-danger"></div>
                 </div>
             </div>
             <div class="row">
