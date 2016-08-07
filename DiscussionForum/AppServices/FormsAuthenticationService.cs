@@ -13,7 +13,7 @@ namespace DiscussionForum.AppServices
     {
         private HttpContext _httpContext = HttpContext.Current;
         private readonly SqlConnection _connection;
-        private readonly TimeSpan _expirationTimeSpan;
+        private TimeSpan _expirationTimeSpan;
 
         private static AuthenticatedUser _cachedUser;
 
@@ -24,10 +24,18 @@ namespace DiscussionForum.AppServices
             _connection = connection;
         }
 
-        public void SignIn(User user, bool createPersistentCookie)
+        public void SignIn(User user, bool extendExpirationDate, bool createPersistentCookie)
         {
             var now = DateTime.UtcNow.ToLocalTime();
             var authenticatedUser = new AuthenticatedUser(user.Fullname, user.ID, user.Avatar, user.Role.ToString());
+
+            if (extendExpirationDate)
+            {
+                int span = DateTime.IsLeapYear(DateTime.Now.Year) ? 366 : 365;
+                _expirationTimeSpan = new TimeSpan(span, 0, 0, 0);
+            }
+            else
+                _expirationTimeSpan = FormsAuthentication.Timeout;
 
             var ticket = new FormsAuthenticationTicket(
                 version: 1,

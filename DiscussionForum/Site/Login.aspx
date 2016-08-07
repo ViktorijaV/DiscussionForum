@@ -45,6 +45,17 @@
                     <asp:TextBox ID="txtPassword" CssClass="form-control" runat="server" TextMode="Password" placeholder="Password"></asp:TextBox>
                 </div>
             </div>
+            <div class="row">
+                <div class="col-xs-offset-4 col-xs-4 input-group">
+                    <div class="checkbox">
+                        <label>
+                            <asp:CheckBox ID="cbRememberMe" runat="server" />
+                            Remember me
+                        </label>
+
+                    </div>
+                </div>
+            </div>
             <asp:Button ID="btnLoginServer" Style="display: none;" runat="server" OnClick="btnLogin_Click" />
 
 
@@ -58,7 +69,7 @@
         <div class="row">
             <div class="col-xs-offset-4 col-xs-4">
                 <div style="padding-top: 30px; font-size: 90%">
-                    Don't have an account! 
+                    Don't have an account? 
                     <a href="Register.aspx">Register Here</a>
                 </div>
             </div>

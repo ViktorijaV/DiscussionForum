@@ -19,7 +19,7 @@ namespace DiscussionForum
         {
             SqlConnection connection = new SqlConnection(ConfigurationManager.ConnectionStrings["myConnection"].ToString());
 
-            string errorMessage = loginUser(connection, txtEmail.Text, txtPassword.Text);
+            string errorMessage = loginUser(connection, txtEmail.Text, txtPassword.Text, cbRememberMe.Checked);
 
             if (errorMessage != "")
                 error.InnerText = errorMessage;
@@ -28,7 +28,7 @@ namespace DiscussionForum
             else Response.Redirect("Site/Home.aspx");
         }
 
-        private string loginUser(SqlConnection connection, string email, string password)
+        private string loginUser(SqlConnection connection, string email, string password, bool extendExpirationDate)
         {
             string sql = $"SELECT * FROM Users WHERE Email='{email}'";
             var user = connection.Query<User>(sql).FirstOrDefault();
@@ -43,7 +43,7 @@ namespace DiscussionForum
                 return "Wrong password!";
 
             var authenticationService = new FormsAuthenticationService(HttpContext.Current, new SqlConnection(ConfigurationManager.ConnectionStrings["myConnection"].ToString()));
-            authenticationService.SignIn(user, true);
+            authenticationService.SignIn(user, extendExpirationDate, true);
             return "";
         }
     }
