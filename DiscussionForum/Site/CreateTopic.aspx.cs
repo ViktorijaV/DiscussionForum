@@ -40,7 +40,7 @@ namespace DiscussionForum.Site
         private void loadCategories(SqlConnection connection)
         {
             string sql = $"SELECT * FROM Categories";
-            var categories = connection.Query<Category>(sql).ToList();
+            var categories = connection.Query<App_Code.Category>(sql).ToList();
 
             foreach (var category in categories)
             {

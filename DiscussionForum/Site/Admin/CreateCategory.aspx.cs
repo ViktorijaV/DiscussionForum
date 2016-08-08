@@ -20,14 +20,14 @@ namespace DiscussionForum.Site.Admin
 
         protected void btnSumbit_Click(object sender, EventArgs e)
         {
-            var category = new Category(txtName.Text);
+            var category = new App_Code.Category(txtName.Text);
 
             SqlConnection connection = new SqlConnection(ConfigurationManager.ConnectionStrings["myConnection"].ToString());
 
             createCategory(connection, category);
         }
 
-        private void createCategory(SqlConnection connection, Category category)
+        private void createCategory(SqlConnection connection, App_Code.Category category)
         {
             string query = "INSERT INTO Categories (Name)" +
             "values(@Name)";
