@@ -103,6 +103,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Site\Admin\CreateCategory.aspx" />
+    <Content Include="Site\CategoryTopic.aspx" />
     <Content Include="Site\Confirmation.aspx" />
     <Content Include="Site\Content\admin-style.css" />
     <Content Include="Site\Content\bootstrap.min.css" />
@@ -165,6 +166,13 @@
     </Compile>
     <Compile Include="Site\Admin\SiteAdminMaster.Master.designer.cs">
       <DependentUpon>SiteAdminMaster.Master</DependentUpon>
+    </Compile>
+    <Compile Include="Site\CategoryTopic.aspx.cs">
+      <DependentUpon>CategoryTopic.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Site\CategoryTopic.aspx.designer.cs">
+      <DependentUpon>CategoryTopic.aspx</DependentUpon>
     </Compile>
     <Compile Include="Site\Confirmation.aspx.cs">
       <DependentUpon>Confirmation.aspx</DependentUpon>
