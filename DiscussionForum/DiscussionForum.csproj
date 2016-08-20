@@ -113,6 +113,7 @@
     <Content Include="Site\Scripts\bootstrap.min.js" />
     <Content Include="Site\Login.aspx" />
     <Content Include="packages.config" />
+    <Content Include="Site\Content\Custom.css" />
     <Content Include="Site\Scripts\JavaScript.js" />
     <Content Include="Site\Scripts\jquery.min.js" />
     <Content Include="Site\Scripts\validation.js" />

@@ -37,7 +37,7 @@ namespace DiscussionForum.Site
             connection.Execute(query, new { topic.CreatorID, topic.CategoryID, topic.Name, topic.Description, topic.Likes, topic.Reported, topic.Closed, topic.DateCreated });
         }
 
-        private void loadCategories(SqlConnection connection)
+        private void loadCategories(SqlConnection connection) 
         {
             string sql = $"SELECT * FROM Categories";
             var categories = connection.Query<App_Code.Category>(sql).ToList();

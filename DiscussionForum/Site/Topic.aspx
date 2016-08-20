@@ -1,171 +1,52 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site/SiteMaster.Master" AutoEventWireup="true" CodeBehind="Topic.aspx.cs" Inherits="DiscussionForum.Site.Topic" %>
-<asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+﻿<%@ Page Title="" Language="C#" AutoEventWireup="true" CodeBehind="Topic.aspx.cs" Inherits="DiscussionForum.Site.Topic" %>
 
-     <style type="text/css">
-        
-        body{
-             background-color: #e6e6e6;
-              color: #003366;
-        }
 
-        .topPanel{
+    <!DOCTYPE html>
 
-              border: 2px solid #003366;
-              font-size: 25px;
-              width: 800px;
-              height: 200px;
-              position: absolute;
-              left: 270px;
-              background-color: white;
-              padding: 15px;
-              padding-top: 30px;
-              top: 200px;
-             
-        }
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title>SmartSet-Register</title>
 
-        .bottomPanel{
-            border: 2px solid #003366;
-              font-size: 25px;
-              width: 800px;
-              
-              position: absolute;
-              top: 500px;
-              left: 270px;
-              background-color: white;
-              padding-top: 30px;
-              padding-left: 15px;
-        }
+    <!-- Bootstrap Core CSS -->
+    <link href="~/Site/Content/bootstrap.min.css" rel="stylesheet" />
 
-        .title{
-            font-size:35px;
-            position: absolute;
-            top: -27px;
-            left: 50px;
-            background-color: #e6e6e6;
-            
-        }
+    <!-- Custom Fonts -->
+    <link href="~/Site/Fonts/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
 
-        .titleBottom{
+    <!-- Custom CSS -->
+    <link href="~/Site/Content/style.css" rel="stylesheet" />
 
-            font-size:35px;
-            position: absolute;
-            top: 470px;
-            left: 315px;
-            background-color: #e6e6e6;
-        }
+    <script src="Scripts/jquery.min.js"></script>
+    <script src="Scripts/validation.js"></script>
+    <script src="Scripts/JavaScript.js"></script>
 
-        .panelElements{
+</head>
+<body>
 
-             margin-left: 200px;
-            /*margin-top: 150px;*/ 
-           
-         }
+    <div class="container">
+          <form id="form1" runat="server">
 
-        .inPanel{
+                <div class="row">
+                    <div class="col-xs-offset-3 col-xs-7 input-group">
+                      <h1> <asp:Label runat="server" Text="Topic name" ></asp:Label> </h1>
+                    </div>
+               </div>
 
-            margin: 15px;
-            font-size: 20px;
 
-        }
-    </style>
+              <div class="row">
+                    <div class="col-xs-offset-3 col-xs-7 input-group">
+                         <asp:TextBox ID="txtDescription" CssClass="form-control" runat="server" TextMode="MultiLine" placeholder="Description..." Rows="7"></asp:TextBox>
+                    </div>
+               </div>
 
-</asp:Content>
-<asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+               <div class="row">
+                    <div class="col-xs-offset-3 col-xs-7 input-group">
+                        <asp:ListBox runat="server" CssClass="form-control"></asp:ListBox>
+                    </div>
+               </div>
 
-    <asp:Panel ID="Panel1" runat="server" CssClass="topPanel">
-        <asp:Label ID="Label1" runat="server" Text="| Topic name |" CssClass="title"></asp:Label>
-        <asp:Label ID="Label3" runat="server" cssClass="inPanel" Text="Topic description // Topic description // Topic description // Topic description // Topic description // Topic description // Topic description"></asp:Label>
-    </asp:Panel>
-     
-    <asp:ListBox ID="ListBox1" runat="server" CssClass="bottomPanel" Height="800px">
-        <asp:ListItem>Answer</asp:ListItem>
-        <asp:ListItem>Answer</asp:ListItem>
-        <asp:ListItem>Answer</asp:ListItem>
-        <asp:ListItem>Answer</asp:ListItem>
-        <asp:ListItem>Answer</asp:ListItem>
-        <asp:ListItem>Answer</asp:ListItem>
-        <asp:ListItem>Answer</asp:ListItem>
-        <asp:ListItem>Answer</asp:ListItem>
-        <asp:ListItem>Answer</asp:ListItem>
-        <asp:ListItem>Answer</asp:ListItem>
-        <asp:ListItem>Answer</asp:ListItem>
-        <asp:ListItem>Answer</asp:ListItem>
-        <asp:ListItem>Answer</asp:ListItem>
-        <asp:ListItem>Answer</asp:ListItem>
-        <asp:ListItem>Answer</asp:ListItem>
-        <asp:ListItem>Answer</asp:ListItem>
-        <asp:ListItem>Answer</asp:ListItem>
-        <asp:ListItem>Answer</asp:ListItem>
-        <asp:ListItem>Answer</asp:ListItem>
-        <asp:ListItem>Answer</asp:ListItem>
-        <asp:ListItem>Answer</asp:ListItem>
-         <asp:ListItem>Answer</asp:ListItem>
-        <asp:ListItem>Answer</asp:ListItem>
-        <asp:ListItem>Answer</asp:ListItem>
-        <asp:ListItem>Answer</asp:ListItem>
-        <asp:ListItem>Answer</asp:ListItem>
-        <asp:ListItem>Answer</asp:ListItem>
-        <asp:ListItem>Answer</asp:ListItem>
-        <asp:ListItem>Answer</asp:ListItem>
-        <asp:ListItem>Answer</asp:ListItem>
-        <asp:ListItem>Answer</asp:ListItem>
-        <asp:ListItem>Answer</asp:ListItem>
-       </asp:ListBox>
-    <asp:Label runat="server" Text="| List of topic answers |" CssClass="titleBottom"></asp:Label>
-    <br />
-    <br />
-    <br />
-    <br />
-    <br /><br />
-    <br />
-    <br />
-    <br />
-    <br /><br />
-    <br />
-    <br />
-    <br />
-    <br />
-    <br />
-    <br />
-    <br />
-    <br />
-    <br />
-    <br />
-    <br />
-    <br />
-    <br />
-    <br />
-    <br />
-    <br />
-    <br />
-    <br />
-    <br />
-    <br />
-    <br />
-    <br />
-    <br />
-    <br /><br />
-    <br />
-    <br />
-    <br />
-    <br /><br />
-    <br />
-    <br />
-    <br />
-    <br />
-    <br />
-    <br />
-    <br />
-    <br />
-    <br />
-    <br />
-    <br />
-    <br />
-    <br />
-    <br />
-    <br />
-    <br />
-    <br />
-    <br />
-    <br />
-</asp:Content>
+
+          </form>
+    </div>
+
+</body>

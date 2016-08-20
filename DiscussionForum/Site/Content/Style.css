@@ -1,7 +1,7 @@
 ﻿
 body {
     padding-top: 50px;
-    background-color: white;
+    background-color: #e6e6e6;
 }
 
 @media (min-width: 300px) {
@@ -81,4 +81,40 @@ body {
     padding: 10px;
     min-height: 0px;
     margin: 15px 10px 15px 10px;
+}
+
+#welcome{
+
+    font-size: 350%;
+    margin-top: 19%;
+    margin-bottom: 19%;
+    margin-left:13%;
+}
+
+.categories{
+
+    font-size: 100%;
+    padding: 7%;
+    text-align:center;
+    
+}
+
+.title{
+   font-size: 165%;
+   margin: 1.7%;
+}
+
+.separate{
+ margin-top: 0.35%;
+ margin-bottom: 0.35%;
+}
+
+
+.panel{
+    height: 8em;
+    width: 20em;
+    text-align: center;
+    vertical-align: central;
+    padding-top: 15%;
+    padding-bottom: 15%;
 }

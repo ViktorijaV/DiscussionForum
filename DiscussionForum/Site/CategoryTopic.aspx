@@ -1,63 +1,47 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site/SiteMaster.Master" AutoEventWireup="true" CodeBehind="CategoryTopics.aspx.cs" Inherits="DiscussionForum.Site.Category" %>
-<asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+﻿<%@ Page Title="" Language="C#" AutoEventWireup="true" CodeBehind="CategoryTopics.aspx.cs" Inherits="DiscussionForum.Site.CategoryTopic" %>
+<!DOCTYPE html>
 
-    <style type="text/css">
-        body {
-            background-color: #e6e6e6;
-            color: #003366;
-        }
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title>SmartSet-Category</title>
 
+    <!-- Bootstrap Core CSS -->
+    <link href="~/Site/Content/bootstrap.min.css" rel="stylesheet" />
 
-        .listItem {
-            font-size: 25px;
-            margin: 10px;
-            border: 2px solid #003366;
-            width: 900px;
-            left: 320px;
-            margin-left: 8%;
-            height: 635px;
-            background-color: white;
-            align-content: center;
-        }
+    <!-- Custom Fonts -->
+    <link href="~/Site/Fonts/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
 
-        .title {
-            font-size: 35px;
-            position: absolute;
-            top: 90px;
-            left: 285px;
-            background-color: #e6e6e6;
-        }
-        
-        .auto-style1 {
-            font-size: 25px;
-            border: 2px solid #003366;
-            width: 900px;
-            left: 320px;
-            margin-left: 8%;
-            height: 635px;
-            background-color: white;
-            align-content: center;
-            margin-right: 10px;
-            margin-top: 10px;
-            margin-bottom: 264px;
-        }
-        .auto-style2 {
-            font-size: 35px;
-            position: absolute;
-            top: 87px;
-            left: 381px;
-            background-color: #e6e6e6;
-        }
-        
-    </style>
+    <!-- Custom CSS -->
+    <link href="~/Site/Content/style.css" rel="stylesheet" />
 
-</asp:Content>
-<asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <asp:Panel ID="Panel1" runat="server">
+    <script src="Scripts/jquery.min.js"></script>
+    <script src="Scripts/validation.js"></script>
+    <script src="Scripts/JavaScript.js"></script>
+
+</head>
+
+    <body>
+        <div class="container">
+            
+
+           <form runat="server">
+
+               <div class="row">
+                   <div class="col-xs-offset-3 col-xs-7 input-group">
+                     <h1> <asp:Label ID="Label1" runat="server" Text="Category name"></asp:Label> </h1>
+                   </div>
+               </div>
+
+               <div class="row">
+                     <div class="col-xs-offset-3 col-xs-7 input-group">
+                         <asp:ListBox ID="ListBox1" runat="server" CssClass="form-control" ></asp:ListBox>
+                    </div>
+                </div>
+
+            </form>
 
 
-        <asp:Label ID="Label1" runat="server" Text="Category name" CssClass="auto-style2"></asp:Label>
-        <asp:ListBox ID="ListBox1" runat="server" CssClass="auto-style1" ></asp:ListBox>
+        </div>
 
-    </asp:Panel>
-</asp:Content>
+
+    </body>
