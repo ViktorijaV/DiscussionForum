@@ -33,7 +33,7 @@ namespace DiscussionForum.Site
 
             registerUser(connection, user);
 
-            Server.Transfer("Site/Confirmation.aspx", true);
+            Server.Transfer("Confirmation.aspx", true);
         }
 
         private bool checkForExistingUser(SqlConnection connection, string email)
@@ -52,7 +52,7 @@ namespace DiscussionForum.Site
         private void sendEmail(string confirmationCode, string email)
         {
             string message = "Please click on the link to confirm your registration: " +
-                "<a href='http://localhost:54296/Confirmation.aspx?code=" + confirmationCode + "' >Link</a>";
+                "<a href='http://localhost:54296/Site/Confirmation.aspx?code=" + confirmationCode + "' >Link</a>";
             EMailSender.SendEmail("Confirm your registration", message, email);
         }
 
