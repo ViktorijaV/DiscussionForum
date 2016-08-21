@@ -13,8 +13,16 @@
         <div class="col-xs-1">
             <label class="control-label">Name:</label>
         </div>
-        <div class="col-xs-8">
+        <div class="col-xs-6">
             <asp:TextBox ID="txtName" CssClass="form-control" runat="server"></asp:TextBox>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xs-1">
+            <label class="control-label">Color:</label>
+        </div>
+        <div class="col-xs-6">
+            <asp:TextBox ID="txtColor" runat="server" TextMode="Color"></asp:TextBox>
         </div>
     </div>
     <div class="row">
