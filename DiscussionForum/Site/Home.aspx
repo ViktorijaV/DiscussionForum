@@ -6,6 +6,26 @@
 <asp:Content ID="Content4" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 
     <div class="row">
+        <div class="col-xs-4">
+            <asp:DropDownList ID="ddlCategories" runat="server" CssClass="form-control"></asp:DropDownList>
+        </div>
+        <div class="col-xs-4">
+            
+        </div>
+        <div class="col-xs-8">
+            <ul class="nav nav-pills">
+                <li class="active"><a href="#">Latest</a></li>
+                <li><a href="#">Top</a></li>
+                <li><a href="#">Menu 2</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="row">
+
+    </div>
+
+    <div class="row">
         <div class="col-xs-offset-1 col-xs-10">
             <div id="welcome">All important welcome message</div>
         </div>

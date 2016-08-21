@@ -11,21 +11,8 @@ namespace DiscussionForum.Site
 {
     public partial class Home : System.Web.UI.Page
     {
-        List<String> lista;
-
         protected void Page_Load(object sender, EventArgs e)
         {
-            lista = new List<string>();
-
-            lista.Add("Networks");
-            lista.Add("OOP");
-            lista.Add("SP");
-            lista.Add("Shell");
-            lista.Add("Discrete mathematics");
-            lista.Add("Calculus");
-            lista.Add("Web design");
-            lista.Add("Web development");
-
             if (!IsPostBack)
                 loadCategories(new SqlConnection(ConfigurationManager.ConnectionStrings["myConnection"].ToString()));
         }
@@ -34,10 +21,15 @@ namespace DiscussionForum.Site
         {
             string sql = $"SELECT * FROM Categories";
             var categories = connection.Query<Category>(sql).ToList();
+            ListItem item = new ListItem("All Categories", "0");
+            item.Attributes.CssStyle.Value = "backgroud-color: #333";
+            ddlCategories.Items.Add(item);
 
             foreach (var category in categories)
             {
-                //ddlCategories.Items.Add(new ListItem(category.Name, category.ID.ToString()));
+                var li = new ListItem(category.Name, category.ID.ToString());
+                li.Attributes.CssStyle.Value += $"backgroud-color: {category.Color};";
+                ddlCategories.Items.Add(li);
             }
         }
     }
