@@ -10,7 +10,6 @@
             <asp:DropDownList ID="ddlCategories" runat="server" CssClass="form-control"></asp:DropDownList>
         </div>
         <div class="col-xs-4">
-            
         </div>
         <div class="col-xs-8">
             <ul class="nav nav-pills">
@@ -22,127 +21,25 @@
     </div>
 
     <div class="row">
-
+        <asp:Table ID="example" runat="server" class="display" cellspacing="0" width="100%">
+            
+        </asp:Table>
+ 
     </div>
 
-    <div class="row">
-        <div class="col-xs-offset-1 col-xs-10">
-            <div id="welcome">All important welcome message</div>
-        </div>
-    </div>
-
-    <div class="row">
-        <div class="col-xs-offset-2 col-xs-10 title">
-            <div class="title">Categories</div>
-        </div>
-    </div>
-
-    <div class="row separate">
-        <div class="col-xs-offset-1 col-xs-2">
-            <div class="panel panel-default">
-                <div class="panel-body"><a class="categories">Programming</a></div>
-            </div>
-
-        </div>
-
-        <div class="col-xs-offset-1 col-xs-2">
-            <div class="panel panel-default">
-                <div class="panel-body"><a class="categories">Discrete Mathematics</a></div>
-            </div>
-
-        </div>
-
-        <div class="col-xs-offset-1 col-xs-2">
-            <div class="panel panel-default">
-                <div class="panel-body"><a class="categories">Calculus</a></div>
-            </div>
-
-        </div>
-    </div>
-
-    <div class="row separate">
-        <div class="col-xs-offset-1 col-xs-2">
-            <div class="panel panel-default">
-                <div class="panel-body"><a class="categories">Web Design</a></div>
-            </div>
-
-        </div>
-
-        <div class="col-xs-offset-1 col-xs-2">
-            <div class="panel panel-default">
-                <div class="panel-body"><a class="categories">Web Development</a></div>
-            </div>
-
-        </div>
-
-        <div class="col-xs-offset-1 col-xs-2">
-            <div class="panel panel-default">
-                <div class="panel-body"><a class="categories">Computer Networking</a></div>
-            </div>
-
-        </div>
-    </div>
-
-    <div class="row separate">
-        <div class="col-xs-offset-1 col-xs-2">
-            <div class="panel panel-default">
-                <div class="panel-body"><a class="categories">Probability and Statistics</a></div>
-            </div>
-
-        </div>
-
-        <div class="col-xs-offset-1 col-xs-2">
-            <div class="panel panel-default">
-                <div class="panel-body"><a class="categories">Algorithms and Data Structures</a></div>
-            </div>
-
-        </div>
-
-        <div class="col-xs-offset-1 col-xs-2">
-            <div class="panel panel-default">
-                <div class="panel-body"><a class="categories">Operating Systems</a></div>
-            </div>
-
-        </div>
-    </div>
-
-    <div class="row separate">
-        <div class="col-xs-offset-1 col-xs-2">
-            <div class="panel panel-default">
-                <div class="panel-body"><a class="categories">Artificial Intelligence</a></div>
-            </div>
-
-        </div>
-
-        <div class="col-xs-offset-1 col-xs-2">
-            <div class="panel panel-default">
-                <div class="panel-body"><a class="categories">Software Engineering</a></div>
-            </div>
-
-        </div>
-
-        <div class="col-xs-offset-1 col-xs-2">
-            <div class="panel panel-default">
-                <div class="panel-body"><a class="categories">DataBases</a></div>
-            </div>
-
-        </div>
-    </div>
-
-    <div class="row separate">
-        <div class="col-xs-offset-1 col-xs-2">
-            <div class="panel panel-default">
-                <div class="panel-body"><a class="categories">Shell</a></div>
-            </div>
-
-        </div>
-
-        <div class="col-xs-offset-1 col-xs-2">
-        </div>
-
-        <div class="col-xs-offset-1 col-xs-2">
-        </div>
-    </div>
+    <script src="http://cdn.datatables.net/1.10.12/js/jquery.dataTables.min.js" type="text/javascript"></script>
+    <script>
+        $(document).ready(function () {
+            var table = document.getElementById("ContentPlaceHolder1_example");
+            var header = table.createTHead();
+            var row = header.insertRow(0);
+            var cell = row.insertCell(0);
+            cell.innerHTML = "<b>Name</b>";
+            var cell = row.insertCell(0);
+            cell.innerHTML = "<b>Category</b>";
 
 
+            $("#ContentPlaceHolder1_example").DataTable();
+        });
+    </script>
 </asp:Content>
