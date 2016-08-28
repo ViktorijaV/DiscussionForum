@@ -103,18 +103,16 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Site\Admin\CreateCategory.aspx" />
-    <Content Include="Site\CategoryTopic.aspx" />
+    <Content Include="Site\Category.aspx" />
     <Content Include="Site\Confirmation.aspx" />
-    <Content Include="Site\Content\admin-style.css" />
     <Content Include="Site\Content\bootstrap.min.css" />
     <Content Include="Site\Fonts\font-awesome\css\font-awesome.min.css" />
-    <Content Include="Site\Content\sb-admin-2.css" />
     <Content Include="Site\Fonts\font-awesome\fonts\fontawesome-webfont.svg" />
     <Content Include="Site\Scripts\bootstrap.min.js" />
     <Content Include="Site\Login.aspx" />
     <Content Include="packages.config" />
-    <Content Include="Site\Content\Custom.css" />
     <Content Include="Site\Scripts\JavaScript.js" />
+    <Content Include="Site\Scripts\jquery.dataTables.min.js" />
     <Content Include="Site\Scripts\jquery.min.js" />
     <Content Include="Site\Scripts\script.js" />
     <Content Include="Site\Scripts\validation.js" />
@@ -171,12 +169,12 @@
     <Compile Include="Site\Admin\SiteAdminMaster.Master.designer.cs">
       <DependentUpon>SiteAdminMaster.Master</DependentUpon>
     </Compile>
-    <Compile Include="Site\CategoryTopic.aspx.cs">
-      <DependentUpon>CategoryTopic.aspx</DependentUpon>
+    <Compile Include="Site\Category.aspx.cs">
+      <DependentUpon>Category.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Site\CategoryTopic.aspx.designer.cs">
-      <DependentUpon>CategoryTopic.aspx</DependentUpon>
+    <Compile Include="Site\Category.aspx.designer.cs">
+      <DependentUpon>Category.aspx</DependentUpon>
     </Compile>
     <Compile Include="Site\Confirmation.aspx.cs">
       <DependentUpon>Confirmation.aspx</DependentUpon>

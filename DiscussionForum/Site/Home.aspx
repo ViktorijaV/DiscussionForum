@@ -4,7 +4,7 @@
 <asp:Content ID="Content3" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content4" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <div class="row">
+    <div class="row row-separated">
         <div class="col-xs-8">
             <ul class="nav nav-pills">
                 <li id="latest" class="active">Latest</li>
@@ -16,13 +16,8 @@
             <asp:DropDownList ID="ddlCategories" runat="server" CssClass="form-control"></asp:DropDownList>
         </div>
     </div>
-
-    <div class="row">
+    <div class="row row-separated">
         <asp:Table ID="tableTopics" runat="server" class="display" CellSpacing="0" Width="100%">
         </asp:Table>
-
     </div>
-
-    <script src="http://cdn.datatables.net/1.10.12/js/jquery.dataTables.min.js" type="text/javascript"></script>
-    <script src="Scripts/script.js"></script>
 </asp:Content>

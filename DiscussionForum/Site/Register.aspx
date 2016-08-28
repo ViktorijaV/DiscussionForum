@@ -5,27 +5,16 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <title>SmartSet-Register</title>
-
-    <!-- Bootstrap Core CSS -->
     <link href="~/Site/Content/bootstrap.min.css" rel="stylesheet" />
-
-    <!-- Custom Fonts -->
     <link href="~/Site/Fonts/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
-
-    <!-- Custom CSS -->
-    <link href="~/Site/Content/style.css" rel="stylesheet" />
-
-    <script src="Scripts/jquery.min.js"></script>
-    <script src="Scripts/validation.js"></script>
-    <script src="Scripts/JavaScript.js"></script>
-
+    <link rel="stylesheet" href="~/Site/Content/style.css" />
 </head>
-<body>
+<body class="body-without-nav">
     <div class="container">
         <form id="form1" runat="server">
             <div class="row">
                 <div class="col-xs-offset-3 col-xs-6">
-                    <a href="Home.aspx">
+                    <a href="home">
                         <img class="fit-in-div" src="../Storage/logoWithLetters.png" />
                     </a>
                 </div>
@@ -81,8 +70,6 @@
                 </div>
             </div>
             <asp:Button ID="btnRegister" Style="display: none;" runat="server" OnClick="btnRegister_Click" />
-
-
         </form>
         <div class="row">
             <div class="col-xs-offset-4 col-xs-4">
@@ -93,7 +80,7 @@
             <div class="col-xs-offset-4 col-xs-4">
                 <div style="padding-top: 30px; font-size: 90%">
                     Already have an account? 
-                    <a href="Login.aspx">Login Here</a>
+                    <a href="login">Login Here</a>
                 </div>
             </div>
         </div>
@@ -105,6 +92,10 @@
         </div>
     </footer>
 
+    <script src="Site/Scripts/jquery.min.js" type="text/javascript"></script>
+    <script src="Site/Scripts/validation.js" type="text/javascript"></script>
+    <script src="Site/Scripts/JavaScript.js" type="text/javascript"></script>
+
     <!-- This will be moved to PROFILE & EDIT PROFILE -->
     <asp:Label ID="lblLocation" runat="server" Text="Label">Location:</asp:Label>
     <pre id="location"></pre>
@@ -114,3 +105,4 @@
     <pre id="country"></pre>
     <!-- -------------------------------------------- -->
 </body>
+</html>

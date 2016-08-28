@@ -21,7 +21,7 @@ namespace DiscussionForum.Site
         {
             var authenticationService = new FormsAuthenticationService(HttpContext.Current, new SqlConnection(ConfigurationManager.ConnectionStrings["myConnection"].ToString()));
             authenticationService.SignOut();
-            Response.Redirect("Home.aspx");
+            Response.Redirect("home");
         }
     }
 }

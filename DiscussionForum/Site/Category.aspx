@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" AutoEventWireup="true" CodeBehind="CategoryTopics.aspx.cs" Inherits="DiscussionForum.Site.CategoryTopic" %>
+﻿<%@ Page Title="" Language="C#" AutoEventWireup="true" CodeBehind="Category.aspx.cs" Inherits="DiscussionForum.Site.CategoryTopic" %>
 <!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml">

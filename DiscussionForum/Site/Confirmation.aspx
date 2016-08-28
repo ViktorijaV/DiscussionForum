@@ -4,6 +4,6 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <asp:Label ID="lblText" runat="server" Text="Label">
-        <h1>An email has been send to you. Please confirm your account.</h1>
+        <h3>An email has been send to you. Please confirm your account.</h3>
     </asp:Label>
 </asp:Content>

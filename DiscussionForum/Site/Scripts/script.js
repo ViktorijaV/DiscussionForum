@@ -2,6 +2,7 @@
 
     //Add thead to DataTable
     var table = document.getElementById("ContentPlaceHolder1_tableTopics");
+    if (table != null) {
     var header = table.createTHead();
     var row = header.insertRow(0);
     var cell = row.insertCell(0);
@@ -72,4 +73,5 @@
             table.columns(1).search($("#ContentPlaceHolder1_ddlCategories option:selected").html()).draw();
         }
     });
+    }
 });

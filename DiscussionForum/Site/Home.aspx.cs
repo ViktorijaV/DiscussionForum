@@ -49,7 +49,7 @@ namespace DiscussionForum.Site
                 string pictureUrl = null;
                 if (topic.CreatorPicture != "")
                     pictureUrl = topic.CreatorPicture;
-                else pictureUrl = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSTFWzSSRSO-HgqfaWagHCvN5Edt6gVVjDGqn7KO_3nUP-gJfCzvgAJkYCy";
+                else pictureUrl = ConfigurationManager.AppSettings["profileAvatarUrl"];
                 var row = new TableRow();
                 var cell = new TableCell();
                 cell.Text = $"<span class='table-span'>{topic.Name}</span>";

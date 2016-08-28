@@ -7,32 +7,19 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title><%: Page.Title %></title>
-
-    <!-- Bootstrap Core CSS -->
     <link href="~/Site/Content/bootstrap.min.css" rel="stylesheet" />
-
-    <!-- Custom Fonts -->
     <link href="~/Site/Fonts/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
-    
-    <!-- Custom CSS -->
     <link rel="stylesheet" href="~/Site/Content/style.css" />
-
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
-
-    <script src="Scripts/jquery.min.js"></script>
-    <script src="Scripts/bootstrap.min.js"></script>
-    <script src="Scripts/validation.js"></script>
-
 </head>
-<body>
+<body class="body-with-nav">
     <form id="form1" runat="server">
         <div>
-
             <!-- Navigation -->
             <nav class="navbar navbar-default navbar-fixed-top" role="navigation" style="margin-bottom: 0">
                 <div class="navbar-header">
-                    <a class="navbar-brand" href="Home.aspx">
+                    <a class="navbar-brand" href="home">
                         <img src="../Storage/logoWithLetters.png" class="fit-in-div" />
                     </a>
                 </div>
@@ -51,26 +38,21 @@
                     </div>
                     <asp:Button ID="btnLogOut" Style="display: none;" runat="server" OnClick="btnLogOut_Click" />
                 </asp:Panel>
-
                 <!-- /.navbar-top-links -->
                 <asp:Panel ID="panelAnonymous" runat="server">
-
                     <ul class="nav navbar-top-links navbar-right">
                         <li>
-                            <asp:LinkButton ID="btnLogin" runat="server" CssClass="btn btn-default" PostBackUrl="~/Site/Login.aspx">
+                            <asp:LinkButton ID="btnLogin" runat="server" CssClass="btn btn-default" PostBackUrl="~/login">
                         <span class="fa fa-sign-in"></span>&nbsp;Sign In</asp:LinkButton>
                         </li>
                         <li>
-                            <asp:LinkButton ID="btnRegister" runat="server" CssClass="btn btn-default" PostBackUrl="~/Site/Register.aspx">
+                            <asp:LinkButton ID="btnRegister" runat="server" CssClass="btn btn-default" PostBackUrl="~/register">
                         <span class="fa fa-user"></span>&nbsp;Register</asp:LinkButton>
                         </li>
                     </ul>
                 </asp:Panel>
                 <!-- /.navbar-top-links -->
-
-
             </nav>
-
             <div class="container">
                 <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
                 </asp:ContentPlaceHolder>
@@ -81,8 +63,13 @@
                     <p class="m-b-0 text-muted">&copy; <%: DateTime.Now.Year %> - SmartSet</p>
                 </div>
             </footer>
-
         </div>
     </form>
+
+    <script src="Site/Scripts/jquery.min.js" type="text/javascript"></script>
+    <script src="Site/Scripts/bootstrap.min.js" type="text/javascript"></script>
+    <script src="Site/Scripts/validation.js" type="text/javascript"></script>
+    <script src="Site/Scripts/jquery.dataTables.min.js" type="text/javascript"></script>
+    <script src="Site/Scripts/script.js" type="text/javascript"></script>
 </body>
 </html>
