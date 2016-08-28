@@ -11,9 +11,10 @@ namespace DiscussionForum.Site
 {
     public partial class Login : System.Web.UI.Page
     {
+        private FormsAuthenticationService _authenticationService { get; set; }
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            _authenticationService = new FormsAuthenticationService(HttpContext.Current, new SqlConnection(ConfigurationManager.ConnectionStrings["myConnection"].ToString()));
         }
         protected void btnLogin_Click(object sender, EventArgs e)
         {
@@ -42,8 +43,11 @@ namespace DiscussionForum.Site
             if (user.Password != password)
                 return "Wrong password!";
 
-            var authenticationService = new FormsAuthenticationService(HttpContext.Current, new SqlConnection(ConfigurationManager.ConnectionStrings["myConnection"].ToString()));
-            authenticationService.SignIn(user, extendExpirationDate, true);
+            _authenticationService.SignIn(user, extendExpirationDate, true);
+
+            var authenticatedUser = _authenticationService.GetAuthenticatedUser();
+            Session["username"] = authenticatedUser.Username;
+
             return "";
         }
     }

@@ -111,6 +111,7 @@
     <Content Include="Site\Scripts\bootstrap.min.js" />
     <Content Include="Site\Login.aspx" />
     <Content Include="packages.config" />
+    <Content Include="Site\Scripts\croppie.min.js" />
     <Content Include="Site\Scripts\JavaScript.js" />
     <Content Include="Site\Scripts\jquery.dataTables.min.js" />
     <Content Include="Site\Scripts\jquery.min.js" />
@@ -140,14 +141,17 @@
     <Content Include="Site\Register.aspx" />
     <Content Include="Site\Scripts\ai.0.15.0-build58334.js" />
     <Content Include="Site\Scripts\ai.0.15.0-build58334.min.js" />
+    <Content Include="Storage\logo.png" />
     <Content Include="Storage\logoWithLetters.png" />
     <Content Include="Site\Topic.aspx" />
     <Content Include="Site\UserProfile.aspx" />
+    <Content Include="Storage\profileAvatar.png" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AppServices\AuthenticatedUser.cs" />
     <Compile Include="AppServices\FormsAuthenticationService.cs" />
+    <Compile Include="AppServices\UsernameGenerator.cs" />
     <Compile Include="App_Code\Category.cs" />
     <Compile Include="AppServices\EMailSender.cs" />
     <Compile Include="App_Code\TimePeriod.cs" />

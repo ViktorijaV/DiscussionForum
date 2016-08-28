@@ -31,9 +31,12 @@ namespace DiscussionForum.Site
 
             sendEmail(user.ConfirmationCode, user.Email);
 
+            var usernameGenerator = new UsernameGenerator(connection);
+            usernameGenerator.addUsernameToUser(user);
+
             registerUser(connection, user);
 
-            Server.Transfer("confirmation", true);
+            Response.Redirect("confirmation");
         }
 
         private bool checkForExistingUser(SqlConnection connection, string email)
@@ -52,15 +55,15 @@ namespace DiscussionForum.Site
         private void sendEmail(string confirmationCode, string email)
         {
             string message = $@"Please click on the link to confirm your registration: 
-                <a href='{ConfigurationManager.AppSettings["domainName"]}/confirmation?code={confirmationCode}' >Link</a>";
+                <a href='http://{ConfigurationManager.AppSettings["domainName"]}/confirmation?code={confirmationCode}'>Link</a>";
             EMailSender.SendEmail("Confirm your registration", message, email);
         }
 
         private void registerUser(SqlConnection connection, User user)
         {
-            string query = "INSERT INTO Users (Email, Password, Confirmed, ConfirmationCode, Role, Birthdate, Datecreated, Fullname, Gender, Faculty, Country, Avatar)" +
-            "values(@Email, @Password, @Confirmed, @ConfirmationCode, @Role, @Birthdate, @DateCreated, @Fullname, @Gender, @Faculty, @Country, @Avatar)";
-            connection.Execute(query, new { user.Email, user.Password, user.Confirmed, user.ConfirmationCode, user.Role, user.Birthdate, user.DateCreated, user.Fullname, user.Gender, user.Faculty, user.Country, user.Avatar });
+            string query = @"INSERT INTO Users (Email, Username, Password, Confirmed, ConfirmationCode, Role, Birthdate, Datecreated, Fullname, Gender, Faculty, Country, Avatar)
+                             values(@Email, @Username, @Password, @Confirmed, @ConfirmationCode, @Role, @Birthdate, @DateCreated, @Fullname, @Gender, @Faculty, @Country, @Avatar)";
+            connection.Execute(query, new { user.Email, user.Username, user.Password, user.Confirmed, user.ConfirmationCode, user.Role, user.Birthdate, user.DateCreated, user.Fullname, user.Gender, user.Faculty, user.Country, user.Avatar });
         }
     }
 }

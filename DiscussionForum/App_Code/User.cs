@@ -42,6 +42,11 @@ namespace DiscussionForum.App_Code
             return user;
         }
 
+        public void setUsername(string username)
+        {
+            Username = username;
+        }
+
         private static bool isValidEmail(string email)
         {
             const string VALID_EMAIL_REGEX = @"^(?("")("".+?(?<!\\)""@)|(([0-9a-z]((\.(?!\.))|[-!#\$%&'\*\+/=\?\^`\{\}\|~\w])*)(?<=[0-9a-z])@))(?(\[)(\[(\d{1,3}\.){3}\d{1,3}\])|(([0-9a-z][-\w]*[0-9a-z]*\.)+[a-z0-9][\-a-z0-9]{0,22}[a-z0-9]))$";
@@ -68,8 +73,9 @@ namespace DiscussionForum.App_Code
             return false;
         }
 
-        public int ID { get; set; }
-        public string Email { get; set; }
+        public int ID { get; private set; }
+        public string Email { get; private set; }
+        public string Username { get; private set; }
         public string Password { get; set; }
         public string Fullname { get; set; }
         public DateTime DateCreated { get; set; }

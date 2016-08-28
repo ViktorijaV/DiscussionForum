@@ -27,7 +27,7 @@ namespace DiscussionForum.AppServices
         public void SignIn(User user, bool extendExpirationDate, bool createPersistentCookie)
         {
             var now = DateTime.UtcNow.ToLocalTime();
-            var authenticatedUser = new AuthenticatedUser(user.Fullname, user.ID, user.Avatar, user.Role.ToString());
+            var authenticatedUser = new AuthenticatedUser(user.Fullname, user.Username, user.ID, user.Avatar, user.Role.ToString());
 
             if (extendExpirationDate)
             {
@@ -101,7 +101,7 @@ namespace DiscussionForum.AppServices
                 return null;
 
             var user = _connection.Query<User>($"SELECT * FROM Users WHERE Email='{email}'").FirstOrDefault();
-            var authenticatedUser = new AuthenticatedUser(user.Fullname, user.ID, user.Avatar, user.Role.ToString());
+            var authenticatedUser = new AuthenticatedUser(user.Fullname, user.Username, user.ID, user.Avatar, user.Role.ToString());
 
             if (string.IsNullOrEmpty(user.Avatar))
                 authenticatedUser.PhotoUrl = HttpContext.Current.Server.MapPath("");

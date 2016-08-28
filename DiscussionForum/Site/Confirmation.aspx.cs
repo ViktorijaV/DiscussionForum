@@ -25,11 +25,11 @@ namespace DiscussionForum.Site
                         user.Confirmed = true;
                         string updateQuery = $"UPDATE Users SET Confirmed = '{user.Confirmed}' WHERE ID='{user.ID}'";
                         connection.Execute(updateQuery);
-                        lblText.Text = "<h1>Your account is confirmed!</h1>";
+                        lblText.Text = "<h3>Your account is confirmed!</h3>";
                     }
                     else
                     {
-                        lblText.Text = "<h1>User with that confirmation link does not exists!</h1>";
+                        lblText.Text = "<h3>User with that confirmation link does not exists!</h3>";
                     }
                 }
             }
