@@ -116,6 +116,7 @@
     <Content Include="Site\Content\Custom.css" />
     <Content Include="Site\Scripts\JavaScript.js" />
     <Content Include="Site\Scripts\jquery.min.js" />
+    <Content Include="Site\Scripts\script.js" />
     <Content Include="Site\Scripts\validation.js" />
     <Content Include="Site\SiteMaster.Master" />
     <Content Include="ApplicationInsights.config">
@@ -151,6 +152,7 @@
     <Compile Include="AppServices\FormsAuthenticationService.cs" />
     <Compile Include="App_Code\Category.cs" />
     <Compile Include="AppServices\EMailSender.cs" />
+    <Compile Include="App_Code\TimePeriod.cs" />
     <Compile Include="App_Code\Topic.cs" />
     <Compile Include="App_Code\User.cs" />
     <Compile Include="App_Code\Comment.cs" />

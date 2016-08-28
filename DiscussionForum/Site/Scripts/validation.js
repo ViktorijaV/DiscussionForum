@@ -18,6 +18,12 @@ function validateCreateTopic() {
         return false;
     }
 
+    if ($("[id$='txtName']").val().length > 50) {
+        $("[id$='error']").show();
+        $("[id$='error']").text("Name is too long. Please enter name that is smaller than 50 characters.");
+        return false;
+    }
+
     if ($("[id$='txtDescription']").val() == "") {
         $("[id$='error']").show();
         $("[id$='error']").text("Description is required. Please enter description.");
@@ -33,6 +39,12 @@ function validateCreateCategory() {
     if ($("[id$='txtName']").val() == "") {
         $("[id$='error']").show();
         $("[id$='error']").text("Name is required. Please enter name.");
+        return false;
+    }
+
+    if ($("[id$='txtColor']").val() == "") {
+        $("[id$='error']").show();
+        $("[id$='error']").text("Color is required. Please select color.");
         return false;
     }
 

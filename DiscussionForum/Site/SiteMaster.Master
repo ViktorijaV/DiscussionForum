@@ -38,7 +38,7 @@
                 </div>
                 <!-- /.navbar-header -->
                 <asp:Panel ID="panelAuthorized" runat="server">
-                    <div class="dropdown pull-right" style="padding: 10px; min-height: 0px; margin: 15px 10px 15px 10px;">
+                    <div id="btnProfile" class="dropdown pull-right">
                         <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown" aria-expanded="false" style="">
                             <i class="fa fa-user"></i>&nbsp;&nbsp;<span class="caret"></span>
                         </button>
@@ -71,7 +71,7 @@
 
             </nav>
 
-            <div class="container" style="padding: 50px;">
+            <div class="container">
                 <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
                 </asp:ContentPlaceHolder>
             </div>
