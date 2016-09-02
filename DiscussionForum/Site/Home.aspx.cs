@@ -36,6 +36,7 @@ namespace DiscussionForum.Site
                 Topics.Reported      AS Reported,
                 Topics.Closed        AS Closed,
                 Users.Avatar         AS CreatorPicture,
+                Users.Username       AS CreatorUsername,
                 Categories.Name      AS CategoryName,
                 Categories.Color     AS CategoryColor
                 FROM Topics
@@ -46,10 +47,6 @@ namespace DiscussionForum.Site
             
             foreach (var topic in topics)
             {
-                string pictureUrl = null;
-                if (topic.CreatorPicture != "")
-                    pictureUrl = topic.CreatorPicture;
-                else pictureUrl = ConfigurationManager.AppSettings["profileAvatarUrl"];
                 var row = new TableRow();
                 var cell = new TableCell();
                 cell.Text = $"<span class='table-span'>{topic.Name}</span>";
@@ -58,7 +55,7 @@ namespace DiscussionForum.Site
                 cell.Text = $"<span class='table-span' style='background-color:{topic.CategoryColor}; color: #ffffff;'>{topic.CategoryName}</span>";
                 row.Cells.Add(cell);
                 cell = new TableCell();
-                cell.Text = $"<a href='#'><img src='{pictureUrl}' class='table-img'/></a> ";
+                cell.Text = $"<a href='/users/{topic.CreatorUsername}'><img src='{topic.CreatorPicture}' class='table-img'/></a> ";
                 row.Cells.Add(cell);
                 cell = new TableCell();
                 cell.Text = $"<span class='table-span'>{topic.Likes.ToString()}</span>";
@@ -67,13 +64,13 @@ namespace DiscussionForum.Site
                 cell.Text = $"<span class='table-span'>{topic.Replies.ToString()}</span>";
                 row.Cells.Add(cell);
                 cell = new TableCell();
-                cell.Text = $"<span class='table-span'>{TimePeriod.timeDifference(topic.DateCreated)}</span>";
+                cell.Text = $"<span class='table-span'>{TimePeriod.TimeDifference(topic.DateCreated)}</span>";
                 row.Cells.Add(cell);
                 cell = new TableCell();
-                cell.Text = $"<span class='table-span'>{TimePeriod.timeDifference(topic.LastActivity)}</span>";
+                cell.Text = $"<span class='table-span'>{TimePeriod.TimeDifference(topic.LastActivity)}</span>";
                 row.Cells.Add(cell);
                 cell = new TableCell();
-                cell.Text = TimePeriod.timeDifferencesInMiliseconds(topic.DateCreated).ToString();
+                cell.Text = TimePeriod.TimeDifferencesInMiliseconds(topic.DateCreated).ToString();
                 cell.CssClass = "display-none";
                 row.Cells.Add(cell);
                 tableTopics.Rows.Add(row);
@@ -84,7 +81,7 @@ namespace DiscussionForum.Site
         private void loadCategories(SqlConnection connection)
         {
             string sql = $"SELECT * FROM Categories";
-            var categories = connection.Query<Category>(sql).ToList();
+            var categories = connection.Query<App_Code.Category>(sql).ToList();
             ListItem item = new ListItem("All Categories", "0");
             item.Attributes.CssStyle.Value = "backgroud-color: #333333";
             ddlCategories.Items.Add(item);

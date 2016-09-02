@@ -12,6 +12,7 @@ namespace DiscussionForum.DTOs
         public string Description { get; private set; }
         public int CreatorID { get; private set; }
         public string CreatorPicture { get; private set; }
+        public string CreatorUsername { get; private set; }
         public int CategoryID { get; private set; }
         public string CategoryName { get; private set; }
         public string CategoryColor { get; private set; }

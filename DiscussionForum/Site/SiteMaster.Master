@@ -20,7 +20,7 @@
             <nav class="navbar navbar-default navbar-fixed-top" role="navigation" style="margin-bottom: 0">
                 <div class="navbar-header">
                     <a class="navbar-brand" href="home">
-                        <img src="../Storage/logoWithLetters.png" class="fit-in-div" />
+                        <img src="/Storage/logoWithLetters.png" class="fit-in-div" />
                     </a>
                 </div>
                 <!-- /.navbar-header -->
@@ -53,13 +53,13 @@
                 </asp:Panel>
                 <!-- /.navbar-top-links -->
             </nav>
-            <div class="container">
+            <div class="container-fluid">
                 <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
                 </asp:ContentPlaceHolder>
             </div>
             <hr />
             <footer class="footer">
-                <div class="container">
+                <div class="container-fluid">
                     <p class="m-b-0 text-muted">&copy; <%: DateTime.Now.Year %> - SmartSet</p>
                 </div>
             </footer>

@@ -11,7 +11,7 @@ namespace DiscussionForum.App_Code
             Confirmed = false;
         }
 
-        public static User RegisterUser(string email, string fullName, string password, string repeatedPassword, Gender gender, DateTime birthday, string avatarUrl = "", string country = "", string faculty = "")
+        public static User RegisterUser(string email, string fullName, string password, string repeatedPassword, Gender gender, DateTime birthday, string avatarUrl, string country = "", string faculty = "", string bio="")
         {
             var user = new User();
 
@@ -38,6 +38,7 @@ namespace DiscussionForum.App_Code
             user.Country = country;
             user.Faculty = faculty;
             user.Location = null;
+            user.Bio = bio;
 
             return user;
         }
@@ -85,6 +86,7 @@ namespace DiscussionForum.App_Code
         public Gender Gender { get; set; }
         public DateTime Birthdate { get; set; }
         public string Avatar { get; set; }
+        public string Bio { get; set; }
         public string Country { get; set; }
         public string Location { get; set; }
         public string Faculty { get; set; }

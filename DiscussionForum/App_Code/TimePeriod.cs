@@ -8,7 +8,7 @@ namespace DiscussionForum.App_Code
 {
     public class TimePeriod
     {
-        public static string timeDifference(DateTime date)
+        public static string TimeDifference(DateTime date)
         {
             var dateNow = DateTime.Now;
             var difference = dateNow - date;
@@ -27,9 +27,20 @@ namespace DiscussionForum.App_Code
 
         }
 
-        public static double timeDifferencesInMiliseconds(DateTime date)
+        public static double TimeDifferencesInMiliseconds(DateTime date)
         {
             return (DateTime.Now - date).TotalMilliseconds;
+        }
+
+        public static int GetAge(DateTime birthDate)
+        {
+            var date = DateTime.Now; 
+            int age = date.Year - birthDate.Year;
+
+            if (date.Month < birthDate.Month || (date.Month == birthDate.Month && date.Day < birthDate.Day))
+                age--;
+
+            return age;
         }
     }
 }

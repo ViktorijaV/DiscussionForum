@@ -20,7 +20,7 @@ namespace DiscussionForum
             routes.MapPageRoute("CreateCategoryRoute", "admin/category/create", "~/Site/Admin/CreateCategory.aspx");
             routes.MapPageRoute("TopicRoute", "topic/{id}", "~/Site/Topic.aspx");
             routes.MapPageRoute("CreateTopicRoute", "topic/create", "~/Site/CreateTopic.aspx");
-            routes.MapPageRoute("UserProfileRoute", "user/{username}", "~/Site/UserProfile.aspx");
+            routes.MapPageRoute("UserProfileRoute", "users/{username}", "~/Site/UserProfile.aspx");
             routes.MapPageRoute("ConfirmationRoute", "confirmation", "~/Site/Confirmation.aspx");
         }
     }

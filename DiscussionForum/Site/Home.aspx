@@ -17,7 +17,9 @@
         </div>
     </div>
     <div class="row row-separated">
-        <asp:Table ID="tableTopics" runat="server" class="display" CellSpacing="0" Width="100%">
-        </asp:Table>
+        <div class="col-xs-12">
+            <asp:Table ID="tableTopics" runat="server" class="display" CellSpacing="0" Width="100%">
+            </asp:Table>
+        </div>
     </div>
 </asp:Content>
