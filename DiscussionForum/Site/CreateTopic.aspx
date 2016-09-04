@@ -1,96 +1,71 @@
-﻿<%@ Page Title="" Language="C#" AutoEventWireup="true" CodeBehind="CreateTopic.aspx.cs" Inherits="DiscussionForum.Site.CreateTopic" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site/SiteMaster.Master" AutoEventWireup="true" CodeBehind="CreateTopic.aspx.cs" Inherits="DiscussionForum.Site.CreateTopic" %>
 
-
-
-<!DOCTYPE html>
-
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head runat="server">
-    <title>SmartSet-CreateTopic</title>
-
-    <!-- Bootstrap Core CSS -->
-    <link href="~/Site/Content/bootstrap.min.css" rel="stylesheet" />
-
-    <!-- Custom Fonts -->
-    <link href="~/Site/Fonts/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
-
-    <!-- Custom CSS -->
-    <link href="~/Site/Content/style.css" rel="stylesheet" />
-    <link href="~/Site/Content/Custom.css" rel="stylesheet" />
-
-    <script src="Scripts/jquery.min.js"></script>
-    <script src="Scripts/validation.js"></script>
-    <script src="Scripts/JavaScript.js"></script>
-   
-
-</head>
-<body>
-    <div class="container">
-         <form id="form1" runat="server">
-
-
-             <div class="row">
-                <div class="col-xs-offset-3 col-xs-6">
-                    <a href="Home.aspx">
-                        <img class="fit-in-div" src="../Storage/logoWithLetters.png" />
-                    </a>
-                </div>
-            </div>
-            
-        <div class="row">
-            <div class="col-xs-12">
-                <div id="error" runat="server" class="alert alert-danger"></div>
-            </div>
+<asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+</asp:Content>
+<asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+    <div class="row row-separated">
+        <div class="col-xs-12">
+            <h3><span class="fa fa-plus-circle">&nbsp;</span><span>Create new topic</span></h3>
         </div>
-
-     
-        <div class="row">
-             <div class="col-xs-offset-4 col-xs-4 input-group">
-                 <span class="input-group-addon"><i class="fa fa-user"></i></span>
-                 <asp:TextBox ID="txtName" CssClass="form-control" runat="server" placeholder="Name"></asp:TextBox>
-                </div>
-        </div>
-
-      
-
-        <div class="row">
-             <div class="col-xs-offset-4 col-xs-4 input-group">
-                  <span class="input-group-addon"><i class="fa fa-paragraph"></i></span>
-                 <asp:TextBox ID="txtDescription" CssClass="form-control" runat="server" TextMode="MultiLine" placeholder="Description..." Rows="7"></asp:TextBox>
-                </div>
-        </div>
-
-        
-        <div class="row">
-             <div class="col-xs-offset-4 col-xs-4 input-group">
-                 <label for="usr">Category</label>
-                 <div class="input-group">
-
-                    <span class="input-group-addon"><i class="fa fa-th-list"></i></span>
-                    <asp:DropDownList ID="ddlCategories" CssClass="form-control" runat="server" placeholder="Description..."></asp:DropDownList>
-                 </div>
-              </div>
-        </div>
-
-
-             <div class="row">
-             <div class="col-xs-offset-4 col-xs-4 input-group">
-             
-             <asp:Button ID="btnSubmit" Style="display: none;" runat="server" OnClick="btnSumbit_Click" />
-             <button id="btnCreate" class="btn btn-default" onclick="validateCreateTopic(); return false;"><i class="fa fa-plus-square"></i>&nbsp;Create</button>
-       
-
-                </div>
-        </div>
-        
-      
-              </form>
     </div>
-
-     <footer class="footer">
-        <div class="container">
-            <p class="m-b-0 text-muted">&copy; <%: DateTime.Now.Year %> - SmartSet</p>
+    <div class="row row-separated">
+        <div class="col-xs-10">
+            <div class="row">
+                <div class="col-xs-12">
+                    <div id="error" runat="server" class="alert alert-danger display-none"></div>
+                </div>
+            </div>
+            <div class="row separated">
+                <div class="col-xs-6">
+                    <h4>Title</h4>
+                    <asp:TextBox ID="txtTitle" runat="server" CssClass="form-control"></asp:TextBox>
+                </div>
+                <div class="col-xs-6"></div>
+            </div>
+            <div class="row row-separated">
+                <div class="col-xs-4">
+                    <h4>Category</h4>
+                    <asp:DropDownList ID="ddlCategories" runat="server" CssClass="form-control"></asp:DropDownList>
+                </div>
+                <div class="col-xs-8"></div>
+            </div>
+            <div class="row row-separated">
+                <div class="col-xs-12">
+                    <h4>Description</h4>
+                    <asp:TextBox ID="txtDescription" runat="server" CssClass="form-control" TextMode="MultiLine" MaxLength="700"></asp:TextBox>
+                </div>
+            </div>
         </div>
-    </footer>
-    
-</body>
+        <div class="col-xs-2">
+            <div class="row row-separated">
+                <div class="col-xs-12">
+                    <h4>Properties</h4>
+                    <hr />
+                </div>
+            </div>
+            <div class="row row-separated">
+                <div class="col-xs-12">
+                    <h5>Created by:</h5>
+                    <asp:Image ID="currentUser" runat="server" CssClass="half-size" />
+                </div>
+            </div>
+            <div class="row row-separated">
+                <div class="col-xs-12">
+                    <h5>Status:</h5>
+                    <span>Open</span>
+                </div>
+            </div>
+            <div class="row row-separated">
+                <div class="col-xs-12">
+                    <button class="btn btn-default btn-fit">Suggest creating new category</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row row-separated">
+        <div class="col-xs-12">
+            <button id="btnCreate" class="btn btn-default" onclick="validateCreateTopic(); return false;">Post</button>
+            <asp:Button ID="btnSubmit" Style="display: none;" runat="server" OnClick="btnSubmit_Click" />
+        </div>
+    </div>
+</asp:Content>

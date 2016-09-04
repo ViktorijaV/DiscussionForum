@@ -35,7 +35,7 @@ namespace DiscussionForum.Site
         {
             string sql = $@"SELECT
                 Topics.ID            AS ID,
-                Topics.Name          AS Name,
+                Topics.Title         AS Title,
                 Topics.CreatorID     AS CreatorID,
                 Topics.CategoryID    AS CategoryID,
                 Topics.DateCreated   AS DateCreated,
@@ -64,7 +64,7 @@ namespace DiscussionForum.Site
                 else pictureUrl = ConfigurationManager.AppSettings["profileAvatarUrl"];
                 var row = new TableRow();
                 var cell = new TableCell();
-                cell.Text = $"<span class='table-span'>{topic.Name}</span>";
+                cell.Text = $"<span class='table-span'>{topic.Title}</span>";
                 row.Cells.Add(cell);
                 cell = new TableCell();
                 cell.Text = $"<span class='table-span' style='background-color:{topic.CategoryColor}; color: #ffffff;'>{topic.CategoryName}</span>";

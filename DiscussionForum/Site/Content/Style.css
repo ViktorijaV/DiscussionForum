@@ -88,6 +88,17 @@
     max-width: 100%;
 }
 
+.btn-fit {
+    max-height: 100%;
+    max-width: 100%;
+    white-space: normal !important;
+}
+
+.half-size{
+    max-height: 50%;
+    max-width: 50%;
+}
+
 
 .input-group {
     margin-bottom: 15px;

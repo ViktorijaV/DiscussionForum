@@ -1,24 +1,20 @@
-﻿$(document).ready(function () {
+﻿function encodeHtml(value) {
+    return $('<div/>').text(value).html();
+}
 
-    $("#error").show();
-    if ($("#error").text() == "") {
-        $("#error").hide();
-    }
-
-    $("[id$='error']").show();
-    if ($("[id$='error']").text() == "") {
-        $("[id$='error']").hide();
-    }
-});
+function decodeHtml(value) {
+    return $('<div/>').html(value).text();
+}
 
 function validateCreateTopic() {
-    if ($("[id$='txtName']").val() == "") {
+
+    if ($("[id$='txtTitle']").val() == "") {
         $("[id$='error']").show();
         $("[id$='error']").text("Name is required. Please enter name.");
         return false;
     }
 
-    if ($("[id$='txtName']").val().length > 50) {
+    if ($("[id$='txtTitle']").val().length > 50) {
         $("[id$='error']").show();
         $("[id$='error']").text("Name is too long. Please enter name that is smaller than 50 characters.");
         return false;
@@ -30,6 +26,17 @@ function validateCreateTopic() {
         return false;
     }
 
+    $("[id$='txtDescription']").val(encodeHtml($("[id$='txtDescription']").val()));
+
+    if ($("[id$='txtDescription']").val().length > 5000) {
+        $("[id$='error']").show();
+        $("[id$='error']").text("Description is too long. Please enter smaller description.");
+        return false;
+    }
+
+    tinymce.activeEditor.remove();
+    $("[id$='txtDescription']").val(encodeHtml($("[id$='txtDescription']").val()));
+    
     $("[id$='error']").text("");
     $("[id$='error']").hide();
     $("[id$='btnSubmit']").trigger('click');

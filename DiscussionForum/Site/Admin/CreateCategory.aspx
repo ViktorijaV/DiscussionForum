@@ -6,7 +6,7 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <div class="row">
         <div class="col-xs-12">
-            <div id="error" runat="server" class="alert alert-danger"></div>
+            <div id="error" runat="server" class="alert alert-danger display-none"></div>
         </div>
     </div>
     <div class="row">

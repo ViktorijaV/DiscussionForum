@@ -8,7 +8,7 @@ namespace DiscussionForum.DTOs
     public class TopicDto
     {
         public int ID { get; private set; }
-        public string Name { get; private set; }
+        public string Title { get; private set; }
         public string Description { get; private set; }
         public int CreatorID { get; private set; }
         public string CreatorPicture { get; private set; }

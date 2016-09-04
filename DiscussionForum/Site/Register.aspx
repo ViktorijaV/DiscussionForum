@@ -21,7 +21,7 @@
             </div>
             <div class="row row-centered">
                 <div class="col-xs-offset-4 col-xs-4">
-                    <div id="error" runat="server" class="alert alert-danger"></div>
+                    <div id="error" runat="server" class="alert alert-danger display-none"></div>
                 </div>
             </div>
             <div class="row">
@@ -92,8 +92,9 @@
         </div>
     </footer>
 
-    <script src="Site/Scripts/jquery.min.js" type="text/javascript"></script>
-    <script src="Site/Scripts/validation.js" type="text/javascript"></script>
+    <script src="/Site/Scripts/jquery.min.js" type="text/javascript"></script>
+    <script src="/Site/Scripts/validation.js" type="text/javascript"></script>
+    <script src="/Site/Scripts/script.js" type="text/javascript"></script>
     <script src="Site/Scripts/JavaScript.js" type="text/javascript"></script>
 
     <!-- This will be moved to PROFILE & EDIT PROFILE -->

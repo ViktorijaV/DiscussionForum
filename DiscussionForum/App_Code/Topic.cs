@@ -8,11 +8,11 @@ namespace DiscussionForum.App_Code
     public class Topic
     {
 
-        public Topic(int creatorId, int categoryId, string name, string description)
+        public Topic(int creatorId, int categoryId, string title, string description)
         {
             CreatorID = creatorId;
             CategoryID = categoryId;
-            Name = name;
+            Title = title;
             Description = description;
             DateCreated = DateTime.Now;
             LastActivity = DateCreated;
@@ -25,7 +25,7 @@ namespace DiscussionForum.App_Code
         public int ID { get; private set; }
         public int CreatorID { get; private set; }
         public int CategoryID { get; private set; }
-        public string Name { get; private set; }
+        public string Title { get; private set; }
         public string Description { get; private set; }
         public int Likes { get; private set; }
         public int Replies { get; private set; }

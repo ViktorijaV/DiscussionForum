@@ -1,43 +1,54 @@
 ﻿using Dapper;
-using DiscussionForum.App_Code;
-using DiscussionForum.AppServices;
 using System;
-using System.Configuration;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Web;
 using System.Web.UI.WebControls;
+using System.Configuration;
+using DiscussionForum.AppServices;
 
 namespace DiscussionForum.Site
 {
     public partial class CreateTopic : System.Web.UI.Page
     {
+        private SqlConnection _connection { get; set; }
+
+        private FormsAuthenticationService _authenticationService { get; set; }
+
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (!IsPostBack)
-                loadCategories(new SqlConnection(ConfigurationManager.ConnectionStrings["myConnection"].ToString()));
+            _connection = new SqlConnection(ConfigurationManager.ConnectionStrings["myConnection"].ToString());
+            _authenticationService = new FormsAuthenticationService(HttpContext.Current, _connection);
+            var user = getCurrentUser();
+            currentUser.ImageUrl = user.PhotoUrl;
+            loadCategories(_connection);
         }
 
-        protected void btnSumbit_Click(object sender, EventArgs e)
+        protected void btnSubmit_Click(object sender, EventArgs e)
         {
-            var authenticationService = new FormsAuthenticationService(HttpContext.Current, new SqlConnection(ConfigurationManager.ConnectionStrings["myConnection"].ToString()));
-            var currenUser = authenticationService.GetAuthenticatedUser();
+            var currentUser = getCurrentUser();
+            var description = Server.HtmlEncode(txtDescription.Text);
+            var topic = new App_Code.Topic(currentUser.Id, int.Parse(ddlCategories.SelectedItem.Value), txtTitle.Text, description);
 
-            var topic = new App_Code.Topic(currenUser.Id, int.Parse(ddlCategories.SelectedItem.Value), txtName.Text, txtDescription.Text);
+            createTopic(_connection, topic);
 
-            SqlConnection connection = new SqlConnection(ConfigurationManager.ConnectionStrings["myConnection"].ToString());
+            Response.RedirectToRoute("TopicRoute", new { id = topic.ID });
+        }
 
-            createTopic(connection, topic);
+        private AuthenticatedUser getCurrentUser()
+        {
+            var currentUser = _authenticationService.GetAuthenticatedUser();
+            return currentUser;
         }
 
         private void createTopic(SqlConnection connection, App_Code.Topic topic)
         {
-            string query = "INSERT INTO Topics (CreatorID, CategoryID, Name, Description, Likes, Replies, Reported, Closed, DateCreated, LastActivity)" +
-            "values(@CreatorID, @CategoryID, @Name, @Description, @Likes, @Replies, @Reported, @Closed, @DateCreated, @LastActivity)";
-            connection.Execute(query, new { topic.CreatorID, topic.CategoryID, topic.Name, topic.Description, topic.Likes, topic.Replies, topic.Reported, topic.Closed, topic.DateCreated, topic.LastActivity });
+            string query = "INSERT INTO Topics (CreatorID, CategoryID, Title, Description, Likes, Replies, Reported, Closed, DateCreated, LastActivity)" +
+            "values(@CreatorID, @CategoryID, @Title, @Description, @Likes, @Replies, @Reported, @Closed, @DateCreated, @LastActivity)";
+            connection.Execute(query, new { topic.CreatorID, topic.CategoryID, topic.Title, topic.Description, topic.Likes, topic.Replies, topic.Reported, topic.Closed, topic.DateCreated, topic.LastActivity });
         }
 
-        private void loadCategories(SqlConnection connection) 
+        private void loadCategories(SqlConnection connection)
         {
             string sql = $"SELECT * FROM Categories";
             var categories = connection.Query<App_Code.Category>(sql).ToList();

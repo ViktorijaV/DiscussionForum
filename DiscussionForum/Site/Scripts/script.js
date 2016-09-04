@@ -1,5 +1,53 @@
 ﻿$(document).ready(function () {
 
+$(window).load(function() {
+			// Animate loader off screen
+			$("#loader").animate({
+				top: -200
+			}, 1500);
+		});
+
+    if ($("#error").text() == "") {
+        $("#error").hide();
+    }
+
+    if ($("[id$='error']").text() == "") {
+        $("[id$='error']").hide();
+    }
+
+    //Text Editor
+    tinymce.init({
+        selector: 'textarea',
+        height : '350',
+        plugins: 'codesample link emoticons paste',
+        toolbar1: 'undo redo | styleselect | alignleft aligncenter alignright | bullist numlist ',
+        toolbar2: 'bold italic codesample code | link | emoticons | forecolor backcolor',
+        menubar: false,
+        statusbar: false,
+        browser_spellcheck: true,
+        paste_remove_styles: true,
+        paste_as_text: true,
+        setup: function (editor) {
+            editor.on('change', function () {
+                tinymce.triggerSave();
+            });
+        },
+        codesample_languages: [
+              { text: 'HTML/XML', value: 'markup' },
+              { text: 'JavaScript', value: 'javascript' },
+              { text: 'CSS', value: 'css' },
+              { text: 'PHP', value: 'php' },
+              { text: 'Ruby', value: 'ruby' },
+              { text: 'Python', value: 'python' },
+              { text: 'Java', value: 'java' },
+              { text: 'C', value: 'c' },
+              { text: 'C#', value: 'csharp' },
+              { text: 'C++', value: 'cpp' },
+              { text: 'Other', value: 'txt' }
+        ]
+    });
+
+
     //Add thead to DataTable
     var table = document.getElementById("ContentPlaceHolder1_tableTopics");
     if (table != null) {
