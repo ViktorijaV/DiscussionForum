@@ -51,6 +51,7 @@ namespace DiscussionForum.Site
                 WHERE CategoryFollowers.CategoryID = {categoryID}";
 
             var followers = connection.Query<CategoryFollowerDTO>(sql).ToList();
+            listFollowers.Controls.Clear();
             foreach (var follower in followers)
             {
                 if (currentUser != null && follower.FollowerID == currentUser.Id)
@@ -153,6 +154,8 @@ namespace DiscussionForum.Site
 
             btnFollow.Style.Add("display", "none");
             btnUnfollow.Style.Add("display", "inline-block");
+
+            loadFollowers(connection, categoryID, currentUser);
         }
 
         protected void btnUnfollow_Click(object sender, EventArgs e)
@@ -173,6 +176,8 @@ namespace DiscussionForum.Site
 
             btnUnfollow.Style.Add("display", "none");
             btnFollow.Style.Add("display", "inline-block");
+
+            loadFollowers(connection, categoryID, currentUser);
         }
     }
 }

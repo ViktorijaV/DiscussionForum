@@ -11,8 +11,17 @@
     padding-top: 30px;
 }
 
+.full-height {
+    height: 100%;
+}
+
 .display-none {
     display: none;
+}
+
+.fit-in-div {
+    max-height: 100%;
+    max-width: 100%;
 }
 
 .sorter-false {
@@ -26,6 +35,17 @@
     margin: 20px;
     display: inline-block;
 }
+
+.half-size {
+    max-height: 50%;
+    max-width: 50%;
+}
+
+.row-centered {
+    text-align: center;
+}
+
+/*Profile card*/ 
 
 .profile-card {
     min-height: 300px;
@@ -55,6 +75,13 @@
     font-weight: bold;
 }
 
+/*List group*/
+
+.list-group {
+    max-height: 400px;
+    overflow-y: auto;
+}
+
 .list-group-img {
     height: 25px;
     margin-right: 5px;
@@ -65,19 +92,13 @@
     height: 47px;
 }
 
-.full-height {
-    height: 100%;
-}
+
+/*Buttons*/
 
 .btn-default {
     color: #fff;
     background-color: #40a8cc;
     border-color: #d4d4d4;
-}
-
-.fit-in-div {
-    max-height: 100%;
-    max-width: 100%;
 }
 
 .btn-fit {
@@ -86,25 +107,27 @@
     white-space: normal !important;
 }
 
-.half-size {
-    max-height: 50%;
-    max-width: 50%;
+.btn-dropdown {
+    background: transparent;
+}
+.btn-dropdown:active, .btn-dropdown:focus, .btn-dropdown:hover, .btn-dropdown:focus:hover, .btn-dropdown:active:focus{
+    outline: none;
+    box-shadow: none;
 }
 
-.input-group {
-    margin-bottom: 15px;
-}
-
-.row-centered {
-    text-align: center;
-}
-
-
-#btnLogin, #btnRegister, #btnProfile {
+#btnLogin, #btnRegister {
     padding: 8px 5px;
     min-height: 0px;
     margin: 15px 10px;
 }
+
+#btnProfile{
+    padding: 8px 5px;
+    min-height: 0px;
+    margin: 5px 10px;
+}
+
+/*Dropdown*/
 
 .my-dropdown {
     height: 50px;
@@ -171,6 +194,11 @@
         font-weight: bold;
     }
 
+/*Input group*/
+
+.input-group {
+    margin-bottom: 15px;
+}
 
 .input-group-addon {
     background-color: transparent;
@@ -178,6 +206,8 @@
     border-bottom: 1px solid #ccc;
     border-radius: 0px;
 }
+
+/*Form controls*/
 
 .form-control {
     border: none;
@@ -193,6 +223,7 @@
     }
 
 
+/*Panel*/
 .panel {
     height: 8em;
     width: 20em;

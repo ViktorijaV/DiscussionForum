@@ -26,8 +26,13 @@
                 <!-- /.navbar-header -->
                 <asp:Panel ID="panelAuthorized" runat="server">
                     <div id="btnProfile" class="dropdown pull-right">
-                        <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown" aria-expanded="false" style="">
-                            <i class="fa fa-user"></i>&nbsp;&nbsp;<span class="caret"></span>
+                        <button class="btn btn-dropdown dropdown-toggle" type="button" data-toggle="dropdown" aria-expanded="false" >
+                           <%-- style="
+    border: none;
+    background: transparent;
+    color: #333;
+">--%>
+                            <img src="/Storage/profileAvatar.png" class="img-rounded pull-left list-group-img"><span class="caret"></span>
                         </button>
                         <ul class="dropdown-menu">
                             <li><a id="linkProfile" href="user/" runat="server"><i class="fa fa-cog"></i>&nbsp;&nbsp;My Profile</a></li>
