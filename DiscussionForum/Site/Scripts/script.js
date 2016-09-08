@@ -95,19 +95,19 @@
         $("#latest").click(function () {
             var $navpill = $(this);
             table.order([7, 'asc']).draw();
-            $(".nav-pills>li.active").removeClass("active");
+            $(".nav-tabs>li.active").removeClass("active");
             $navpill.addClass("active");
         });
         $("#top").click(function () {
             var $navpill = $(this);
             table.order([4, 'desc']).draw();
-            $(".nav-pills>li.active").removeClass("active");
+            $(".nav-tabs>li.active").removeClass("active");
             $navpill.addClass("active");
         });
         $("#most-popular").click(function () {
             var $navpill = $(this);
             table.order([3, 'desc']).draw();
-            $(".nav-pills>li.active").removeClass("active");
+            $(".nav-tabs>li.active").removeClass("active");
             $navpill.addClass("active");
         });
 

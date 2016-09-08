@@ -15,7 +15,7 @@
         <div class="col-xs-9">
             <div class="row row-separated">
                 <div class="col-xs-12">
-                    <ul class="nav nav-pills">
+                    <ul class="nav nav-tabs">
                         <li id="latest" class="active">Latest</li>
                         <li id="top">Top</li>
                         <li id="most-popular">Most Popular</li>

@@ -45,7 +45,7 @@
     text-align: center;
 }
 
-/*Profile card*/ 
+/*Profile card*/
 
 .profile-card {
     min-height: 300px;
@@ -110,10 +110,11 @@
 .btn-dropdown {
     background: transparent;
 }
-.btn-dropdown:active, .btn-dropdown:focus, .btn-dropdown:hover, .btn-dropdown:focus:hover, .btn-dropdown:active:focus{
-    outline: none;
-    box-shadow: none;
-}
+
+    .btn-dropdown:active, .btn-dropdown:focus, .btn-dropdown:hover, .btn-dropdown:focus:hover, .btn-dropdown:active:focus {
+        outline: none;
+        box-shadow: none;
+    }
 
 #btnLogin, #btnRegister {
     padding: 8px 5px;
@@ -121,7 +122,7 @@
     margin: 15px 10px;
 }
 
-#btnProfile{
+#btnProfile {
     padding: 8px 5px;
     min-height: 0px;
     margin: 5px 10px;
@@ -175,24 +176,30 @@
 /*
     Nav-pills
 */
-.nav-pills > li {
-    color: #094074;
+.nav-tabs > li {
+    color: #333;
     border-radius: 5px;
-    padding: 10px;
-    margin: 2px;
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+    margin-right: 2px;
+    position: relative;
+    display: block;
+    padding: 10px 15px;
 }
 
-    .nav-pills > li:hover, .nav-pills > li:focus {
-        background-color: #e7e7e7;
+    .nav-tabs > li:hover, .nav-tabs > li:focus {
+        /*background-color: #e7e7e7;*/
         cursor: pointer;
     }
 
-    .nav-pills > li.active {
-        background-color: #094074;
-        color: #fff;
-        padding: 10px 15px;
-        font-weight: bold;
-    }
+.nav-tabs > li.active {
+    color: #408acc;
+    font-weight: bold;
+    cursor: pointer;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-bottom-color: #fff;
+}
 
 /*Input group*/
 

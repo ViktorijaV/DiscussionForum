@@ -26,12 +26,7 @@
                 <!-- /.navbar-header -->
                 <asp:Panel ID="panelAuthorized" runat="server">
                     <div id="btnProfile" class="dropdown pull-right">
-                        <button class="btn btn-dropdown dropdown-toggle" type="button" data-toggle="dropdown" aria-expanded="false" >
-                           <%-- style="
-    border: none;
-    background: transparent;
-    color: #333;
-">--%>
+                        <button class="btn btn-dropdown dropdown-toggle" type="button" data-toggle="dropdown" aria-expanded="false">
                             <img src="/Storage/profileAvatar.png" class="img-rounded pull-left list-group-img"><span class="caret"></span>
                         </button>
                         <ul class="dropdown-menu">
