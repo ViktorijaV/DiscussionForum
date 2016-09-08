@@ -25,8 +25,12 @@ namespace DiscussionForum.Site
             if (errorMessage != "")
                 error.InnerText = errorMessage;
 
-            //TODO: implement returlurl 
-            else Response.Redirect("home");
+            else {
+                var returnUrl = Request.QueryString["ReturnUrl"];
+                if (returnUrl != null)
+                    Response.Redirect(returnUrl);
+                else Response.Redirect("home");
+            }
         }
 
         private string loginUser(SqlConnection connection, string email, string password, bool extendExpirationDate)
