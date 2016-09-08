@@ -20,6 +20,8 @@ namespace DiscussionForum.Site
             _connection = new SqlConnection(ConfigurationManager.ConnectionStrings["myConnection"].ToString());
             _authenticationService = new FormsAuthenticationService(HttpContext.Current, _connection);
             var user = getCurrentUser();
+            if (user == null)
+                Response.Redirect("~/login?ReturnUrl=%2fcategory%2fcreate");
             currentUser.ImageUrl = user.PhotoUrl;
             loadCategories(_connection);
         }
@@ -32,6 +34,7 @@ namespace DiscussionForum.Site
 
             createTopic(_connection, topic);
 
+            //This is not correct!
             Response.RedirectToRoute("TopicRoute", new { id = topic.ID });
         }
 

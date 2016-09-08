@@ -43,7 +43,7 @@ namespace DiscussionForum.Site
                 INNER JOIN Users ON Users.ID=Topics.CreatorID
                 INNER JOIN Categories ON Categories.ID=Topics.CategoryID";
 
-            var topics = connection.Query<TopicDto>(sql).ToList();
+            var topics = connection.Query<TopicDTO>(sql).ToList();
             
             foreach (var topic in topics)
             {

@@ -1,11 +1,15 @@
 ﻿using Dapper;
 using DiscussionForum.App_Code;
+using DiscussionForum.AppServices;
 using DiscussionForum.DTOs;
 using System;
 using System.Configuration;
 using System.Data.SqlClient;
 using System.Linq;
+using System.Web;
+using System.Web.Security;
 using System.Web.UI;
+using System.Web.UI.HtmlControls;
 using System.Web.UI.WebControls;
 
 namespace DiscussionForum.Site
@@ -14,16 +18,18 @@ namespace DiscussionForum.Site
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            int categoryId = Convert.ToInt32(Page.RouteData.Values["id"]);
+            int categoryID = Convert.ToInt32(Page.RouteData.Values["id"]);
             var sqlConnection = new SqlConnection(ConfigurationManager.ConnectionStrings["myConnection"].ToString());
-            loadCategory(sqlConnection, categoryId);
-            loadTopics(sqlConnection, categoryId);
+            var currentUser = new FormsAuthenticationService(HttpContext.Current, sqlConnection).GetAuthenticatedUser();
+            loadCategory(sqlConnection, categoryID);
+            loadTopics(sqlConnection, categoryID);
+            loadFollowers(sqlConnection, categoryID, currentUser);
         }
 
-        private void loadCategory(SqlConnection connection, int categoryId)
+        private void loadCategory(SqlConnection connection, int categoryID)
         {
             string sql = $@"SELECT * FROM Categories
-                WHERE Categories.ID = {categoryId}";
+                WHERE Categories.ID = {categoryID}";
 
             var category = connection.Query<App_Code.Category>(sql).FirstOrDefault();
 
@@ -31,7 +37,44 @@ namespace DiscussionForum.Site
             categoryName.ForeColor = System.Drawing.ColorTranslator.FromHtml(category.Color);
         }
 
-        private void loadTopics(SqlConnection connection, int categoryId)
+        private void loadFollowers(SqlConnection connection, int categoryID, AuthenticatedUser currentUser)
+        {
+            btnUnfollow.Style.Add("display", "none");
+
+            string sql = $@"SELECT
+                CategoryFollowers.FollowerID    AS FollowerID,
+                Users.Avatar                    AS FollowerPicture,
+                Users.Username                  AS FollowerUsername,
+                Users.Fullname                  AS FollowerFullname
+                FROM CategoryFollowers
+                INNER JOIN Users ON Users.ID=CategoryFollowers.FollowerID
+                WHERE CategoryFollowers.CategoryID = {categoryID}";
+
+            var followers = connection.Query<CategoryFollowerDTO>(sql).ToList();
+            foreach (var follower in followers)
+            {
+                if (currentUser != null && follower.FollowerID == currentUser.Id)
+                {
+                    btnFollow.Style.Add("display", "none");
+                    btnUnfollow.Style.Add("display", "inline-block");
+                }
+                var li = new HtmlGenericControl("li");
+                li.Attributes.Add("class", "list-group-item");
+                li.InnerHtml = $"<a href='/users/{follower.FollowerUsername}'><img src='{follower.FollowerPicture}' class='img-rounded pull-left list-group-img'/>{follower.FollowerFullname}</a>";
+                listFollowers.Controls.Add(li);
+            }
+
+            if (followers.Count == 0)
+            {
+                var li = new HtmlGenericControl("li");
+                li.Attributes.Add("class", "list-group-item");
+                li.InnerText = "No followers";
+                listFollowers.Controls.Add(li);
+            }
+
+        }
+
+        private void loadTopics(SqlConnection connection, int categoryID)
         {
             string sql = $@"SELECT
                 Topics.ID            AS ID,
@@ -52,9 +95,9 @@ namespace DiscussionForum.Site
                 FROM Topics
                 INNER JOIN Users ON Users.ID=Topics.CreatorID
                 INNER JOIN Categories ON Categories.ID=Topics.CategoryID
-                WHERE Topics.CategoryID = {categoryId}";
+                WHERE Topics.CategoryID = {categoryID}";
 
-            var topics = connection.Query<TopicDto>(sql).ToList();
+            var topics = connection.Query<TopicDTO>(sql).ToList();
 
             foreach (var topic in topics)
             {
@@ -93,5 +136,43 @@ namespace DiscussionForum.Site
 
         }
 
+        protected void btnFollow_Click(object sender, EventArgs e)
+        {
+            var connection = new SqlConnection(ConfigurationManager.ConnectionStrings["myConnection"].ToString());
+            var currentUser = new FormsAuthenticationService(HttpContext.Current, connection).GetAuthenticatedUser();
+            int categoryID = Convert.ToInt32(Page.RouteData.Values["id"]);
+
+            if (currentUser == null)
+                Response.Redirect($"~/login?ReturnUrl=%2fcategory%2f{categoryID}");
+
+            var categoryFollower = new CategoryFollower(categoryID, currentUser.Id);
+
+            string query = @"INSERT INTO CategoryFollowers (CategoryID, FollowerID)
+                             values(@CategoryID, @FollowerID)";
+            connection.Execute(query, new { categoryFollower.CategoryID, categoryFollower.FollowerID });
+
+            btnFollow.Style.Add("display", "none");
+            btnUnfollow.Style.Add("display", "inline-block");
+        }
+
+        protected void btnUnfollow_Click(object sender, EventArgs e)
+        {
+            var connection = new SqlConnection(ConfigurationManager.ConnectionStrings["myConnection"].ToString());
+            var currentUser = new FormsAuthenticationService(HttpContext.Current, connection).GetAuthenticatedUser();
+            int categoryID = Convert.ToInt32(Page.RouteData.Values["id"]);
+
+            if (currentUser == null)
+                Response.Redirect($"~/login?ReturnUrl=%2fcategory%2f{categoryID}");
+
+            var categoryFollower = new CategoryFollower(categoryID, currentUser.Id);
+
+            string query = @"DELETE FROM CategoryFollowers 
+                             WHERE CategoryID = @CategoryID 
+                             AND FollowerID = @FollowerID";
+            connection.Execute(query, new { categoryFollower.CategoryID, categoryFollower.FollowerID });
+
+            btnUnfollow.Style.Add("display", "none");
+            btnFollow.Style.Add("display", "inline-block");
+        }
     }
 }

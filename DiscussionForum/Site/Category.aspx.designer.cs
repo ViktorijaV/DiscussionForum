@@ -22,6 +22,24 @@ namespace DiscussionForum.Site {
         protected global::System.Web.UI.WebControls.Label categoryName;
         
         /// <summary>
+        /// btnFollow control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton btnFollow;
+        
+        /// <summary>
+        /// btnUnfollow control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton btnUnfollow;
+        
+        /// <summary>
         /// tableTopics control.
         /// </summary>
         /// <remarks>
@@ -29,5 +47,14 @@ namespace DiscussionForum.Site {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Table tableTopics;
+        
+        /// <summary>
+        /// listFollowers control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl listFollowers;
     }
 }

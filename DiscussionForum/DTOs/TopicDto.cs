@@ -5,7 +5,7 @@ using System.Web;
 
 namespace DiscussionForum.DTOs
 {
-    public class TopicDto
+    public class TopicDTO
     {
         public int ID { get; private set; }
         public string Title { get; private set; }
