@@ -52,6 +52,11 @@ namespace DiscussionForum.Site
 
             var followers = connection.Query<CategoryFollowerDTO>(sql).ToList();
             listFollowers.Controls.Clear();
+            var heading = new HtmlGenericControl("li");
+            heading.Attributes.Add("class", "list-group-item list-group-item-heading");
+            heading.InnerText = "FOLLOWERS";
+            listFollowers.Controls.Add(heading);
+
             foreach (var follower in followers)
             {
                 if (currentUser != null && follower.FollowerID == currentUser.Id)
@@ -108,13 +113,13 @@ namespace DiscussionForum.Site
                 else pictureUrl = ConfigurationManager.AppSettings["profileAvatarUrl"];
                 var row = new TableRow();
                 var cell = new TableCell();
-                cell.Text = $"<span class='table-span'>{topic.Title}</span>";
+                cell.Text = $"<a href='/topic/{topic.ID}'><span class='table-span'>{topic.Title}</span></a>";
                 row.Cells.Add(cell);
                 cell = new TableCell();
-                cell.Text = $"<span class='table-span' style='background-color:{topic.CategoryColor}; color: #ffffff;'>{topic.CategoryName}</span>";
+                cell.Text = $"<a href='/category/{topic.CategoryID}'><span class='table-span' style='background-color:{topic.CategoryColor}; color: #ffffff;'>{topic.CategoryName}</span></a>";
                 row.Cells.Add(cell);
                 cell = new TableCell();
-                cell.Text = $"<a href='/users/{topic.CreatorUsername}'><img src='{topic.CreatorPicture}' class='table-img'/></a> ";
+                cell.Text = $"<a href='/users/{topic.CreatorUsername}'><img src='{topic.CreatorPicture}' class='img-rounded table-img'/></a> ";
                 row.Cells.Add(cell);
                 cell = new TableCell();
                 cell.Text = $"<span class='table-span'>{topic.Likes.ToString()}</span>";

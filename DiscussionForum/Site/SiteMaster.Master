@@ -42,11 +42,11 @@
                 <asp:Panel ID="panelAnonymous" runat="server">
                     <ul class="nav navbar-top-links navbar-right">
                         <li>
-                            <asp:LinkButton ID="btnLogin" runat="server" CssClass="btn btn-default" PostBackUrl="~/login">
-                        <span class="fa fa-sign-in"></span>&nbsp;Sign In</asp:LinkButton>
+                            <asp:LinkButton ID="btnLogin" runat="server" CssClass="link-effect" PostBackUrl="~/login" data-hover="Login">
+                        <span class="fa fa-sign-in"></span>&nbsp;Login</asp:LinkButton>
                         </li>
                         <li>
-                            <asp:LinkButton ID="btnRegister" runat="server" CssClass="btn btn-default" PostBackUrl="~/register">
+                            <asp:LinkButton ID="btnRegister" runat="server" CssClass="link-effect" PostBackUrl="~/register" data-hover="Register">
                         <span class="fa fa-user"></span>&nbsp;Register</asp:LinkButton>
                         </li>
                     </ul>

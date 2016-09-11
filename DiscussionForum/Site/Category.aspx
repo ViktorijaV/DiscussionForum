@@ -30,8 +30,8 @@
             </div>
         </div>
         <div class="col-xs-3">
-            <h3>Followers</h3>
             <ul id="listFollowers" class="list-group" runat="server">
+                <li class="list-group-item list-group-item-heading">FOLLOWERS</li>
             </ul>
         </div>
     </div>

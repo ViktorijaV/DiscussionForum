@@ -27,25 +27,25 @@
             <div class="row">
                 <div class="col-xs-offset-4 col-xs-4 input-group">
                     <span class="input-group-addon"><i class="fa fa-envelope"></i></span>
-                    <asp:TextBox ID="txtEmail" CssClass="form-control" runat="server" TextMode="Email" placeholder="Email"></asp:TextBox>
+                    <asp:TextBox ID="txtEmail" CssClass="form-control form-control-input" runat="server" TextMode="Email" placeholder="Email"></asp:TextBox>
                 </div>
             </div>
             <div class="row">
                 <div class="col-xs-offset-4 col-xs-4 input-group">
                     <span class="input-group-addon"><i class="fa fa-lock"></i></span>
-                    <asp:TextBox ID="txtPassword" CssClass="form-control" runat="server" TextMode="Password" placeholder="Password"></asp:TextBox>
+                    <asp:TextBox ID="txtPassword" CssClass="form-control form-control-input" runat="server" TextMode="Password" placeholder="Password"></asp:TextBox>
                 </div>
             </div>
             <div class="row">
                 <div class="col-xs-offset-4 col-xs-4 input-group">
                     <span class="input-group-addon"><i class="fa fa-lock"></i></span>
-                    <asp:TextBox ID="txtRepeatPassword" CssClass="form-control" runat="server" TextMode="Password" placeholder="Repeat Password"></asp:TextBox>
+                    <asp:TextBox ID="txtRepeatPassword" CssClass="form-control form-control-input" runat="server" TextMode="Password" placeholder="Repeat Password"></asp:TextBox>
                 </div>
             </div>
             <div class="row">
                 <div class="col-xs-offset-4 col-xs-4 input-group">
                     <span class="input-group-addon"><i class="fa fa-user"></i></span>
-                    <asp:TextBox ID="txtFullName" CssClass="form-control" runat="server" TextMode="SingleLine" placeholder="Full Name"></asp:TextBox>
+                    <asp:TextBox ID="txtFullName" CssClass="form-control form-control-input" runat="server" TextMode="SingleLine" placeholder="Full Name"></asp:TextBox>
                 </div>
             </div>
             <div class="row">
@@ -65,7 +65,7 @@
                     <label for="usr">Birthdate</label>
                     <div class="input-group">
                         <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
-                        <asp:TextBox ID="txtBirthday" CssClass="form-control" runat="server" TextMode="Date" placeholder="Birthday"></asp:TextBox>
+                        <asp:TextBox ID="txtBirthday" CssClass="form-control form-control-input" runat="server" TextMode="Date" placeholder="Birthday"></asp:TextBox>
                     </div>
                 </div>
             </div>

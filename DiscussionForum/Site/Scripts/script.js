@@ -15,6 +15,8 @@
         $("[id$='error']").show();
     }
 
+    $("[id$='topicDescription']").html($("[id$='topicDescription']").text());
+
     //Text Editor
     tinymce.init({
         selector: 'textarea',

@@ -27,13 +27,13 @@
             <div class="row">
                 <div class="col-xs-offset-4 col-xs-4 input-group">
                     <span class="input-group-addon"><i class="fa fa-envelope"></i></span>
-                    <asp:TextBox ID="txtEmail" CssClass="form-control" runat="server" TextMode="Email" placeholder="Email"></asp:TextBox>
+                    <asp:TextBox ID="txtEmail" CssClass="form-control form-control-input" runat="server" TextMode="Email" placeholder="Email"></asp:TextBox>
                 </div>
             </div>
             <div class="row">
                 <div class="col-xs-offset-4 col-xs-4 input-group">
                     <span class="input-group-addon"><i class="fa fa-lock"></i></span>
-                    <asp:TextBox ID="txtPassword" CssClass="form-control" runat="server" TextMode="Password" placeholder="Password"></asp:TextBox>
+                    <asp:TextBox ID="txtPassword" CssClass="form-control form-control-input" runat="server" TextMode="Password" placeholder="Password"></asp:TextBox>
                 </div>
             </div>
             <div class="row">

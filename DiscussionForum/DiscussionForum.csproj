@@ -253,9 +253,9 @@
     <Content Include="Site\Register.aspx" />
     <Content Include="Site\Scripts\ai.0.15.0-build58334.js" />
     <Content Include="Site\Scripts\ai.0.15.0-build58334.min.js" />
+    <Content Include="Site\Topic.aspx" />
     <Content Include="Storage\logo.png" />
     <Content Include="Storage\logoWithLetters.png" />
-    <Content Include="Site\Topic.aspx" />
     <Content Include="Site\UserProfile.aspx" />
     <Content Include="Storage\profileAvatar.png" />
     <Content Include="Web.config" />
@@ -269,6 +269,7 @@
     <Compile Include="App_Code\CategoryFollower.cs" />
     <Compile Include="App_Code\TimePeriod.cs" />
     <Compile Include="App_Code\Topic.cs" />
+    <Compile Include="App_Code\TopicFollower.cs" />
     <Compile Include="App_Code\User.cs" />
     <Compile Include="App_Code\Comment.cs" />
     <Compile Include="DTOs\CategoryFollowerDTO.cs" />
