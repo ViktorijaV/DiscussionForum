@@ -11,36 +11,35 @@ namespace DiscussionForum.Site
 {
     public partial class CreateTopic : System.Web.UI.Page
     {
-        private SqlConnection _connection { get; set; }
-
-        private FormsAuthenticationService _authenticationService { get; set; }
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            _connection = new SqlConnection(ConfigurationManager.ConnectionStrings["myConnection"].ToString());
-            _authenticationService = new FormsAuthenticationService(HttpContext.Current, _connection);
-            var user = getCurrentUser();
+            var connection = new SqlConnection(ConfigurationManager.ConnectionStrings["myConnection"].ToString());
+            var authenticationService = new FormsAuthenticationService(HttpContext.Current, connection);
+            var user = getCurrentUser(authenticationService);
             if (user == null)
                 Response.Redirect("~/login?ReturnUrl=%2fcategory%2fcreate");
             currentUser.ImageUrl = user.PhotoUrl;
-            loadCategories(_connection);
+            loadCategories(connection);
         }
 
         protected void btnSubmit_Click(object sender, EventArgs e)
         {
-            var currentUser = getCurrentUser();
+            var connection = new SqlConnection(ConfigurationManager.ConnectionStrings["myConnection"].ToString());
+            var authenticationService = new FormsAuthenticationService(HttpContext.Current, connection);
+            var currentUser = getCurrentUser(authenticationService);
             var description = Server.HtmlEncode(txtDescription.Text);
             var topic = new App_Code.Topic(currentUser.Id, int.Parse(ddlCategories.SelectedItem.Value), txtTitle.Text, description);
 
-            createTopic(_connection, topic);
+            createTopic(connection, topic);
 
             //This is not correct!
             Response.RedirectToRoute("TopicRoute", new { id = topic.ID });
         }
 
-        private AuthenticatedUser getCurrentUser()
+        private AuthenticatedUser getCurrentUser(FormsAuthenticationService authenticationService)
         {
-            var currentUser = _authenticationService.GetAuthenticatedUser();
+            var currentUser = authenticationService.GetAuthenticatedUser();
             return currentUser;
         }
 

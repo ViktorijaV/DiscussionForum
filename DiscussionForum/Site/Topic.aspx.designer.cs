@@ -40,6 +40,24 @@ namespace DiscussionForum.Site {
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl topicDescription;
         
         /// <summary>
+        /// btnLike control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton btnLike;
+        
+        /// <summary>
+        /// btnUnlike control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton btnUnlike;
+        
+        /// <summary>
         /// btnFollow control.
         /// </summary>
         /// <remarks>

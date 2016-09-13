@@ -40,6 +40,15 @@ namespace DiscussionForum.Site.Admin {
         protected global::System.Web.UI.WebControls.Panel panelAuthorized;
         
         /// <summary>
+        /// linkProfile control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlAnchor linkProfile;
+        
+        /// <summary>
         /// btnLogOut control.
         /// </summary>
         /// <remarks>

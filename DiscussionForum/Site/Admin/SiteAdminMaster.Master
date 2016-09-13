@@ -19,18 +19,18 @@
             <!-- Navigation -->
             <nav class="navbar navbar-default navbar-fixed-top" role="navigation" style="margin-bottom: 0">
                 <div class="navbar-header">
-                    <a class="navbar-brand" href="home">
+                    <a class="navbar-brand" href="/home">
                         <img src="../../Storage/logoWithLetters.png" class="fit-in-div" />
                     </a>
                 </div>
                 <!-- /.navbar-header -->
                 <asp:Panel ID="panelAuthorized" runat="server">
-                    <div class="dropdown pull-right" style="padding: 10px; min-height: 0px; margin: 15px 10px 15px 10px;">
-                        <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown" aria-expanded="false" style="">
-                            <i class="fa fa-user"></i>&nbsp;&nbsp;<span class="caret"></span>
+                    <div id="btnProfile" class="dropdown pull-right">
+                        <button class="btn btn-dropdown dropdown-toggle" type="button" data-toggle="dropdown" aria-expanded="false">
+                            <img src="/Storage/profileAvatar.png" class="img-rounded pull-left navbar-img"><span class="caret"></span>
                         </button>
                         <ul class="dropdown-menu">
-                            <li><a href="#"><i class="fa fa-cog"></i>&nbsp;&nbsp;My Profile</a></li>
+                            <li><a id="linkProfile" href="user/" runat="server"><i class="fa fa-cog"></i>&nbsp;&nbsp;My Profile</a></li>
                             <li><a href="#"><i class="fa fa-history"></i>&nbsp;&nbsp;Activity</a></li>
                             <li class="divider"></li>
                             <li onclick="logout()"><a href="#"><i class="fa fa-sign-out"></i>&nbsp;&nbsp;Log out</a></li>

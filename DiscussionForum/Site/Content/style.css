@@ -144,17 +144,54 @@
         color: #fff;
     }
 
-.list-group-item>.badge {
+.list-group-item > .badge {
     float: none;
 }
 
 /*Buttons*/
 
 .btn-default {
+    background: #40a8cc;
     color: #fff;
-    background-color: #40a8cc;
-    border-color: #d4d4d4;
+    border: none;
+    font-family: inherit;
+    font-size: inherit;
+    display: inline-block;
+    font-weight: 700;
+    outline: none;
+    position: relative;
+    -webkit-transition: all 0.3s;
+    -moz-transition: all 0.3s;
+    transition: all 0.3s;
 }
+
+    .btn-default:hover {
+        background: #3997b7;
+        color: #fff;
+    }
+
+    .btn-default:active {
+        background: #53b0d1;
+        color: #fff;
+        border: none;
+        top: 2px;
+    }
+
+        .btn-default:focus, .btn-default:active:hover, .btn-default:active:focus {
+            background: #53b0d1;
+            color: #fff;
+            border: none;
+        }
+
+    .btn-default:before {
+        position: absolute;
+        height: 100%;
+        left: 0;
+        top: 0;
+        line-height: 3;
+        font-size: 140%;
+        width: 60px;
+    }
 
 .btn-fit {
     max-height: 100%;
@@ -171,6 +208,56 @@
         box-shadow: none;
     }
 
+
+.btn-icon {
+    background: transparent;
+    color: #40a8cc;
+    padding: 0px;
+    border-radius: 0px;
+    box-shadow: none;
+    font-size: 20px;
+    min-width: 70px;
+    height: 60px;
+    line-height: 60px;
+}
+
+    .btn-icon:hover {
+        background: transparent;
+        color: #40a8cc;
+        position: relative;
+        line-height: 50px;
+    }
+
+    .btn-icon:active {
+        background: transparent;
+        color: #40a8cc;
+        position: relative;
+        border: none;
+        box-shadow: none;
+        line-height: 50px;
+    }
+
+        .btn-icon:focus, .btn-icon:active:hover, .btn-icon:active:focus {
+            background: transparent;
+            color: #40a8cc;
+            position: relative;
+            border: none;
+            outline: none;
+            line-height: 50px;
+        }
+
+    .btn-icon:before {
+        -webkit-text-stroke-width: 1px;
+        -webkit-text-stroke-color: #40a8cc;
+        font-size: 30px;
+        padding-right: 15px;
+    }
+
+    .btn-icon:hover:before, .btn-icon:active:before, .btn-icon:focus:before {
+        font-size: 40px;
+        padding-right: 5px;
+    }
+
 #btnLogin, #btnRegister {
     padding: 8px 5px;
     min-height: 0px;
@@ -181,6 +268,18 @@
     padding: 8px 5px;
     min-height: 0px;
     margin: 5px 10px;
+}
+
+/*Icons*/
+
+.icon-star:before {
+    font-family: FontAwesome;
+    content: "\f006";
+}
+
+.icon-star-activated:before {
+    font-family: FontAwesome;
+    content: "\f005";
 }
 
 /*Link effects*/
@@ -263,6 +362,13 @@
 .navbar-brand {
     height: 70px;
     padding: 5px 15px;
+}
+
+.navbar-img {
+    height: 35px;
+    margin-right: 5px;
+    top: -5px;
+    position: relative;
 }
 
 

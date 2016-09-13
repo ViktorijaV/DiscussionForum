@@ -14,19 +14,18 @@
                 <div class="col-xs-12 topic-info">
                     <div class="row">
                         <div class="col-xs-2">
-                            <asp:Image ID="creatorImg" runat="server" cssclass="img-rounded topic-info-img" />
+                            <asp:Image ID="creatorImg" runat="server" CssClass="img-rounded topic-info-img" />
                         </div>
                         <div class="col-xs-10">
-                            <asp:Label ID="topicTitle" runat="server" cssclass="topic-info-title"></asp:Label>
+                            <asp:Label ID="topicTitle" runat="server" CssClass="topic-info-title"></asp:Label>
                         </div>
                     </div>
                     <div class="row row-separated">
                         <div class="col-xs-12">
                             <div id="topicDescription" class="topic-info-description" runat="server">
                             </div>
-                            <div class="topic-info-details">
-                                <span class="fa fa-thumbs-o-up">Like</span>
-                            </div>
+                            <asp:LinkButton ID="btnLike" runat="server" CssClass="btn btn-icon icon-star" ToolTip="Like" OnClick="btnLike_Click"></asp:LinkButton>
+                            <asp:LinkButton ID="btnUnlike" runat="server" CssClass="btn btn-icon icon-star-activated" ToolTip="Unlike" OnClick="btnUnlike_Click"></asp:LinkButton>
                         </div>
                     </div>
                 </div>
@@ -44,13 +43,13 @@
                     <ul class="list-group">
                         <li class="list-group-item list-group-item-heading">STATS</li>
                         <li class="list-group-item">Category&nbsp;
-                            <asp:HyperLink ID="categoryLink" runat="server" cssclass="list-group-item-span"></asp:HyperLink>
+                            <asp:HyperLink ID="categoryLink" runat="server" CssClass="list-group-item-span"></asp:HyperLink>
                         </li>
                         <li class="list-group-item">Created&nbsp;- &nbsp;
-                            <asp:Label id="createdTime" runat="server"></asp:Label>
+                            <asp:Label ID="createdTime" runat="server"></asp:Label>
                         </li>
                         <li class="list-group-item">Last active&nbsp;-&nbsp;
-                            <asp:Label id="activeTime" runat="server"></asp:Label>
+                            <asp:Label ID="activeTime" runat="server"></asp:Label>
                         </li>
                         <li class="list-group-item">Followers&nbsp;<span id="Followers" class="badge" runat="server"></span></li>
                     </ul>

@@ -267,9 +267,11 @@
     <Compile Include="App_Code\Category.cs" />
     <Compile Include="AppServices\EMailSender.cs" />
     <Compile Include="App_Code\CategoryFollower.cs" />
+    <Compile Include="App_Code\CommentLike.cs" />
     <Compile Include="App_Code\TimePeriod.cs" />
     <Compile Include="App_Code\Topic.cs" />
     <Compile Include="App_Code\TopicFollower.cs" />
+    <Compile Include="App_Code\TopicLike.cs" />
     <Compile Include="App_Code\User.cs" />
     <Compile Include="App_Code\Comment.cs" />
     <Compile Include="DTOs\CategoryFollowerDTO.cs" />
