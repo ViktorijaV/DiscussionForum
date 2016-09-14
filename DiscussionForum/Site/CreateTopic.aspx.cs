@@ -45,9 +45,9 @@ namespace DiscussionForum.Site
 
         private void createTopic(SqlConnection connection, App_Code.Topic topic)
         {
-            string query = "INSERT INTO Topics (CreatorID, CategoryID, Title, Description, Likes, Replies, Reported, Closed, DateCreated, LastActivity)" +
-            "values(@CreatorID, @CategoryID, @Title, @Description, @Likes, @Replies, @Reported, @Closed, @DateCreated, @LastActivity)";
-            connection.Execute(query, new { topic.CreatorID, topic.CategoryID, topic.Title, topic.Description, topic.Likes, topic.Replies, topic.Reported, topic.Closed, topic.DateCreated, topic.LastActivity });
+            string query = "INSERT INTO Topics (CreatorID, CategoryID, Title, Description, Reported, Closed, DateCreated, LastActivity)" +
+            "values(@CreatorID, @CategoryID, @Title, @Description, @Reported, @Closed, @DateCreated, @LastActivity)";
+            connection.Execute(query, new { topic.CreatorID, topic.CategoryID, topic.Title, topic.Description, topic.Reported, topic.Closed, topic.DateCreated, topic.LastActivity });
         }
 
         private void loadCategories(SqlConnection connection)

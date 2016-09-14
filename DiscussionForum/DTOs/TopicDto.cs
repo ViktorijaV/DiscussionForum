@@ -20,6 +20,7 @@ namespace DiscussionForum.DTOs
         public DateTime LastActivity { get; private set; }
         public int Likes { get; private set; }
         public int Replies { get; private set; }
+        public int Followers { get; private set; }
         public bool Reported { get; private set; }
         public bool Closed { get; private set; }
     }

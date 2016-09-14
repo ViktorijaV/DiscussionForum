@@ -26,36 +26,38 @@ namespace DiscussionForum.Site
         private void loadTopic(SqlConnection connection, int topicID, AuthenticatedUser currentUser)
         {
             var sqlQueryTopic = $@"SELECT
-                                   Topics.ID            AS ID,
-                                   Topics.Title         AS Title,
-                                   Topics.CreatorID     AS CreatorID,
-                                   Topics.CategoryID    AS CategoryID,
-                                   Topics.DateCreated   AS DateCreated,
-                                   Topics.LastActivity  AS LastActivity,
-                                   Topics.Description   AS Description,
-                                   Topics.Likes         AS Likes,
-                                   Topics.Replies       AS Replies,
-                                   Topics.Reported      AS Reported,
-                                   Topics.Closed        AS Closed,
-                                   Users.Avatar         AS CreatorPicture,
-                                   Users.Username       AS CreatorUsername,
-                                   Categories.Name      AS CategoryName,
-                                   Categories.Color     AS CategoryColor
+                                   Topics.ID                AS ID,
+                                   Topics.Title             AS Title,
+                                   Topics.CreatorID         AS CreatorID,
+                                   Topics.CategoryID        AS CategoryID,
+                                   Topics.DateCreated       AS DateCreated,
+                                   Topics.LastActivity      AS LastActivity,
+                                   Topics.Description       AS Description,
+                                   Topics.Reported          AS Reported,
+                                   Topics.Closed            AS Closed,
+                                   Users.Avatar             AS CreatorPicture,
+                                   Users.Username           AS CreatorUsername,
+                                   Categories.Name          AS CategoryName,
+                                   Categories.Color         AS CategoryColor,
+                                   (SELECT COUNT(*)
+                                          FROM TopicFollowers
+                                          WHERE TopicFollowers.TopicID = {topicID})
+                                                            AS Folowers,
+                                   (SELECT COUNT(*)
+                                    FROM TopicLikes
+                                    WHERE TopicLikes.TopicID = {topicID})
+                                                            AS Likes,
+                                   (SELECT COUNT(*)
+                                          FROM Comments
+                                          WHERE Comments.TopicID = {topicID})
+                                                            AS Replies
                                    FROM Topics
                                    INNER JOIN Users ON Users.ID=Topics.CreatorID
                                    INNER JOIN Categories ON Categories.ID=Topics.CategoryID
                                    WHERE Topics.ID = {topicID}";
-            var sqlQueryNumFollowers = $@"SELECT COUNT(*)
-                                          FROM TopicFollowers
-                                          WHERE TopicFollowers.TopicID = {topicID}";
-            var sqlQueryNumLikes = $@"SELECT COUNT(*)
-                                          FROM TopicLikes
-                                          WHERE TopicLikes.TopicID = {topicID}";
-            var grid = connection.QueryMultiple(String.Format("{0}\n{1}\n{2}", sqlQueryTopic, sqlQueryNumFollowers, sqlQueryNumLikes));
+            var grid = connection.QueryMultiple(String.Format("{0}", sqlQueryTopic));
 
             var topicDetails = grid.Read<TopicDTO>().FirstOrDefault();
-            var numFollowers = grid.Read<int>().FirstOrDefault();
-            var numLikes = grid.Read<int>().FirstOrDefault();
 
             btnUnfollow.Style.Add("display", "none");
             btnFollow.Style.Add("display", "inline-block");
@@ -92,14 +94,14 @@ namespace DiscussionForum.Site
             topicDescription.InnerHtml = description;
             createdTime.Text = TimePeriod.TimeDifference(topicDetails.DateCreated);
             activeTime.Text = TimePeriod.TimeDifference(topicDetails.LastActivity);
-            btnLike.Text = numLikes.ToString();
-            btnUnlike.Text = numLikes.ToString();
+            btnLike.Text = topicDetails.Likes.ToString();
+            btnUnlike.Text = topicDetails.Likes.ToString();
 
             categoryLink.NavigateUrl = $"/category/{topicDetails.CategoryID}";
             categoryLink.Text = topicDetails.CategoryName;
             categoryLink.BackColor = System.Drawing.ColorTranslator.FromHtml(topicDetails.CategoryColor);
 
-            Followers.InnerText = numFollowers.ToString();
+            Followers.InnerText = topicDetails.Followers.ToString();
         }
 
         protected void btnFollow_Click(object sender, EventArgs e)
@@ -187,8 +189,8 @@ namespace DiscussionForum.Site
             btnUnlike.Style.Add("display", "none");
             btnLike.Style.Add("display", "inline-block");
             var num = int.Parse(btnLike.Text);
-            btnLike.Text = (num + 1).ToString();
-            btnUnlike.Text = (num + 1).ToString();
+            btnLike.Text = (num - 1).ToString();
+            btnUnlike.Text = (num - 1).ToString();
         }
     }
 }

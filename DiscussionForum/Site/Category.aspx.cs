@@ -90,8 +90,14 @@ namespace DiscussionForum.Site
                 Topics.DateCreated   AS DateCreated,
                 Topics.LastActivity  AS LastActivity,
                 Topics.Description   AS Description,
-                Topics.Likes         AS Likes,
-                Topics.Replies       AS Replies,
+                (SELECT COUNT(*)
+                 FROM TopicLikes
+                 WHERE TopicLikes.TopicID = Topics.ID)
+                                     AS Likes,
+                (SELECT COUNT(*)
+                       FROM Comments
+                       WHERE Comments.TopicID = Topics.ID)
+                                     AS Replies,
                 Topics.Reported      AS Reported,
                 Topics.Closed        AS Closed,
                 Users.Avatar         AS CreatorPicture,
@@ -101,7 +107,8 @@ namespace DiscussionForum.Site
                 FROM Topics
                 INNER JOIN Users ON Users.ID=Topics.CreatorID
                 INNER JOIN Categories ON Categories.ID=Topics.CategoryID
-                WHERE Topics.CategoryID = {categoryID}";
+                WHERE Topics.CategoryID = {categoryID}
+                ORDER BY Topics.LastActivity DESC";
 
             var topics = connection.Query<TopicDTO>(sql).ToList();
 

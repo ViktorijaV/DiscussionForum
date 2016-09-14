@@ -16,8 +16,6 @@ namespace DiscussionForum.App_Code
             Description = description;
             DateCreated = DateTime.Now;
             LastActivity = DateCreated;
-            Likes = 0;
-            Replies = 0;
             Reported = false;
             Closed = false;
         }
@@ -27,8 +25,6 @@ namespace DiscussionForum.App_Code
         public int CategoryID { get; private set; }
         public string Title { get; private set; }
         public string Description { get; private set; }
-        public int Likes { get; private set; }
-        public int Replies { get; private set; }
         public DateTime DateCreated { get; private set; }
         public DateTime LastActivity { get; private set; }
         public bool Reported { get; private set; }
