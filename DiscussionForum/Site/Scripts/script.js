@@ -20,7 +20,7 @@
     //Text Editor
     tinymce.init({
         selector: 'textarea',
-        height: '350',
+        height: '250',
         plugins: 'codesample link emoticons paste',
         toolbar1: 'undo redo | styleselect | alignleft aligncenter alignright | bullist numlist ',
         toolbar2: 'bold italic codesample code | link | emoticons | forecolor backcolor',

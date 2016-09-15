@@ -6,6 +6,29 @@ function decodeHtml(value) {
     return $('<div/>').html(value).text();
 }
 
+function validateCreateComment() {
+
+    if ($("[id$='txtComment']").val() == "") {
+        $("[id$='error']").show();
+        $("[id$='error']").text("Comment text is required. Please enter text.");
+        return false;
+    }
+    $("[id$='txtComment']").val(encodeHtml($("[id$='txtComment']").val()));
+
+    if ($("[id$='txtComment']").val().length > 5000) {
+        $("[id$='error']").show();
+        $("[id$='error']").text("Comment text is too long. Please enter smaller text.");
+        return false;
+    }
+
+    tinymce.activeEditor.remove();
+    $("[id$='txtComment']").val(encodeHtml($("[id$='txtComment']").val()));
+
+    $("[id$='error']").text("");
+    $("[id$='error']").hide();
+    $("[id$='btnCreateComment']").trigger('click');
+}
+
 function validateCreateTopic() {
 
     if ($("[id$='txtTitle']").val() == "") {

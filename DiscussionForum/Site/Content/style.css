@@ -53,7 +53,7 @@
 
 .topic-info {
     padding: 20px;
-    margin: 5%;
+    margin: 5% 5% 0 5%;
     width: 90%;
     border-radius: .25rem;
     border: 1px solid rgba(0,0,0,.125);
@@ -73,6 +73,25 @@
 
 .topic-info-description {
     text-align: justify;
+}
+
+.topic-comments{
+    padding: 20px;
+    margin: 0 5%;
+    width: 89%;
+}
+
+.topic-comments-heading{
+    font-size: medium;
+    color: #40a8cc;
+    margin: 10px;
+}
+
+.topic-comments-textarea-heading{
+    color: #40a8cc;
+    font-weight: bold;
+    font-size: larger;
+    margin: 10px;
 }
 
 /*Profile card*/

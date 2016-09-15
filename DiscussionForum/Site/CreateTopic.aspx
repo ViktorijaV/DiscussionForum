@@ -32,7 +32,7 @@
             <div class="row row-separated">
                 <div class="col-xs-12">
                     <h4>Description</h4>
-                    <asp:TextBox ID="txtDescription" runat="server" CssClass="form-control" TextMode="MultiLine" MaxLength="700"></asp:TextBox>
+                    <asp:TextBox ID="txtDescription" runat="server" CssClass="form-control" TextMode="MultiLine"></asp:TextBox>
                 </div>
             </div>
         </div>

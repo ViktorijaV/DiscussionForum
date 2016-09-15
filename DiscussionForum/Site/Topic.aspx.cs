@@ -17,6 +17,8 @@ namespace DiscussionForum.Site
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (IsPostBack)
+                return;
             int topicID = Convert.ToInt32(Page.RouteData.Values["id"]);
             var sqlConnection = new SqlConnection(ConfigurationManager.ConnectionStrings["myConnection"].ToString());
             var currentUser = new FormsAuthenticationService(HttpContext.Current, sqlConnection).GetAuthenticatedUser();
@@ -55,9 +57,25 @@ namespace DiscussionForum.Site
                                    INNER JOIN Users ON Users.ID=Topics.CreatorID
                                    INNER JOIN Categories ON Categories.ID=Topics.CategoryID
                                    WHERE Topics.ID = {topicID}";
-            var grid = connection.QueryMultiple(String.Format("{0}", sqlQueryTopic));
+            var sqlQueryComments = $@"SELECT
+                                        Comments.ID              AS ID,
+                                        Comments.TopicID         AS TopicID,
+                                        Comments.CommenterID     AS CommenterID,
+                                        Comments.Content         AS Content,
+                                        Comments.DateCreated     AS DateCreated,
+                                        Users.Avatar             AS CommenterPicture,
+                                        Users.Username           AS CommenterUsername,
+                                        (SELECT COUNT(*)
+                                        FROM CommentLikes
+                                        WHERE CommentLikes.CommentID = Comments.ID)
+                                                                 AS Likes
+                                        FROM Comments
+                                        INNER JOIN Users ON Users.ID=Comments.CommenterID
+                                        WHERE Comments.TopicID = {topicID}";
+            var grid = connection.QueryMultiple(String.Format("{0}\n{1}", sqlQueryTopic, sqlQueryComments));
 
             var topicDetails = grid.Read<TopicDTO>().FirstOrDefault();
+            var comments = grid.Read<CommentDTO>().ToList();
 
             btnUnfollow.Style.Add("display", "none");
             btnFollow.Style.Add("display", "inline-block");
@@ -96,6 +114,7 @@ namespace DiscussionForum.Site
             activeTime.Text = TimePeriod.TimeDifference(topicDetails.LastActivity);
             btnLike.Text = topicDetails.Likes.ToString();
             btnUnlike.Text = topicDetails.Likes.ToString();
+            numComments.InnerText = topicDetails.Replies.ToString();
 
             categoryLink.NavigateUrl = $"/category/{topicDetails.CategoryID}";
             categoryLink.Text = topicDetails.CategoryName;
@@ -191,6 +210,25 @@ namespace DiscussionForum.Site
             var num = int.Parse(btnLike.Text);
             btnLike.Text = (num - 1).ToString();
             btnUnlike.Text = (num - 1).ToString();
+        }
+
+        protected void btnCreateComment_Click(object sender, EventArgs e)
+        {
+            var connection = new SqlConnection(ConfigurationManager.ConnectionStrings["myConnection"].ToString());
+            var authenticationService = new FormsAuthenticationService(HttpContext.Current, connection);
+            var currentUser = authenticationService.GetAuthenticatedUser();
+            int topicID = Convert.ToInt32(Page.RouteData.Values["id"]);
+
+            if (currentUser == null)
+                Response.Redirect($"~/login?ReturnUrl=%2ftopic%2f{topicID}");
+
+            var content = Server.HtmlEncode(txtComment.Text);
+            var comment = new Comment(topicID, currentUser.Id, txtComment.Text);
+            var sql = @"INSERT INTO Comments (TopicID, CommenterID, Content, Reported, Closed, DateCreated)
+                        values(@TopicID, @CommenterID, @Content, @Reported, @Closed, @DateCreated)";
+            connection.Execute(sql, new { comment.TopicID, comment.CommenterID, comment.Content, comment.Reported, comment.Closed, comment.DateCreated });
+
+            Response.RedirectToRoute("TopicRoute", new { id = topicID });
         }
     }
 }

@@ -30,6 +30,23 @@
                     </div>
                 </div>
             </div>
+            <div class="row">
+                <div class="col-xs-12 topic-comments">
+                    <div class="topic-comments-heading">
+                        <i class="fa fa-comment"></i>
+                        <span id="numComments" runat="server"></span>
+                        &nbsp;Comments
+                    </div>
+                    <div class="topic-comments-textarea">
+                        <div class="topic-comments-textarea-heading">Add your comment</div>
+                        <div id="error" runat="server" class="alert alert-danger display-none"></div>
+                        <asp:TextBox ID="txtComment" runat="server" CssClass="form-control" TextMode="MultiLine"></asp:TextBox>
+                        <br />
+                        <button id="btnCreate" class="btn btn-default" onclick="validateCreateComment(); return false;">Add comment</button>
+                        <asp:Button ID="btnCreateComment" Style="display: none;" runat="server" OnClick="btnCreateComment_Click" />
+                    </div>
+                </div>
+            </div>
         </div>
         <div class="col-xs-3">
             <div class="row row-separated">
