@@ -121,6 +121,28 @@ namespace DiscussionForum.Site
             categoryLink.BackColor = System.Drawing.ColorTranslator.FromHtml(topicDetails.CategoryColor);
 
             Followers.InnerText = topicDetails.Followers.ToString();
+
+            CommentList.InnerHtml = "";
+            foreach (var comment in comments)
+            {
+                var content = Server.HtmlDecode(comment.Content).Replace("\"", "'");
+                var li = $@"<li class='media'>
+                                <a class='pull-left' href='/user/{comment.CommenterUsername}'>
+                                    <img class='media-object img-rounded' src='{comment.CommenterPicture}' alt='profile'>
+                                </a>
+                                <div class='media-body'>
+                                    <div class='well well-md'>
+                                        <h4 class='media-heading'>{comment.CommenterUsername}</h4>
+
+                                        <div class='media-comment'>
+                                            {content}
+                                        </div>
+                                        <a class='btn btn-icon icon-star' href='#' id='reply'></a>
+                                    </div>
+                                </div>
+                            </li>";
+                CommentList.InnerHtml += li;
+            }
         }
 
         protected void btnFollow_Click(object sender, EventArgs e)
@@ -224,8 +246,11 @@ namespace DiscussionForum.Site
 
             var content = Server.HtmlEncode(txtComment.Text);
             var comment = new Comment(topicID, currentUser.Id, txtComment.Text);
-            var sql = @"INSERT INTO Comments (TopicID, CommenterID, Content, Reported, Closed, DateCreated)
-                        values(@TopicID, @CommenterID, @Content, @Reported, @Closed, @DateCreated)";
+            var sql = $@"INSERT INTO Comments (TopicID, CommenterID, Content, Reported, Closed, DateCreated)
+                         values(@TopicID, @CommenterID, @Content, @Reported, @Closed, @DateCreated)
+                         UPDATE Topics
+                         SET Topics.LastActivity = @DateCreated
+                         WHERE Topics.ID = @TopicID";
             connection.Execute(sql, new { comment.TopicID, comment.CommenterID, comment.Content, comment.Reported, comment.Closed, comment.DateCreated });
 
             Response.RedirectToRoute("TopicRoute", new { id = topicID });

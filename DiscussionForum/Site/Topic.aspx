@@ -37,6 +37,11 @@
                         <span id="numComments" runat="server"></span>
                         &nbsp;Comments
                     </div>
+                    <div class="topic-comments-container">
+                        <ul id="CommentList" class="media-list" runat="server">
+                            
+                        </ul>
+                    </div>
                     <div class="topic-comments-textarea">
                         <div class="topic-comments-textarea-heading">Add your comment</div>
                         <div id="error" runat="server" class="alert alert-danger display-none"></div>

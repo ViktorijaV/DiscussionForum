@@ -75,23 +75,29 @@
     text-align: justify;
 }
 
-.topic-comments{
+.topic-comments {
     padding: 20px;
     margin: 0 5%;
     width: 89%;
 }
 
-.topic-comments-heading{
+.topic-comments-heading {
     font-size: medium;
     color: #40a8cc;
     margin: 10px;
 }
 
-.topic-comments-textarea-heading{
+.topic-comments-textarea-heading {
     color: #40a8cc;
     font-weight: bold;
     font-size: larger;
     margin: 10px;
+}
+
+/*Media - comments*/
+
+.media-object {
+    width: 70px;
 }
 
 /*Profile card*/
