@@ -24,8 +24,8 @@
                         <div class="col-xs-12">
                             <div id="topicDescription" class="topic-info-description" runat="server">
                             </div>
-                            <asp:LinkButton ID="btnLike" runat="server" CssClass="btn btn-icon icon-star" ToolTip="Like" OnClick="btnLike_Click"></asp:LinkButton>
-                            <asp:LinkButton ID="btnUnlike" runat="server" CssClass="btn btn-icon icon-star-activated" ToolTip="Unlike" OnClick="btnUnlike_Click"></asp:LinkButton>
+                            <asp:LinkButton ID="btnLike" runat="server" CssClass="btn btn-icon faa-parent animated-hover" ToolTip="Like" OnClick="btnLike_Click"><i class="fa fa-star-o faa-tada"></i><span id="btnlikeNumlikes" runat="server"></span></asp:LinkButton>
+                            <asp:LinkButton ID="btnUnlike" runat="server" CssClass="btn btn-icon faa-parent animated-hover" ToolTip="Unlike" OnClick="btnUnlike_Click"><i class="fa fa-star faa-tada"></i><span id="btnunlikeNumlikes" runat="server"></span></asp:LinkButton>
                         </div>
                     </div>
                 </div>

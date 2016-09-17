@@ -9,6 +9,7 @@
     <title><%: Page.Title %></title>
     <link href="~/Site/Content/bootstrap.min.css" rel="stylesheet" />
     <link href="~/Site/Fonts/font-awesome/css/font-awesome.min.css" rel="stylesheet" />
+    <link href="~/Site/Content/font-awesome-animation.min.css" rel="stylesheet" />
     <link href="~/Site/Content/style.css" rel="stylesheet" />
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
