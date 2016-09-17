@@ -8,6 +8,7 @@ using System.Configuration;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Web;
+using System.Web.Services;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
@@ -112,8 +113,8 @@ namespace DiscussionForum.Site
             topicDescription.InnerHtml = description;
             createdTime.Text = TimePeriod.TimeDifference(topicDetails.DateCreated);
             activeTime.Text = TimePeriod.TimeDifference(topicDetails.LastActivity);
-            btnLike.Text = topicDetails.Likes.ToString();
-            btnUnlike.Text = topicDetails.Likes.ToString();
+            btnlikeNumlikes.InnerText = topicDetails.Likes.ToString();
+            btnunlikeNumlikes.InnerText = topicDetails.Likes.ToString();
             numComments.InnerText = topicDetails.Replies.ToString();
 
             categoryLink.NavigateUrl = $"/category/{topicDetails.CategoryID}";
@@ -133,11 +134,11 @@ namespace DiscussionForum.Site
                                 <div class='media-body'>
                                     <div class='well well-md'>
                                         <h4 class='media-heading'>{comment.CommenterUsername}</h4>
-
+                                        <span>{TimePeriod.TimeDifference(comment.DateCreated)}</span>
                                         <div class='media-comment'>
                                             {content}
                                         </div>
-                                        <a class='btn btn-icon icon-star' href='#' id='reply'></a>
+                                        <button class='btn btn-icon faa-parent animated-hover'><i class='fa fa-star-o faa-tada'></i><span class='numlikes'>{comment.Likes}</span></button>
                                     </div>
                                 </div>
                             </li>";
@@ -206,9 +207,9 @@ namespace DiscussionForum.Site
 
             btnLike.Style.Add("display", "none");
             btnUnlike.Style.Add("display", "inline-block");
-            var num = int.Parse(btnLike.Text);
-            btnLike.Text = (num + 1).ToString();
-            btnUnlike.Text = (num + 1).ToString();
+            var num = int.Parse(btnlikeNumlikes.InnerText);
+            btnlikeNumlikes.InnerText = (num + 1).ToString();
+            btnunlikeNumlikes.InnerText = (num + 1).ToString();
         }
 
         protected void btnUnlike_Click(object sender, EventArgs e)
@@ -229,9 +230,9 @@ namespace DiscussionForum.Site
 
             btnUnlike.Style.Add("display", "none");
             btnLike.Style.Add("display", "inline-block");
-            var num = int.Parse(btnLike.Text);
-            btnLike.Text = (num - 1).ToString();
-            btnUnlike.Text = (num - 1).ToString();
+            var num = int.Parse(btnlikeNumlikes.InnerText);
+            btnlikeNumlikes.InnerText = (num - 1).ToString();
+            btnunlikeNumlikes.InnerText = (num - 1).ToString();
         }
 
         protected void btnCreateComment_Click(object sender, EventArgs e)
