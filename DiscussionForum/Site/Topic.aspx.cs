@@ -28,6 +28,11 @@ namespace DiscussionForum.Site
 
         private void loadTopic(SqlConnection connection, int topicID, AuthenticatedUser currentUser)
         {
+
+            var currentUserId = 0;
+            if (currentUser != null)
+                currentUserId = currentUser.Id;
+
             var sqlQueryTopic = $@"SELECT
                                    Topics.ID                AS ID,
                                    Topics.Title             AS Title,
@@ -69,7 +74,11 @@ namespace DiscussionForum.Site
                                         (SELECT COUNT(*)
                                         FROM CommentLikes
                                         WHERE CommentLikes.CommentID = Comments.ID)
-                                                                 AS Likes
+                                                                 AS Likes,
+                                        (SELECT CAST(COUNT(1) AS BIT)
+                                        FROM CommentLikes
+                                        WHERE CommentLikes.CommentID = Comments.ID AND CommentLikes.UserID = {currentUserId})
+                                                                 AS LikedByUser
                                         FROM Comments
                                         INNER JOIN Users ON Users.ID=Comments.CommenterID
                                         WHERE Comments.TopicID = {topicID}";
@@ -113,8 +122,7 @@ namespace DiscussionForum.Site
             topicDescription.InnerHtml = description;
             createdTime.Text = TimePeriod.TimeDifference(topicDetails.DateCreated);
             activeTime.Text = TimePeriod.TimeDifference(topicDetails.LastActivity);
-            btnlikeNumlikes.InnerText = topicDetails.Likes.ToString();
-            btnunlikeNumlikes.InnerText = topicDetails.Likes.ToString();
+            btnlikeNum.Text = topicDetails.Likes.ToString();
             numComments.InnerText = topicDetails.Replies.ToString();
 
             categoryLink.NavigateUrl = $"/category/{topicDetails.CategoryID}";
@@ -124,8 +132,13 @@ namespace DiscussionForum.Site
             Followers.InnerText = topicDetails.Followers.ToString();
 
             CommentList.InnerHtml = "";
+
             foreach (var comment in comments)
             {
+                var button = $"<button class='btn btn-icon faa-parent animated-hover like'><i class='fa fa-star-o faa-tada'></i><span class='numlikes'>{comment.Likes}</span></button>";
+                if (currentUser != null && comment.LikedByUser)
+                    button = $"<button class='btn btn-icon faa-parent animated-hover like'><i class='fa fa-star faa-tada'></i><span class='numlikes'>{comment.Likes}</span></button>";
+
                 var content = Server.HtmlDecode(comment.Content).Replace("\"", "'");
                 var li = $@"<li class='media'>
                                 <a class='pull-left' href='/user/{comment.CommenterUsername}'>
@@ -138,7 +151,7 @@ namespace DiscussionForum.Site
                                         <div class='media-comment'>
                                             {content}
                                         </div>
-                                        <button class='btn btn-icon faa-parent animated-hover'><i class='fa fa-star-o faa-tada'></i><span class='numlikes'>{comment.Likes}</span></button>
+                                        {button}
                                     </div>
                                 </div>
                             </li>";
@@ -207,9 +220,8 @@ namespace DiscussionForum.Site
 
             btnLike.Style.Add("display", "none");
             btnUnlike.Style.Add("display", "inline-block");
-            var num = int.Parse(btnlikeNumlikes.InnerText);
-            btnlikeNumlikes.InnerText = (num + 1).ToString();
-            btnunlikeNumlikes.InnerText = (num + 1).ToString();
+            var num = int.Parse(btnlikeNum.Text);
+            btnlikeNum.Text = (num + 1).ToString();
         }
 
         protected void btnUnlike_Click(object sender, EventArgs e)
@@ -230,9 +242,8 @@ namespace DiscussionForum.Site
 
             btnUnlike.Style.Add("display", "none");
             btnLike.Style.Add("display", "inline-block");
-            var num = int.Parse(btnlikeNumlikes.InnerText);
-            btnlikeNumlikes.InnerText = (num - 1).ToString();
-            btnunlikeNumlikes.InnerText = (num - 1).ToString();
+            var num = int.Parse(btnlikeNum.Text);
+            btnlikeNum.Text = (num - 1).ToString();
         }
 
         protected void btnCreateComment_Click(object sender, EventArgs e)

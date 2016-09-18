@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site/SiteMaster.Master" AutoEventWireup="true" CodeBehind="Topic.aspx.cs" Inherits="DiscussionForum.Site.Topic" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site/SiteMaster.Master" AutoEventWireup="true" CodeBehind="Topic.aspx.cs" Inherits="DiscussionForum.Site.Topic" MaintainScrollPositionOnPostback="true" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
@@ -24,8 +24,9 @@
                         <div class="col-xs-12">
                             <div id="topicDescription" class="topic-info-description" runat="server">
                             </div>
-                            <asp:LinkButton ID="btnLike" runat="server" CssClass="btn btn-icon faa-parent animated-hover" ToolTip="Like" OnClick="btnLike_Click"><i class="fa fa-star-o faa-tada"></i><span id="btnlikeNumlikes" runat="server"></span></asp:LinkButton>
-                            <asp:LinkButton ID="btnUnlike" runat="server" CssClass="btn btn-icon faa-parent animated-hover" ToolTip="Unlike" OnClick="btnUnlike_Click"><i class="fa fa-star faa-tada"></i><span id="btnunlikeNumlikes" runat="server"></span></asp:LinkButton>
+                            <asp:LinkButton ID="btnLike" runat="server" OnClick="btnLike_Click" CssClass="btn btn-icon faa-parent animated-hover" ToolTip="Like"><i class="fa fa-star-o faa-tada"></i></asp:LinkButton>
+                            <asp:LinkButton ID="btnUnlike" runat="server" OnClick="btnUnlike_Click" CssClass="btn btn-icon faa-parent animated-hover" ToolTip="UnLike"><i class="fa fa-star faa-tada"></i></asp:LinkButton>
+                            <asp:Label ID="btnlikeNum" runat="server" Text="" CssClass="span-number"></asp:Label>
                         </div>
                     </div>
                 </div>

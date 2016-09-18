@@ -49,15 +49,6 @@ namespace DiscussionForum.Site {
         protected global::System.Web.UI.WebControls.LinkButton btnLike;
         
         /// <summary>
-        /// btnlikeNumlikes control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl btnlikeNumlikes;
-        
-        /// <summary>
         /// btnUnlike control.
         /// </summary>
         /// <remarks>
@@ -67,13 +58,13 @@ namespace DiscussionForum.Site {
         protected global::System.Web.UI.WebControls.LinkButton btnUnlike;
         
         /// <summary>
-        /// btnunlikeNumlikes control.
+        /// btnlikeNum control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl btnunlikeNumlikes;
+        protected global::System.Web.UI.WebControls.Label btnlikeNum;
         
         /// <summary>
         /// numComments control.

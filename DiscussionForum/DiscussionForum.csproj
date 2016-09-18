@@ -252,7 +252,6 @@
     <Content Include="Global.asax" />
     <Content Include="Site\Home.aspx" />
     <Content Include="Site\Register.aspx" />
-    <Content Include="Site\Scripts\ai.0.15.0-build58334.js" />
     <Content Include="Site\Scripts\ai.0.15.0-build58334.min.js" />
     <Content Include="Site\Topic.aspx" />
     <Content Include="Storage\logo.png" />
