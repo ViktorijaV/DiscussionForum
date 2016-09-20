@@ -80,6 +80,26 @@
             </div>
         </div>
     </div>
+   <!-- Modal -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+        <h4 class="modal-title" id="myModalLabel">Edit comment</h4>
+      </div>
+      <div class="modal-body">
+      <asp:TextBox ID="txtDescription" runat="server" CssClass="form-control" TextMode="MultiLine"></asp:TextBox>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
     <asp:HiddenField ID="commentID" runat="server" />
     <asp:Button ID="btnLikeComment" runat="server" Style="display: none;" Text="Button" OnClick="btnLikeComment_Click" />
     <asp:Button ID="btnUnlikeComment" runat="server" Style="display: none;" Text="Button" OnClick="btnUnlikeComment_Click" />

@@ -149,6 +149,8 @@ namespace DiscussionForum.Site
                                         <input type='hidden' class='comment-id' value='{comment.ID}'>
                                         <h4 class='media-heading'>{comment.CommenterUsername}</h4>
                                         <span>{TimePeriod.TimeDifference(comment.DateCreated)}</span>
+<button id='editComment' class='btn btn-icon faa-parent animated-hover pull-right btn-primary btn-lg' type='button' data-toggle='modal' data-target='#myModal'><i class='fa fa-cog faa-spin' aria-hidden='false'></i></button>
+
                                         <div class='media-comment'>
                                             {content}
                                         </div>
