@@ -11,6 +11,7 @@
     <link href="~/Site/Fonts/font-awesome/css/font-awesome.min.css" rel="stylesheet" />
     <link href="~/Site/Content/font-awesome-animation.min.css" rel="stylesheet" />
     <link href="~/Site/Content/style.css" rel="stylesheet" />
+    <link href="~/Site/Content/profilePage.css" rel="stylesheet" />
     <link rel="shortcut icon" href="/Storage/favicon.ico" type="image/x-icon">
     <link rel="icon" href="/Storage/favicon.ico" type="image/x-icon">
     <asp:ContentPlaceHolder ID="head" runat="server">

@@ -12,9 +12,11 @@ namespace DiscussionForum.Site
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            /*
             var username = Page.RouteData.Values["username"].ToString();
             var connection = new SqlConnection(ConfigurationManager.ConnectionStrings["myConnection"].ToString());
             getUser(connection, username);
+            */
         }
 
         private void getUser(SqlConnection connection, string userName)

@@ -107,7 +107,9 @@
     <Content Include="Site\Confirmation.aspx" />
     <Content Include="Site\Content\bootstrap.min.css" />
     <Content Include="Site\Content\font-awesome-animation.min.css" />
+    <Content Include="Site\Content\profilePage.css" />
     <Content Include="Site\CreateTopic.aspx" />
+    <Content Include="Site\EditProfile.aspx" />
     <Content Include="Site\Fonts\font-awesome\css\font-awesome.min.css" />
     <Content Include="Site\Fonts\font-awesome\fonts\fontawesome-webfont.svg" />
     <Content Include="Site\Scripts\bootstrap.min.js" />
@@ -314,6 +316,13 @@
     </Compile>
     <Compile Include="Site\CreateTopic.aspx.designer.cs">
       <DependentUpon>CreateTopic.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Site\EditProfile.aspx.cs">
+      <DependentUpon>EditProfile.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Site\EditProfile.aspx.designer.cs">
+      <DependentUpon>EditProfile.aspx</DependentUpon>
     </Compile>
     <Compile Include="Site\Home.aspx.cs">
       <DependentUpon>Home.aspx</DependentUpon>
