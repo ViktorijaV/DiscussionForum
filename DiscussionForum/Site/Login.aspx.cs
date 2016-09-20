@@ -6,6 +6,7 @@ using System.Configuration;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Web;
+using System.Web.Security;
 
 namespace DiscussionForum.Site
 {
@@ -20,7 +21,9 @@ namespace DiscussionForum.Site
         {
             SqlConnection connection = new SqlConnection(ConfigurationManager.ConnectionStrings["myConnection"].ToString());
 
-            string errorMessage = loginUser(connection, txtEmail.Text, txtPassword.Text, cbRememberMe.Checked);
+            string hashedPassword = FormsAuthentication.HashPasswordForStoringInConfigFile(txtPassword.Text, "SHA1");
+
+            string errorMessage = loginUser(connection, txtEmail.Text, hashedPassword, cbRememberMe.Checked);
 
             if (errorMessage != "")
                 error.InnerText = errorMessage;
