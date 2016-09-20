@@ -5,6 +5,7 @@ using System.Data.SqlClient;
 using System.Configuration;
 using Dapper;
 using System.Linq;
+using System.Web.Security;
 
 namespace DiscussionForum.Site
 {
@@ -17,11 +18,12 @@ namespace DiscussionForum.Site
 
         protected void btnRegister_Click(object sender, EventArgs e)
         {
+            string hashedPassword = FormsAuthentication.HashPasswordForStoringInConfigFile(txtPassword.Text, "SHA1");
             User user;
             if (male.Checked == true)
-                user = DiscussionForum.App_Code.User.RegisterUser(txtEmail.Text, txtFullName.Text, txtPassword.Text, txtRepeatPassword.Text, Gender.Male, Convert.ToDateTime(txtBirthday.Text), ConfigurationManager.AppSettings["profileAvatarUrl"]);
+                user = DiscussionForum.App_Code.User.RegisterUser(txtEmail.Text, txtFullName.Text, txtPassword.Text, txtRepeatPassword.Text, hashedPassword, Gender.Male, Convert.ToDateTime(txtBirthday.Text), ConfigurationManager.AppSettings["profileAvatarUrl"]);
             else
-                user = DiscussionForum.App_Code.User.RegisterUser(txtEmail.Text, txtFullName.Text, txtPassword.Text, txtRepeatPassword.Text, Gender.Female, Convert.ToDateTime(txtBirthday.Text), ConfigurationManager.AppSettings["profileAvatarUrl"]);
+                user = DiscussionForum.App_Code.User.RegisterUser(txtEmail.Text, txtFullName.Text, txtPassword.Text, txtRepeatPassword.Text, hashedPassword, Gender.Female, Convert.ToDateTime(txtBirthday.Text), ConfigurationManager.AppSettings["profileAvatarUrl"]);
 
 
             SqlConnection connection = new SqlConnection(ConfigurationManager.ConnectionStrings["myConnection"].ToString());

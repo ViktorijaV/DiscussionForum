@@ -11,7 +11,7 @@ namespace DiscussionForum.App_Code
             Confirmed = false;
         }
 
-        public static User RegisterUser(string email, string fullName, string password, string repeatedPassword, Gender gender, DateTime birthday, string avatarUrl, string country = "", string faculty = "", string bio="")
+        public static User RegisterUser (string email, string fullName, string password, string repeatedPassword, string encryptedPassword, Gender gender, DateTime birthday, string avatarUrl, string country = "", string faculty = "", string bio="")
         {
             var user = new User();
 
@@ -28,7 +28,7 @@ namespace DiscussionForum.App_Code
                 throw new Exception("Passwords doesn't match");
 
             user.Email = email;
-            user.Password = password; // TODO: encrypt password
+            user.Password = encryptedPassword;
             user.ConfirmationCode = Guid.NewGuid().ToString();
             user.Fullname = fullName;
             user.Role = Role.User;
