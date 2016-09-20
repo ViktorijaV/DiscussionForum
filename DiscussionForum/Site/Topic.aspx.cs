@@ -146,6 +146,7 @@ namespace DiscussionForum.Site
                                 </a>
                                 <div class='media-body'>
                                     <div class='well well-md'>
+                                        <input type='hidden' class='comment-id' value='{comment.ID}'>
                                         <h4 class='media-heading'>{comment.CommenterUsername}</h4>
                                         <span>{TimePeriod.TimeDifference(comment.DateCreated)}</span>
                                         <div class='media-comment'>
@@ -266,6 +267,41 @@ namespace DiscussionForum.Site
             connection.Execute(sql, new { comment.TopicID, comment.CommenterID, comment.Content, comment.Reported, comment.Closed, comment.DateCreated });
 
             Response.RedirectToRoute("TopicRoute", new { id = topicID });
+        }
+
+        protected void btnLikeComment_Click(object sender, EventArgs e)
+        {
+            var connection = new SqlConnection(ConfigurationManager.ConnectionStrings["myConnection"].ToString());
+            var authenticationService = new FormsAuthenticationService(HttpContext.Current, connection);
+            var currentUser = authenticationService.GetAuthenticatedUser();
+            int topicID = Convert.ToInt32(Page.RouteData.Values["id"]);
+
+            if (currentUser == null)
+                Response.Redirect($"~/login?ReturnUrl=%2ftopic%2f{topicID}");
+
+            var commentId = commentID.Value;
+            var sql = $@"INSERT INTO CommentsLikes (CommentID, UserID)
+                         values(@CommentsLikes, @UserID)";
+            connection.Execute(sql, new { commentId, currentUser.Id });
+            Response.Redirect(Request.RawUrl);
+        }
+
+        protected void btnUnlikeComment_Click(object sender, EventArgs e)
+        {
+            var connection = new SqlConnection(ConfigurationManager.ConnectionStrings["myConnection"].ToString());
+            var authenticationService = new FormsAuthenticationService(HttpContext.Current, connection);
+            var currentUser = authenticationService.GetAuthenticatedUser();
+            int topicID = Convert.ToInt32(Page.RouteData.Values["id"]);
+
+            if (currentUser == null)
+                Response.Redirect($"~/login?ReturnUrl=%2ftopic%2f{topicID}");
+
+            var commentId = commentID.Value;
+            var sql = $@"DELETE FROM CommentsLikes 
+                         WHERE CommentID = @CommentID
+                         AND UserID = @UserID";
+            connection.Execute(sql, new { commentId, currentUser.Id });
+            Response.Redirect(Request.RawUrl);
         }
     }
 }
