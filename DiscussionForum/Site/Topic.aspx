@@ -18,8 +18,19 @@
                         </div>
                         <div class="col-xs-10">
                             <asp:Label ID="topicTitle" runat="server" CssClass="topic-info-title"></asp:Label>
+                                          <div class="btn-group open pull-right" >
+  <a class="btn btn-icon dropdown-toggle faa-parent animated-hover" data-toggle="dropdown" href="#">
+     <i class="fa fa-cogs faa-spin" aria-hidden="true"></i>
+  </a>
+  <ul class="dropdown-menu">
+    <li><a href="#"><i class="fa fa-pencil fa-fw faa-spin"></i> Edit</a></li>
+    <li><a href="#"><i class="fa fa-exclamation-circle fa-fw"></i> Report</a></li>
+  </ul>
+</div>
                         </div>
                     </div>
+
+
                     <div class="row row-separated">
                         <div class="col-xs-12">
                             <div id="topicDescription" class="topic-info-description" runat="server">
