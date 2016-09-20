@@ -80,4 +80,7 @@
             </div>
         </div>
     </div>
+    <asp:HiddenField ID="commentID" runat="server" />
+    <asp:Button ID="btnLikeComment" runat="server" Style="display: none;" Text="Button" OnClick="btnLikeComment_Click" />
+    <asp:Button ID="btnUnlikeComment" runat="server" Style="display: none;" Text="Button" OnClick="btnUnlikeComment_Click" />
 </asp:Content>

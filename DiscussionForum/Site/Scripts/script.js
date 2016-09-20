@@ -17,6 +17,22 @@
 
     $("[id$='topicDescription']").html($("[id$='topicDescription']").text());
 
+    $(".like").click(function () {
+        var button = this;
+        var id = $(this).parent().find(".comment-id").val();
+        $("[id$='commentID']").val(id);
+        if ($(button).find("i").hasClass("fa-star-o")) {
+            $(button).find("i").removeClass("fa-star-o");
+            $(button).find("i").addClass("fa-star");
+            $("[id$='btnLikeComment']").click();
+        }
+        else {
+            $(button).find("i").removeClass("fa-star");
+            $(button).find("i").addClass("fa-star-o");
+            $("[id$='btnUnlikeComment']").click();
+        }
+    });
+
     //Text Editor
     tinymce.init({
         selector: 'textarea',
