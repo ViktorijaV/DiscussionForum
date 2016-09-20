@@ -71,6 +71,7 @@
     padding-left: 75px;
     padding-top: 5px; 
     display: inline-block; 
+    border-bottom: 1px solid #ccc;
 }
 
 .editProfileChangeSize{

@@ -40,7 +40,7 @@
                 
                     <div class="profile-card-row">
                        <!-- <span class="profile-card-label">Bio</span> -->
-                        <asp:Label ID="bio" runat="server" CssClass="profile-card-info bio">Sed sed leo sit amet elit sagittis fermentum. Nulla posuere commodo erat. Nam ac nunc ipsum, id espara tincidunt orci. Quisque adipiscing molestie dolor, ut congue sem porta et. Sed sapien urna, auctor et accumsan ut, accumsan sit amet dui. Nunc tristique interdum magna, dictum volutpat sem. Nam ac nunc ipsum, id espara tincidunt orci. Sed sapien urna, auctor et accumsan ut</asp:Label>
+                        <asp:Label ID="bio" runat="server" CssClass="profile-card-info bio"></asp:Label>
                     </div>
                 
 
