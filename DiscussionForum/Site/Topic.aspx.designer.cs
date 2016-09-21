@@ -166,13 +166,22 @@ namespace DiscussionForum.Site {
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl Followers;
         
         /// <summary>
-        /// txtDescription control.
+        /// editError control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtDescription;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl editError;
+        
+        /// <summary>
+        /// txtContent control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtContent;
         
         /// <summary>
         /// commentID control.
@@ -200,5 +209,14 @@ namespace DiscussionForum.Site {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnUnlikeComment;
+        
+        /// <summary>
+        /// btnEditComment control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnEditComment;
     }
 }

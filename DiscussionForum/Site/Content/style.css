@@ -220,7 +220,7 @@
         }
 
 .btn-secondary {
-    background: #999;
+    background: #bbb;
     color: #fff;
     border: none;
     font-family: inherit;
@@ -235,12 +235,12 @@
 }
 
     .btn-secondary:hover {
-        background: #aaa;
+        background: #ccc;
         color: #fff;
     }
 
     .btn-secondary:active {
-        background: #666;
+        background: #aaa;
         color: #fff;
         border: none;
         top: 2px;
@@ -248,7 +248,7 @@
     }
 
         .btn-secondary:focus, .btn-secondary:active:hover, .btn-secondary:active:focus {
-            background: #666;
+            background: #aaa;
             color: #fff;
             border: none;
             outline: none;

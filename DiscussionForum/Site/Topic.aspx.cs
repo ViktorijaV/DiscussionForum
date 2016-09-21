@@ -69,6 +69,7 @@ namespace DiscussionForum.Site
                                         Comments.CommenterID     AS CommenterID,
                                         Comments.Content         AS Content,
                                         Comments.DateCreated     AS DateCreated,
+                                        Comments.DateEdited      AS DateEdited,
                                         Users.Avatar             AS CommenterPicture,
                                         Users.Username           AS CommenterUsername,
                                         (SELECT COUNT(*)
@@ -135,9 +136,21 @@ namespace DiscussionForum.Site
 
             foreach (var comment in comments)
             {
-                var button = $"<button class='btn btn-icon faa-parent animated-hover like'><i class='fa fa-star-o faa-tada'></i><span class='numlikes'>{comment.Likes}</span></button>";
+                var button = $"<button class='btn btn-icon faa-parent animated-hover' onclick='likeComment()'><i class='fa fa-star-o faa-tada'></i><span class='numlikes'>{comment.Likes}</span></button>";
                 if (currentUser != null && comment.LikedByUser)
-                    button = $"<button class='btn btn-icon faa-parent animated-hover like'><i class='fa fa-star faa-tada'></i><span class='numlikes'>{comment.Likes}</span></button>";
+                    button = $"<button class='btn btn-icon faa-parent animated-hover' onclick='likeComment()'><i class='fa fa-star faa-tada'></i><span class='numlikes'>{comment.Likes}</span></button>";
+
+                var edited = "";
+
+                if (comment.DateEdited != DateTime.MinValue)
+                    edited = $"<span>Edited {TimePeriod.TimeDifference(comment.DateEdited)}</span>";
+
+                var editButton = "";
+
+                if (currentUser != null && currentUser.Id == comment.CommenterID)
+                    editButton = @"<button class='btn btn-icon faa-parent animated-hover pull-right edit-comment' type='button'>
+                                        <i class='fa fa-pencil faa-shake'></i>
+                                    </button>";
 
                 var content = Server.HtmlDecode(comment.Content).Replace("\"", "'");
                 var li = $@"<li class='media'>
@@ -148,9 +161,10 @@ namespace DiscussionForum.Site
                                     <div class='well well-md'>
                                         <input type='hidden' class='comment-id' value='{comment.ID}'>
                                         <h4 class='media-heading'>{comment.CommenterUsername}</h4>
-                                        <span>{TimePeriod.TimeDifference(comment.DateCreated)}</span>
-<button id='editComment' class='btn btn-icon faa-parent animated-hover pull-right btn-primary btn-lg' type='button' data-toggle='modal' data-target='#myModal'><i class='fa fa-cog faa-spin' aria-hidden='false'></i></button>
-
+                                        <span>Created {TimePeriod.TimeDifference(comment.DateCreated)}</span>
+                                        {editButton}
+                                        <br />
+                                        {edited}
                                         <div class='media-comment'>
                                             {content}
                                         </div>
@@ -262,11 +276,11 @@ namespace DiscussionForum.Site
             var content = Server.HtmlEncode(txtComment.Text);
             var comment = new Comment(topicID, currentUser.Id, txtComment.Text);
             var sql = $@"INSERT INTO Comments (TopicID, CommenterID, Content, Reported, Closed, DateCreated)
-                         values(@TopicID, @CommenterID, @Content, @Reported, @Closed, @DateCreated)
+                         values(@TopicID, @CommenterID, @Content, @Reported, @Closed, @DateCreated, @DateEdited)
                          UPDATE Topics
                          SET Topics.LastActivity = @DateCreated
                          WHERE Topics.ID = @TopicID";
-            connection.Execute(sql, new { comment.TopicID, comment.CommenterID, comment.Content, comment.Reported, comment.Closed, comment.DateCreated });
+            connection.Execute(sql, new { comment.TopicID, comment.CommenterID, comment.Content, comment.Reported, comment.Closed, comment.DateCreated, comment.DateEdited });
 
             Response.RedirectToRoute("TopicRoute", new { id = topicID });
         }
@@ -303,6 +317,30 @@ namespace DiscussionForum.Site
                          WHERE CommentID = @CommentID
                          AND UserID = @UserID";
             connection.Execute(sql, new { commentId, currentUser.Id });
+            Response.Redirect(Request.RawUrl);
+        }
+
+        protected void btnEditComment_Click(object sender, EventArgs e)
+        {
+            var connection = new SqlConnection(ConfigurationManager.ConnectionStrings["myConnection"].ToString());
+            var authenticationService = new FormsAuthenticationService(HttpContext.Current, connection);
+            var currentUser = authenticationService.GetAuthenticatedUser();
+            int topicID = Convert.ToInt32(Page.RouteData.Values["id"]);
+
+            if (currentUser == null)
+                Response.Redirect($"~/login?ReturnUrl=%2ftopic%2f{topicID}");
+
+            var Id = commentID.Value;
+            var content = Server.HtmlEncode(txtContent.Text);
+            content = txtContent.Text;
+            var date = DateTime.Now;
+            var sql = $@"UPDATE Comments
+                         SET Comments.Content = @Content, Comments.DateEdited = @Date
+                         WHERE Comments.ID = @ID
+                         UPDATE Topics
+                         SET Topics.LastActivity = @Date
+                         WHERE Topics.ID = {topicID}";
+            connection.Execute(sql, new { content, date, Id });
             Response.Redirect(Request.RawUrl);
         }
     }

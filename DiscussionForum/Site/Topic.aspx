@@ -95,7 +95,7 @@
         </div>
     </div>
     <!-- Modal -->
-    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal fade" id="editCommentModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
@@ -105,11 +105,12 @@
                     <h4 class="modal-title" id="myModalLabel">Edit comment</h4>
                 </div>
                 <div class="modal-body">
-                    <asp:TextBox ID="txtDescription" runat="server" CssClass="form-control" TextMode="MultiLine"></asp:TextBox>
+                    <div id="editError" runat="server" class="alert alert-danger display-none"></div>
+                    <asp:TextBox ID="txtContent" runat="server" CssClass="form-control" TextMode="MultiLine"></asp:TextBox>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary">Save changes</button>
+                    <button type="button" class="btn btn-secondary" onclick="closeEditCommentModal()">Close</button>
+                    <button type="button" class="btn btn-primary" onclick="validateEditComment()">Save changes</button>
                 </div>
             </div>
         </div>
@@ -117,4 +118,5 @@
     <asp:HiddenField ID="commentID" runat="server" />
     <asp:Button ID="btnLikeComment" runat="server" Style="display: none;" Text="Button" OnClick="btnLikeComment_Click" />
     <asp:Button ID="btnUnlikeComment" runat="server" Style="display: none;" Text="Button" OnClick="btnUnlikeComment_Click" />
+    <asp:Button ID="btnEditComment" runat="server" Style="display: none;" Text="Button" OnClick="btnEditComment_Click" />
 </asp:Content>

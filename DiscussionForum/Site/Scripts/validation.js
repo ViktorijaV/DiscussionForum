@@ -29,6 +29,28 @@ function validateCreateComment() {
     $("[id$='btnCreateComment']").trigger('click');
 }
 
+function validateEditComment() {
+    if ($("[id$='txtContent']").val() == "") {
+        $("[id$='editError']").show();
+        $("[id$='editError']").text("Comment text is required. Please enter text.");
+        return false;
+    }
+    $("[id$='txtContent']").val(encodeHtml($("[id$='txtComment']").val()));
+
+    if ($("[id$='txtContent']").val().length > 5000) {
+        $("[id$='editError']").show();
+        $("[id$='editError']").text("Comment text is too long. Please enter smaller text.");
+        return false;
+    }
+
+    tinymce.activeEditor.remove();
+    $("[id$='txtContent']").val(encodeHtml($("[id$='txtContent']").val()));
+
+    $("[id$='editError']").text("");
+    $("[id$='editError']").hide();
+    $("[id$='btnEditComment']").trigger('click');
+}
+
 function validateCreateTopic() {
 
     if ($("[id$='txtTitle']").val() == "") {

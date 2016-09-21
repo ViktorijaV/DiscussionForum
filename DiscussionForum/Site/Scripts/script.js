@@ -25,55 +25,27 @@
         $("[id$='error']").show();
     }
 
+    if ($("[id$='editError']").text() != "") {
+        $("[id$='editError']").show();
+    }
+
     $("[id$='topicDescription']").html($("[id$='topicDescription']").text());
 
-    $(".like").click(function () {
-        var button = this;
+    $("#mceu_145").click(function () {
+        $("#mceu_85").focus();
+    });
+
+    $(".edit-comment").click(function () {
         var id = $(this).parent().find(".comment-id").val();
         $("[id$='commentID']").val(id);
-        if ($(button).find("i").hasClass("fa-star-o")) {
-            $(button).find("i").removeClass("fa-star-o");
-            $(button).find("i").addClass("fa-star");
-            $("[id$='btnLikeComment']").click();
-        }
-        else {
-            $(button).find("i").removeClass("fa-star");
-            $(button).find("i").addClass("fa-star-o");
-            $("[id$='btnUnlikeComment']").click();
-        }
+        $('#editCommentModal').modal('show');
+        tinymce.activeEditor.remove();
+        $("[id$='txtContent']").val($(this).parent().find(".media-comment").html());
+        initializeEditor();
     });
 
     //Text Editor
-    tinymce.init({
-        selector: 'textarea',
-        height: '250',
-        plugins: 'codesample link emoticons paste',
-        toolbar1: 'undo redo | styleselect | alignleft aligncenter alignright | bullist numlist ',
-        toolbar2: 'bold italic codesample code | link | emoticons | forecolor backcolor',
-        menubar: false,
-        statusbar: false,
-        browser_spellcheck: true,
-        paste_remove_styles: true,
-        paste_as_text: true,
-        setup: function (editor) {
-            editor.on('change', function () {
-                tinymce.triggerSave();
-            });
-        },
-        codesample_languages: [
-              { text: 'HTML/XML', value: 'markup' },
-              { text: 'JavaScript', value: 'javascript' },
-              { text: 'CSS', value: 'css' },
-              { text: 'PHP', value: 'php' },
-              { text: 'Ruby', value: 'ruby' },
-              { text: 'Python', value: 'python' },
-              { text: 'Java', value: 'java' },
-              { text: 'C', value: 'c' },
-              { text: 'C#', value: 'csharp' },
-              { text: 'C++', value: 'cpp' },
-              { text: 'Other', value: 'txt' }
-        ]
-    });
+    initializeEditor();
 
 
     //Add thead to DataTable
@@ -151,3 +123,59 @@
         });
     }
 });
+
+
+function initializeEditor() {
+    tinymce.init({
+        selector: 'textarea',
+        height: '250',
+        plugins: 'codesample link emoticons paste',
+        toolbar1: 'undo redo | styleselect | alignleft aligncenter alignright | bullist numlist ',
+        toolbar2: 'bold italic codesample | link | emoticons | forecolor backcolor',
+        menubar: false,
+        statusbar: false,
+        browser_spellcheck: true,
+        paste_remove_styles: true,
+        paste_as_text: true,
+        setup: function (editor) {
+            editor.on('change', function () {
+                tinymce.triggerSave();
+            });
+        },
+        codesample_languages: [
+              { text: 'HTML/XML', value: 'markup' },
+              { text: 'JavaScript', value: 'javascript' },
+              { text: 'CSS', value: 'css' },
+              { text: 'PHP', value: 'php' },
+              { text: 'Ruby', value: 'ruby' },
+              { text: 'Python', value: 'python' },
+              { text: 'Java', value: 'java' },
+              { text: 'C', value: 'c' },
+              { text: 'C#', value: 'csharp' },
+              { text: 'C++', value: 'cpp' },
+              { text: 'Other', value: 'txt' }
+        ]
+    });
+}
+
+function closeEditCommentModal() {
+    $("[id$='editError']").text("");
+    $("[id$='editError']").hide();
+    $('#editCommentModal').modal('hide');
+}
+
+function likeComment() {
+    var button = this;
+    var id = $(this).parent().find(".comment-id").val();
+    $("[id$='commentID']").val(id);
+    if ($(button).find("i").hasClass("fa-star-o")) {
+        $(button).find("i").removeClass("fa-star-o");
+        $(button).find("i").addClass("fa-star");
+        $("[id$='btnLikeComment']").click();
+    }
+    else {
+        $(button).find("i").removeClass("fa-star");
+        $(button).find("i").addClass("fa-star-o");
+        $("[id$='btnUnlikeComment']").click();
+    }
+}

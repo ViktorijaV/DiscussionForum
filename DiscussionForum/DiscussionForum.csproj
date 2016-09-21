@@ -107,6 +107,7 @@
     <Content Include="Site\Confirmation.aspx" />
     <Content Include="Site\Content\bootstrap.min.css" />
     <Content Include="Site\Content\font-awesome-animation.min.css" />
+    <Content Include="Site\Content\prism.min.css" />
     <Content Include="Site\Content\profilePage.css" />
     <Content Include="Site\CreateTopic.aspx" />
     <Content Include="Site\EditProfile.aspx" />
@@ -118,6 +119,7 @@
     <Content Include="Site\Scripts\JavaScript.js" />
     <Content Include="Site\Scripts\jquery.dataTables.min.js" />
     <Content Include="Site\Scripts\jquery.min.js" />
+    <Content Include="Site\Scripts\prism.min.js" />
     <Content Include="Site\Scripts\script.js" />
     <Content Include="Site\Scripts\tinymce\plugins\codesample\classes\Dialog.js" />
     <Content Include="Site\Scripts\tinymce\plugins\codesample\classes\Plugin.js" />

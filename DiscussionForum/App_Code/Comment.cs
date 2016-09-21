@@ -17,12 +17,14 @@ namespace DiscussionForum.App_Code
             Content = content;
             Reported = false;
             Closed = false;
+            DateEdited = DateTime.MinValue;
         }
 
         public int ID { get; private set; }
         public int TopicID { get; private set; }
         public int CommenterID { get; private set; }
         public DateTime DateCreated { get; private set; }
+        public DateTime DateEdited { get; private set; }
         public string Content { get; private set; }
         public bool Reported { get; private set; }
         public bool Closed { get; private set; }
