@@ -164,18 +164,18 @@ function closeEditCommentModal() {
     $('#editCommentModal').modal('hide');
 }
 
-function likeComment() {
-    var button = this;
-    var id = $(this).parent().find(".comment-id").val();
+function likeComment(button) {
+    var id = $(button).parent().find(".comment-id").val();
     $("[id$='commentID']").val(id);
-    if ($(button).find("i").hasClass("fa-star-o")) {
-        $(button).find("i").removeClass("fa-star-o");
-        $(button).find("i").addClass("fa-star");
-        $("[id$='btnLikeComment']").click();
-    }
-    else {
-        $(button).find("i").removeClass("fa-star");
-        $(button).find("i").addClass("fa-star-o");
-        $("[id$='btnUnlikeComment']").click();
-    }
+    console.log(id);
+    console.log($($("[id$='btnLikeComment']")[0]).val());
+    $("[id$='btnLikeComment']").mousedown();
+    $($("[id$='btnLikeComment']")[0]).trigger('click');
+}
+
+function unlikeComment(button) {
+    var id = $(button).parent().find(".comment-id").val();
+    $("[id$='commentID']").val(id);
+    console.log(id);
+    $("[id$='btnUnlikeComment']")[0].trigger('click');
 }

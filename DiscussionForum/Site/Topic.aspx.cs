@@ -136,9 +136,9 @@ namespace DiscussionForum.Site
 
             foreach (var comment in comments)
             {
-                var button = $"<button class='btn btn-icon faa-parent animated-hover' onclick='likeComment()'><i class='fa fa-star-o faa-tada'></i><span class='numlikes'>{comment.Likes}</span></button>";
+                var button = $"<button class='btn btn-icon faa-parent animated-hover' onclick='likeComment(this)'><i class='fa fa-star-o faa-tada'></i></button>";
                 if (currentUser != null && comment.LikedByUser)
-                    button = $"<button class='btn btn-icon faa-parent animated-hover' onclick='likeComment()'><i class='fa fa-star faa-tada'></i><span class='numlikes'>{comment.Likes}</span></button>";
+                    button = $"<button class='btn btn-icon faa-parent animated-hover' onclick='unlikeComment(this)'><i class='fa fa-star faa-tada'></i></button>";
 
                 var edited = "";
 
@@ -168,7 +168,7 @@ namespace DiscussionForum.Site
                                         <div class='media-comment'>
                                             {content}
                                         </div>
-                                        {button}
+                                        {button}<span class='span-number'>{comment.Likes}</span>
                                     </div>
                                 </div>
                             </li>";
@@ -296,8 +296,8 @@ namespace DiscussionForum.Site
                 Response.Redirect($"~/login?ReturnUrl=%2ftopic%2f{topicID}");
 
             var commentId = commentID.Value;
-            var sql = $@"INSERT INTO CommentsLikes (CommentID, UserID)
-                         values(@CommentsLikes, @UserID)";
+            var sql = $@"INSERT INTO CommentLikes (CommentID, UserID)
+                         values(@CommentID, @ID)";
             connection.Execute(sql, new { commentId, currentUser.Id });
             Response.Redirect(Request.RawUrl);
         }
@@ -313,9 +313,9 @@ namespace DiscussionForum.Site
                 Response.Redirect($"~/login?ReturnUrl=%2ftopic%2f{topicID}");
 
             var commentId = commentID.Value;
-            var sql = $@"DELETE FROM CommentsLikes 
+            var sql = $@"DELETE FROM CommentLikes 
                          WHERE CommentID = @CommentID
-                         AND UserID = @UserID";
+                         AND UserID = @ID";
             connection.Execute(sql, new { commentId, currentUser.Id });
             Response.Redirect(Request.RawUrl);
         }

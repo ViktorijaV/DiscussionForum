@@ -116,7 +116,7 @@
         </div>
     </div>
     <asp:HiddenField ID="commentID" runat="server" />
-    <asp:Button ID="btnLikeComment" runat="server" Style="display: none;" Text="Button" OnClick="btnLikeComment_Click" />
-    <asp:Button ID="btnUnlikeComment" runat="server" Style="display: none;" Text="Button" OnClick="btnUnlikeComment_Click" />
-    <asp:Button ID="btnEditComment" runat="server" Style="display: none;" Text="Button" OnClick="btnEditComment_Click" />
+    <asp:Button ID="btnLikeComment" runat="server" Style="display: none;" OnClick="btnLikeComment_Click" />
+    <asp:Button ID="btnUnlikeComment" runat="server" Style="display: none;" OnClick="btnUnlikeComment_Click" />
+    <asp:Button ID="btnEditComment" runat="server" Style="display: none;" OnClick="btnEditComment_Click" />
 </asp:Content>

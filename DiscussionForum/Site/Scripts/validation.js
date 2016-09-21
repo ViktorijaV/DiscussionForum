@@ -182,3 +182,4 @@ function validateRegister() {
     $("#error").hide();
     $('#btnRegister').trigger('click');
 }
+
