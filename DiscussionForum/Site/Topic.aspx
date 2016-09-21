@@ -18,15 +18,15 @@
                         </div>
                         <div class="col-xs-10">
                             <asp:Label ID="topicTitle" runat="server" CssClass="topic-info-title"></asp:Label>
-                                          <div class="btn-group open pull-right" >
-  <a class="btn btn-icon dropdown-toggle faa-parent animated-hover" data-toggle="dropdown" href="#">
-     <i class="fa fa-cogs faa-spin" aria-hidden="true"></i>
-  </a>
-  <ul class="dropdown-menu">
-    <li><a href="#"><i class="fa fa-pencil fa-fw faa-spin"></i> Edit</a></li>
-    <li><a href="#"><i class="fa fa-exclamation-circle fa-fw"></i> Report</a></li>
-  </ul>
-</div>
+                            <div class="btn-group pull-right">
+                                <a class="btn btn-icon dropdown-toggle faa-parent animated-hover" data-toggle="dropdown" href="#">
+                                    <i class="fa fa-cogs faa-spin" aria-hidden="true"></i>
+                                </a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="#"><i class="fa fa-pencil fa-fw faa-spin"></i>Edit</a></li>
+                                    <li><a href="#"><i class="fa fa-exclamation-circle fa-fw"></i>Report</a></li>
+                                </ul>
+                            </div>
                         </div>
                     </div>
 
@@ -48,10 +48,10 @@
                         <i class="fa fa-comment"></i>
                         <span id="numComments" runat="server"></span>
                         &nbsp;Comments
+                   
                     </div>
                     <div class="topic-comments-container">
                         <ul id="CommentList" class="media-list" runat="server">
-                            
                         </ul>
                     </div>
                     <div class="topic-comments-textarea">
@@ -77,12 +77,15 @@
                     <ul class="list-group">
                         <li class="list-group-item list-group-item-heading">STATS</li>
                         <li class="list-group-item">Category&nbsp;
+                           
                             <asp:HyperLink ID="categoryLink" runat="server" CssClass="list-group-item-span"></asp:HyperLink>
                         </li>
                         <li class="list-group-item">Created&nbsp;- &nbsp;
+                           
                             <asp:Label ID="createdTime" runat="server"></asp:Label>
                         </li>
                         <li class="list-group-item">Last active&nbsp;-&nbsp;
+                           
                             <asp:Label ID="activeTime" runat="server"></asp:Label>
                         </li>
                         <li class="list-group-item">Followers&nbsp;<span id="Followers" class="badge" runat="server"></span></li>
@@ -91,26 +94,26 @@
             </div>
         </div>
     </div>
-   <!-- Modal -->
-<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-        <h4 class="modal-title" id="myModalLabel">Edit comment</h4>
-      </div>
-      <div class="modal-body">
-      <asp:TextBox ID="txtDescription" runat="server" CssClass="form-control" TextMode="MultiLine"></asp:TextBox>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
-      </div>
+    <!-- Modal -->
+    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                    <h4 class="modal-title" id="myModalLabel">Edit comment</h4>
+                </div>
+                <div class="modal-body">
+                    <asp:TextBox ID="txtDescription" runat="server" CssClass="form-control" TextMode="MultiLine"></asp:TextBox>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary">Save changes</button>
+                </div>
+            </div>
+        </div>
     </div>
-  </div>
-</div>
     <asp:HiddenField ID="commentID" runat="server" />
     <asp:Button ID="btnLikeComment" runat="server" Style="display: none;" Text="Button" OnClick="btnLikeComment_Click" />
     <asp:Button ID="btnUnlikeComment" runat="server" Style="display: none;" Text="Button" OnClick="btnUnlikeComment_Click" />

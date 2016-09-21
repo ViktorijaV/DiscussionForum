@@ -32,7 +32,7 @@ namespace DiscussionForum.Site
                 var returnUrl = Request.QueryString["ReturnUrl"];
                 if (returnUrl != null)
                     Response.Redirect(returnUrl);
-                else Response.Redirect("home");
+                else Response.Redirect("/home");
             }
         }
 

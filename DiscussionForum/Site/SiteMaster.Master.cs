@@ -21,7 +21,7 @@ namespace DiscussionForum.Site
                 if (Session["username"] == null)
                     Session["username"] = authenticatedUser.Username;
 
-                linkProfile.HRef = $"~/user/{authenticatedUser.Username}";
+                linkProfile.HRef = $"~/users/{authenticatedUser.Username}";
                 panelAnonymous.Attributes.Add("style", "display:none");
             }
             else

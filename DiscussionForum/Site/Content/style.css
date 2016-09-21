@@ -1,5 +1,4 @@
 ﻿body {
-    /*font-family: 'Lato', Calibri, Arial, sans-serif;*/
     font-family: "proxima-nova", "Proxima Nova", "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 
@@ -132,8 +131,7 @@
 .profile-card-label {
     display: inline-block;
     width: 40%;
-    color:#40a8cc;
-     
+    color: #40a8cc;
 }
 
 .profile-card-info {
@@ -221,6 +219,41 @@
             border: none;
         }
 
+.btn-secondary {
+    background: #999;
+    color: #fff;
+    border: none;
+    font-family: inherit;
+    font-size: inherit;
+    display: inline-block;
+    font-weight: 700;
+    outline: none;
+    position: relative;
+    -webkit-transition: all 0.3s;
+    -moz-transition: all 0.3s;
+    transition: all 0.3s;
+}
+
+    .btn-secondary:hover {
+        background: #aaa;
+        color: #fff;
+    }
+
+    .btn-secondary:active {
+        background: #666;
+        color: #fff;
+        border: none;
+        top: 2px;
+        outline: none;
+    }
+
+        .btn-secondary:focus, .btn-secondary:active:hover, .btn-secondary:active:focus {
+            background: #666;
+            color: #fff;
+            border: none;
+            outline: none;
+        }
+
 .btn-fit {
     max-height: 100%;
     max-width: 100%;
@@ -265,6 +298,10 @@
             border: none;
             outline: none;
         }
+
+.btn-group.open .dropdown-toggle {
+    box-shadow: none;
+}
 
 #btnLogin, #btnRegister {
     padding: 8px 5px;
@@ -417,7 +454,6 @@
 .input-group-addon {
     background-color: transparent;
     border: none;
-   
     border-radius: 0px;
 }
 
