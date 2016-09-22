@@ -167,15 +167,13 @@ function closeEditCommentModal() {
 function likeComment(button) {
     var id = $(button).parent().find(".comment-id").val();
     $("[id$='commentID']").val(id);
-    console.log(id);
-    console.log($($("[id$='btnLikeComment']")[0]).val());
-    $("[id$='btnLikeComment']").mousedown();
-    $($("[id$='btnLikeComment']")[0]).trigger('click');
+    event.preventDefault();
+    $("[id$='btnLikeComment']").trigger('click');
 }
 
 function unlikeComment(button) {
     var id = $(button).parent().find(".comment-id").val();
     $("[id$='commentID']").val(id);
-    console.log(id);
-    $("[id$='btnUnlikeComment']")[0].trigger('click');
+    event.preventDefault();
+    $("[id$='btnUnlikeComment']").trigger('click');
 }
