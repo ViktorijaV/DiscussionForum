@@ -2,10 +2,10 @@
 using System.Linq;
 using System.Web;
 using System.Web.Security;
-using DiscussionForum.App_Code;
 using System.Data.SqlClient;
 using Newtonsoft.Json;
 using Dapper;
+using DiscussionForum.Domain.DomainModel;
 
 namespace DiscussionForum.AppServices
 {

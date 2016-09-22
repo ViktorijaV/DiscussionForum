@@ -6,6 +6,7 @@ using System.Web;
 using System.Web.UI.WebControls;
 using System.Configuration;
 using DiscussionForum.AppServices;
+using DiscussionForum.Domain.DomainModel;
 
 namespace DiscussionForum.Site
 {
@@ -29,7 +30,7 @@ namespace DiscussionForum.Site
             var authenticationService = new FormsAuthenticationService(HttpContext.Current, connection);
             var currentUser = getCurrentUser(authenticationService);
             var description = Server.HtmlEncode(txtDescription.Text);
-            var topic = new App_Code.Topic(currentUser.Id, int.Parse(ddlCategories.SelectedItem.Value), txtTitle.Text, description);
+            var topic = new DiscussionForum.Domain.DomainModel.Topic(currentUser.Id, int.Parse(ddlCategories.SelectedItem.Value), txtTitle.Text, description);
 
             createTopic(connection, topic);
 
@@ -43,7 +44,7 @@ namespace DiscussionForum.Site
             return currentUser;
         }
 
-        private void createTopic(SqlConnection connection, App_Code.Topic topic)
+        private void createTopic(SqlConnection connection, DiscussionForum.Domain.DomainModel.Topic topic)
         {
             string query = "INSERT INTO Topics (CreatorID, CategoryID, Title, Description, Reported, Closed, DateCreated, LastActivity)" +
             "values(@CreatorID, @CategoryID, @Title, @Description, @Reported, @Closed, @DateCreated, @LastActivity)";
@@ -53,7 +54,7 @@ namespace DiscussionForum.Site
         private void loadCategories(SqlConnection connection)
         {
             string sql = $"SELECT * FROM Categories";
-            var categories = connection.Query<App_Code.Category>(sql).ToList();
+            var categories = connection.Query<DiscussionForum.Domain.DomainModel.Category>(sql).ToList();
 
             foreach (var category in categories)
             {

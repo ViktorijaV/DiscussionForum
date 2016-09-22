@@ -3,17 +3,17 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 
-namespace DiscussionForum.App_Code
+namespace DiscussionForum.Domain.DomainModel
 {
-    public class CommentLike
+    public class TopicLike
     {
-        public CommentLike(int commentId, int userId)
+        public TopicLike(int topicId, int userId)
         {
-            CommentID = commentId;
+            TopicID = topicId;
             UserID = userId;
         }
         public int ID { get; private set; }
-        public int CommentID { get; private set; }
+        public int TopicID { get; private set; }
         public int UserID { get; private set; }
     }
 }

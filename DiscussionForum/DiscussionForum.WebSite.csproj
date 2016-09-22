@@ -266,17 +266,7 @@
   <ItemGroup>
     <Compile Include="AppServices\AuthenticatedUser.cs" />
     <Compile Include="AppServices\FormsAuthenticationService.cs" />
-    <Compile Include="AppServices\UsernameGenerator.cs" />
-    <Compile Include="App_Code\Category.cs" />
     <Compile Include="AppServices\EMailSender.cs" />
-    <Compile Include="App_Code\CategoryFollower.cs" />
-    <Compile Include="App_Code\CommentLike.cs" />
-    <Compile Include="App_Code\TimePeriod.cs" />
-    <Compile Include="App_Code\Topic.cs" />
-    <Compile Include="App_Code\TopicFollower.cs" />
-    <Compile Include="App_Code\TopicLike.cs" />
-    <Compile Include="App_Code\User.cs" />
-    <Compile Include="App_Code\Comment.cs" />
     <Compile Include="DTOs\CategoryFollowerDTO.cs" />
     <Compile Include="DTOs\CommentDTO.cs" />
     <Compile Include="DTOs\TopicDTO.cs" />
@@ -370,7 +360,22 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="App_Code\" />
     <Folder Include="App_Data\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\DiscussionForum.Domain\DiscussionForum.Domain.csproj">
+      <Project>{D6F6EF60-3271-46E7-91FF-F869D92574B6}</Project>
+      <Name>DiscussionForum.Domain</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DiscussionForum.Services\DiscussionForum.Services.csproj">
+      <Project>{b984c2ec-0e56-4804-9b12-d4d9be33aac1}</Project>
+      <Name>DiscussionForum.Services</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\EmailService\EmailService.csproj">
+      <Project>{51DF0701-6075-4457-9B01-0A5CA059C6C0}</Project>
+      <Name>EmailService</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

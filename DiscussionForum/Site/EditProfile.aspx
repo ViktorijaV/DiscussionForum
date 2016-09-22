@@ -30,13 +30,13 @@
     </div>
     <div class="row row-separated">
         <div class="col-xs-offset-4 col-xs-4">
-            <asp:FileUpload ID="imageUpload" runat="server" />
+            <asp:FileUpload ID="imageUpload" runat="server" Text="Upload new profile picture"/>
             <asp:LinkButton ID="btnUpload" runat="server" CssClass="btn btn-default pull-right"><i class="fa fa-upload"></i>&nbsp;&nbsp;Upload photo</asp:LinkButton>
         </div>
     </div>
     <div class="row row-separated">
         <div class="col-xs-offset-4 col-xs-4">
-            <button id="btn" class="btn btn-default pull-right"><i class="fa fa-floppy-o"></i>&nbsp;&nbsp;Save changes</button>
+            <asp:LinkButton ID="btnSubmit" runat="server" CssClass="btn btn-default pull-right"><i class="fa fa-floppy-o"></i>&nbsp;&nbsp;Save changes</asp:LinkButton>
         </div>
     </div>
 </asp:Content>

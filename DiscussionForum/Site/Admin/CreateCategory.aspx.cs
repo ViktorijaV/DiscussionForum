@@ -1,5 +1,5 @@
 ﻿using Dapper;
-using DiscussionForum.App_Code;
+using DiscussionForum.Domain.DomainModel;
 using System;
 using System.Collections.Generic;
 using System.Configuration;
@@ -20,14 +20,14 @@ namespace DiscussionForum.Site.Admin
 
         protected void btnSumbit_Click(object sender, EventArgs e)
         {
-            var category = new App_Code.Category(txtName.Text, txtColor.Text);
+            var category = new DiscussionForum.Domain.DomainModel.Category(txtName.Text, txtColor.Text);
 
             SqlConnection connection = new SqlConnection(ConfigurationManager.ConnectionStrings["myConnection"].ToString());
 
             createCategory(connection, category);
         }
 
-        private void createCategory(SqlConnection connection, App_Code.Category category)
+        private void createCategory(SqlConnection connection, DiscussionForum.Domain.DomainModel.Category category)
         {
             string query = "INSERT INTO Categories (Name, Color)" +
             "values(@Name, @Color)";

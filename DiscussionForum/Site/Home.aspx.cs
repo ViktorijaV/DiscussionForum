@@ -1,5 +1,5 @@
 ﻿using Dapper;
-using DiscussionForum.App_Code;
+using DiscussionForum.Domain.DomainModel;
 using DiscussionForum.DTOs;
 using System;
 using System.Configuration;
@@ -88,7 +88,7 @@ namespace DiscussionForum.Site
         private void loadCategories(SqlConnection connection)
         {
             string sql = $"SELECT * FROM Categories";
-            var categories = connection.Query<App_Code.Category>(sql).ToList();
+            var categories = connection.Query<DiscussionForum.Domain.DomainModel.Category>(sql).ToList();
             ListItem item = new ListItem("All Categories", "0");
             item.Attributes.CssStyle.Value = "backgroud-color: #333333";
             ddlCategories.Items.Add(item);

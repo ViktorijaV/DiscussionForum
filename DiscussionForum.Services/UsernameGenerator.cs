@@ -1,23 +1,23 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Data.SqlClient;
 using Dapper;
-using System.Web;
 using System.Text.RegularExpressions;
+using DiscussionForum.Domain.DomainModel;
+using System.Data;
+using DiscussionForum.Domain.Interfaces.Services;
 
-namespace DiscussionForum.AppServices
+namespace DiscussionForum.Services
 {
-    public class UsernameGenerator
+    public class UsernameGenerator : IUsernameGenerator
     {
-        private SqlConnection _connection { get; set; }
+        private IDbConnection _connection { get; set; }
 
-        public UsernameGenerator(SqlConnection connection)
+        public UsernameGenerator(IDbConnection connection)
         {
             _connection = connection;
         }
 
-        public void addUsernameToUser(App_Code.User user)
+        public void addUsernameToUser(User user)
         {
             var email = user.Email;
             var username = email.Split('@').First();

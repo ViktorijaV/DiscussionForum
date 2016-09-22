@@ -4,7 +4,7 @@ using System.Globalization;
 using System.Linq;
 using System.Web;
 
-namespace DiscussionForum.App_Code
+namespace DiscussionForum.Domain.DomainModel
 {
     public class TimePeriod
     {

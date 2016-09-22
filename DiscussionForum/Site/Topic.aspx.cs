@@ -1,6 +1,6 @@
 ﻿using Dapper;
-using DiscussionForum.App_Code;
 using DiscussionForum.AppServices;
+using DiscussionForum.Domain.DomainModel;
 using DiscussionForum.DTOs;
 using System;
 using System.Collections.Generic;

@@ -1,6 +1,6 @@
 ﻿using Dapper;
-using DiscussionForum.App_Code;
 using DiscussionForum.AppServices;
+using DiscussionForum.Domain.DomainModel;
 using System;
 using System.Configuration;
 using System.Data.SqlClient;

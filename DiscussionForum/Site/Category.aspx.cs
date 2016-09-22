@@ -1,6 +1,6 @@
 ﻿using Dapper;
-using DiscussionForum.App_Code;
 using DiscussionForum.AppServices;
+using DiscussionForum.Domain.DomainModel;
 using DiscussionForum.DTOs;
 using System;
 using System.Configuration;
@@ -31,7 +31,7 @@ namespace DiscussionForum.Site
             string sql = $@"SELECT * FROM Categories
                 WHERE Categories.ID = {categoryID}";
 
-            var category = connection.Query<App_Code.Category>(sql).FirstOrDefault();
+            var category = connection.Query<DiscussionForum.Domain.DomainModel.Category>(sql).FirstOrDefault();
 
             categoryName.Text = category.Name;
             categoryName.ForeColor = System.Drawing.ColorTranslator.FromHtml(category.Color);
