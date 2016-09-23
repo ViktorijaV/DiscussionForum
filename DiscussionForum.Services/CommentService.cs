@@ -46,7 +46,7 @@ namespace DiscussionForum.Services
 
         public void CreateComment(Comment comment)
         {
-            var sql = $@"INSERT INTO Comments (TopicID, CommenterID, Content, Reported, Closed, DateCreated)
+            var sql = $@"INSERT INTO Comments (TopicID, CommenterID, Content, Reported, Closed, DateCreated, DateEdited)
                          values(@TopicID, @CommenterID, @Content, @Reported, @Closed, @DateCreated, @DateEdited)
                          UPDATE Topics
                          SET Topics.LastActivity = @DateCreated
