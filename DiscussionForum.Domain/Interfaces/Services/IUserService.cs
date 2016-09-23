@@ -6,9 +6,9 @@ namespace DiscussionForum.Domain.Interfaces.Services
     {
         void RegisterUser(User user);
         string CheckForExistingUser(string email);
-        string LoginUser(string email, string password, bool extendExpirationDate);
+        string CheckUserBeforeLogin(string email, string password);
+        User GetUserByEmail(string email);
         User GetUserByUsername(string username);
         string ConfirmRegistration(string confirmationCode);
-        void LogoutUser();
     }
 }

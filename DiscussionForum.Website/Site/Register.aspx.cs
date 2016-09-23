@@ -12,7 +12,7 @@ namespace DiscussionForum.Site
 {
     public partial class Register : System.Web.UI.Page
     {
-        private IUserService _userService = new UserService(new SqlConnection(ConfigurationManager.ConnectionStrings["myConnection"].ToString()), new FormsAuthenticationService(HttpContext.Current, new SqlConnection(ConfigurationManager.ConnectionStrings["myConnection"].ToString())));
+        private IUserService _userService = new UserService(new SqlConnection(ConfigurationManager.ConnectionStrings["myConnection"].ToString()));
         private IUsernameGenerator _usernameGenerator = new UsernameGenerator(new SqlConnection(ConfigurationManager.ConnectionStrings["myConnection"].ToString()));
         private IEmailSender _emailSender = new EmailSender();
 

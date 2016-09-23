@@ -9,12 +9,10 @@ namespace DiscussionForum.Services
     public class UserService : IUserService
     {
         private IDbConnection _connection { get; set; }
-        private FormsAuthenticationService _authenticationService { get; set; }
 
-        public UserService(IDbConnection connection, FormsAuthenticationService authenticationService)
+        public UserService(IDbConnection connection)
         {
             _connection = connection;
-            _authenticationService = authenticationService;
         }
 
         public void RegisterUser(User user)
@@ -37,7 +35,7 @@ namespace DiscussionForum.Services
             return "";
         }
 
-        public string LoginUser(string email, string password, bool extendExpirationDate)
+        public string CheckUserBeforeLogin(string email, string password)
         {
             string sql = $"SELECT * FROM Users WHERE Email='{email}'";
             var user = _connection.Query<User>(sql).FirstOrDefault();
@@ -51,9 +49,14 @@ namespace DiscussionForum.Services
             if (user.Password != password)
                 return "Wrong password!";
 
-            _authenticationService.SignIn(user, extendExpirationDate, true);
-
             return "";
+        }
+
+        public User GetUserByEmail(string email)
+        {
+            string sql = $"SELECT * FROM Users WHERE Email='{email}'";
+            var user = _connection.Query<User>(sql).FirstOrDefault();
+            return user;
         }
 
         public User GetUserByUsername(string username)
@@ -79,11 +82,6 @@ namespace DiscussionForum.Services
             }
             else
                 return "User with that confirmation link does not exists!";
-        }
-
-        public void LogoutUser()
-        {
-            _authenticationService.SignOut();
         }
     }
 }
