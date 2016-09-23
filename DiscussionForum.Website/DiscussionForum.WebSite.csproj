@@ -105,6 +105,7 @@
     <Content Include="Site\Content\font-awesome-animation.min.css" />
     <Content Include="Site\Content\prism.min.css" />
     <Content Include="Site\Content\profilePage.css" />
+    <Content Include="Site\Content\Tooltip.css" />
     <Content Include="Site\CreateTopic.aspx" />
     <Content Include="Site\EditProfile.aspx" />
     <Content Include="Site\Fonts\font-awesome\css\font-awesome.min.css" />

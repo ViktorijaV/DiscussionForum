@@ -813,3 +813,39 @@ table.dataTable {
         margin-top: 0.5em;
     }
 }
+
+.form-group input[type="checkbox"] {
+    display:inline-block;
+   position:relative;
+   right:-32px;
+   z-index:15;
+   top:2px;
+      
+}
+
+.btn-group > label span {
+    width:20px;
+    display:inline;
+    height:20px;
+}
+
+.form-group input[type="checkbox"] + .btn-group > label span:first-child{
+    display: none;   
+}
+
+.form-group input[type="checkbox"] + .btn-group > label span:last-child {
+    display:block;   
+}
+
+.form-group input[type="checkbox"]:checked + .btn-group > label span:first-child {
+    display:none;
+}
+
+.form-group input[type="checkbox"]:checked + .btn-group > label span:last-child {
+    display:block;      
+}
+
+#other
+{
+margin-left:20px;
+}

@@ -41,7 +41,7 @@ namespace DiscussionForum.Site
 
             if (currentUser != null)
             {
-                if (topicDetails.CurrentUserFollows)
+                 if (topicDetails.CurrentUserFollows)
                 {
                     btnFollow.Style.Add("display", "none");
                     btnUnfollow.Style.Add("display", "inline-block");

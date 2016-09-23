@@ -23,8 +23,8 @@
                                     <i class="fa fa-cogs faa-spin" aria-hidden="true"></i>
                                 </a>
                                 <ul class="dropdown-menu">
-                                    <li><a href="#"><i class="fa fa-pencil fa-fw faa-spin"></i>Edit</a></li>
-                                    <li><a href="#"><i class="fa fa-exclamation-circle fa-fw"></i>Report</a></li>
+                                    <li><a href="#" data-toggle="modal" data-target="#editTopicModal"><i class="fa fa-pencil fa-fw faa-spin"></i>Edit</a></li>
+                                    <li><a href="#" data-toggle="modal" data-target="#reportTopicModal"><i class="fa fa-exclamation-circle fa-fw"></i>Report</a></li>
                                 </ul>
                             </div>
                         </div>
@@ -91,7 +91,7 @@
             </div>
         </div>
     </div>
-    <!-- Modal -->
+    <!-- Modal for edit comment-->
     <div class="modal fade" id="editCommentModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
@@ -112,6 +112,112 @@
             </div>
         </div>
     </div>
+
+    <!-- Modal for edit topic-->
+<div class="modal fade" id="editTopicModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabell" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+        <h4 class="modal-title" id="myModalLabell">Edit your topic</h4>
+      </div>
+      <div class="modal-body">
+       <b> Edit title: </b> <br />
+      <asp:TextBox ID="tb" runat="server" ></asp:TextBox>
+         <br />
+          <br />
+
+       <b>Edit description </b>
+
+          <br />
+      <asp:TextBox ID="topicDesc" runat="server" CssClass="form-control" TextMode="MultiLine"></asp:TextBox>
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+        <!-- Modal for edit topic-->
+<div class="modal fade" id="reportTopicModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabell" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+        <h4 class="modal-title" id="myModalLabelll">Report this topic</h4>
+      </div>
+      <div class="modal-body">
+    
+
+
+
+          <div class="row" >
+     
+        <div class="[ form-group ]">
+            <input type="checkbox" name="fancy-checkbox-primary" id="fancy-checkbox-primary"  />
+            <div class="[ btn-group ]">
+                <label for="fancy-checkbox-primary" class="[ btn btn-primary ]">
+                    <span class="[ glyphicon glyphicon-ok ]"></span>
+                    <span> </span>
+                </label>
+                <label for="fancy-checkbox-primary" class="[ btn btn-default active ]">
+                    Already exists same or similar topic
+                </label>
+            </div>
+        </div>
+        <div class="[ form-group ]">
+            <input type="checkbox" name="fancy-checkbox-success" id="fancy-checkbox-success"  />
+            <div class="[ btn-group ]">
+                <label for="fancy-checkbox-success" class="[ btn btn-success ]">
+                    <span class="[ glyphicon glyphicon-ok ]"></span>
+                    <span> </span>
+                </label>
+                <label for="fancy-checkbox-success" class="[ btn btn-default active ]">
+                    It contains offensive content
+                </label>
+            </div>
+        </div>
+        <div class="[ form-group ]">
+            <input type="checkbox" name="fancy-checkbox-info" id="fancy-checkbox-info"  />
+            <div class="[ btn-group ]">
+                <label for="fancy-checkbox-info" class="[ btn btn-info ]">
+                    <span class="[ glyphicon glyphicon-ok ]"></span>
+                    <span> </span>
+                </label>
+                <label for="fancy-checkbox-info" class="[ btn btn-default active ]">
+                  This shoudn't be on SmartSet
+                </label>
+            </div>
+        </div>
+       
+             <div id="other">
+                  <label> Other: </label> 
+                  <asp:TextBox ID="TextBox1" runat="server" ></asp:TextBox>
+                 </div>
+  
+    </div>
+
+
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Report topic</button>
+      </div>
+    </div>
+  </div>
+</div>
+    
+
+
+
     <asp:HiddenField ID="commentID" runat="server" />
     <asp:Button ID="btnLikeComment" runat="server" Style="display: none;" OnClick="btnLikeComment_Click" />
     <asp:Button ID="btnUnlikeComment" runat="server" Style="display: none;" OnClick="btnUnlikeComment_Click" />
