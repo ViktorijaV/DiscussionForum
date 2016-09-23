@@ -1,5 +1,5 @@
-﻿using DiscussionForum.Domain.Interfaces.Services;
-using DiscussionForum.Services;
+﻿using DiscussionForum.Services;
+using DiscussionForum.Services.Intefraces;
 using System;
 using System.Configuration;
 using System.Data.SqlClient;

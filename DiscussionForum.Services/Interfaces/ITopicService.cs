@@ -1,9 +1,8 @@
 ﻿using DiscussionForum.Domain.DomainModel;
-using DiscussionForum.Domain.DTOs;
-using System;
+using DiscussionForum.Services.DTOs;
 using System.Collections.Generic;
 
-namespace DiscussionForum.Domain.Interfaces.Services
+namespace DiscussionForum.Services.Interfaces
 {
     public interface ITopicService
     {

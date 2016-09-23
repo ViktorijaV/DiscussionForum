@@ -1,9 +1,9 @@
 ﻿using DiscussionForum.Domain.DomainModel;
-using DiscussionForum.Domain.DTOs;
+using DiscussionForum.Services.DTOs;
 using System;
 using System.Collections.Generic;
 
-namespace DiscussionForum.Domain.Interfaces.Services
+namespace DiscussionForum.Services.Interfaces
 {
     public interface ICommentService
     {

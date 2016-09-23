@@ -4,7 +4,7 @@ using System.Web;
 using System.Web.UI.WebControls;
 using System.Configuration;
 using DiscussionForum.Services;
-using DiscussionForum.Domain.Interfaces.Services;
+using DiscussionForum.Services.Interfaces;
 
 namespace DiscussionForum.Site
 {

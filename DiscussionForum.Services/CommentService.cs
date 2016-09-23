@@ -1,7 +1,7 @@
 ﻿using Dapper;
 using DiscussionForum.Domain.DomainModel;
-using DiscussionForum.Domain.DTOs;
-using DiscussionForum.Domain.Interfaces.Services;
+using DiscussionForum.Services.DTOs;
+using DiscussionForum.Services.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Data;

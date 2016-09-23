@@ -4,7 +4,7 @@ using Dapper;
 using System.Text.RegularExpressions;
 using DiscussionForum.Domain.DomainModel;
 using System.Data;
-using DiscussionForum.Domain.Interfaces.Services;
+using DiscussionForum.Domain.Interfaces;
 
 namespace DiscussionForum.Services
 {
@@ -17,9 +17,8 @@ namespace DiscussionForum.Services
             _connection = connection;
         }
 
-        public void addUsernameToUser(User user)
+        public string GenerateUsername(string email)
         {
-            var email = user.Email;
             var username = email.Split('@').First();
             username = Regex.Replace(username, "[^a-zA-Z0-9]", "-");
 
@@ -33,7 +32,7 @@ namespace DiscussionForum.Services
                 count++;
             }
 
-            user.setUsername(generatedUsername);
+            return generatedUsername;
         }
     }
 }

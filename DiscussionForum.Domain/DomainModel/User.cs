@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DiscussionForum.Domain.Interfaces;
+using System;
 using System.Text.RegularExpressions;
 
 namespace DiscussionForum.Domain.DomainModel
@@ -11,7 +12,7 @@ namespace DiscussionForum.Domain.DomainModel
             Confirmed = false;
         }
 
-        public static User RegisterUser (string email, string fullName, string password, string repeatedPassword, string encryptedPassword, Gender gender, DateTime birthday, string avatarUrl, string country = "", string faculty = "", string bio="")
+        public static User RegisterUser (string email, string fullName, string password, string repeatedPassword, string encryptedPassword, Gender gender, DateTime birthday, string avatarUrl, IUsernameGenerator usernameGenerator, string country = "", string faculty = "", string bio="")
         {
             var user = new User();
 
@@ -39,6 +40,7 @@ namespace DiscussionForum.Domain.DomainModel
             user.Faculty = faculty;
             user.Location = null;
             user.Bio = bio;
+            user.Username = usernameGenerator.GenerateUsername(user.Email);
 
             return user;
         }
@@ -77,9 +79,9 @@ namespace DiscussionForum.Domain.DomainModel
         public int ID { get; private set; }
         public string Email { get; private set; }
         public string Username { get; private set; }
-        public string Password { get; set; }
-        public string Fullname { get; set; }
-        public DateTime DateCreated { get; set; }
+        public string Password { get; private set; }
+        public string Fullname { get; private set; }
+        public DateTime DateCreated { get; private set; }
         public bool Confirmed { get; set; }
         public string ConfirmationCode { get; set; }
         public Role Role { get; set; }

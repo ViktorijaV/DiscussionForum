@@ -1,6 +1,6 @@
 ﻿using DiscussionForum.Domain.DomainModel;
-using DiscussionForum.Domain.Interfaces.Services;
 using DiscussionForum.Services;
+using DiscussionForum.Services.Interfaces;
 using System;
 using System.Configuration;
 using System.Data.SqlClient;

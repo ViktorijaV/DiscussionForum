@@ -1,6 +1,6 @@
 ﻿using DiscussionForum.Domain.DomainModel;
 
-namespace DiscussionForum.Domain.Interfaces.Services
+namespace DiscussionForum.Services.Intefraces
 {
     public interface IUserService
     {

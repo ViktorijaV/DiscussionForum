@@ -1,8 +1,8 @@
-﻿using DiscussionForum.Domain.Interfaces.Services;
-using System.Data;
+﻿using System.Data;
 using System.Linq;
 using DiscussionForum.Domain.DomainModel;
 using Dapper;
+using DiscussionForum.Services.Intefraces;
 
 namespace DiscussionForum.Services
 {

@@ -1,10 +1,10 @@
 ﻿using DiscussionForum.Domain.DomainModel;
 using System;
 
-namespace DiscussionForum.Domain.Interfaces.Services
+namespace DiscussionForum.Domain.Interfaces
 {
     public interface IUsernameGenerator
     {
-        void addUsernameToUser(User user);
+        string GenerateUsername(string email);
     }
 }
