@@ -8,14 +8,16 @@
     <link href="~/Site/Content/bootstrap.min.css" rel="stylesheet" />
     <link href="~/Site/Fonts/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
     <link rel="stylesheet" href="~/Site/Content/style.css" />
+    <link rel="shortcut icon" href="/Storage/favicon.ico" type="image/x-icon" />
+    <link rel="icon" href="/Storage/favicon.ico" type="image/x-icon" />
 </head>
 <body class="body-without-nav">
     <div class="container">
         <form id="form2" runat="server">
             <div class="row">
                 <div class="col-xs-offset-3 col-xs-6">
-                    <a href="home">
-                        <img class="fit-in-div" src="../Storage/logoWithLetters.png" />
+                    <a href="/home">
+                        <img class="fit-in-div" src="/Storage/logoWithLetters.png" />
                     </a>
                 </div>
             </div>

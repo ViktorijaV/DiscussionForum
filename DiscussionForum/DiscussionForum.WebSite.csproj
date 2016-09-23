@@ -253,6 +253,7 @@
     <Content Include="Site\Register.aspx" />
     <Content Include="Site\Scripts\ai.0.15.0-build58334.min.js" />
     <Content Include="Site\Topic.aspx" />
+    <Content Include="Storage\favicon.ico" />
     <Content Include="Storage\logo.png" />
     <Content Include="Storage\logoWithLetters.png" />
     <Content Include="Site\UserProfile.aspx" />
