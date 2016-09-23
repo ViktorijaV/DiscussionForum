@@ -8,7 +8,7 @@
         <div class="col-xs-8">
                     <ul class="nav nav-tabs">
                         <li id="latest" class="active">Latest</li>
-                        <li id="top">Top</li>
+                        <li id="top" >Top</li>
                         <li id="most-popular">Most Popular</li>
                     </ul>
                 </div>

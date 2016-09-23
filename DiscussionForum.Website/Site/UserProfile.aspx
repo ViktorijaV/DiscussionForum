@@ -8,29 +8,26 @@
         <div class="col-xs-7 profile-card">
 
             <div class="row full-height">
-               
-                <div class="row">
-
-                <div class="col-xs-offset-1 col-xs-3 full-height pcphoto">
+               <div class="row">
+                    <div class="col-xs-offset-1 col-xs-3 full-height pcphoto">
                     <asp:Image ID="profilePicture" Cssclass="fit-in-div profile-card-photo" runat="server"></asp:Image>
                 </div>
 
                  <div class="col-xs-6 full-height usp">
-
-                    <div class="profile-card-row">
-                       <span class="profile-card-label username">Username</span>
-                       <asp:Label ID="username" runat="server" CssClass="profile-card-info"></asp:Label>
+                       <div class="profile-card-row username">
+                       <asp:Label ID="username" runat="server" CssClass="profile-card-info username"></asp:Label>
                     </div>
-                    <div class="profile-card-row">
+                      <div class="profile-card-row">
                         <span class="profile-card-label fullName">FullName</span>
                         <asp:Label ID="fullname" runat="server" CssClass="profile-card-info"></asp:Label>
                     </div>
+                  
 
                 </div>
                
-                 <div class="col-xs-1 full-height editProfile">
-                     <div class="profile-card-row">
-                        <asp:LinkButton ID="btnLike" runat="server" CssClass="btn btn-icon faa-parent animated-hover editProfileChangeSize" ToolTip="Like"><i class="fa fa-pencil faa-tada"></i></asp:LinkButton>
+                 <div class="col-xs-1 full-height">
+                     <div class="profile-card-row tool expand" data-title="Edit your profile page">
+                        <asp:LinkButton ID="btnLike" runat="server" CssClass="btn btn-icon faa-parent animated-hover editProfileChangeSize"><i class="fa fa-pencil faa-tada"></i></asp:LinkButton>
                      </div>
                 </div>
                 

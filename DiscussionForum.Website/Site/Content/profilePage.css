@@ -3,16 +3,15 @@
 }
 
 .username{
-   font-size: 38px;
-   margin-top: 55px;
-  
-   color: #404040;
-   
+  font-size:38px;
+margin-top:50px;
+
 }
 
 .fullName{
     color: #40a8cc;
     font-size: 16px;
+  
 }
 
 .bio{
@@ -76,7 +75,6 @@
 
 .editProfileChangeSize{
      font-size: 28px;
-
 }
 
 #btnUpload{
