@@ -44,7 +44,7 @@ namespace DiscussionForum.Services
                                    (SELECT COUNT(*)
                                           FROM TopicFollowers
                                           WHERE TopicFollowers.TopicID = {topicID})
-                                                            AS Folowers,
+                                                            AS Followers,
                                    (SELECT COUNT(*)
                                     FROM TopicLikes
                                     WHERE TopicLikes.TopicID = {topicID})

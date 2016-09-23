@@ -77,15 +77,12 @@
                     <ul class="list-group">
                         <li class="list-group-item list-group-item-heading">STATS</li>
                         <li class="list-group-item">Category&nbsp;
-                           
                             <asp:HyperLink ID="categoryLink" runat="server" CssClass="list-group-item-span"></asp:HyperLink>
                         </li>
                         <li class="list-group-item">Created&nbsp;- &nbsp;
-                           
                             <asp:Label ID="createdTime" runat="server"></asp:Label>
                         </li>
                         <li class="list-group-item">Last active&nbsp;-&nbsp;
-                           
                             <asp:Label ID="activeTime" runat="server"></asp:Label>
                         </li>
                         <li class="list-group-item">Followers&nbsp;<span id="Followers" class="badge" runat="server"></span></li>
