@@ -261,9 +261,6 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DTOs\CategoryFollowerDTO.cs" />
-    <Compile Include="DTOs\CommentDTO.cs" />
-    <Compile Include="DTOs\TopicDTO.cs" />
     <Compile Include="Site\Admin\CreateCategory.aspx.cs">
       <DependentUpon>CreateCategory.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
