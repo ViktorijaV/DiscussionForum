@@ -1,13 +1,10 @@
-﻿using Dapper;
-using DiscussionForum.AppServices;
-using DiscussionForum.Domain.DomainModel;
-using DiscussionForum.DTOs;
+﻿using DiscussionForum.Domain.DomainModel;
+using DiscussionForum.Domain.Interfaces.Services;
+using DiscussionForum.Services;
 using System;
 using System.Configuration;
 using System.Data.SqlClient;
-using System.Linq;
 using System.Web;
-using System.Web.Security;
 using System.Web.UI;
 using System.Web.UI.HtmlControls;
 using System.Web.UI.WebControls;
@@ -16,41 +13,33 @@ namespace DiscussionForum.Site
 {
     public partial class CategoryTopic : System.Web.UI.Page
     {
+        private ICategoryService _categoryService = new CategoryService(new SqlConnection(ConfigurationManager.ConnectionStrings["myConnection"].ToString()));
+        private ITopicService _topicService = new TopicService(new SqlConnection(ConfigurationManager.ConnectionStrings["myConnection"].ToString()));
+        private FormsAuthenticationService _authenticationService = new FormsAuthenticationService(HttpContext.Current, new SqlConnection(ConfigurationManager.ConnectionStrings["myConnection"].ToString()));
+
         protected void Page_Load(object sender, EventArgs e)
         {
             int categoryID = Convert.ToInt32(Page.RouteData.Values["id"]);
-            var sqlConnection = new SqlConnection(ConfigurationManager.ConnectionStrings["myConnection"].ToString());
-            var currentUser = new FormsAuthenticationService(HttpContext.Current, sqlConnection).GetAuthenticatedUser();
-            loadCategory(sqlConnection, categoryID);
-            loadTopics(sqlConnection, categoryID);
-            loadFollowers(sqlConnection, categoryID, currentUser);
+           var currentUser = _authenticationService.GetAuthenticatedUser();
+            loadCategory(categoryID);
+            loadTopics(categoryID);
+            loadFollowers(categoryID, currentUser);
         }
 
-        private void loadCategory(SqlConnection connection, int categoryID)
+        private void loadCategory(int categoryID)
         {
-            string sql = $@"SELECT * FROM Categories
-                WHERE Categories.ID = {categoryID}";
-
-            var category = connection.Query<DiscussionForum.Domain.DomainModel.Category>(sql).FirstOrDefault();
+            var category = _categoryService.GetCategoryById(categoryID); 
 
             categoryName.Text = category.Name;
             categoryName.ForeColor = System.Drawing.ColorTranslator.FromHtml(category.Color);
         }
 
-        private void loadFollowers(SqlConnection connection, int categoryID, AuthenticatedUser currentUser)
+        private void loadFollowers(int categoryID, AuthenticatedUser currentUser)
         {
             btnUnfollow.Style.Add("display", "none");
 
-            string sql = $@"SELECT
-                CategoryFollowers.FollowerID    AS FollowerID,
-                Users.Avatar                    AS FollowerPicture,
-                Users.Username                  AS FollowerUsername,
-                Users.Fullname                  AS FollowerFullname
-                FROM CategoryFollowers
-                INNER JOIN Users ON Users.ID=CategoryFollowers.FollowerID
-                WHERE CategoryFollowers.CategoryID = {categoryID}";
+            var followers = _categoryService.GetFollowers(categoryID);
 
-            var followers = connection.Query<CategoryFollowerDTO>(sql).ToList();
             listFollowers.Controls.Clear();
             var heading = new HtmlGenericControl("li");
             heading.Attributes.Add("class", "list-group-item list-group-item-heading");
@@ -80,37 +69,9 @@ namespace DiscussionForum.Site
 
         }
 
-        private void loadTopics(SqlConnection connection, int categoryID)
+        private void loadTopics(int categoryID)
         {
-            string sql = $@"SELECT
-                Topics.ID            AS ID,
-                Topics.Title         AS Title,
-                Topics.CreatorID     AS CreatorID,
-                Topics.CategoryID    AS CategoryID,
-                Topics.DateCreated   AS DateCreated,
-                Topics.LastActivity  AS LastActivity,
-                Topics.Description   AS Description,
-                (SELECT COUNT(*)
-                 FROM TopicLikes
-                 WHERE TopicLikes.TopicID = Topics.ID)
-                                     AS Likes,
-                (SELECT COUNT(*)
-                       FROM Comments
-                       WHERE Comments.TopicID = Topics.ID)
-                                     AS Replies,
-                Topics.Reported      AS Reported,
-                Topics.Closed        AS Closed,
-                Users.Avatar         AS CreatorPicture,
-                Users.Username       AS CreatorUsername,
-                Categories.Name      AS CategoryName,
-                Categories.Color     AS CategoryColor
-                FROM Topics
-                INNER JOIN Users ON Users.ID=Topics.CreatorID
-                INNER JOIN Categories ON Categories.ID=Topics.CategoryID
-                WHERE Topics.CategoryID = {categoryID}
-                ORDER BY Topics.LastActivity DESC";
-
-            var topics = connection.Query<TopicDTO>(sql).ToList();
+            var topics = _topicService.GetTopicsByCategory(categoryID);
 
             foreach (var topic in topics)
             {
@@ -151,8 +112,7 @@ namespace DiscussionForum.Site
 
         protected void btnFollow_Click(object sender, EventArgs e)
         {
-            var connection = new SqlConnection(ConfigurationManager.ConnectionStrings["myConnection"].ToString());
-            var currentUser = new FormsAuthenticationService(HttpContext.Current, connection).GetAuthenticatedUser();
+            var currentUser = _authenticationService.GetAuthenticatedUser();
             int categoryID = Convert.ToInt32(Page.RouteData.Values["id"]);
 
             if (currentUser == null)
@@ -160,20 +120,17 @@ namespace DiscussionForum.Site
 
             var categoryFollower = new CategoryFollower(categoryID, currentUser.Id);
 
-            string query = @"INSERT INTO CategoryFollowers (CategoryID, FollowerID)
-                             values(@CategoryID, @FollowerID)";
-            connection.Execute(query, new { categoryFollower.CategoryID, categoryFollower.FollowerID });
+            _categoryService.FollowCategory(categoryFollower);
 
             btnFollow.Style.Add("display", "none");
             btnUnfollow.Style.Add("display", "inline-block");
 
-            loadFollowers(connection, categoryID, currentUser);
+            loadFollowers(categoryID, currentUser);
         }
 
         protected void btnUnfollow_Click(object sender, EventArgs e)
         {
-            var connection = new SqlConnection(ConfigurationManager.ConnectionStrings["myConnection"].ToString());
-            var currentUser = new FormsAuthenticationService(HttpContext.Current, connection).GetAuthenticatedUser();
+            var currentUser = _authenticationService.GetAuthenticatedUser();
             int categoryID = Convert.ToInt32(Page.RouteData.Values["id"]);
 
             if (currentUser == null)
@@ -181,15 +138,12 @@ namespace DiscussionForum.Site
 
             var categoryFollower = new CategoryFollower(categoryID, currentUser.Id);
 
-            string query = @"DELETE FROM CategoryFollowers 
-                             WHERE CategoryID = @CategoryID 
-                             AND FollowerID = @FollowerID";
-            connection.Execute(query, new { categoryFollower.CategoryID, categoryFollower.FollowerID });
+            _categoryService.UnfollowCategory(categoryFollower);
 
             btnUnfollow.Style.Add("display", "none");
             btnFollow.Style.Add("display", "inline-block");
 
-            loadFollowers(connection, categoryID, currentUser);
+            loadFollowers(categoryID, currentUser);
         }
     }
 }

@@ -1,19 +1,18 @@
 ﻿using System;
 using System.Data.SqlClient;
 using System.Configuration;
-using Dapper;
-using System.Linq;
 using System.Web.Security;
 using DiscussionForum.Domain.Interfaces.Services;
 using DiscussionForum.Services;
 using DiscussionForum.Domain.DomainModel;
 using EmailService;
+using System.Web;
 
 namespace DiscussionForum.Site
 {
     public partial class Register : System.Web.UI.Page
     {
-        private IUserService _userService = new UserService(new SqlConnection(ConfigurationManager.ConnectionStrings["myConnection"].ToString()));
+        private IUserService _userService = new UserService(new SqlConnection(ConfigurationManager.ConnectionStrings["myConnection"].ToString()), new FormsAuthenticationService(HttpContext.Current, new SqlConnection(ConfigurationManager.ConnectionStrings["myConnection"].ToString())));
         private IUsernameGenerator _usernameGenerator = new UsernameGenerator(new SqlConnection(ConfigurationManager.ConnectionStrings["myConnection"].ToString()));
         private IEmailSender _emailSender = new EmailSender();
 
@@ -48,7 +47,7 @@ namespace DiscussionForum.Site
 
             _userService.RegisterUser(user);
 
-            Response.Redirect("confirmation");
+            Response.Redirect("/confirmation");
         }
     }
 }

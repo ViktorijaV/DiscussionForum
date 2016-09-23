@@ -1,36 +1,24 @@
-﻿using Dapper;
-using DiscussionForum.Domain.DomainModel;
+﻿using DiscussionForum.Domain.Interfaces.Services;
+using DiscussionForum.Services;
 using System;
 using System.Configuration;
 using System.Data.SqlClient;
-using System.Linq;
+using System.Web;
 
 namespace DiscussionForum.Site
 {
     public partial class Confirmation : System.Web.UI.Page
     {
+        private IUserService _userService = new UserService(new SqlConnection(ConfigurationManager.ConnectionStrings["myConnection"].ToString()), new FormsAuthenticationService(HttpContext.Current, new SqlConnection(ConfigurationManager.ConnectionStrings["myConnection"].ToString())));
+
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
             {
                 if (Request.QueryString["code"] != null)
                 {
-                    SqlConnection connection = new SqlConnection(ConfigurationManager.ConnectionStrings["myConnection"].ToString());
-
-                    string sql = $"SELECT * FROM Users WHERE ConfirmationCode='{Request.QueryString["code"]}'";
-                    var user = connection.Query<User>(sql).FirstOrDefault();
-
-                    if (user != null)
-                    {
-                        user.Confirmed = true;
-                        string updateQuery = $"UPDATE Users SET Confirmed = '{user.Confirmed}' WHERE ID='{user.ID}'";
-                        connection.Execute(updateQuery);
-                        lblText.Text = "<h3>Your account is confirmed!</h3>";
-                    }
-                    else
-                    {
-                        lblText.Text = "<h3>User with that confirmation link does not exists!</h3>";
-                    }
+                    var message = $"<h3>{_userService.ConfirmRegistration(Request.QueryString["code"])}</h3>";
+                    lblText.Text = message;
                 }
             }
         }

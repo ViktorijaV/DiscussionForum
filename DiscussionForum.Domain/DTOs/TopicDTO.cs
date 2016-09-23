@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 
-namespace DiscussionForum.DTOs
+namespace DiscussionForum.Domain.DTOs
 {
     public class TopicDTO
     {

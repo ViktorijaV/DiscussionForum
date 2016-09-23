@@ -7,7 +7,7 @@ using Newtonsoft.Json;
 using Dapper;
 using DiscussionForum.Domain.DomainModel;
 
-namespace DiscussionForum.AppServices
+namespace DiscussionForum.Services
 {
     public class FormsAuthenticationService
     {
@@ -54,7 +54,7 @@ namespace DiscussionForum.AppServices
             {
                 cookie.Expires = ticket.Expiration;
             }
-            //cookie.Secure = FormsAuthentication.RequireSSL;  // TODO: RequireSSL for production
+            
             cookie.Path = FormsAuthentication.FormsCookiePath;
             if (FormsAuthentication.CookieDomain != null)
             {

@@ -1,27 +1,27 @@
-﻿using Dapper;
-using DiscussionForum.Domain.DomainModel;
+﻿using DiscussionForum.Domain.DomainModel;
+using DiscussionForum.Domain.Interfaces.Services;
+using DiscussionForum.Services;
 using System;
 using System.Configuration;
 using System.Data.SqlClient;
-using System.Linq;
+using System.Web;
 using System.Web.UI;
 
 namespace DiscussionForum.Site
 {
     public partial class UserProfile : System.Web.UI.Page
     {
+        private IUserService _userService = new UserService(new SqlConnection(ConfigurationManager.ConnectionStrings["myConnection"].ToString()), new FormsAuthenticationService(HttpContext.Current, new SqlConnection(ConfigurationManager.ConnectionStrings["myConnection"].ToString())));
+
         protected void Page_Load(object sender, EventArgs e)
         {
             var username = Page.RouteData.Values["username"].ToString();
-            var connection = new SqlConnection(ConfigurationManager.ConnectionStrings["myConnection"].ToString());
-            getUser(connection, username);
+            getUser(username);
         }
 
-        private void getUser(SqlConnection connection, string userName)
+        private void getUser(string userName)
         {
-            var sql = $@"SELECT * FROM Users
-                         WHERE Users.Username = '{userName}'";
-            var user = connection.Query<User>(sql).FirstOrDefault();
+            var user = _userService.GetUserByUsername(userName);
             profilePicture.ImageUrl = user.Avatar;
             username.Text = user.Username;
             fullname.Text = user.Fullname;

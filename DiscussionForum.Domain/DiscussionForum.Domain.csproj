@@ -49,6 +49,12 @@
     <Compile Include="DomainModel\TopicFollower.cs" />
     <Compile Include="DomainModel\TopicLike.cs" />
     <Compile Include="DomainModel\User.cs" />
+    <Compile Include="DTOs\CategoryFollowerDTO.cs" />
+    <Compile Include="DTOs\CommentDTO.cs" />
+    <Compile Include="DTOs\TopicDTO.cs" />
+    <Compile Include="Interfaces\Services\ICategoryService.cs" />
+    <Compile Include="Interfaces\Services\ICommentService.cs" />
+    <Compile Include="Interfaces\Services\ITopicService.cs" />
     <Compile Include="Interfaces\Services\IUsernameGenerator.cs" />
     <Compile Include="Interfaces\Services\IUserService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace DiscussionForum.AppServices
+namespace DiscussionForum.Services
 {
     public class AuthenticatedUser
     {

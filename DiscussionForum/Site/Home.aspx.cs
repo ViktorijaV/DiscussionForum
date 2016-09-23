@@ -1,56 +1,33 @@
-﻿using Dapper;
-using DiscussionForum.Domain.DomainModel;
-using DiscussionForum.DTOs;
+﻿using DiscussionForum.Domain.DomainModel;
+using DiscussionForum.Domain.Interfaces.Services;
+using DiscussionForum.Services;
 using System;
 using System.Configuration;
 using System.Data.SqlClient;
-using System.Linq;
+using System.Web;
 using System.Web.UI.WebControls;
 
 namespace DiscussionForum.Site
 {
     public partial class Home : System.Web.UI.Page
     {
+        private ICategoryService _categoryService = new CategoryService(new SqlConnection(ConfigurationManager.ConnectionStrings["myConnection"].ToString()));
+        private ITopicService _topicService = new TopicService(new SqlConnection(ConfigurationManager.ConnectionStrings["myConnection"].ToString()));
+        private FormsAuthenticationService _authenticationService = new FormsAuthenticationService(HttpContext.Current, new SqlConnection(ConfigurationManager.ConnectionStrings["myConnection"].ToString()));
+
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
             {
-                var sqlConnection = new SqlConnection(ConfigurationManager.ConnectionStrings["myConnection"].ToString());
-                loadCategories(sqlConnection);
-                loadTopics(sqlConnection);
+                loadCategories();
+                loadTopics();
             }
         }
 
-        private void loadTopics(SqlConnection connection)
+        private void loadTopics()
         {
-            string sql = @"SELECT
-                Topics.ID            AS ID,
-                Topics.Title         AS Title,
-                Topics.CreatorID     AS CreatorID,
-                Topics.CategoryID    AS CategoryID,
-                Topics.DateCreated   AS DateCreated,
-                Topics.LastActivity  AS LastActivity,
-                Topics.Description   AS Description,
-                (SELECT COUNT(*)
-                 FROM TopicLikes
-                 WHERE TopicLikes.TopicID = Topics.ID)
-                                     AS Likes,
-                (SELECT COUNT(*)
-                       FROM Comments
-                       WHERE Comments.TopicID = Topics.ID)
-                                     AS Replies,
-                Topics.Reported      AS Reported,
-                Topics.Closed        AS Closed,
-                Users.Avatar         AS CreatorPicture,
-                Users.Username       AS CreatorUsername,
-                Categories.Name      AS CategoryName,
-                Categories.Color     AS CategoryColor
-                FROM Topics
-                INNER JOIN Users ON Users.ID=Topics.CreatorID
-                INNER JOIN Categories ON Categories.ID=Topics.CategoryID
-                ORDER BY Topics.LastActivity DESC";
 
-            var topics = connection.Query<TopicDTO>(sql).ToList();
+            var topics = _topicService.GetTopics();
             
             foreach (var topic in topics)
             {
@@ -85,10 +62,9 @@ namespace DiscussionForum.Site
 
         }
 
-        private void loadCategories(SqlConnection connection)
+        private void loadCategories()
         {
-            string sql = $"SELECT * FROM Categories";
-            var categories = connection.Query<DiscussionForum.Domain.DomainModel.Category>(sql).ToList();
+            var categories = _categoryService.LoadCategories();
             ListItem item = new ListItem("All Categories", "0");
             item.Attributes.CssStyle.Value = "backgroud-color: #333333";
             ddlCategories.Items.Add(item);

@@ -1,60 +1,43 @@
-﻿using Dapper;
-using System;
+﻿using System;
 using System.Data.SqlClient;
-using System.Linq;
 using System.Web;
 using System.Web.UI.WebControls;
 using System.Configuration;
-using DiscussionForum.AppServices;
-using DiscussionForum.Domain.DomainModel;
+using DiscussionForum.Services;
+using DiscussionForum.Domain.Interfaces.Services;
 
 namespace DiscussionForum.Site
 {
     public partial class CreateTopic : System.Web.UI.Page
     {
+        private ITopicService _topicService = new TopicService(new SqlConnection(ConfigurationManager.ConnectionStrings["myConnection"].ToString()));
+        private ICategoryService _categoryService = new CategoryService(new SqlConnection(ConfigurationManager.ConnectionStrings["myConnection"].ToString()));
+        private FormsAuthenticationService _authenticationService = new FormsAuthenticationService(HttpContext.Current, new SqlConnection(ConfigurationManager.ConnectionStrings["myConnection"].ToString()));
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            var connection = new SqlConnection(ConfigurationManager.ConnectionStrings["myConnection"].ToString());
-            var authenticationService = new FormsAuthenticationService(HttpContext.Current, connection);
-            var user = getCurrentUser(authenticationService);
+            var user = _authenticationService.GetAuthenticatedUser();
             if (user == null)
                 Response.Redirect("~/login?ReturnUrl=%2fcategory%2fcreate");
             currentUser.ImageUrl = user.PhotoUrl;
-            loadCategories(connection);
+            loadCategories();
         }
 
         protected void btnSubmit_Click(object sender, EventArgs e)
         {
-            var connection = new SqlConnection(ConfigurationManager.ConnectionStrings["myConnection"].ToString());
-            var authenticationService = new FormsAuthenticationService(HttpContext.Current, connection);
-            var currentUser = getCurrentUser(authenticationService);
+            var currentUser = _authenticationService.GetAuthenticatedUser();
             var description = Server.HtmlEncode(txtDescription.Text);
             var topic = new DiscussionForum.Domain.DomainModel.Topic(currentUser.Id, int.Parse(ddlCategories.SelectedItem.Value), txtTitle.Text, description);
 
-            createTopic(connection, topic);
+            _topicService.CreateTopic(topic);
 
             //This is not correct!
             Response.RedirectToRoute("TopicRoute", new { id = topic.ID });
         }
 
-        private AuthenticatedUser getCurrentUser(FormsAuthenticationService authenticationService)
+        private void loadCategories()
         {
-            var currentUser = authenticationService.GetAuthenticatedUser();
-            return currentUser;
-        }
-
-        private void createTopic(SqlConnection connection, DiscussionForum.Domain.DomainModel.Topic topic)
-        {
-            string query = "INSERT INTO Topics (CreatorID, CategoryID, Title, Description, Reported, Closed, DateCreated, LastActivity)" +
-            "values(@CreatorID, @CategoryID, @Title, @Description, @Reported, @Closed, @DateCreated, @LastActivity)";
-            connection.Execute(query, new { topic.CreatorID, topic.CategoryID, topic.Title, topic.Description, topic.Reported, topic.Closed, topic.DateCreated, topic.LastActivity });
-        }
-
-        private void loadCategories(SqlConnection connection)
-        {
-            string sql = $"SELECT * FROM Categories";
-            var categories = connection.Query<DiscussionForum.Domain.DomainModel.Category>(sql).ToList();
+            var categories = _categoryService.LoadCategories();
 
             foreach (var category in categories)
             {

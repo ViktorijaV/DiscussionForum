@@ -1,18 +1,17 @@
-﻿using Dapper;
-using DiscussionForum.Domain.DomainModel;
+﻿using DiscussionForum.Domain.Interfaces.Services;
+using DiscussionForum.Services;
 using System;
-using System.Collections.Generic;
 using System.Configuration;
 using System.Data.SqlClient;
-using System.Linq;
 using System.Web;
-using System.Web.UI;
-using System.Web.UI.WebControls;
 
 namespace DiscussionForum.Site.Admin
 {
     public partial class CreateCategory : System.Web.UI.Page
     {
+        private ICategoryService _categoryService = new CategoryService(new SqlConnection(ConfigurationManager.ConnectionStrings["myConnection"].ToString()));
+        private FormsAuthenticationService _authenticationService = new FormsAuthenticationService(HttpContext.Current, new SqlConnection(ConfigurationManager.ConnectionStrings["myConnection"].ToString()));
+
         protected void Page_Load(object sender, EventArgs e)
         {
 
@@ -21,17 +20,7 @@ namespace DiscussionForum.Site.Admin
         protected void btnSumbit_Click(object sender, EventArgs e)
         {
             var category = new DiscussionForum.Domain.DomainModel.Category(txtName.Text, txtColor.Text);
-
-            SqlConnection connection = new SqlConnection(ConfigurationManager.ConnectionStrings["myConnection"].ToString());
-
-            createCategory(connection, category);
-        }
-
-        private void createCategory(SqlConnection connection, DiscussionForum.Domain.DomainModel.Category category)
-        {
-            string query = "INSERT INTO Categories (Name, Color)" +
-            "values(@Name, @Color)";
-            connection.Execute(query, new { category.Name, category.Color});
+            _categoryService.CreateCategory(category);
         }
     }
 }

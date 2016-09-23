@@ -1,10 +1,8 @@
-﻿using Dapper;
-using DiscussionForum.AppServices;
-using DiscussionForum.Domain.DomainModel;
+﻿using DiscussionForum.Domain.Interfaces.Services;
+using DiscussionForum.Services;
 using System;
 using System.Configuration;
 using System.Data.SqlClient;
-using System.Linq;
 using System.Web;
 using System.Web.Security;
 
@@ -12,10 +10,11 @@ namespace DiscussionForum.Site
 {
     public partial class Login : System.Web.UI.Page
     {
-        private FormsAuthenticationService _authenticationService { get; set; }
+        private IUserService _userService = new UserService(new SqlConnection(ConfigurationManager.ConnectionStrings["myConnection"].ToString()), new FormsAuthenticationService(HttpContext.Current, new SqlConnection(ConfigurationManager.ConnectionStrings["myConnection"].ToString())));
+
         protected void Page_Load(object sender, EventArgs e)
         {
-            _authenticationService = new FormsAuthenticationService(HttpContext.Current, new SqlConnection(ConfigurationManager.ConnectionStrings["myConnection"].ToString()));
+
         }
         protected void btnLogin_Click(object sender, EventArgs e)
         {
@@ -23,39 +22,18 @@ namespace DiscussionForum.Site
 
             string hashedPassword = FormsAuthentication.HashPasswordForStoringInConfigFile(txtPassword.Text, "SHA1");
 
-            string errorMessage = loginUser(connection, txtEmail.Text, hashedPassword, cbRememberMe.Checked);
+            string errorMessage = _userService.LoginUser(txtEmail.Text, hashedPassword, cbRememberMe.Checked);
 
             if (errorMessage != "")
                 error.InnerText = errorMessage;
 
-            else {
+            else
+            {
                 var returnUrl = Request.QueryString["ReturnUrl"];
                 if (returnUrl != null)
                     Response.Redirect(returnUrl);
                 else Response.Redirect("/home");
             }
-        }
-
-        private string loginUser(SqlConnection connection, string email, string password, bool extendExpirationDate)
-        {
-            string sql = $"SELECT * FROM Users WHERE Email='{email}'";
-            var user = connection.Query<User>(sql).FirstOrDefault();
-
-            if (user == null)
-                return "User with that email does not exists! Please register.";
-
-            if (user.Confirmed == false)
-                return "Your account is not confirmed! Please confirm your account.";
-
-            if (user.Password != password)
-                return "Wrong password!";
-
-            _authenticationService.SignIn(user, extendExpirationDate, true);
-
-            var authenticatedUser = _authenticationService.GetAuthenticatedUser();
-            Session["username"] = authenticatedUser.Username;
-
-            return "";
         }
     }
 }
