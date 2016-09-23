@@ -165,6 +165,7 @@
     <Content Include="Site\Scripts\tinymce\skins\lightgray\skin.min.css" />
     <Content Include="Site\Scripts\tinymce\themes\modern\theme.min.js" />
     <Content Include="Site\Scripts\tinymce\tinymce.min.js" />
+    <Content Include="Site\Scripts\Tooltip.css" />
     <Content Include="Site\Scripts\validation.js" />
     <Content Include="Site\SiteMaster.Master" />
     <Content Include="ApplicationInsights.config">

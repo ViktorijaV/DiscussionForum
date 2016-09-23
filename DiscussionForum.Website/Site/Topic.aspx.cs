@@ -86,7 +86,7 @@ namespace DiscussionForum.Site
                 var editButton = "";
 
                 if (currentUser != null && currentUser.Id == comment.CommenterID)
-                    editButton = @"<button class='btn btn-icon faa-parent animated-hover pull-right edit-comment' type='button'>
+                    editButton = @"<button class='btn btn-icon faa-parent animated-hover pull-right edit-comment tool expand' data-title = 'Edit your comment' type ='button'>
                                         <i class='fa fa-pencil faa-shake'></i>
                                     </button>";
 

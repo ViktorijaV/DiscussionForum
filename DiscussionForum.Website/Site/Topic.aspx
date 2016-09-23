@@ -19,7 +19,7 @@
                         <div class="col-xs-10">
                             <asp:Label ID="topicTitle" runat="server" CssClass="topic-info-title"></asp:Label>
                             <div class="btn-group pull-right">
-                                <a class="btn btn-icon dropdown-toggle faa-parent animated-hover" data-toggle="dropdown" href="#">
+                                <a class="btn btn-icon dropdown-toggle faa-parent animated-hover tool expand" data-title="Edit or report this topic" data-toggle="dropdown" href="#">
                                     <i class="fa fa-cogs faa-spin" aria-hidden="true"></i>
                                 </a>
                                 <ul class="dropdown-menu">
