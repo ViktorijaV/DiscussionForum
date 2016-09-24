@@ -6,7 +6,7 @@ namespace DiscussionForum.Services.Interfaces
 {
     public interface ITopicService
     {
-        void CreateTopic(Topic topic);
+        int CreateTopic(Topic topic);
 
         TopicDTO GetTopicById(int topicID, int surrentUserId);
 

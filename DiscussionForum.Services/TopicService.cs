@@ -17,11 +17,14 @@ namespace DiscussionForum.Services
             _connection = connection;
         }
 
-        public void CreateTopic(Topic topic)
+        public int CreateTopic(Topic topic)
         {
-            string query = "INSERT INTO Topics (CreatorID, CategoryID, Title, Description, Reported, Closed, DateCreated, LastActivity)" +
-            "values(@CreatorID, @CategoryID, @Title, @Description, @Reported, @Closed, @DateCreated, @LastActivity)";
-            _connection.Execute(query, new { topic.CreatorID, topic.CategoryID, topic.Title, topic.Description, topic.Reported, topic.Closed, topic.DateCreated, topic.LastActivity });
+            string query = @"INSERT INTO Topics (CreatorID, CategoryID, Title, Description, Reported, Closed, DateCreated, LastActivity)
+                                values(@CreatorID, @CategoryID, @Title, @Description, @Reported, @Closed, @DateCreated, @LastActivity)
+                                SELECT CAST(SCOPE_IDENTITY() as int)";
+            int id = _connection.Query<int>(query, new { topic.CreatorID, topic.CategoryID, topic.Title, topic.Description, topic.Reported, topic.Closed, topic.DateCreated, topic.LastActivity }).FirstOrDefault();
+
+            return id;
         }
 
         public TopicDTO GetTopicById(int topicID, int Id)

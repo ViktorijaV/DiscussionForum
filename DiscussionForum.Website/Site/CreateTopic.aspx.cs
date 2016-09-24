@@ -5,6 +5,7 @@ using System.Web.UI.WebControls;
 using System.Configuration;
 using DiscussionForum.Services;
 using DiscussionForum.Services.Interfaces;
+using DiscussionForum.Domain.DomainModel;
 
 namespace DiscussionForum.Site
 {
@@ -18,7 +19,7 @@ namespace DiscussionForum.Site
         {
             var user = _authenticationService.GetAuthenticatedUser();
             if (user == null)
-                Response.Redirect("~/login?ReturnUrl=%2fcategory%2fcreate");
+                Response.Redirect("~/login?ReturnUrl=%2ftopic%2fcreate");
             currentUser.ImageUrl = user.PhotoUrl;
             loadCategories();
         }
@@ -29,10 +30,12 @@ namespace DiscussionForum.Site
             var description = Server.HtmlEncode(txtDescription.Text);
             var topic = new DiscussionForum.Domain.DomainModel.Topic(currentUser.Id, int.Parse(ddlCategories.SelectedItem.Value), txtTitle.Text, description);
 
-            _topicService.CreateTopic(topic);
+            int topicId = _topicService.CreateTopic(topic);
 
-            //This is not correct!
-            Response.RedirectToRoute("TopicRoute", new { id = topic.ID });
+            var topicFollower = new TopicFollower(topicId, currentUser.Id);
+            _topicService.FollowTopic(topicFollower);
+            
+            Response.RedirectToRoute("TopicRoute", new { id = topicId });
         }
 
         private void loadCategories()
