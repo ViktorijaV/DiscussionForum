@@ -54,12 +54,12 @@ margin-top:50px;
     margin-top: 55px;
     padding: 0px;
     display: inline-block;
-    max-height: 200px;
-    max-width: 200px;
 }
 
 .profile-photo{
     box-shadow: 2px 0px 3px grey;
+    max-height: 200px;
+    max-width: 200px;
 }
 
 .usp {
