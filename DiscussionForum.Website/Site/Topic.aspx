@@ -215,7 +215,71 @@
   </div>
 </div>
     
+<!-- Modal for report comment-->
+<div class="modal fade" id="reportCommentModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabellll" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+        <h4 class="modal-title" id="myModalLabellll">Report this comment</h4>
+      </div>
+      <div class="modal-body">
+       
+          <div class="row">
+               <div class="[ form-group ]">
+            <input type="checkbox" name="fancy-checkbox-default" id="fancy-checkbox-default"  />
+            <div class="[ btn-group ]">
+                <label for="fancy-checkbox-default" class="[ btn btn-default ]">
+                    <span class="[ glyphicon glyphicon-ok ]"></span>
+                    <span> </span>
+                </label>
+                <label for="fancy-checkbox-default" class="[ btn btn-default active ]">
+                  This comment contains offence content
+                </label>
+            </div>
+        </div>
+            
+              <div class="[ form-group ]">
+            <input type="checkbox" name="fancy-checkbox-danger" id="fancy-checkbox-danger"/>
+            <div class="[ btn-group ]">
+                <label for="fancy-checkbox-danger" class="[ btn btn-danger ]">
+                    <span class="[ glyphicon glyphicon-ok ]"></span>
+                    <span> </span>
+                </label>
+                <label for="fancy-checkbox-danger" class="[ btn btn-default active ]">
+                   TThis shouldn't be on SmartSet
+                </label>
+            </div>
+        </div>
 
+            <div class="[ form-group ]">
+            <input type="checkbox" name="fancy-checkbox-warning" id="fancy-checkbox-warning" />
+            <div class="[ btn-group ]">
+                <label for="fancy-checkbox-warning" class="[ btn btn-warning ]">
+                    <span class="[ glyphicon glyphicon-ok ]"></span>
+                    <span> </span>
+                </label>
+                <label for="fancy-checkbox-warning" class="[ btn btn-default active ]">
+                    This is spam
+                </label>
+            </div>
+        </div>
+
+                <div id="otherReason">
+                  <label> Other: </label> 
+                  <asp:TextBox ID="TextBox2" runat="server" ></asp:TextBox>
+                 </div>
+      </div>
+          </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Report comment</button>
+      </div>
+    </div>
+  </div>
+</div>
 
 
     <asp:HiddenField ID="commentID" runat="server" />

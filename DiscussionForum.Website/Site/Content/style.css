@@ -924,7 +924,13 @@ table.dataTable {
     display:block;      
 }
 
-#other
+#other 
 {
 margin-left:20px;
+}
+#otherReason {
+    margin-left: 20px;
+}
+.robot {
+margin-left:470px;
 }
