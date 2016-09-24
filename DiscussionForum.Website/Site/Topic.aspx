@@ -56,7 +56,7 @@
                     </div>
                     <div class="topic-comments-textarea">
                         <div class="topic-comments-textarea-heading">Add your comment</div>
-                        <div id="error" runat="server" class="alert alert-danger display-none"></div>
+                        <div id="error" runat="server" class="alert alert-danger alert-dismissible display-none"></div>
                         <asp:TextBox ID="txtComment" runat="server" CssClass="form-control" TextMode="MultiLine"></asp:TextBox>
                         <br />
                         <button id="btnCreate" class="btn btn-default" onclick="validateCreateComment(); return false;">Add comment</button>
@@ -102,7 +102,7 @@
                     <h4 class="modal-title" id="myModalLabel">Edit comment</h4>
                 </div>
                 <div class="modal-body">
-                    <div id="editError" runat="server" class="alert alert-danger display-none"></div>
+                    <div id="editError" runat="server" class="alert alert-danger alert-dismissible display-none"></div>
                     <asp:TextBox ID="txtContent" runat="server" CssClass="form-control" TextMode="MultiLine"></asp:TextBox>
                 </div>
                 <div class="modal-footer">

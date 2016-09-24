@@ -12,7 +12,7 @@
         <div class="col-xs-10">
             <div class="row">
                 <div class="col-xs-12">
-                    <div id="error" runat="server" class="alert alert-danger display-none"></div>
+                    <div id="error" runat="server" class="alert alert-danger alert-dismissible display-none"></div>
                 </div>
             </div>
             <div class="row separated">

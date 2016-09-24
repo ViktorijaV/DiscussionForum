@@ -19,6 +19,7 @@ namespace DiscussionForum.Site
             if (authenticatedUser != null)
             {
                 linkProfile.HRef = $"~/users/{authenticatedUser.Username}";
+                profilePic.ImageUrl = authenticatedUser.PhotoUrl;
                 panelAnonymous.Attributes.Add("style", "display:none");
             }
             else

@@ -12,6 +12,7 @@ namespace DiscussionForum.Site
     public partial class UserProfile : System.Web.UI.Page
     {
         private IUserService _userService = new UserService(new SqlConnection(ConfigurationManager.ConnectionStrings["myConnection"].ToString()));
+        private FormsAuthenticationService _authenticationService = new FormsAuthenticationService(HttpContext.Current, new SqlConnection(ConfigurationManager.ConnectionStrings["myConnection"].ToString()));
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -22,6 +23,14 @@ namespace DiscussionForum.Site
         private void getUser(string userName)
         {
             var user = _userService.GetUserByUsername(userName);
+            var currentUser = _authenticationService.GetAuthenticatedUser();
+
+            if(currentUser == null)
+            {
+                Response.Redirect($"/login?ReturnUrl={Request.RawUrl}");
+            }
+            if (currentUser.Id != user.ID)
+                btnEdit.Style["display"] = "none";
             profilePicture.ImageUrl = user.Avatar;
             username.Text = user.Username;
             fullname.Text = user.Fullname;

@@ -21,9 +21,9 @@
                     </a>
                 </div>
             </div>
-            <div class="row row-centered">
+            <div class="row row-centered row-separated">
                 <div class="col-xs-offset-4 col-xs-4">
-                    <div id="error" runat="server" class="alert alert-danger display-none"></div>
+                    <div id="error" runat="server" class="alert alert-danger alert-dismissible display-none"></div>
                 </div>
             </div>
             <div class="row">

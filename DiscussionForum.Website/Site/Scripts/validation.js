@@ -109,6 +109,31 @@ function logout() {
     $('#btnLogOut').trigger('click');
 }
 
+function validateChangeUserProperties() {
+
+    if ($("[id$='txtFullName']").val() == "") {
+        $("[id$='error']").show();
+        $("[id$='error']").text("FullName is required. Please enter FullName");
+        return false;
+    }
+    else if ($("[id$='txtFullName']").val().match(/([A-Za-z -]+){6,20}/) == null) {
+        $("[id$='error']").show();
+        $("[id$='error']").text("FullName must be at least 6 characters long and can consist of alphabetic characters, ‘-’ and whitespace only (no numbers or special characters are allowed)");
+        return false;
+    }
+
+    if ($("[id$='txtBio']").val().length > 300) {
+        $("[id$='error']").show();
+        $("[id$='error']").text("Bio must be less than 300 chars.");
+        return false;
+    }
+
+    $("[id$='error']").text("");
+    $("[id$='error']").hide();
+    event.preventDefault();
+    $("[id$='btnSave']").trigger('click');
+}
+
 function validateLogin() {
     if ($("#txtEmail").val() == "") {
         $("#error").show();

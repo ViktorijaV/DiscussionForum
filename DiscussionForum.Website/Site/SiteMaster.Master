@@ -34,7 +34,8 @@
                 <asp:Panel ID="panelAuthorized" runat="server">
                     <div id="btnProfile" class="dropdown pull-right">
                         <button class="btn btn-dropdown dropdown-toggle" type="button" data-toggle="dropdown" aria-expanded="false">
-                            <img src="/Storage/profileAvatar.png" class="img-rounded pull-left navbar-img" /><span class="caret"></span>
+                            <asp:Image ID="profilePic" Cssclass="img-rounded pull-left navbar-img" runat="server" />
+                            <span class="caret"></span>
                         </button>
                         <ul class="dropdown-menu">
                             <li><a id="linkProfile" href="/users/" runat="server"><i class="fa fa-cog"></i>&nbsp;&nbsp;My Profile</a></li>

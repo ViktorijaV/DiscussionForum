@@ -31,10 +31,6 @@
 
     $("[id$='topicDescription']").html($("[id$='topicDescription']").text());
 
-    $("#mceu_145").click(function () {
-        $("#mceu_85").focus();
-    });
-
     $(".edit-comment").click(function () {
         var id = $(this).parent().find(".comment-id").val();
         $("[id$='commentID']").val(id);
@@ -157,6 +153,7 @@ function initializeEditor() {
               { text: 'Other', value: 'txt' }
         ]
     });
+
 }
 
 function closeEditCommentModal() {

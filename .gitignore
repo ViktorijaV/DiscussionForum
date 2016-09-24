@@ -32,3 +32,4 @@ output/**/*
 /**/node_modules/**/*
 .vs/config/applicationhost.config
 **/*.orig
+DiscussionForum.Website/Storage/users/**/*

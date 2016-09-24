@@ -3,6 +3,7 @@ using System.Linq;
 using DiscussionForum.Domain.DomainModel;
 using Dapper;
 using DiscussionForum.Services.Intefraces;
+using System;
 
 namespace DiscussionForum.Services
 {
@@ -52,6 +53,13 @@ namespace DiscussionForum.Services
             return "";
         }
 
+        public User GetUserById(int id)
+        {
+            string sql = $"SELECT * FROM Users WHERE ID='{id}'";
+            var user = _connection.Query<User>(sql).FirstOrDefault();
+            return user;
+        }
+
         public User GetUserByEmail(string email)
         {
             string sql = $"SELECT * FROM Users WHERE Email='{email}'";
@@ -82,6 +90,12 @@ namespace DiscussionForum.Services
             }
             else
                 return "User with that confirmation link does not exists!";
+        }
+
+        public void ChangeUserProperties(int id, string fullname, string bio, string avatar)
+        {
+            string sql = $"UPDATE Users SET FullName = '{fullname}', Bio = '{bio}', Avatar = '{avatar}' WHERE ID='{id}'";
+            _connection.Execute(sql);
         }
     }
 }

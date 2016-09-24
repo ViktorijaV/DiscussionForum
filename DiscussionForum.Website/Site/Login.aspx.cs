@@ -26,7 +26,10 @@ namespace DiscussionForum.Site
             string errorMessage = _userService.CheckUserBeforeLogin(txtEmail.Text, hashedPassword);
 
             if (errorMessage != "")
+            {
                 error.InnerText = errorMessage;
+                error.Style["display"] = "block";
+            }
 
             else
             {

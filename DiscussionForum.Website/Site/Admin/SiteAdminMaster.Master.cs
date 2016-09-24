@@ -14,7 +14,9 @@ namespace DiscussionForum.Site.Admin
 
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            var authenticatedUser = _authenticationService.GetAuthenticatedUser();
+            linkProfile.HRef = $"~/users/{authenticatedUser.Username}";
+            profilePic.ImageUrl = authenticatedUser.PhotoUrl;
         }
 
         protected void btnLogOut_Click(object sender, EventArgs e)
