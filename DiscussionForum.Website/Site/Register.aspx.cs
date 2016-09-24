@@ -14,7 +14,7 @@ namespace DiscussionForum.Site
     {
         private IUserService _userService = new UserService(new SqlConnection(ConfigurationManager.ConnectionStrings["myConnection"].ToString()));
         private IEmailSender _emailSender = new EmailSender();
-        private IRecaptchaService _recaptchaService = new RecaptchaService();
+        private IRecaptchaService _recaptchaService = new RecaptchaService(ConfigurationManager.AppSettings["recatchaSecretKey"]);
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -39,7 +39,7 @@ namespace DiscussionForum.Site
                 return;
             }
 
-            if (_recaptchaService.validateRecaptcha(Request["g-recaptcha-response"]))
+            if (!_recaptchaService.validateRecaptcha(Request["g-recaptcha-response"]))
             {
                 error.InnerText = "Not Valid Recaptcha";
                 return;

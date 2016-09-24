@@ -12,11 +12,17 @@ namespace DiscussionForum.Services
 {
     public class RecaptchaService : IRecaptchaService
     {
+        private string _secretKey { get; set; }
+
+        public RecaptchaService(string secretKey)
+        {
+            _secretKey = secretKey;
+        }
         public bool validateRecaptcha(string response)
         {
             bool valid = false;
             //Request to Google Server
-            HttpWebRequest req = (HttpWebRequest)WebRequest.Create(" https://www.google.com/recaptcha/api/siteverify?secret=6LdAgwcUAAAAAHtvdcydApZJmRIwrjvxhZbpUElJ&response=" + response);
+            HttpWebRequest req = (HttpWebRequest)WebRequest.Create($" https://www.google.com/recaptcha/api/siteverify?secret={_secretKey}&response={response}");
 
             try
             {

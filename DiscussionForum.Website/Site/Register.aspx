@@ -83,9 +83,13 @@
                     </div>
                 </div>
             </div>
+            <div class="row">
+                <div class="col-xs-offset-4 col-xs-4 input-group">
+                    <div class="g-recaptcha" data-sitekey="6LdAgwcUAAAAAHtvdcydApZJmRIwrjvxhZbpUElJ"></div>
+                </div>
+            </div>
             <asp:Button ID="btnRegister" Style="display: none;" runat="server" OnClick="btnRegister_Click" />
-            <div class="g-recaptcha robot" data-sitekey="6LdAgwcUAAAAAHtvdcydApZJmRIwrjvxhZbpUElJ"></div>
-            <br/>
+            <br />
         </form>
         <div class="row">
             <div class="col-xs-offset-4 col-xs-4">
@@ -96,6 +100,7 @@
             <div class="col-xs-offset-4 col-xs-4">
                 <div style="padding-top: 30px; font-size: 90%">
                     Already have an account? 
+                   
                     <a href="login">Login Here</a>
                 </div>
             </div>
@@ -111,7 +116,6 @@
     <script src="/Site/Scripts/jquery.min.js" type="text/javascript"></script>
     <script src="/Site/Scripts/validation.js" type="text/javascript"></script>
     <script src="/Site/Scripts/script.js" type="text/javascript"></script>
-    <script src="Site/Scripts/JavaScript.js" type="text/javascript"></script>
     <script src='https://www.google.com/recaptcha/api.js'></script>
     <!-- This will be moved to PROFILE & EDIT PROFILE -->
     <asp:Label ID="lblLocation" runat="server" Text="Label">Location:</asp:Label>
