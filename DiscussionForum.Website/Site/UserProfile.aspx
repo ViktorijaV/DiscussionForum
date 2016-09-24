@@ -27,7 +27,7 @@
 
                  <div class="col-xs-1 full-height">
                      <div class="profile-card-row tool expand" data-title="Edit your profile page">
-                        <asp:LinkButton ID="btnLike" runat="server" CssClass="btn btn-icon faa-parent animated-hover editProfileChangeSize"><i class="fa fa-pencil faa-tada"></i></asp:LinkButton>
+                        <a id="btnEdit" class="btn btn-icon faa-parent animated-hover editProfileChangeSize" href="/profile/edit" runat="server"><i class="fa fa-pencil faa-tada"></i></a>
                      </div>
                 </div>
                 
