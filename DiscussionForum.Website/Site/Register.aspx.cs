@@ -6,6 +6,7 @@ using DiscussionForum.Services;
 using DiscussionForum.Domain.DomainModel;
 using EmailService;
 using DiscussionForum.Services.Intefraces;
+using DiscussionForum.Services.Interfaces;
 
 namespace DiscussionForum.Site
 {
@@ -13,6 +14,7 @@ namespace DiscussionForum.Site
     {
         private IUserService _userService = new UserService(new SqlConnection(ConfigurationManager.ConnectionStrings["myConnection"].ToString()));
         private IEmailSender _emailSender = new EmailSender();
+        private IRecaptchaService _recaptchaService = new RecaptchaService();
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -37,6 +39,12 @@ namespace DiscussionForum.Site
                 return;
             }
 
+            if (_recaptchaService.validateRecaptcha(Request["g-recaptcha-response"]))
+            {
+                error.InnerText = "Not Valid Recaptcha";
+                return;
+            }
+
             string message = $@"Please click on the link to confirm your registration: 
                 <a href='http://{ConfigurationManager.AppSettings["domainName"]}/confirmation?code={user.ConfirmationCode}'>Link</a>";
             _emailSender.SendEmail("Confirm your registration", message, user.Email);
@@ -45,5 +53,6 @@ namespace DiscussionForum.Site
 
             Response.Redirect("/confirmation");
         }
+            
     }
 }
