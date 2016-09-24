@@ -39,7 +39,7 @@ namespace DiscussionForum.Site
                 return;
             }
 
-            if (!_recaptchaService.validateRecaptcha(Request["g-recaptcha-response"]))
+            if (!_recaptchaService.validateRecaptcha(Request.Form["g-recaptcha-response"]))
             {
                 error.InnerText = "Not Valid Recaptcha";
                 return;
