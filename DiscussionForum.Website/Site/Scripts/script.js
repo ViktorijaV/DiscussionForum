@@ -1,5 +1,10 @@
 ﻿$(document).ready(function () {
 
+    //preloader
+    $(window).load(function () {
+        $("#loading").delay(1000).fadeOut(500);
+    })
+
     //check if js file work: console.log("ready!");
     // try to get user's location (country)
     $.get("http://ipinfo.io", function (response) { // All the info: $("#details").html(JSON.stringify(response, null, 4));
@@ -7,15 +12,6 @@
         $("#location").html(response.city + ", " + response.region);
         $("#country").html(response.country);
     }, "jsonp");
-
-    $('[data-toggle="tooltip"]').tooltip();
-
-    $(window).load(function () {
-        // Animate loader off screen
-        $("#loader").animate({
-            top: -200
-        }, 1500);
-    });
 
     if ($("#error").text() != "") {
         $("#error").show();

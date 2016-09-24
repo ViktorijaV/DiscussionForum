@@ -12,6 +12,18 @@
     <link rel="icon" href="/Storage/favicon.ico" type="image/x-icon" />
 </head>
 <body class="body-without-nav">
+    <div id="loading">
+        <div id="loading-center">
+            <div id="loading-center-absolute">
+                <div class="object" id="object_one"></div>
+                <div class="object" id="object_two" style="left: 20px;"></div>
+                <div class="object" id="object_three" style="left: 40px;"></div>
+                <div class="object" id="object_four" style="left: 60px;"></div>
+                <div class="object" id="object_five" style="left: 80px;"></div>
+            </div>
+        </div>
+
+    </div>
     <div class="container">
         <form id="form1" runat="server">
             <div class="row">

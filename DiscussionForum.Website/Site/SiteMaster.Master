@@ -15,12 +15,25 @@
     <link href="~/Site/Content/profilePage.css" rel="stylesheet" />
     <link rel="shortcut icon" href="/Storage/favicon.ico" type="image/x-icon" />
     <link rel="icon" href="/Storage/favicon.ico" type="image/x-icon" />
-        <link href="~/Site/Content/Tooltip.css" rel="stylesheet" />
+    <link href="~/Site/Content/Tooltip.css" rel="stylesheet" />
 
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
+
 </head>
 <body class="body-with-nav">
+    <div id="loading">
+        <div id="loading-center">
+            <div id="loading-center-absolute">
+                <div class="object" id="object_one"></div>
+                <div class="object" id="object_two" style="left: 20px;"></div>
+                <div class="object" id="object_three" style="left: 40px;"></div>
+                <div class="object" id="object_four" style="left: 60px;"></div>
+                <div class="object" id="object_five" style="left: 80px;"></div>
+            </div>
+        </div>
+
+    </div>
     <form id="form1" runat="server">
         <div>
             <!-- Navigation -->
@@ -34,7 +47,7 @@
                 <asp:Panel ID="panelAuthorized" runat="server">
                     <div id="btnProfile" class="dropdown pull-right">
                         <button class="btn btn-dropdown dropdown-toggle" type="button" data-toggle="dropdown" aria-expanded="false">
-                            <asp:Image ID="profilePic" Cssclass="img-rounded pull-left navbar-img" runat="server" />
+                            <asp:Image ID="profilePic" CssClass="img-rounded pull-left navbar-img" runat="server" />
                             <span class="caret"></span>
                         </button>
                         <ul class="dropdown-menu">
