@@ -5,6 +5,7 @@ using DiscussionForum.Services.Interfaces;
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
+using System;
 
 namespace DiscussionForum.Services
 {
@@ -19,10 +20,10 @@ namespace DiscussionForum.Services
 
         public int CreateTopic(Topic topic)
         {
-            string query = @"INSERT INTO Topics (CreatorID, CategoryID, Title, Description, Reported, Closed, DateCreated, LastActivity)
-                                values(@CreatorID, @CategoryID, @Title, @Description, @Reported, @Closed, @DateCreated, @LastActivity)
+            string query = @"INSERT INTO Topics (CreatorID, CategoryID, Title, Description, Reported, Closed, DateCreated, DateEdited, LastActivity)
+                                values(@CreatorID, @CategoryID, @Title, @Description, @Reported, @Closed, @DateCreated, @DateEdited, @LastActivity)
                                 SELECT CAST(SCOPE_IDENTITY() as int)";
-            int id = _connection.Query<int>(query, new { topic.CreatorID, topic.CategoryID, topic.Title, topic.Description, topic.Reported, topic.Closed, topic.DateCreated, topic.LastActivity }).FirstOrDefault();
+            int id = _connection.Query<int>(query, new { topic.CreatorID, topic.CategoryID, topic.Title, topic.Description, topic.Reported, topic.Closed, topic.DateCreated, topic.DateEdited, topic.LastActivity }).FirstOrDefault();
 
             return id;
         }
@@ -36,6 +37,7 @@ namespace DiscussionForum.Services
                                    Topics.CreatorID         AS CreatorID,
                                    Topics.CategoryID        AS CategoryID,
                                    Topics.DateCreated       AS DateCreated,
+                                   Topics.DateEdited        AS DateEdited,
                                    Topics.LastActivity      AS LastActivity,
                                    Topics.Description       AS Description,
                                    Topics.Reported          AS Reported,
@@ -82,6 +84,7 @@ namespace DiscussionForum.Services
                 Topics.CreatorID     AS CreatorID,
                 Topics.CategoryID    AS CategoryID,
                 Topics.DateCreated   AS DateCreated,
+                Topics.DateEdited    AS DateEdited,
                 Topics.LastActivity  AS LastActivity,
                 Topics.Description   AS Description,
                 (SELECT COUNT(*)
@@ -116,6 +119,7 @@ namespace DiscussionForum.Services
                 Topics.CreatorID     AS CreatorID,
                 Topics.CategoryID    AS CategoryID,
                 Topics.DateCreated   AS DateCreated,
+                Topics.DateEdited    AS DateEdited,
                 Topics.LastActivity  AS LastActivity,
                 Topics.Description   AS Description,
                 (SELECT COUNT(*)
@@ -171,6 +175,14 @@ namespace DiscussionForum.Services
                              WHERE TopicID = @TopicID 
                              AND FollowerID = @FollowerID";
             _connection.Execute(query, new { topicFollower.TopicID, topicFollower.FollowerID });
+        }
+
+        public void EditTopic(int topicID, string title, string description, DateTime date)
+        {
+            var sql = $@"UPDATE Topics
+                         SET Topics.Title = @Title, Topics.Description = @Description, Topics.DateEdited = @Date, Topics.LastActivity = @Date
+                         WHERE Topics.ID = @TopicID";
+            _connection.Execute(sql, new { title, description, date, topicID });
         }
     }
 }

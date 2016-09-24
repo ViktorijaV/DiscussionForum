@@ -17,6 +17,7 @@ namespace DiscussionForum.Services.DTOs
         public string CategoryName { get; private set; }
         public string CategoryColor { get; private set; }
         public DateTime DateCreated { get; private set; }
+        public DateTime DateEdited { get; private set; }
         public DateTime LastActivity { get; private set; }
         public int Likes { get; private set; }
         public int Replies { get; private set; }

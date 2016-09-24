@@ -31,6 +31,42 @@ namespace DiscussionForum.Site {
         protected global::System.Web.UI.WebControls.Label topicTitle;
         
         /// <summary>
+        /// settingsDropdown control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl settingsDropdown;
+        
+        /// <summary>
+        /// timeCreated control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl timeCreated;
+        
+        /// <summary>
+        /// creatorUsername control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl creatorUsername;
+        
+        /// <summary>
+        /// timeEdited control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl timeEdited;
+        
+        /// <summary>
         /// topicDescription control.
         /// </summary>
         /// <remarks>
@@ -184,22 +220,31 @@ namespace DiscussionForum.Site {
         protected global::System.Web.UI.WebControls.TextBox txtContent;
         
         /// <summary>
-        /// tb control.
+        /// editTopicError control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox tb;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl editTopicError;
         
         /// <summary>
-        /// topicDesc control.
+        /// txtEditTitle control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox topicDesc;
+        protected global::System.Web.UI.WebControls.TextBox txtEditTitle;
+        
+        /// <summary>
+        /// txtEditDesc control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtEditDesc;
         
         /// <summary>
         /// TextBox1 control.
@@ -254,5 +299,14 @@ namespace DiscussionForum.Site {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnEditComment;
+        
+        /// <summary>
+        /// btnEditTopic control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnEditTopic;
     }
 }

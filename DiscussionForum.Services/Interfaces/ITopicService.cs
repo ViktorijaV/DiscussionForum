@@ -1,5 +1,6 @@
 ﻿using DiscussionForum.Domain.DomainModel;
 using DiscussionForum.Services.DTOs;
+using System;
 using System.Collections.Generic;
 
 namespace DiscussionForum.Services.Interfaces
@@ -21,5 +22,7 @@ namespace DiscussionForum.Services.Interfaces
         void FollowTopic(TopicFollower topicFollower);
 
         void UnfollowTopic(TopicFollower topicFollower);
+
+        void EditTopic(int topicID, string title, string description, DateTime date);
     }
 }

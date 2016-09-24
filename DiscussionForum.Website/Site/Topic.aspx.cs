@@ -52,10 +52,21 @@ namespace DiscussionForum.Site
                     btnLike.Style.Add("display", "none");
                     btnUnlike.Style.Add("display", "inline-block");
                 }
+
+                if(currentUser.Id == topicDetails.CreatorID)
+                {
+                    var html = settingsDropdown.InnerHtml;
+                    settingsDropdown.InnerHtml = $"<li><a id='editTopic' data-title='Edit your topic'><i class='fa fa-pencil fa-fw faa-spin'></i>Edit</a></li>{html}";
+                }
             }
 
             topicTitle.Text = topicDetails.Title;
             creatorImg.ImageUrl = topicDetails.CreatorPicture;
+            timeCreated.InnerText = TimePeriod.TimeDifference(topicDetails.DateCreated);
+            creatorUsername.InnerText = topicDetails.CreatorUsername;
+
+            if (topicDetails.DateEdited != DateTime.MinValue)
+                timeEdited.InnerText = $"Edited {TimePeriod.TimeDifference(topicDetails.DateEdited)}";
 
             string description = Server.HtmlDecode(topicDetails.Description).Replace("\"", "'");
             topicDescription.InnerHtml = description;
@@ -86,7 +97,7 @@ namespace DiscussionForum.Site
                 var editButton = "";
 
                 if (currentUser != null && currentUser.Id == comment.CommenterID)
-                    editButton = @"<button class='btn btn-icon faa-parent animated-hover pull-right edit-comment tool expand' data-title = 'Edit your comment' type ='button'>
+                    editButton = @"<button class='btn btn-icon faa-parent animated-hover pull-right edit-comment tool expand' data-title='Edit your comment' type='button'>
                                         <i class='fa fa-pencil faa-shake'></i>
                                     </button>";
 
@@ -244,6 +255,24 @@ namespace DiscussionForum.Site
             content = txtContent.Text;
             var date = DateTime.Now;
             _commentService.EditComment(topicID, Id, content, date);
+
+            Response.Redirect(Request.RawUrl);
+        }
+
+        protected void btnEditTopic_Click(object sender, EventArgs e)
+        {
+            var currentUser = _authenticationService.GetAuthenticatedUser();
+            int topicID = Convert.ToInt32(Page.RouteData.Values["id"]);
+
+            if (currentUser == null)
+                Response.Redirect($"~/login?ReturnUrl=%2ftopic%2f{topicID}");
+
+            var title = txtEditTitle.Text;
+            var description = Server.HtmlEncode(txtEditDesc.Text);
+            description = txtEditDesc.Text;
+            var date = DateTime.Now;
+
+            _topicService.EditTopic(topicID, title, description, date);
 
             Response.Redirect(Request.RawUrl);
         }

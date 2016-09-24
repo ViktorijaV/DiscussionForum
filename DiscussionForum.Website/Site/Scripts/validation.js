@@ -30,6 +30,7 @@ function validateCreateComment() {
 }
 
 function validateEditComment() {
+
     if ($("[id$='txtContent']").val() == "") {
         $("[id$='editError']").show();
         $("[id$='editError']").text("Comment text is required. Please enter text.");
@@ -85,6 +86,42 @@ function validateCreateTopic() {
     $("[id$='error']").text("");
     $("[id$='error']").hide();
     $("[id$='btnSubmit']").trigger('click');
+}
+
+function validateEditTopic() {
+
+    if ($("[id$='txtEditTitle']").val() == "") {
+        $("[id$='editTopicError']").show();
+        $("[id$='editTopicError']").text("Name is required. Please enter name.");
+        return false;
+    }
+
+    if ($("[id$='txtEditTitle']").val().length > 50) {
+        $("[id$='editTopicError']").show();
+        $("[id$='editTopicError']").text("Name is too long. Please enter name that is smaller than 50 characters.");
+        return false;
+    }
+
+    if ($("[id$='txtEditDesc']").val() == "") {
+        $("[id$='editTopicError']").show();
+        $("[id$='editTopicError']").text("Description is required. Please enter description.");
+        return false;
+    }
+
+    $("[id$='txtEditDesc']").val(encodeHtml($("[id$='txtEditDesc']").val()));
+
+    if ($("[id$='txtEditDesc']").val().length > 5000) {
+        $("[id$='editTopicError']").show();
+        $("[id$='editTopicError']").text("Description is too long. Please enter smaller description.");
+        return false;
+    }
+
+    tinymce.activeEditor.remove();
+    $("[id$='txtEditDesc']").val(encodeHtml($("[id$='txtEditDesc']").val()));
+
+    $("[id$='editTopicError']").text("");
+    $("[id$='editTopicError']").hide();
+    $("[id$='btnEditTopic']").trigger('click');
 }
 
 function validateCreateCategory() {

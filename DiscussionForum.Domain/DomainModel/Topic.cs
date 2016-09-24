@@ -18,6 +18,7 @@ namespace DiscussionForum.Domain.DomainModel
             LastActivity = DateCreated;
             Reported = false;
             Closed = false;
+            DateEdited = null;
         }
 
         public int ID { get; private set; }
@@ -26,6 +27,7 @@ namespace DiscussionForum.Domain.DomainModel
         public string Title { get; private set; }
         public string Description { get; private set; }
         public DateTime DateCreated { get; private set; }
+        public DateTime? DateEdited { get; private set; }
         public DateTime LastActivity { get; private set; }
         public bool Reported { get; private set; }
         public bool Closed { get; private set; }

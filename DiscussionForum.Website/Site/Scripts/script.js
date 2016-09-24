@@ -36,6 +36,14 @@
         initializeEditor();
     });
 
+    $("#editTopic").click(function () {
+        $('#editTopicModal').modal('show');
+        tinymce.activeEditor.remove();
+        $("[id$='txtEditTitle']").val($("[id$='topicTitle']").text());
+        $("[id$='txtEditDesc']").val($("[id$='topicDescription']").html());
+        initializeEditor();
+    });
+
     //Text Editor
     initializeEditor();
 
@@ -156,6 +164,12 @@ function closeEditCommentModal() {
     $("[id$='editError']").text("");
     $("[id$='editError']").hide();
     $('#editCommentModal').modal('hide');
+}
+
+function closeEditTopicModal() {
+    $("[id$='editTopicError']").text("");
+    $("[id$='editTopicError']").hide();
+    $('#editTopicModal').modal('hide');
 }
 
 function likeComment(button) {
