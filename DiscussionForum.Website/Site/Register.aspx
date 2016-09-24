@@ -25,7 +25,7 @@
 
     </div>
     <div class="container">
-        <form id="form1" runat="server">
+        <form id="form1" runat="server" method="post">
             <div class="row">
                 <div class="col-xs-offset-3 col-xs-6">
                     <a href="/home">

@@ -22,7 +22,7 @@ namespace DiscussionForum.Services
         {
             bool valid = false;
             //Request to Google Server
-            HttpWebRequest req = (HttpWebRequest)WebRequest.Create($" https://www.google.com/recaptcha/api/siteverify?secret={_secretKey}&response={response}");
+            HttpWebRequest req = (HttpWebRequest)WebRequest.Create($"https://www.google.com/recaptcha/api/siteverify?secret={_secretKey}&response={response}");
 
             try
             {
