@@ -934,3 +934,11 @@ margin-left:20px;
 .robot {
 margin-left:470px;
 }
+#friendEmail {
+width:300px;
+}
+#Invitation {
+font-size:20px;
+font-weight:bold;
+  color:#40a8cc;
+}
