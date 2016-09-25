@@ -65,5 +65,15 @@ namespace DiscussionForum.Site
                 _emailSender.SendEmail("SmartSet", message, email);
 
         }
+
+        protected void btnLogin_Click(object sender, EventArgs e)
+        {
+            var url = Request.RawUrl;
+
+            if (url != "/")
+                Response.Redirect("/login?ReturnUrl=" + Server.UrlEncode(url));
+
+            else Response.Redirect("/login");
+        }
     }
 }

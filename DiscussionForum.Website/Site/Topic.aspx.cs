@@ -143,7 +143,7 @@ namespace DiscussionForum.Site
             int topicID = Convert.ToInt32(Page.RouteData.Values["id"]);
 
             if (currentUser == null)
-                Response.Redirect($"~/login?ReturnUrl=%2ftopic%2f{topicID}");
+                redirectToLogin(Request.RawUrl);
 
             var topicFollower = new TopicFollower(topicID, currentUser.Id);
 
@@ -162,7 +162,7 @@ namespace DiscussionForum.Site
             int topicID = Convert.ToInt32(Page.RouteData.Values["id"]);
 
             if (currentUser == null)
-                Response.Redirect($"~/login?ReturnUrl=%2ftopic%2f{topicID}");
+                redirectToLogin(Request.RawUrl);
 
             var topicFollower = new TopicFollower(topicID, currentUser.Id);
 
@@ -180,7 +180,7 @@ namespace DiscussionForum.Site
             int topicID = Convert.ToInt32(Page.RouteData.Values["id"]);
 
             if (currentUser == null)
-                Response.Redirect($"~/login?ReturnUrl=%2ftopic%2f{topicID}");
+                redirectToLogin(Request.RawUrl);
 
             var topicLike = new TopicLike(topicID, currentUser.Id);
 
@@ -198,7 +198,7 @@ namespace DiscussionForum.Site
             int topicID = Convert.ToInt32(Page.RouteData.Values["id"]);
 
             if (currentUser == null)
-                Response.Redirect($"~/login?ReturnUrl=%2ftopic%2f{topicID}");
+                redirectToLogin(Request.RawUrl);
 
             var topicLike = new TopicLike(topicID, currentUser.Id);
 
@@ -216,7 +216,7 @@ namespace DiscussionForum.Site
             int topicID = Convert.ToInt32(Page.RouteData.Values["id"]);
 
             if (currentUser == null)
-                Response.Redirect($"~/login?ReturnUrl=%2ftopic%2f{topicID}");
+                redirectToLogin(Request.RawUrl);
 
             var content = Server.HtmlEncode(txtComment.Text);
             var comment = new Comment(topicID, currentUser.Id, txtComment.Text);
@@ -232,7 +232,7 @@ namespace DiscussionForum.Site
             int topicID = Convert.ToInt32(Page.RouteData.Values["id"]);
 
             if (currentUser == null)
-                Response.Redirect($"~/login?ReturnUrl=%2ftopic%2f{topicID}");
+                redirectToLogin(Request.RawUrl);
 
             var commentId = commentID.Value;
             _commentService.LikeComment(currentUser.Id, int.Parse(commentId));
@@ -246,7 +246,7 @@ namespace DiscussionForum.Site
             int topicID = Convert.ToInt32(Page.RouteData.Values["id"]);
 
             if (currentUser == null)
-                Response.Redirect($"~/login?ReturnUrl=%2ftopic%2f{topicID}");
+                redirectToLogin(Request.RawUrl);
 
             var commentId = commentID.Value;
             _commentService.UnlikeComment(currentUser.Id, int.Parse(commentId));
@@ -260,7 +260,7 @@ namespace DiscussionForum.Site
             int topicID = Convert.ToInt32(Page.RouteData.Values["id"]);
 
             if (currentUser == null)
-                Response.Redirect($"~/login?ReturnUrl=%2ftopic%2f{topicID}");
+                redirectToLogin(Request.RawUrl);
 
             var Id = commentID.Value;
             var content = Server.HtmlEncode(txtContent.Text);
@@ -277,7 +277,7 @@ namespace DiscussionForum.Site
             int topicID = Convert.ToInt32(Page.RouteData.Values["id"]);
 
             if (currentUser == null)
-                Response.Redirect($"~/login?ReturnUrl=%2ftopic%2f{topicID}");
+                redirectToLogin(Request.RawUrl);
 
             var title = txtEditTitle.Text;
             var description = Server.HtmlEncode(txtEditDesc.Text);
@@ -291,6 +291,11 @@ namespace DiscussionForum.Site
             topicDescription.InnerHtml = description;
             timeEdited.InnerText = $"Edited {TimePeriod.TimeDifference(date)}";
             activeTime.Text = TimePeriod.TimeDifference(date);
+        }
+
+        private void redirectToLogin(string url)
+        {
+            Response.Redirect($"~/login?ReturnUrl={Server.UrlEncode(url)}");
         }
     }
 }

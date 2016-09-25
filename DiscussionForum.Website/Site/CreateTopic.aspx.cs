@@ -19,7 +19,7 @@ namespace DiscussionForum.Site
         {
             var user = _authenticationService.GetAuthenticatedUser();
             if (user == null)
-                Response.Redirect("~/login?ReturnUrl=%2ftopic%2fcreate");
+                Response.Redirect($"~/login?ReturnUrl={Server.UrlEncode(Request.RawUrl)}");
             currentUser.ImageUrl = user.PhotoUrl;
             loadCategories();
         }

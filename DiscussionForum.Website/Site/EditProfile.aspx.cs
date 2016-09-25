@@ -19,7 +19,7 @@ namespace DiscussionForum.Site
         {
             var currentUser = _authenticationService.GetAuthenticatedUser();
             if (currentUser == null)
-                Response.Redirect("~/login?ReturnUrl=%2fprofile%2fedit");
+                Response.Redirect($"~/login?ReturnUrl={Server.UrlEncode(Request.RawUrl)}");
             if (!IsPostBack)
                 fillData(currentUser.Id);
         }
