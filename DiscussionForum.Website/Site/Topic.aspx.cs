@@ -22,6 +22,7 @@ namespace DiscussionForum.Site
             int topicID = Convert.ToInt32(Page.RouteData.Values["id"]);
             var currentUser = _authenticationService.GetAuthenticatedUser();
             loadTopic(topicID, currentUser);
+            loadComments(topicID, currentUser);
         }
 
         private void loadTopic(int topicID, AuthenticatedUser currentUser)
@@ -32,7 +33,6 @@ namespace DiscussionForum.Site
                 currentUserId = currentUser.Id;
 
             var topicDetails = _topicService.GetTopicById(topicID, currentUserId);
-            var comments = _commentService.GetComments(topicID, currentUserId);
 
             btnUnfollow.Style.Add("display", "none");
             btnFollow.Style.Add("display", "inline-block");
@@ -80,6 +80,18 @@ namespace DiscussionForum.Site
             categoryLink.BackColor = System.Drawing.ColorTranslator.FromHtml(topicDetails.CategoryColor);
 
             Followers.InnerText = topicDetails.Followers.ToString();
+
+            
+        }
+
+        private void loadComments(int topicID, AuthenticatedUser currentUser)
+        {
+            var currentUserId = 0;
+            if (currentUser != null)
+                currentUserId = currentUser.Id;
+
+
+            var comments = _commentService.GetComments(topicID, currentUserId);
 
             CommentList.InnerHtml = "";
 
@@ -211,7 +223,7 @@ namespace DiscussionForum.Site
 
             _commentService.CreateComment(comment);
 
-            Response.RedirectToRoute("TopicRoute", new { id = topicID });
+            loadComments(topicID, currentUser);
         }
 
         protected void btnLikeComment_Click(object sender, EventArgs e)
@@ -225,7 +237,7 @@ namespace DiscussionForum.Site
             var commentId = commentID.Value;
             _commentService.LikeComment(currentUser.Id, int.Parse(commentId));
 
-            Response.Redirect(Request.RawUrl);
+            loadComments(topicID, currentUser);
         }
 
         protected void btnUnlikeComment_Click(object sender, EventArgs e)
@@ -239,7 +251,7 @@ namespace DiscussionForum.Site
             var commentId = commentID.Value;
             _commentService.UnlikeComment(currentUser.Id, int.Parse(commentId));
 
-            Response.Redirect(Request.RawUrl);
+            loadComments(topicID, currentUser);
         }
 
         protected void btnEditComment_Click(object sender, EventArgs e)
@@ -256,7 +268,7 @@ namespace DiscussionForum.Site
             var date = DateTime.Now;
             _commentService.EditComment(topicID, Id, content, date);
 
-            Response.Redirect(Request.RawUrl);
+            loadComments(topicID, currentUser);
         }
 
         protected void btnEditTopic_Click(object sender, EventArgs e)
@@ -274,7 +286,11 @@ namespace DiscussionForum.Site
 
             _topicService.EditTopic(topicID, title, description, date);
 
-            Response.Redirect(Request.RawUrl);
+            topicTitle.Text = title;
+            description = Server.HtmlDecode(description).Replace("\"", "'");
+            topicDescription.InnerHtml = description;
+            timeEdited.InnerText = $"Edited {TimePeriod.TimeDifference(date)}";
+            activeTime.Text = TimePeriod.TimeDifference(date);
         }
     }
 }
