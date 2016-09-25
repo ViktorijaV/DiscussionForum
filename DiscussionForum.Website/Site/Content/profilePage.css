@@ -3,14 +3,13 @@
 }
 
 .username {
-  font-size:38px;
-margin-top:50px;
+    font-size: 38px;
+    margin-top: 50px;
 }
 
 .fullName {
     color: #40a8cc;
     font-size: 16px;
-  
 }
 
 .bio {
@@ -56,7 +55,7 @@ margin-top:50px;
     display: inline-block;
 }
 
-.profile-photo{
+.profile-photo {
     box-shadow: 2px 0px 3px grey;
     max-height: 200px;
     max-width: 200px;
@@ -68,8 +67,8 @@ margin-top:50px;
 
 
 .editProfile {
-    padding-left: 75px;
-    padding-top: 5px;
+    padding-bottom: 40px;
+    color: #ccc;
     display: inline-block;
     border-bottom: 1px solid #ccc;
 }
@@ -85,10 +84,4 @@ margin-top:50px;
 #editProfile {
     font-size: 35px;
     font-weight: 100;
-}
-
-.editProfile {
-    color: #ccc;
-    padding: 50px;
-    margin-bottom: 50px;
 }

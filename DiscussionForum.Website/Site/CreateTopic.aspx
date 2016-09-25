@@ -4,30 +4,30 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <div class="row row-separated">
-        <div class="col-xs-12">
+        <div class="col-xs-12 col-sm-12 col-md-12">
             <h3><span class="fa fa-plus-circle">&nbsp;</span><span>Create new topic</span></h3>
         </div>
     </div>
     <div class="row row-separated">
-        <div class="col-xs-10">
+        <div class="col-xs-12 col-sm-12 col-md-10">
             <div class="row">
                 <div class="col-xs-12">
                     <div id="error" runat="server" class="alert alert-danger alert-dismissible display-none"></div>
                 </div>
             </div>
             <div class="row separated">
-                <div class="col-xs-6">
+                <div class="col-xs-12 col-sm-8 col-md-6">
                     <h4>Title</h4>
                     <asp:TextBox ID="txtTitle" runat="server" CssClass="form-control"></asp:TextBox>
                 </div>
-                <div class="col-xs-6"></div>
+                <div class="col-xs-12 col-sm-4 col-md-6"></div>
             </div>
             <div class="row row-separated">
-                <div class="col-xs-4">
+                <div class="col-xs-12 col-sm-6 col-md-4">
                     <h4>Category</h4>
                     <asp:DropDownList ID="ddlCategories" runat="server" CssClass="form-control"></asp:DropDownList>
                 </div>
-                <div class="col-xs-8"></div>
+                <div class="col-xs-12 col-sm-6 col-md-8"></div>
             </div>
             <div class="row row-separated">
                 <div class="col-xs-12">
@@ -36,7 +36,7 @@
                 </div>
             </div>
         </div>
-        <div class="col-xs-2">
+        <div class="col-xs-12 col-sm-12 col-md-2">
             <div class="row row-separated">
                 <div class="col-xs-12">
                     <h4>Properties</h4>
@@ -44,7 +44,7 @@
                 </div>
             </div>
             <div class="row row-separated">
-                <div class="col-xs-12">
+                <div class="col-xs-8 col-sm-6 col-sm-12">
                     <h5>Created by:</h5>
                     <asp:Image ID="currentUser" runat="server" CssClass="half-size" />
                 </div>

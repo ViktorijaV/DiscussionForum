@@ -27,49 +27,48 @@
     <div class="container">
         <form id="form2" runat="server">
             <div class="row">
-                <div class="col-xs-offset-3 col-xs-6">
+                <div class="col-xs-12 col-md-offset-3 col-md-6">
                     <a href="/home">
                         <img class="fit-in-div" src="/Storage/logoWithLetters.png" />
                     </a>
                 </div>
             </div>
             <div class="row row-centered row-separated">
-                <div class="col-xs-offset-4 col-xs-4">
+                <div class="col-xs-12 col-md-offset-4 col-md-4">
                     <div id="error" runat="server" class="alert alert-danger alert-dismissible display-none"></div>
                 </div>
             </div>
             <div class="row">
-                <div class="col-xs-offset-4 col-xs-4 input-group">
+                <div class="col-xs-12 col-md-offset-4 col-md-4 input-group">
                     <span class="input-group-addon"><i class="fa fa-envelope"></i></span>
                     <asp:TextBox ID="txtEmail" CssClass="form-control form-control-input" runat="server" TextMode="Email" placeholder="Email"></asp:TextBox>
                 </div>
             </div>
             <div class="row">
-                <div class="col-xs-offset-4 col-xs-4 input-group">
+                <div class="col-xs-12 col-md-offset-4 col-md-4 input-group">
                     <span class="input-group-addon"><i class="fa fa-lock"></i></span>
                     <asp:TextBox ID="txtPassword" CssClass="form-control form-control-input" runat="server" TextMode="Password" placeholder="Password"></asp:TextBox>
                 </div>
             </div>
             <div class="row">
-                <div class="col-xs-offset-4 col-xs-4 input-group">
+                <div class="col-xs-12 col-md-offset-4 col-md-4 input-group">
                     <div class="checkbox">
                         <label>
                             <asp:CheckBox ID="cbRememberMe" runat="server" />
                             Remember me
                         </label>
-
                     </div>
                 </div>
             </div>
             <asp:Button ID="btnLoginServer" Style="display: none;" runat="server" OnClick="btnLogin_Click" />
         </form>
         <div class="row">
-            <div class="col-xs-offset-4 col-xs-4">
+            <div class="col-xs-12 col-md-offset-4 col-md-4">
                 <button id="btn" class="btn btn-default pull-right" onclick="validateLogin()"><i class="fa fa-sign-in"></i>&nbsp;Login</button>
             </div>
         </div>
         <div class="row">
-            <div class="col-xs-offset-4 col-xs-4">
+            <div class="col-xs-12 col-md-offset-4 col-md-4">
                 <div style="padding-top: 30px; font-size: 90%">
                     Don't have an account? 
                     <a href="register">Register Here</a>

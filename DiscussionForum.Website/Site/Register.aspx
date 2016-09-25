@@ -22,48 +22,47 @@
                 <div class="object" id="object_five" style="left: 80px;"></div>
             </div>
         </div>
-
     </div>
     <div class="container">
         <form id="form1" runat="server" method="post">
             <div class="row">
-                <div class="col-xs-offset-3 col-xs-6">
+                <div class="col-xs-12 col-md-offset-3 col-md-6">
                     <a href="/home">
                         <img class="fit-in-div" src="/Storage/logoWithLetters.png" />
                     </a>
                 </div>
             </div>
             <div class="row row-centered row-separated">
-                <div class="col-xs-offset-4 col-xs-4">
+                <div class="col-xs-12 col-md-offset-4 col-md-4">
                     <div id="error" runat="server" class="alert alert-danger alert-dismissible display-none"></div>
                 </div>
             </div>
             <div class="row">
-                <div class="col-xs-offset-4 col-xs-4 input-group">
+                <div class="col-xs-12 col-md-offset-4 col-md-4 input-group">
                     <span class="input-group-addon"><i class="fa fa-envelope"></i></span>
                     <asp:TextBox ID="txtEmail" CssClass="form-control form-control-input" runat="server" TextMode="Email" placeholder="Email"></asp:TextBox>
                 </div>
             </div>
             <div class="row">
-                <div class="col-xs-offset-4 col-xs-4 input-group">
+                <div class="col-xs-12 col-md-offset-4 col-md-4 input-group">
                     <span class="input-group-addon"><i class="fa fa-lock"></i></span>
                     <asp:TextBox ID="txtPassword" CssClass="form-control form-control-input" runat="server" TextMode="Password" placeholder="Password"></asp:TextBox>
                 </div>
             </div>
             <div class="row">
-                <div class="col-xs-offset-4 col-xs-4 input-group">
+                <div class="col-xs-12 col-md-offset-4 col-md-4 input-group">
                     <span class="input-group-addon"><i class="fa fa-lock"></i></span>
                     <asp:TextBox ID="txtRepeatPassword" CssClass="form-control form-control-input" runat="server" TextMode="Password" placeholder="Repeat Password"></asp:TextBox>
                 </div>
             </div>
             <div class="row">
-                <div class="col-xs-offset-4 col-xs-4 input-group">
+                <div class="col-xs-12 col-md-offset-4 col-md-4 input-group">
                     <span class="input-group-addon"><i class="fa fa-user"></i></span>
                     <asp:TextBox ID="txtFullName" CssClass="form-control form-control-input" runat="server" TextMode="SingleLine" placeholder="Full Name"></asp:TextBox>
                 </div>
             </div>
             <div class="row">
-                <div class="col-xs-offset-4 col-xs-4 input-group">
+                <div class="col-xs-12 col-md-offset-4 col-md-4 input-group">
                     <label for="usr">Gender</label>
                     <div>
                         <label class="radio-inline">
@@ -75,7 +74,7 @@
                 </div>
             </div>
             <div class="row">
-                <div class="col-xs-offset-4 col-xs-4 input-group">
+                <div class="col-xs-12 col-md-offset-4 col-md-4 input-group">
                     <label for="usr">Birthdate</label>
                     <div class="input-group">
                         <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
@@ -84,7 +83,7 @@
                 </div>
             </div>
             <div class="row">
-                <div class="col-xs-offset-4 col-xs-4 input-group">
+                <div class="col-xs-12 col-md-offset-4 col-md-4 input-group">
                     <div class="g-recaptcha" data-sitekey="6LdAgwcUAAAAAHtvdcydApZJmRIwrjvxhZbpUElJ"></div>
                 </div>
             </div>
@@ -92,15 +91,14 @@
             <br />
         </form>
         <div class="row">
-            <div class="col-xs-offset-4 col-xs-4">
+            <div class="col-xs-12 col-md-offset-4 col-md-4">
                 <button id="btn" class="btn btn-default pull-right" onclick="validateRegister()"><i class="fa fa-sign-in"></i>&nbsp;Register</button>
             </div>
         </div>
         <div class="row">
-            <div class="col-xs-offset-4 col-xs-4">
-                <div style="padding-top: 30px; font-size: 90%">
+            <div class="col-xs-12 col-md-offset-4 col-md-4">
+                <div style="padding-top: 30px;">
                     Already have an account? 
-                   
                     <a href="login">Login Here</a>
                 </div>
             </div>

@@ -5,17 +5,19 @@
 </asp:Content>
 <asp:Content ID="Content4" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <div class="row row-separated">
-        <div class="col-xs-8">
-                    <ul class="nav nav-tabs">
-                        <li id="latest" class="active">Latest</li>
-                        <li id="top" >Top</li>
-                        <li id="most-popular">Most Popular</li>
-                    </ul>
-                </div>
-        <div class="col-xs-2">
+        <div class="col-xs-12 col-sm-12 col-md-8">
+            <ul class="nav nav-tabs">
+                <li id="latest" class="active">Latest</li>
+                <li id="top">Top</li>
+                <li id="most-popular">Most Popular</li>
+            </ul>
+        </div>
+        <div class="col-xs-12 col-sm-6 col-md-2">
+            <br />
             <asp:DropDownList ID="ddlCategories" runat="server" CssClass="form-control"></asp:DropDownList>
         </div>
-        <div class="col-xs-2">
+        <div class="col-xs-12 col-sm-6 col-md-2">
+            <br />
             <a href="/topic/create" class="btn btn-default">Create new topic</a>
         </div>
     </div>
