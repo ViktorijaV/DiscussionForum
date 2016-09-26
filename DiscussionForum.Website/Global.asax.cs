@@ -20,6 +20,7 @@ namespace DiscussionForum
             routes.MapPageRoute("UserProfileRoute", "users/{username}", "~/Site/UserProfile.aspx");
             routes.MapPageRoute("EditProfileRoute", "profile/edit", "~/Site/EditProfile.aspx");
             routes.MapPageRoute("ConfirmationRoute", "confirmation", "~/Site/Confirmation.aspx");
+            routes.MapPageRoute("ForgotPasswordRoute", "forgotpassword", "~/Site/ForgotPassword.aspx");
             routes.MapPageRoute("RegisterRoute", "register", "~/Site/Register.aspx");
             routes.MapPageRoute("LoginRoute", "login", "~/Site/Login.aspx");
             routes.MapPageRoute("HomePageRoute2", "home", "~/Site/Home.aspx");

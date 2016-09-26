@@ -40,13 +40,40 @@ namespace DiscussionForum.Site {
         protected global::System.Web.UI.HtmlControls.HtmlTextArea txtEditDesc;
         
         /// <summary>
-        /// currentUser control.
+        /// categoryLink control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Image currentUser;
+        protected global::System.Web.UI.WebControls.HyperLink categoryLink;
+        
+        /// <summary>
+        /// createdTime control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label createdTime;
+        
+        /// <summary>
+        /// activeTime control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label activeTime;
+        
+        /// <summary>
+        /// Followers control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl Followers;
         
         /// <summary>
         /// btnEditTopic control.

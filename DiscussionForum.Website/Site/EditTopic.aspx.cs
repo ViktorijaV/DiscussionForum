@@ -1,4 +1,5 @@
-﻿using DiscussionForum.Services;
+﻿using DiscussionForum.Domain.DomainModel;
+using DiscussionForum.Services;
 using DiscussionForum.Services.Interfaces;
 using System;
 using System.Collections.Generic;
@@ -34,6 +35,14 @@ namespace DiscussionForum.Site
             txtEditTitle.Text = topicDetails.Title;
             string description = Server.HtmlDecode(topicDetails.Description).Replace("\"", "'");
             txtEditDesc.InnerHtml = description;
+            createdTime.Text = TimePeriod.TimeDifference(topicDetails.DateCreated);
+            activeTime.Text = TimePeriod.TimeDifference(topicDetails.LastActivity);
+
+            categoryLink.NavigateUrl = $"/category/{topicDetails.CategoryID}";
+            categoryLink.Text = topicDetails.CategoryName;
+            categoryLink.BackColor = System.Drawing.ColorTranslator.FromHtml(topicDetails.CategoryColor);
+
+            Followers.InnerText = topicDetails.Followers.ToString();
         }
 
         private void redirectToLogin(string url)
