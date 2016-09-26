@@ -50,6 +50,7 @@ function validateEditComment() {
     $("[id$='editError']").text("");
     $("[id$='editError']").hide();
     $("[id$='btnEditComment']").trigger('click');
+    initializeEditor();
 }
 
 function validateCreateTopic() {

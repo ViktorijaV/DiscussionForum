@@ -65,7 +65,7 @@
                 <asp:Panel ID="panelAnonymous" runat="server">
                     <ul class="nav navbar-top-links navbar-right">
                         <li>
-                            <asp:LinkButton ID="btnLogin" runat="server" CssClass="link-effect" PostBackUrl="~/login" data-hover="Login">
+                            <asp:LinkButton ID="btnLogin" runat="server" CssClass="link-effect" data-hover="Login" OnClick="btnLogin_Click">
                         <span class="fa fa-sign-in"></span>&nbsp;Login</asp:LinkButton>
                         </li>
                         <li>

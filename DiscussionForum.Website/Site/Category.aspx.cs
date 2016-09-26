@@ -116,7 +116,7 @@ namespace DiscussionForum.Site
             int categoryID = Convert.ToInt32(Page.RouteData.Values["id"]);
 
             if (currentUser == null)
-                Response.Redirect($"~/login?ReturnUrl=%2fcategory%2f{categoryID}");
+                redirectToLogin(Request.RawUrl);
 
             var categoryFollower = new CategoryFollower(categoryID, currentUser.Id);
 
@@ -134,7 +134,7 @@ namespace DiscussionForum.Site
             int categoryID = Convert.ToInt32(Page.RouteData.Values["id"]);
 
             if (currentUser == null)
-                Response.Redirect($"~/login?ReturnUrl=%2fcategory%2f{categoryID}");
+                redirectToLogin(Request.RawUrl);
 
             var categoryFollower = new CategoryFollower(categoryID, currentUser.Id);
 
@@ -144,6 +144,11 @@ namespace DiscussionForum.Site
             btnFollow.Style.Add("display", "inline-block");
 
             loadFollowers(categoryID, currentUser);
+        }
+
+        private void redirectToLogin(string url)
+        {
+            Response.Redirect($"~/login?ReturnUrl={Server.UrlEncode(url)}");
         }
     }
 }

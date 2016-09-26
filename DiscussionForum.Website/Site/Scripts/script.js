@@ -164,17 +164,21 @@ function closeEditCommentModal() {
     $("[id$='editError']").text("");
     $("[id$='editError']").hide();
     $('#editCommentModal').modal('hide');
+    initializeEditor();
 }
 
 function closeEditTopicModal() {
     $("[id$='editTopicError']").text("");
     $("[id$='editTopicError']").hide();
     $('#editTopicModal').modal('hide');
+    initializeEditor();
 }
 
 function likeComment(button) {
     var id = $(button).parent().find(".comment-id").val();
     $("[id$='commentID']").val(id);
+    $("[id$='topicDescription']").val("");
+    $("[id$='txtContent']").val("");
     event.preventDefault();
     $("[id$='btnLikeComment']").trigger('click');
 }
@@ -182,6 +186,51 @@ function likeComment(button) {
 function unlikeComment(button) {
     var id = $(button).parent().find(".comment-id").val();
     $("[id$='commentID']").val(id);
+    $("[id$='topicDescription']").val("");
+    $("[id$='txtContent']").val("");
     event.preventDefault();
     $("[id$='btnUnlikeComment']").trigger('click');
+}
+
+
+function pageLoad() {
+
+    initializeEditor();
+
+    $(window).unload(function () {
+        $("[id$='topicDescription']").val("");
+        $("[id$='txtContent']").val("");
+    });
+
+    if ($("#error").text() != "") {
+        $("#error").show();
+    }
+
+    if ($("[id$='error']").text() != "") {
+        $("[id$='error']").show();
+    }
+
+    if ($("[id$='editError']").text() != "") {
+        $("[id$='editError']").show();
+    }
+
+    $("[id$='topicDescription']").html($("[id$='topicDescription']").text());
+    $("[id$='txtContent']").html($("[id$='txtContent']").text());
+
+    $(".edit-comment").click(function () {
+        var id = $(this).parent().find(".comment-id").val();
+        $("[id$='commentID']").val(id);
+        $('#editCommentModal').modal('show');
+        tinymce.activeEditor.remove();
+        $("[id$='txtContent']").val($(this).parent().find(".media-comment").html());
+        initializeEditor();
+    });
+
+    $("#editTopic").click(function () {
+        $('#editTopicModal').modal('show');
+        tinymce.activeEditor.remove();
+        $("[id$='txtEditTitle']").val($("[id$='topicTitle']").text());
+        $("[id$='txtEditDesc']").val($("[id$='topicDescription']").html());
+        initializeEditor();
+    });
 }
