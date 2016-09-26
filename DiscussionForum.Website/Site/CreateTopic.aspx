@@ -92,7 +92,7 @@
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                        <asp:LinkButton ID="btnSave" CssClass="btn btn-primary" runat="server" OnClick="btnSave_Click"><i class="fa fa-paper-plane "></i>&nbsp;&nbsp;Suggest</asp:LinkButton>
+                        <asp:LinkButton ID="btnSave" CssClass="btn btn-primary" runat="server"><i class="fa fa-paper-plane "></i>&nbsp;&nbsp;Suggest</asp:LinkButton>
                     </div>
                 </div>
             </div>
