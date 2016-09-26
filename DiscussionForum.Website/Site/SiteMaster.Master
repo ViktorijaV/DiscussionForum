@@ -108,7 +108,8 @@
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Send invitation</button>
+        <button id="btn" class="btn btn-default pull-right" onclick="validateChangeUserProperties()"><i class="fa fa-paper-plane "></i>&nbsp;&nbsp;Send invitation</button>
+       <asp:Button class="btn btn-primary" ID="btnSave" runat="server" Style="display: none;" OnClick="btnSave_Click"/>
       </div>
     </div>
   </div>
