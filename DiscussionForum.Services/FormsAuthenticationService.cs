@@ -50,8 +50,6 @@ namespace DiscussionForum.Services
 
             var cookie = new HttpCookie(FormsAuthentication.FormsCookieName, encryptedTicket);
             cookie.HttpOnly = true;
-            cookie.Secure = true;
-            cookie.Secure = true;
             if (ticket.IsPersistent)
             {
                 cookie.Expires = ticket.Expiration;
