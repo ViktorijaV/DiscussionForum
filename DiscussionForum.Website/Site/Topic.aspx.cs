@@ -280,28 +280,6 @@ namespace DiscussionForum.Site
             loadComments(topicID, currentUser);
         }
 
-        protected void btnEditTopic_Click(object sender, EventArgs e)
-        {
-            var currentUser = _authenticationService.GetAuthenticatedUser();
-            int topicID = Convert.ToInt32(Page.RouteData.Values["id"]);
-
-            if (currentUser == null)
-                redirectToLogin(Request.RawUrl);
-
-            var title = txtEditTitle.Text;
-            var description = Server.HtmlEncode(txtEditDesc.Text);
-            description = txtEditDesc.Text;
-            var date = DateTime.Now;
-
-            _topicService.EditTopic(topicID, title, description, date);
-
-            topicTitle.Text = title;
-            description = Server.HtmlDecode(description).Replace("\"", "'");
-            topicDescription.InnerHtml = description;
-            timeEdited.InnerText = $"Edited {TimePeriod.TimeDifference(date)}";
-            activeTime.Text = TimePeriod.TimeDifference(date);
-        }
-
         private void redirectToLogin(string url)
         {
             Response.Redirect($"~/login?ReturnUrl={Server.UrlEncode(url)}");
