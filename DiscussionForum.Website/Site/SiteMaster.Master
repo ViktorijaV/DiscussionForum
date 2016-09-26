@@ -54,7 +54,7 @@
                         <ul class="dropdown-menu">
                             <li><a id="linkProfile" href="/users/" runat="server"><i class="fa fa-cog"></i>&nbsp;&nbsp;My Profile</a></li>
                             <li><a href="#" data-toggle="modal" data-target="#inviteUser"><i class="fa fa-users"></i>&nbsp;&nbsp;Invite friends</a></li>
-                            <li><a href="#"><i class="fa fa-history"></i>&nbsp;&nbsp;Activity</a></li>
+                            <li><a href="#"><i class="fa fa-bell-o" aria-hidden="true"></i>&nbsp;&nbsp;Notifications</a></li>
                             <li class="divider"></li>
                             <li onclick="logout()"><a href="#"><i class="fa fa-sign-out"></i>&nbsp;&nbsp;Log out</a></li>
                         </ul>
