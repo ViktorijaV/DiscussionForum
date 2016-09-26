@@ -44,6 +44,7 @@
     <Compile Include="DomainModel\CategoryFollower.cs" />
     <Compile Include="DomainModel\Comment.cs" />
     <Compile Include="DomainModel\CommentLike.cs" />
+    <Compile Include="DomainModel\Notification.cs" />
     <Compile Include="DomainModel\TimePeriod.cs" />
     <Compile Include="DomainModel\Topic.cs" />
     <Compile Include="DomainModel\TopicFollower.cs" />

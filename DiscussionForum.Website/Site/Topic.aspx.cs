@@ -13,6 +13,7 @@ namespace DiscussionForum.Site
     {
         private ICommentService _commentService = new CommentService(new SqlConnection(ConfigurationManager.ConnectionStrings["myConnection"].ToString()));
         private ITopicService _topicService = new TopicService(new SqlConnection(ConfigurationManager.ConnectionStrings["myConnection"].ToString()));
+        private INotificationService _notificationService = new NotificationService(new SqlConnection(ConfigurationManager.ConnectionStrings["myConnection"].ToString()));
         private FormsAuthenticationService _authenticationService = new FormsAuthenticationService(HttpContext.Current, new SqlConnection(ConfigurationManager.ConnectionStrings["myConnection"].ToString()));
 
         protected void Page_Load(object sender, EventArgs e)
@@ -41,7 +42,7 @@ namespace DiscussionForum.Site
 
             if (currentUser != null)
             {
-                 if (topicDetails.CurrentUserFollows)
+                if (topicDetails.CurrentUserFollows)
                 {
                     btnFollow.Style.Add("display", "none");
                     btnUnfollow.Style.Add("display", "inline-block");
@@ -53,7 +54,7 @@ namespace DiscussionForum.Site
                     btnUnlike.Style.Add("display", "inline-block");
                 }
 
-                if(currentUser.Id == topicDetails.CreatorID)
+                if (currentUser.Id == topicDetails.CreatorID)
                 {
                     var html = settingsDropdown.InnerHtml;
                     settingsDropdown.InnerHtml = $"<li><a id='editTopic' data-title='Edit your topic'><i class='fa fa-pencil fa-fw faa-spin'></i>Edit</a></li>{html}";
@@ -81,7 +82,7 @@ namespace DiscussionForum.Site
 
             Followers.InnerText = topicDetails.Followers.ToString();
 
-            
+
         }
 
         private void loadComments(int topicID, AuthenticatedUser currentUser)
@@ -184,7 +185,10 @@ namespace DiscussionForum.Site
 
             var topicLike = new TopicLike(topicID, currentUser.Id);
 
-            _topicService.LikeTopic(topicLike);
+            var topic = _topicService.LikeTopic(topicLike);
+            string message = $@"{currentUser.FullName} liked your topic <a href='/topic/{topicID}'>{topic.Title}</a>.";
+            Notification notification = new Notification(topic.CreatorID, message, DateTime.Now);
+            _notificationService.CreateNotification(notification);
 
             btnLike.Style.Add("display", "none");
             btnUnlike.Style.Add("display", "inline-block");
@@ -220,6 +224,11 @@ namespace DiscussionForum.Site
 
             var content = Server.HtmlEncode(txtComment.Text);
             var comment = new Comment(topicID, currentUser.Id, txtComment.Text);
+
+            var topic = _topicService.GetTopicById(topicID, currentUser.Id);
+            string message = $@"{currentUser.FullName} commented on your topic <a href='/topic/{topicID}'>{topic.Title}</a>.";
+            Notification notification = new Notification(topic.CreatorID, message, DateTime.Now);
+            _notificationService.CreateNotification(notification);
 
             _commentService.CreateComment(comment);
 

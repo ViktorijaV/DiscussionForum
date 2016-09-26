@@ -13,6 +13,7 @@ namespace DiscussionForum.Site
     {
         private ITopicService _topicService = new TopicService(new SqlConnection(ConfigurationManager.ConnectionStrings["myConnection"].ToString()));
         private ICategoryService _categoryService = new CategoryService(new SqlConnection(ConfigurationManager.ConnectionStrings["myConnection"].ToString()));
+        private INotificationService _notificationService = new NotificationService(new SqlConnection(ConfigurationManager.ConnectionStrings["myConnection"].ToString()));
         private FormsAuthenticationService _authenticationService = new FormsAuthenticationService(HttpContext.Current, new SqlConnection(ConfigurationManager.ConnectionStrings["myConnection"].ToString()));
 
         protected void Page_Load(object sender, EventArgs e)
@@ -34,6 +35,18 @@ namespace DiscussionForum.Site
 
             var topicFollower = new TopicFollower(topicId, currentUser.Id);
             _topicService.FollowTopic(topicFollower);
+
+            var category = _categoryService.GetCategoryById(topic.CategoryID);
+
+            string message = $@"{currentUser.FullName} created new topic {topic.Title} in category {category.Name}.";
+
+            var followers = _categoryService.GetFollowers(category.ID);
+
+            foreach(var follower in followers)
+            {
+                Notification notification = new Notification(follower.FollowerID, message, DateTime.Now);
+                _notificationService.CreateNotification(notification);
+            }
             
             Response.RedirectToRoute("TopicRoute", new { id = topicId });
         }

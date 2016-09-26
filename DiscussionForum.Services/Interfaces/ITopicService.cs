@@ -15,7 +15,7 @@ namespace DiscussionForum.Services.Interfaces
 
         IList<TopicDTO> GetTopicsByCategory(int categoryID);
 
-        void LikeTopic(TopicLike topicLike);
+        Topic LikeTopic(TopicLike topicLike);
 
         void UnlikeTopic(TopicLike topicLike);
 
