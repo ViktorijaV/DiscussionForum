@@ -106,7 +106,6 @@
             <asp:Button ID="btnLikeComment" runat="server" Style="display: none;" OnClick="btnLikeComment_Click" />
             <asp:Button ID="btnUnlikeComment" runat="server" Style="display: none;" OnClick="btnUnlikeComment_Click" />
             <asp:Button ID="btnEditComment" runat="server" Style="display: none;" OnClick="btnEditComment_Click" />
-            <asp:Button ID="btnEditTopic" runat="server" Style="display: none;" OnClick="btnEditTopic_Click" />
         </ContentTemplate>
     </asp:UpdatePanel>
     <!-- Modal for edit comment-->
