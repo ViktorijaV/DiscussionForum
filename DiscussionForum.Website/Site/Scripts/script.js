@@ -25,7 +25,7 @@
         $("[id$='editError']").show();
     }
 
-    //$("[id$='topicDescription']").html($("[id$='topicDescription']").text());
+    $("[id$='topicDescription']").html($("[id$='topicDescription']").text());
 
     $(".edit-comment").click(function () {
         var id = $(this).parent().find(".comment-id").val();

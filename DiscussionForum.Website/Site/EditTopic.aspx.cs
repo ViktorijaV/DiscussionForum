@@ -19,12 +19,16 @@ namespace DiscussionForum.Site
 
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (IsPostBack)
+                return;
+
             var currentUser = _authenticationService.GetAuthenticatedUser();
 
             if (currentUser == null)
                 redirectToLogin(Request.RawUrl);
 
             int topicID = Convert.ToInt32(Page.RouteData.Values["id"]);
+
             loadTopic(topicID, currentUser.Id);
         }
 
@@ -59,7 +63,8 @@ namespace DiscussionForum.Site
                 redirectToLogin(Request.RawUrl);
 
             var title = txtEditTitle.Text;
-            var description = Server.HtmlEncode(txtEditDesc.InnerHtml);
+            var description = Server.HtmlEncode(txtEditDesc.Value);
+            description = txtEditDesc.Value;
             var date = DateTime.Now;
 
             _topicService.EditTopic(topicID, title, description, date);

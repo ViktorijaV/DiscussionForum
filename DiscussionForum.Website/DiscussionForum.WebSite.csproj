@@ -103,6 +103,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Site\Admin\CreateCategory.aspx" />
+    <Content Include="Site\Admin\Dashboard.aspx" />
     <Content Include="Site\Category.aspx" />
     <Content Include="Site\Confirmation.aspx" />
     <Content Include="Site\Content\bootstrap.min.css" />
@@ -117,6 +118,7 @@
     <Content Include="Site\Fonts\font-awesome\css\font-awesome.min.css" />
     <Content Include="Site\Fonts\font-awesome\fonts\fontawesome-webfont.svg" />
     <Content Include="Site\ForgotPassword.aspx" />
+    <Content Include="Site\Notifications.aspx" />
     <Content Include="Site\ResetPassword.aspx" />
     <Content Include="Site\Scripts\bootstrap.min.js" />
     <Content Include="Site\Login.aspx" />
@@ -277,6 +279,13 @@
     <Compile Include="Site\Admin\CreateCategory.aspx.designer.cs">
       <DependentUpon>CreateCategory.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Site\Admin\Dashboard.aspx.cs">
+      <DependentUpon>Dashboard.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Site\Admin\Dashboard.aspx.designer.cs">
+      <DependentUpon>Dashboard.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Site\Admin\SiteAdminMaster.Master.cs">
       <DependentUpon>SiteAdminMaster.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -344,6 +353,13 @@
       <DependentUpon>Login.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Site\Notifications.aspx.cs">
+      <DependentUpon>Notifications.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Site\Notifications.aspx.designer.cs">
+      <DependentUpon>Notifications.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Site\Register.aspx.cs">
       <DependentUpon>Register.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
