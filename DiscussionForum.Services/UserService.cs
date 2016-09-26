@@ -97,5 +97,11 @@ namespace DiscussionForum.Services
             string sql = $"UPDATE Users SET FullName = '{fullname}', Bio = '{bio}', Avatar = '{avatar}' WHERE ID='{id}'";
             _connection.Execute(sql);
         }
+
+        public void ChangePassword(int id, string newPassword)
+        {
+            string sql = $"UPDATE Users SET Password = '{newPassword}' WHERE ID='{id}'";
+            _connection.Execute(sql);
+        }
     }
 }

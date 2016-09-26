@@ -34,7 +34,8 @@ namespace DiscussionForum.Site
 
             var errorMessage = _userService.CheckForExistingUser(txtEmail.Text);
             string code = Guid.NewGuid().ToString();
-
+            Session["code"] = code;
+            Session["email"] = txtEmail.Text;
             if (errorMessage != "")
             {
                 error.InnerText = errorMessage;

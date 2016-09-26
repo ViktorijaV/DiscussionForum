@@ -12,5 +12,6 @@ namespace DiscussionForum.Services.Intefraces
         User GetUserByUsername(string username);
         string ConfirmRegistration(string confirmationCode);
         void ChangeUserProperties(int id, string fullname, string bio, string avatar);
+        void ChangePassword(int id, string newPassword);
     }
 }

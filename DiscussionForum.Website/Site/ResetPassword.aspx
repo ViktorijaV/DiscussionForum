@@ -40,7 +40,7 @@
     <div class="row row-separated">
         <div class="col-xs-12 col-md-offset-1 col-md-6">
             <button id="btn" class="btn btn-default pull-right" onclick="validateChangeUserProperties()"><i class="fa fa-floppy-o"></i>&nbsp;&nbsp;Save new password</button>
-            <asp:Button ID="btnSave" runat="server" Style="display: none;" />
+            <asp:Button ID="btnSave" runat="server" Style="display: none;" OnClick="btnSave_Click" />
         </div>
     </div>
 </asp:Content>
