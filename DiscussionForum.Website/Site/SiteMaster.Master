@@ -54,7 +54,7 @@
                         <ul class="dropdown-menu">
                             <li><a id="linkProfile" href="/users/" runat="server"><i class="fa fa-cog"></i>&nbsp;&nbsp;My Profile</a></li>
                             <li><a href="#" data-toggle="modal" data-target="#inviteUser"><i class="fa fa-users"></i>&nbsp;&nbsp;Invite friends</a></li>
-                             <li><a href="#"><i class="fa fa-history"></i>&nbsp;&nbsp;Activity</a></li>
+                            <li><a href="#"><i class="fa fa-history"></i>&nbsp;&nbsp;Activity</a></li>
                             <li class="divider"></li>
                             <li onclick="logout()"><a href="#"><i class="fa fa-sign-out"></i>&nbsp;&nbsp;Log out</a></li>
                         </ul>
@@ -88,32 +88,33 @@
             </footer>
         </div>
         <!-- Modal  for invite users-->
-<div class="modal fade" id="inviteUser" tabindex="-1" role="dialog" aria-labelledby="myModalLab" aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-        <h4 class="modal-title" id="myModalLab"> Invite user</h4>
-      </div>
-      <div class="modal-body">
-    <br/>
-        <div id="Invitation"> Invite your friends to SmartSet :
-            <br/><br/>
-        <asp:TextBox ID="friendEmail" runat="server" CssClass="form-control form-control-input" placeholder="Friend's email"></asp:TextBox>
-         <br/>
-             </div>
-          <br/>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button id="btn" class="btn btn-default pull-right" onclick="validateChangeUserProperties()"><i class="fa fa-paper-plane "></i>&nbsp;&nbsp;Send invitation</button>
-       <asp:Button class="btn btn-primary" ID="btnSave" runat="server" Style="display: none;" OnClick="btnSave_Click"/>
-      </div>
-    </div>
-  </div>
-</div>
+        <div class="modal fade" id="inviteUser" tabindex="-1" role="dialog" aria-labelledby="myModalLab" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                        <h4 class="modal-title" id="myModalLab">Invite user</h4>
+                    </div>
+                    <div class="modal-body">
+                        <br />
+                        <div id="Invitation">
+                            Invite your friends to SmartSet :
+            <br />
+                            <br />
+                            <asp:TextBox ID="friendEmail" runat="server" CssClass="form-control form-control-input" placeholder="Friend's email"></asp:TextBox>
+                            <br />
+                        </div>
+                        <br />
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <asp:LinkButton ID="btnSave" CssClass="btn btn-primary" runat="server" OnClick="btnSave_Click"><i class="fa fa-paper-plane "></i>&nbsp;&nbsp;Send invitation</asp:LinkButton>
+                    </div>
+                </div>
+            </div>
+        </div>
 
     </form>
 

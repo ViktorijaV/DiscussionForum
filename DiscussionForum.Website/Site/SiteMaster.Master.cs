@@ -54,6 +54,8 @@ namespace DiscussionForum.Site
             {
                 sendEmail(authenticatedUser.FullName, friendEmail.Text);
             }
+
+            Response.Redirect(Request.RawUrl);
            
         }
 
