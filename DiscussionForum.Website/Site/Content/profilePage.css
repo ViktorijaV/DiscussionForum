@@ -7,9 +7,9 @@
     margin-top: 50px;
 }
 
-.fullName {
+.fullname {
     color: #40a8cc;
-    font-size: 16px;
+    margin-top: -10px;
 }
 
 .bio {
@@ -27,8 +27,8 @@
     display: inline-block;
     box-shadow: 2px 1px 6px grey;
     margin-bottom: 45px;
-    margin-left: 20px;
-    margin-right: 20px;
+    margin-left: 15px;
+    margin-right: 15px;
     width: 100px;
     text-align: left;
     padding-right: 0.5%;
@@ -63,6 +63,8 @@
 
 .usp {
     display: inline-block;
+    margin-left: 10px;
+  
 }
 
 

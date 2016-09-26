@@ -15,12 +15,11 @@
                         <div class="profile-card-row username">
                             <asp:Label ID="username" runat="server" CssClass="profile-card-info username"></asp:Label>
                         </div>
-                        <div class="profile-card-row">
-                            <span class="profile-card-label fullName">FullName</span>
-                            <asp:Label ID="fullname" runat="server" CssClass="profile-card-info"></asp:Label>
+                        <div class="profile-card-row fullName">
+                            <asp:Label ID="fullname" runat="server" CssClass="profile-card-info fullName"></asp:Label>
                         </div>
                     </div>
-                    <div class="col-xs-1 col-sm-1 col-md-1 full-height">
+                    <div class="col-xs-offset-2  col-xs-1 col-sm-1 col-md-1 full-height">
                         <div class="profile-card-row tool expand" data-title="Edit your profile page">
                             <a id="btnEdit" class="btn btn-icon faa-parent animated-hover editProfileChangeSize" href="/profile/edit" runat="server"><i class="fa fa-pencil faa-tada"></i></a>
                         </div>
