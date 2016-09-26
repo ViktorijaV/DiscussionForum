@@ -11,11 +11,9 @@ namespace DiscussionForum.Services
 {
     public class FormsAuthenticationService
     {
-        private HttpContext _httpContext = HttpContext.Current;
+        private HttpContext _httpContext;
         private readonly SqlConnection _connection;
         private TimeSpan _expirationTimeSpan;
-
-        //private static AuthenticatedUser _cachedUser;
 
         public FormsAuthenticationService(HttpContext httpContext, SqlConnection connection)
         {
