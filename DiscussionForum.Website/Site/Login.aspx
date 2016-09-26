@@ -49,6 +49,9 @@
                     <span class="input-group-addon"><i class="fa fa-lock"></i></span>
                     <asp:TextBox ID="txtPassword" CssClass="form-control form-control-input" runat="server" TextMode="Password" placeholder="Password"></asp:TextBox>
                 </div>
+                <div class="col-xs-12 col-md-offset-4 col-md-4 input-group">
+                    <a href="ForgotPassword.aspx">Forgot password?</a>
+                </div>
             </div>
             <div class="row">
                 <div class="col-xs-12 col-md-offset-4 col-md-4 input-group">
@@ -71,7 +74,7 @@
             <div class="col-xs-12 col-md-offset-4 col-md-4">
                 <div style="padding-top: 30px; font-size: 90%">
                     Don't have an account? 
-                    <a href="register">Register Here</a>
+                    <a href="Register.aspx">Register Here</a>
                 </div>
             </div>
         </div>
