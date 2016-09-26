@@ -15,7 +15,7 @@ namespace DiscussionForum.Services
         private readonly SqlConnection _connection;
         private TimeSpan _expirationTimeSpan;
 
-        private static AuthenticatedUser _cachedUser;
+        //private static AuthenticatedUser _cachedUser;
 
         public FormsAuthenticationService(HttpContext httpContext, SqlConnection connection)
         {
@@ -50,11 +50,13 @@ namespace DiscussionForum.Services
 
             var cookie = new HttpCookie(FormsAuthentication.FormsCookieName, encryptedTicket);
             cookie.HttpOnly = true;
+            cookie.Secure = true;
+            cookie.Secure = true;
             if (ticket.IsPersistent)
             {
                 cookie.Expires = ticket.Expiration;
             }
-            
+
             cookie.Path = FormsAuthentication.FormsCookiePath;
             if (FormsAuthentication.CookieDomain != null)
             {
@@ -62,20 +64,15 @@ namespace DiscussionForum.Services
             }
 
             _httpContext.Response.Cookies.Add(cookie);
-            _cachedUser = authenticatedUser;
         }
 
         public void SignOut()
         {
-            _cachedUser = null;
             FormsAuthentication.SignOut();
         }
 
         public AuthenticatedUser GetAuthenticatedUser()
         {
-            if (_cachedUser != null)
-                return _cachedUser;
-
             if (_httpContext == null ||
                 _httpContext.Request == null ||
                 !_httpContext.Request.IsAuthenticated ||
@@ -86,9 +83,8 @@ namespace DiscussionForum.Services
 
             var formsIdentity = (FormsIdentity)_httpContext.User.Identity;
             var authenticatedUser = GetAuthenticatedUserFromTicketAsync(formsIdentity.Ticket);
-            if (authenticatedUser != null)
-                _cachedUser = authenticatedUser;
-            return _cachedUser;
+
+            return authenticatedUser;
         }
 
         protected AuthenticatedUser GetAuthenticatedUserFromTicketAsync(FormsAuthenticationTicket ticket)
