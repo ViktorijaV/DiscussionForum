@@ -29,7 +29,7 @@ namespace DiscussionForum.Services
         }
 
         private string GetFullDirPath(string containerName) =>
-            $@"{_rootPath}\{containerName}";
+            $@"{_rootPath}{containerName}";
 
         private string GetFullFilePath(string containerName, string fileName) =>
             $@"{GetFullDirPath(containerName)}\{fileName}";
