@@ -32,7 +32,7 @@
     <div class="row row-separated">
         <div class="col-xs-12 col-md-offset-3 col-md-6">
             <label>Change profile picture:</label>
-            <div class="alert alert-warning">Image should be less than 2MB large. For best experience the picture should have squared.</div>
+            <div class="alert alert-warning">Image should be less than 2MB large. For best experience the picture should be squared.</div>
         </div>
         <div class="col-xs-12 col-md-offset-3 col-md-6">
             <asp:FileUpload ID="imageUpload" runat="server" Text="Upload new profile picture" accept="image/*" />
