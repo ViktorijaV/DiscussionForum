@@ -59,7 +59,7 @@
                             </div>
                             <div class="row row-separated">
                                 <div class="col-xs-12">
-                                    <div>Created <span id="timeCreated" runat="server"></span>by <span id="creatorUsername" runat="server"></span></div>
+                                    <div>Created <span id="timeCreated" runat="server"></span> by <span id="creatorUsername" runat="server"></span></div>
                                     <div id="timeEdited" runat="server"></div>
                                 </div>
                             </div>
@@ -126,43 +126,6 @@
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" onclick="closeEditCommentModal()">Close</button>
                     <button type="button" class="btn btn-primary" onclick="validateEditComment()">Save changes</button>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- Modal for edit topic-->
-    <div class="modal fade" id="editTopicModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabell" aria-hidden="true">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                    <h4 class="modal-title" id="myModalLabell">Edit your topic</h4>
-                </div>
-                <div class="modal-body">
-                    <div class="row">
-                        <div class="col-xs-12">
-                            <div id="editTopicError" runat="server" class="alert alert-danger alert-dismissible display-none"></div>
-                        </div>
-                    </div>
-                    <div class="row row-separated">
-                        <div class="col-xs-12">
-                            <label>Edit title:</label>
-                            <asp:TextBox ID="txtEditTitle" runat="server" CssClass="form-control form-control-input"></asp:TextBox>
-                        </div>
-                    </div>
-                    <div class="row row-separated">
-                        <div class="col-xs-12">
-                            <label>Edit description:</label>
-                            <asp:TextBox ID="txtEditDesc" runat="server" CssClass="form-control" TextMode="MultiLine"></asp:TextBox>
-                        </div>
-                    </div>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" onclick="closeEditTopicModal()">Close</button>
-                    <button type="button" class="btn btn-primary" onclick="validateEditTopic()">Save changes</button>
                 </div>
             </div>
         </div>

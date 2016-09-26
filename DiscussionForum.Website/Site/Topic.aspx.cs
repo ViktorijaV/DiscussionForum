@@ -57,7 +57,7 @@ namespace DiscussionForum.Site
                 if (currentUser.Id == topicDetails.CreatorID)
                 {
                     var html = settingsDropdown.InnerHtml;
-                    settingsDropdown.InnerHtml = $"<li><a id='editTopic' data-title='Edit your topic'><i class='fa fa-pencil fa-fw faa-spin'></i>Edit</a></li>{html}";
+                    settingsDropdown.InnerHtml = $"<li><a id='editTopic' href='{Request.RawUrl}/edit'><i class='fa fa-pencil fa-fw faa-spin'></i>Edit</a></li>{html}";
                 }
             }
 

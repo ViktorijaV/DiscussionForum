@@ -113,6 +113,7 @@
     <Content Include="Site\Content\Tooltip.css" />
     <Content Include="Site\CreateTopic.aspx" />
     <Content Include="Site\EditProfile.aspx" />
+    <Content Include="Site\EditTopic.aspx" />
     <Content Include="Site\Fonts\font-awesome\css\font-awesome.min.css" />
     <Content Include="Site\Fonts\font-awesome\fonts\fontawesome-webfont.svg" />
     <Content Include="Site\ForgotPassword.aspx" />
@@ -313,6 +314,13 @@
     </Compile>
     <Compile Include="Site\EditProfile.aspx.designer.cs">
       <DependentUpon>EditProfile.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Site\EditTopic.aspx.cs">
+      <DependentUpon>EditTopic.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Site\EditTopic.aspx.designer.cs">
+      <DependentUpon>EditTopic.aspx</DependentUpon>
     </Compile>
     <Compile Include="Site\ForgotPassword.aspx.cs">
       <DependentUpon>ForgotPassword.aspx</DependentUpon>

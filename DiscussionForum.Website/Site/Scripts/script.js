@@ -25,7 +25,7 @@
         $("[id$='editError']").show();
     }
 
-    $("[id$='topicDescription']").html($("[id$='topicDescription']").text());
+    //$("[id$='topicDescription']").html($("[id$='topicDescription']").text());
 
     $(".edit-comment").click(function () {
         var id = $(this).parent().find(".comment-id").val();
@@ -33,14 +33,6 @@
         $('#editCommentModal').modal('show');
         tinymce.activeEditor.remove();
         $("[id$='txtContent']").val($(this).parent().find(".media-comment").html());
-        initializeEditor();
-    });
-
-    $("#editTopic").click(function () {
-        $('#editTopicModal').modal('show');
-        tinymce.activeEditor.remove();
-        $("[id$='txtEditTitle']").val($("[id$='topicTitle']").text());
-        $("[id$='txtEditDesc']").val($("[id$='topicDescription']").html());
         initializeEditor();
     });
 
@@ -167,13 +159,6 @@ function closeEditCommentModal() {
     initializeEditor();
 }
 
-function closeEditTopicModal() {
-    $("[id$='editTopicError']").text("");
-    $("[id$='editTopicError']").hide();
-    $('#editTopicModal').modal('hide');
-    initializeEditor();
-}
-
 function likeComment(button) {
     var id = $(button).parent().find(".comment-id").val();
     $("[id$='commentID']").val(id);
@@ -223,14 +208,6 @@ function pageLoad() {
         $('#editCommentModal').modal('show');
         tinymce.activeEditor.remove();
         $("[id$='txtContent']").val($(this).parent().find(".media-comment").html());
-        initializeEditor();
-    });
-
-    $("#editTopic").click(function () {
-        $('#editTopicModal').modal('show');
-        tinymce.activeEditor.remove();
-        $("[id$='txtEditTitle']").val($("[id$='topicTitle']").text());
-        $("[id$='txtEditDesc']").val($("[id$='topicDescription']").html());
         initializeEditor();
     });
 }

@@ -14,6 +14,7 @@ namespace DiscussionForum
         {
             routes.MapPageRoute("CreateTopicRoute", "topic/create", "~/Site/CreateTopic.aspx");
             routes.MapPageRoute("TopicRoute", "topic/{id}", "~/Site/Topic.aspx");
+            routes.MapPageRoute("EditTopicRoute", "topic/{id}/edit", "~/Site/EditTopic.aspx");
             routes.MapPageRoute("CreateCategoryRoute", "admin/category/create", "~/Site/Admin/CreateCategory.aspx");
             routes.MapPageRoute("CategoryRoute", "category/{id}", "~/Site/Category.aspx");
             routes.MapPageRoute("UserProfileRoute", "users/{username}", "~/Site/UserProfile.aspx");
