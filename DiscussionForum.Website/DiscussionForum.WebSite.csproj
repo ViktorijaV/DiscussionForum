@@ -103,6 +103,7 @@
     <Content Include="Site\Confirmation.aspx" />
     <Content Include="Site\Content\bootstrap.min.css" />
     <Content Include="Site\Content\font-awesome-animation.min.css" />
+    <Content Include="Site\Content\forgotPassword.css" />
     <Content Include="Site\Content\prism.min.css" />
     <Content Include="Site\Content\profilePage.css" />
     <Content Include="Site\Content\Tooltip.css" />
@@ -110,6 +111,8 @@
     <Content Include="Site\EditProfile.aspx" />
     <Content Include="Site\Fonts\font-awesome\css\font-awesome.min.css" />
     <Content Include="Site\Fonts\font-awesome\fonts\fontawesome-webfont.svg" />
+    <Content Include="Site\ForgotPassword.aspx" />
+    <Content Include="Site\ResetPassword.aspx" />
     <Content Include="Site\Scripts\bootstrap.min.js" />
     <Content Include="Site\Login.aspx" />
     <Content Include="packages.config" />
@@ -307,6 +310,13 @@
     <Compile Include="Site\EditProfile.aspx.designer.cs">
       <DependentUpon>EditProfile.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Site\ForgotPassword.aspx.cs">
+      <DependentUpon>ForgotPassword.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Site\ForgotPassword.aspx.designer.cs">
+      <DependentUpon>ForgotPassword.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Site\Home.aspx.cs">
       <DependentUpon>Home.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -328,6 +338,13 @@
     </Compile>
     <Compile Include="Site\Register.aspx.designer.cs">
       <DependentUpon>Register.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Site\ResetPassword.aspx.cs">
+      <DependentUpon>ResetPassword.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Site\ResetPassword.aspx.designer.cs">
+      <DependentUpon>ResetPassword.aspx</DependentUpon>
     </Compile>
     <Compile Include="Site\SiteMaster.Master.cs">
       <DependentUpon>SiteMaster.Master</DependentUpon>
