@@ -147,14 +147,14 @@ namespace DiscussionForum.Services
             return topics;
         }
 
-        public Topic LikeTopic(TopicLike topicLike)
+        public TopicDTO LikeTopic(TopicLike topicLike)
         {
             string query = @"INSERT INTO TopicLikes (TopicID, UserID)
                              values(@TopicID, @UserID)
                              SELECT * 
                              FROM Topics 
                              WHERE Topics.ID = @TopicID";
-            var topic = _connection.Query<Topic>(query, new { topicLike.TopicID, topicLike.UserID }).FirstOrDefault();
+            var topic = _connection.Query<TopicDTO>(query, new { topicLike.TopicID, topicLike.UserID }).FirstOrDefault();
 
             return topic;
         }

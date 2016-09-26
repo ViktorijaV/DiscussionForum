@@ -20,9 +20,9 @@ namespace DiscussionForum.Services
         }
         public void CreateNotification(Notification notification)
         {
-            var sql = $@"INSERT INTO Notifications (UserID, Content, Read, DateCreated)
-                         values(@UserID, @Content, @Read, @DateCreated)";
-            _connection.Execute(sql, new { notification.UserID, notification.Content, notification.Read, notification.DateCreated });
+            var sql = $@"INSERT INTO Notifications (UserID, Content, DateCreated)
+                         values(@UserID, @Content, @DateCreated)";
+            _connection.Execute(sql, new { notification.UserID, notification.Content, notification.DateCreated });
         }
 
         public void ReadNotification(int ID)
