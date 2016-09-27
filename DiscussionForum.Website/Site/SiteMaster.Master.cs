@@ -25,16 +25,19 @@ namespace DiscussionForum.Site
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            var authenticatedUser = _authenticationService.GetAuthenticatedUser();
-
-            if (authenticatedUser != null)
+            if (!IsPostBack)
             {
-                linkProfile.HRef = $"~/users/{authenticatedUser.Username}";
-                profilePic.ImageUrl = authenticatedUser.PhotoUrl;
-                panelAnonymous.Attributes.Add("style", "display:none");
+                var authenticatedUser = _authenticationService.GetAuthenticatedUser();
+
+                if (authenticatedUser != null)
+                {
+                    linkProfile.HRef = $"~/users/{authenticatedUser.Username}";
+                    profilePic.ImageUrl = authenticatedUser.PhotoUrl;
+                    panelAnonymous.Attributes.Add("style", "display:none");
+                }
+                else
+                    panelAuthorized.Attributes.Add("style", "display:none");
             }
-            else
-                panelAuthorized.Attributes.Add("style", "display:none");
         }
 
         protected void btnLogOut_Click(object sender, EventArgs e)
@@ -56,15 +59,15 @@ namespace DiscussionForum.Site
             }
 
             Response.Redirect(Request.RawUrl);
-           
+
         }
 
         private void sendEmail(string friend, string email)
         {
             string message = $@"Hello, your friend {friend} would like to invite you to check out our computer science forum on the following link: 
                 <a href= 'http://{ConfigurationManager.AppSettings["domainName"]}' > Link</a>";
-            
-                _emailSender.SendEmail("SmartSet", message, email);
+
+            _emailSender.SendEmail("SmartSet", message, email);
 
         }
 

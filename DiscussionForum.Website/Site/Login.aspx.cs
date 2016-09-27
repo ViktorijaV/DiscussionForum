@@ -15,7 +15,12 @@ namespace DiscussionForum.Site
 
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            if (!IsPostBack)
+            {
+                if (Request.IsAuthenticated && !string.IsNullOrEmpty(Request.QueryString["ReturnUrl"]))
+                    // This is an unauthorized, authenticated request...
+                    Response.Redirect("/accessdenied");
+            }
         }
         protected void btnLogin_Click(object sender, EventArgs e)
         {
