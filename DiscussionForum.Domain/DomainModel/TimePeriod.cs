@@ -13,13 +13,13 @@ namespace DiscussionForum.Domain.DomainModel
             var dateNow = DateTime.Now;
             var difference = dateNow - date;
             if (difference.TotalSeconds < 60)
-                return $"{(int)difference.TotalSeconds} sec";
+                return $"{(int)difference.TotalSeconds}s ago";
             if (difference.TotalMinutes < 60)
-                return $"{(int)difference.TotalMinutes} min";
+                return $"{(int)difference.TotalMinutes}m ago";
             if(difference.TotalHours < 24)
-                return $"{(int)difference.TotalHours} h";
+                return $"{(int)difference.TotalHours}h ago";
             if(difference.TotalDays < 30)
-                return $"{(int)difference.TotalDays} d";
+                return $"{(int)difference.TotalDays}d ago";
             if(difference.TotalDays < 365)
                 return date.ToString("dd MMM", CultureInfo.CreateSpecificCulture("en-US"));
 

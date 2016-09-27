@@ -70,7 +70,6 @@ namespace DiscussionForum.Site
                 timeEdited.InnerText = $"Edited {TimePeriod.TimeDifference(topicDetails.DateEdited)}";
 
             string description = Server.HtmlDecode(topicDetails.Description).Replace("\"", "'");
-            //topicDescription.InnerHtml = description;
             topicDescription.InnerHtml = $"<div>{description}</div>";
             createdTime.Text = TimePeriod.TimeDifference(topicDetails.DateCreated);
             activeTime.Text = TimePeriod.TimeDifference(topicDetails.LastActivity);

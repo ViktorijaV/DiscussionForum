@@ -115,13 +115,5 @@
     <script src="/Site/Scripts/validation.js" type="text/javascript"></script>
     <script src="/Site/Scripts/script.js" type="text/javascript"></script>
     <script src='https://www.google.com/recaptcha/api.js'></script>
-    <!-- This will be moved to PROFILE & EDIT PROFILE -->
-    <asp:Label ID="lblLocation" runat="server" Text="Label">Location:</asp:Label>
-    <pre id="location"></pre>
-    <br />
-    <!-- Location can be edited and Country cannot. -->
-    <asp:Label ID="lblCountry" runat="server" Text="Label">Country:</asp:Label>
-    <pre id="country"></pre>
-    <!-- -------------------------------------------- -->
 </body>
 </html>
