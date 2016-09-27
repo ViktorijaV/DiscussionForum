@@ -36,6 +36,9 @@ namespace DiscussionForum.Site
         {
             var topicDetails = _topicService.GetTopicById(topicID, currentUserId);
 
+            if (currentUserId != topicDetails.CreatorID)
+                Response.Redirect("/accessdenied");
+
             txtEditTitle.Text = topicDetails.Title;
             string description = Server.HtmlDecode(topicDetails.Description).Replace("\"", "'");
             txtEditDesc.InnerHtml = description;

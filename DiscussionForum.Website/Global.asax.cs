@@ -25,6 +25,7 @@ namespace DiscussionForum
             routes.MapPageRoute("ForgotPasswordRoute", "forgotpassword", "~/Site/ForgotPassword.aspx");
             routes.MapPageRoute("RegisterRoute", "register", "~/Site/Register.aspx");
             routes.MapPageRoute("LoginRoute", "login", "~/Site/Login.aspx");
+            routes.MapPageRoute("AccessDeniedRute", "accessdenied", "~/Site/AccessDenied.aspx");
             routes.MapPageRoute("HomePageRoute2", "home", "~/Site/Home.aspx");
             routes.MapPageRoute("HomePageRoute", "", "~/Site/Home.aspx");
         }

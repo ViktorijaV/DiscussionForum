@@ -102,6 +102,7 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Site\AccessDenied.aspx" />
     <Content Include="Site\Admin\CreateCategory.aspx" />
     <Content Include="Site\Admin\Dashboard.aspx" />
     <Content Include="Site\Category.aspx" />
@@ -272,6 +273,13 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Site\AccessDenied.aspx.cs">
+      <DependentUpon>AccessDenied.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Site\AccessDenied.aspx.designer.cs">
+      <DependentUpon>AccessDenied.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Site\Admin\CreateCategory.aspx.cs">
       <DependentUpon>CreateCategory.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
