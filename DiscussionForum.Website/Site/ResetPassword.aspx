@@ -1,4 +1,5 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site/SiteMaster.Master" AutoEventWireup="true" CodeBehind="ResetPassword.aspx.cs" Inherits="DiscussionForum.Site.ResetPassword" %>
+
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
@@ -13,11 +14,17 @@
         </div>
     </div>
     <div class="col-xs-12 col-md-offset-3 col-md-4 form-group">
-            <div class="input-group message">
-                <span >Please enter your new password and the code we sent you below.</span>
+        <div class="input-group message">
+            <span>Please enter your new password and the code we sent you below.</span>
+        </div>
+    </div>
+    <div class="row row-separated">
+        <div class="col-xs-12 col-md-offset-3 col-md-4 form-group">
+            <div class="input-group">
+                <span class="input-group-addon"><i class="fa fa-envelope "></i></span>
+                <asp:TextBox ID="txtEmail" CssClass="form-control form-control-input" runat="server" TextMode="Email" placeholder="Enter your email"></asp:TextBox>
             </div>
         </div>
-    <div class="row row-separated">
         <div class="col-xs-12 col-md-offset-3 col-md-4 form-group">
             <div class="input-group">
                 <span class="input-group-addon"><i class="fa fa-unlock-alt "></i></span>
@@ -39,8 +46,7 @@
     </div>
     <div class="row row-separated">
         <div class="col-xs-12 col-md-offset-1 col-md-6">
-            <button id="btn" class="btn btn-default pull-right" onclick="validateChangeUserProperties()"><i class="fa fa-floppy-o"></i>&nbsp;&nbsp;Save new password</button>
-            <asp:Button ID="btnSave" runat="server" Style="display: none;" OnClick="btnSave_Click" />
+            <asp:LinkButton ID="btnSave" CssClass="btn btn-default pull-right" runat="server" OnClick="btnSave_Click"><i class="fa fa-floppy-o"></i>&nbsp;&nbsp;Save new password</asp:LinkButton>
         </div>
     </div>
 </asp:Content>

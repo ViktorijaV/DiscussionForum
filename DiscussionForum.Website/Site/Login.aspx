@@ -49,11 +49,8 @@
                     <span class="input-group-addon"><i class="fa fa-lock"></i></span>
                     <asp:TextBox ID="txtPassword" CssClass="form-control form-control-input" runat="server" TextMode="Password" placeholder="Password"></asp:TextBox>
                 </div>
-                <div class="col-xs-12 col-md-offset-4 col-md-4 input-group">
-                    <a href="/forgotpassword">Forgot password?</a>
-                </div>
             </div>
-            <div class="row">
+            <div class="row row-separated">
                 <div class="col-xs-12 col-md-offset-4 col-md-4 input-group">
                     <div class="checkbox">
                         <label>
@@ -61,6 +58,11 @@
                             Remember me
                         </label>
                     </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-12 col-md-offset-4 col-md-4 input-group">
+                    <a href="/forgotpassword">Forgot password?</a>
                 </div>
             </div>
             <asp:Button ID="btnLoginServer" Style="display: none;" runat="server" OnClick="btnLogin_Click" />

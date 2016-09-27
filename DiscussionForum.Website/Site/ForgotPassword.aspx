@@ -7,7 +7,7 @@
             <h3><span class="fa fa-paper-plane">&nbsp;</span><span>Forgot password</span></h3>
         </div>
     </div>
-    <div class="row">
+    <div class="row row-separated">
         <div class="col-xs-12 col-md-offset-4 col-md-4 input-group">
             <div id="error" runat="server" class="alert alert-danger alert-dismissible display-none"></div>
         </div>
@@ -28,8 +28,7 @@
     </div>
     <div class="row row-separated">
         <div class="col-xs-12 col-md-offset-1 col-md-6">
-            <button id="btn" class="btn btn-default pull-right" onclick="validateChangeUserProperties()"><i class="fa fa-paper-plane "></i>&nbsp;&nbsp;Send email</button>
-            <asp:Button ID="btnSave" runat="server" Style="display: none;" OnClick="btnSave_Click" />
+            <asp:LinkButton ID="btnSave" runat="server" CssClass="btn btn-default pull-right" OnClick="btnSave_Click"><i class="fa fa-paper-plane "></i>&nbsp;&nbsp;Send email</asp:LinkButton>
         </div>
     </div>
 </asp:Content>

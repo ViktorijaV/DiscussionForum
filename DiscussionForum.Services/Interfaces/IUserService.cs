@@ -13,5 +13,6 @@ namespace DiscussionForum.Services.Intefraces
         string ConfirmRegistration(string confirmationCode);
         void ChangeUserProperties(int id, string fullname, string bio, string avatar);
         void ChangePassword(int id, string newPassword);
+        void ChangeUserConfirmationCode(string email, string code);
     }
 }

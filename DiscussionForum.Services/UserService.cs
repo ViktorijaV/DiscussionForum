@@ -103,5 +103,11 @@ namespace DiscussionForum.Services
             string sql = $"UPDATE Users SET Password = '{newPassword}' WHERE ID='{id}'";
             _connection.Execute(sql);
         }
+
+        public void ChangeUserConfirmationCode(string email, string code)
+        {
+            string sql = $"UPDATE Users SET ConfirmationCode = '{code}' WHERE Email='{email}'";
+            _connection.Execute(sql);
+        }
     }
 }

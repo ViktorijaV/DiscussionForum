@@ -21,8 +21,6 @@ namespace DiscussionForum.Site
 
         private IUserService _userService = new UserService(new SqlConnection(ConfigurationManager.ConnectionStrings["myConnection"].ToString()));
         private IEmailSender _emailSender = new EmailSender();
-        private IRecaptchaService _recaptchaService = new RecaptchaService(ConfigurationManager.AppSettings["recatchaSecretKey"]);
-
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -31,26 +29,25 @@ namespace DiscussionForum.Site
 
         protected void btnSave_Click(object sender, EventArgs e)
         {
-
-            var errorMessage = _userService.CheckForExistingUser(txtEmail.Text);
-            string code = Guid.NewGuid().ToString();
-            Session["code"] = code;
-            Session["email"] = txtEmail.Text;
-            if (errorMessage != "")
+            string email = txtEmail.Text;
+            var errorMessage = _userService.CheckForExistingUser(email);
+            if (errorMessage == "")
             {
-                error.InnerText = errorMessage;
-            } else
-            {
-                sendEmail(code, txtEmail.Text);
+                error.InnerText = "User with that email address doesn't have a profile on SmartSet.";
+                return;
             }
+            string code = Guid.NewGuid().ToString();
+            _userService.ChangeUserConfirmationCode(email, code);
+            sendEmail(code, email);
+            Response.Redirect("/confirmation?message=sendemail");
         }
 
         private void sendEmail(string confirmationCode, string email)
         {
             string message = $@"Please click on the link to reset your password: 
-                <a href='http://{ConfigurationManager.AppSettings["smart-set.azurewebsite.net/profile/ResetPassword.aspx"]}/confirmation?code={confirmationCode}'>Link</a>";
+                <a href='http://{ConfigurationManager.AppSettings["domainName"]}/resetpassword'>Link</a>. 
+                The code for reseting the password is {confirmationCode}.";
             _emailSender.SendEmail("Change password", message, email);
-            
         }
     }
 }

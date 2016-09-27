@@ -23,6 +23,7 @@ namespace DiscussionForum
             routes.MapPageRoute("NotificationsRoute", "profile/notifications", "~/Site/Notifications.aspx");
             routes.MapPageRoute("ConfirmationRoute", "confirmation", "~/Site/Confirmation.aspx");
             routes.MapPageRoute("ForgotPasswordRoute", "forgotpassword", "~/Site/ForgotPassword.aspx");
+            routes.MapPageRoute("ResetPasswordRoute", "resetpassword", "~/Site/ResetPassword.aspx");
             routes.MapPageRoute("RegisterRoute", "register", "~/Site/Register.aspx");
             routes.MapPageRoute("LoginRoute", "login", "~/Site/Login.aspx");
             routes.MapPageRoute("AccessDeniedRute", "accessdenied", "~/Site/AccessDenied.aspx");

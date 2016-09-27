@@ -20,6 +20,18 @@ namespace DiscussionForum.Site
                     var message = $"<h3>{_userService.ConfirmRegistration(Request.QueryString["code"])}</h3>";
                     lblText.Text = message;
                 }
+
+                else if(Request.QueryString["message"] == "resetpassword")
+                {
+                    var message = $"<h3>You password was reset successfully. You can now <a href='/login'>Login</a> with your new password</h3>";
+                    lblText.Text = message;
+                }
+
+                else if (Request.QueryString["message"] == "sendemail")
+                {
+                    var message = $"<h3>An email has been send to you. Please check your mailbox for the instructions.</h3>";
+                    lblText.Text = message;
+                }
             }
         }
     }
