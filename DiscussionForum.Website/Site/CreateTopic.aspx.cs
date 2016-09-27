@@ -29,6 +29,7 @@ namespace DiscussionForum.Site
         {
             var currentUser = _authenticationService.GetAuthenticatedUser();
             var description = Server.HtmlEncode(txtDescription.Text);
+            description = txtDescription.Text;
             var topic = new DiscussionForum.Domain.DomainModel.Topic(currentUser.Id, int.Parse(ddlCategories.SelectedItem.Value), txtTitle.Text, description);
 
             int topicId = _topicService.CreateTopic(topic);

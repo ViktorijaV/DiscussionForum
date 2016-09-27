@@ -87,14 +87,6 @@
                                 <ul id="CommentList" class="media-list" runat="server">
                                 </ul>
                             </div>
-                            <div class="topic-comments-textarea">
-                                <div class="topic-comments-textarea-heading">Add your comment</div>
-                                <div id="error" runat="server" class="alert alert-danger alert-dismissible display-none"></div>
-                                <asp:TextBox ID="txtComment" runat="server" CssClass="form-control" TextMode="MultiLine"></asp:TextBox>
-                                <br />
-                                <button id="btnCreate" class="btn btn-default" onclick="validateCreateComment(); return false;">Add comment</button>
-                                <asp:Button ID="btnCreateComment" Style="display: none;" runat="server" OnClick="btnCreateComment_Click" />
-                            </div>
                         </div>
                     </div>
                 </div>
@@ -144,6 +136,24 @@
 
         </ContentTemplate>
     </asp:UpdatePanel>
+    <div class="row">
+        <div class="col-md-3 col-md-push-9"></div>
+        <div class="col-md-9 col-md-pull-3">
+            <div class="row">
+                <div class="col-xs-12  topic-comments">
+
+                    <div class="topic-comments-textarea">
+                        <div class="topic-comments-textarea-heading">Add your comment</div>
+                        <div id="error" runat="server" class="alert alert-danger alert-dismissible display-none"></div>
+                        <asp:TextBox ID="txtComment" runat="server" CssClass="form-control" TextMode="MultiLine"></asp:TextBox>
+                        <br />
+                        <button id="btnCreate" class="btn btn-default" onclick="validateCreateComment(); return false;">Add comment</button>
+                        <asp:Button ID="btnCreateComment" Style="display: none;" runat="server" OnClick="btnCreateComment_Click" />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <!-- Modal for edit comment-->
     <div class="modal fade" id="editCommentModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">

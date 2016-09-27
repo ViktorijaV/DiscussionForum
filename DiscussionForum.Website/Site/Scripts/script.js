@@ -146,7 +146,6 @@ function closeEditCommentModal() {
     $("[id$='editError']").text("");
     $("[id$='editError']").hide();
     $('#editCommentModal').modal('hide');
-    initializeEditor();
 }
 
 function likeComment(button) {
@@ -182,7 +181,8 @@ function pageLoad() {
         $("[id$='editError']").show();
     }
 
-    $("[id$='txtContent']").html($("[id$='txtContent']").text());
+    $("[id$='txtContent']").val("");
+    //$("[id$='txtContent']").html($("[id$='txtContent']").text());
 
     $(".edit-comment").click(function () {
         var id = $(this).parent().find(".comment-id").val();

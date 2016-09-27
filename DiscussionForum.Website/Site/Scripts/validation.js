@@ -23,6 +23,7 @@ function validateCreateComment() {
 
     tinymce.activeEditor.remove();
     $("[id$='txtComment']").val(encodeHtml($("[id$='txtComment']").val()));
+    $("[id$='txtContent']").val("");
 
     $("[id$='error']").text("");
     $("[id$='error']").hide();

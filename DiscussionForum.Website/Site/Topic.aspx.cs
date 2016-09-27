@@ -223,6 +223,7 @@ namespace DiscussionForum.Site
                 redirectToLogin(Request.RawUrl);
 
             var content = Server.HtmlEncode(txtComment.Text);
+            content = txtComment.Text;
             var comment = new Comment(topicID, currentUser.Id, txtComment.Text);
 
             var topic = _topicService.GetTopicById(topicID, currentUser.Id);
