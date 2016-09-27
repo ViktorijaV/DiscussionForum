@@ -103,6 +103,45 @@
             <asp:Button ID="btnLikeComment" runat="server" Style="display: none;" OnClick="btnLikeComment_Click" />
             <asp:Button ID="btnUnlikeComment" runat="server" Style="display: none;" OnClick="btnUnlikeComment_Click" />
             <asp:Button ID="btnEditComment" runat="server" Style="display: none;" OnClick="btnEditComment_Click" />
+
+            <!-- Modal for report topic-->
+            <div class="modal fade" id="reportTopicModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabell" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h4 class="modal-title" id="myModalLabelll">Report this topic</h4>
+                        </div>
+                        <div class="modal-body">
+                            <div class="row">
+                                <div class="col-xs-12">
+                                    <div id="errorReportTopic" runat="server" class="alert alert-danger display-none"></div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-xs-12">
+                                    <div class="form-group">
+                                        <asp:RadioButtonList ID="listReportTopic" runat="server" CssClass="radiobuttonlist" OnSelectedIndexChanged="listReportTopic_SelectedIndexChanged" AutoPostBack="True">
+                                            <asp:ListItem Text="Already exists same or similar topic" Value="Already exists same or similar topic"></asp:ListItem>
+                                            <asp:ListItem Text="It contains offensive content" Value="It contains offensive content"></asp:ListItem>
+                                            <asp:ListItem Text="This shoudn't be on SmartSet" Value="This shoudn't be on SmartSet"></asp:ListItem>
+                                        </asp:RadioButtonList>
+                                    </div>
+                                    <div id="other">
+                                        <label>Other: </label>
+                                        <asp:TextBox ID="txtOther" runat="server" CssClass="form-control form-control-input"></asp:TextBox>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                            <button type="button" class="btn btn-primary">Report topic</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
         </ContentTemplate>
     </asp:UpdatePanel>
 
@@ -120,80 +159,6 @@
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" onclick="closeEditCommentModal()">Close</button>
                     <button type="button" class="btn btn-primary" onclick="validateEditComment()">Save changes</button>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- Modal for report topic-->
-    <div class="modal fade" id="reportTopicModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabell" aria-hidden="true">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                    <h4 class="modal-title" id="myModalLabelll">Report this topic</h4>
-                </div>
-                <div class="modal-body">
-                    <div class="row">
-                        <div class="col-xs-12">
-                            <div class="form-group">
-                                <asp:BulletedList ID="BulletedList1" runat="server">
-                                    <asp:ListItem Text="Already exists same or similar topic" Value="Already exists same or similar topic"></asp:ListItem>
-                                    <asp:ListItem></asp:ListItem>
-                                </asp:BulletedList>
-                                <asp:RadioButton ID="rb1" runat="server" GroupName="rbReportTopic" />
-                                <asp:RadioButton ID="rb2" runat="server" GroupName="rbReportTopic" />
-                            </div>
-                            <div class="form-group">
-                                <input type="checkbox" name="fancy-checkbox-primary" id="fancy-checkbox-primary" />
-                                <div class="btn-group">
-                                    <label for="fancy-checkbox-primary" class="[ btn btn-primary ]">
-                                        <span class="[ glyphicon glyphicon-ok ]"></span>
-                                        <span></span>
-                                    </label>
-                                    <label for="fancy-checkbox-primary" class="[ btn btn-default active ]">
-                                        Already exists same or similar topic
-                                    </label>
-                                </div>
-                            </div>
-                            <div class="[ form-group ]">
-                                <input type="checkbox" name="fancy-checkbox-success" id="fancy-checkbox-success" />
-                                <div class="[ btn-group ]">
-                                    <label for="fancy-checkbox-success" class="[ btn btn-success ]">
-                                        <span class="[ glyphicon glyphicon-ok ]"></span>
-                                        <span></span>
-                                    </label>
-                                    <label for="fancy-checkbox-success" class="[ btn btn-default active ]">
-                                        It contains offensive content
-                                    </label>
-                                </div>
-                            </div>
-                            <div class="[ form-group ]">
-                                <input type="checkbox" name="fancy-checkbox-info" id="fancy-checkbox-info" />
-                                <div class="[ btn-group ]">
-                                    <label for="fancy-checkbox-info" class="[ btn btn-info ]">
-                                        <span class="[ glyphicon glyphicon-ok ]"></span>
-                                        <span></span>
-                                    </label>
-                                    <label for="fancy-checkbox-info" class="[ btn btn-default active ]">
-                                        This shoudn't be on SmartSet
-                                    </label>
-                                </div>
-                            </div>
-
-                            <div id="other">
-                                <label>Other: </label>
-                                <asp:TextBox ID="txtOther" runat="server"></asp:TextBox>
-                            </div>
-
-                        </div>
-                    </div>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary">Report topic</button>
                 </div>
             </div>
         </div>

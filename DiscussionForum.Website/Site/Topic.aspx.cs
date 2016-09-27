@@ -284,5 +284,12 @@ namespace DiscussionForum.Site
         {
             Response.Redirect($"~/login?ReturnUrl={Server.UrlEncode(url)}");
         }
+
+        protected void listReportTopic_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (listReportTopic.SelectedIndex != -1)
+                txtOther.Enabled = false;
+            else txtOther.Enabled = true;
+        }
     }
 }

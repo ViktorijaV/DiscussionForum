@@ -256,6 +256,33 @@ namespace DiscussionForum.Site {
         protected global::System.Web.UI.WebControls.Button btnEditComment;
         
         /// <summary>
+        /// errorReportTopic control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl errorReportTopic;
+        
+        /// <summary>
+        /// listReportTopic control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RadioButtonList listReportTopic;
+        
+        /// <summary>
+        /// txtOther control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtOther;
+        
+        /// <summary>
         /// editError control.
         /// </summary>
         /// <remarks>
@@ -272,42 +299,6 @@ namespace DiscussionForum.Site {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtContent;
-        
-        /// <summary>
-        /// BulletedList1 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.BulletedList BulletedList1;
-        
-        /// <summary>
-        /// rb1 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RadioButton rb1;
-        
-        /// <summary>
-        /// rb2 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RadioButton rb2;
-        
-        /// <summary>
-        /// txtOther control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtOther;
         
         /// <summary>
         /// TextBox2 control.
