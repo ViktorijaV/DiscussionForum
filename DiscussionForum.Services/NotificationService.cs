@@ -29,7 +29,8 @@ namespace DiscussionForum.Services
         {
             var sql = $@"SELECT *
                          FROM Notifications
-                         WHERE Notifications.UserID = {userId}";
+                         WHERE Notifications.UserID = {userId}
+                         ORDER BY Notifications.DateCreated DESC";
 
             var notifications = _connection.Query<Notification>(sql).ToList();
 
