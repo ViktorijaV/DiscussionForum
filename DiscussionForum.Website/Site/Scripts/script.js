@@ -25,8 +25,6 @@
         $("[id$='editError']").show();
     }
 
-    $("[id$='topicDescription']").html($("[id$='topicDescription']").text());
-
     $(".edit-comment").click(function () {
         var id = $(this).parent().find(".comment-id").val();
         $("[id$='commentID']").val(id);
@@ -162,7 +160,6 @@ function closeEditCommentModal() {
 function likeComment(button) {
     var id = $(button).parent().find(".comment-id").val();
     $("[id$='commentID']").val(id);
-    $("[id$='topicDescription']").val("");
     $("[id$='txtContent']").val("");
     event.preventDefault();
     $("[id$='btnLikeComment']").trigger('click');
@@ -171,7 +168,6 @@ function likeComment(button) {
 function unlikeComment(button) {
     var id = $(button).parent().find(".comment-id").val();
     $("[id$='commentID']").val(id);
-    $("[id$='topicDescription']").val("");
     $("[id$='txtContent']").val("");
     event.preventDefault();
     $("[id$='btnUnlikeComment']").trigger('click');
@@ -181,11 +177,6 @@ function unlikeComment(button) {
 function pageLoad() {
 
     initializeEditor();
-
-    $(window).unload(function () {
-        $("[id$='topicDescription']").val("");
-        $("[id$='txtContent']").val("");
-    });
 
     if ($("#error").text() != "") {
         $("#error").show();
@@ -199,7 +190,6 @@ function pageLoad() {
         $("[id$='editError']").show();
     }
 
-    $("[id$='topicDescription']").html($("[id$='topicDescription']").text());
     $("[id$='txtContent']").html($("[id$='txtContent']").text());
 
     $(".edit-comment").click(function () {
