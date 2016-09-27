@@ -34,6 +34,9 @@ namespace DiscussionForum.Site
                     linkProfile.HRef = $"~/users/{authenticatedUser.Username}";
                     profilePic.ImageUrl = authenticatedUser.PhotoUrl;
                     panelAnonymous.Attributes.Add("style", "display:none");
+
+                    if (Request.RawUrl.StartsWith("/admin") && authenticatedUser.Role != "Admin")
+                        Response.Redirect("/accessdenied");
                 }
                 else
                     panelAuthorized.Attributes.Add("style", "display:none");
