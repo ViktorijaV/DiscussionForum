@@ -49,8 +49,8 @@ function validateEditComment() {
 
     $("[id$='editError']").text("");
     $("[id$='editError']").hide();
+    closeEditCommentModal();
     $("[id$='btnEditComment']").trigger('click');
-    initializeEditor();
 }
 
 function validateCreateTopic() {
