@@ -8,6 +8,7 @@ namespace DiscussionForum.Domain.DomainModel
 {
     public class Notification
     {
+        public Notification() { }
 
         public Notification(int userId, string content, DateTime dateCreated)
         {

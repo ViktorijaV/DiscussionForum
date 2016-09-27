@@ -141,6 +141,14 @@
     font-weight: bold;
 }
 
+/*Alert*/
+
+.alert-notification {
+    color: grey;
+    background-color: #d9edf7;
+    border-color: #bce8f1;
+}
+
 /*List group*/
 
 .list-group {

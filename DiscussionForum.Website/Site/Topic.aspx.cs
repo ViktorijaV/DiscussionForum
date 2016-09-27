@@ -186,7 +186,7 @@ namespace DiscussionForum.Site
             var topicLike = new TopicLike(topicID, currentUser.Id);
 
             var topic = _topicService.LikeTopic(topicLike);
-            string message = $@"{currentUser.FullName} liked your topic <a href='/topic/{topicID}'>{topic.Title}</a>.";
+            string message = $@"<strong>{currentUser.FullName}<strong> liked your topic <a href='/topic/{topicID}'>{topic.Title}</a>.";
             Notification notification = new Notification(topic.CreatorID, message, DateTime.Now);
             _notificationService.CreateNotification(notification);
 
@@ -226,7 +226,7 @@ namespace DiscussionForum.Site
             var comment = new Comment(topicID, currentUser.Id, txtComment.Text);
 
             var topic = _topicService.GetTopicById(topicID, currentUser.Id);
-            string message = $@"{currentUser.FullName} commented on your topic <a href='/topic/{topicID}'>{topic.Title}</a>.";
+            string message = $@"<strong>{currentUser.FullName}<strong> commented on your topic <a href='/topic/{topicID}'>{topic.Title}</a>.";
             Notification notification = new Notification(topic.CreatorID, message, DateTime.Now);
             _notificationService.CreateNotification(notification);
 

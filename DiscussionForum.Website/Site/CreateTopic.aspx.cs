@@ -38,7 +38,7 @@ namespace DiscussionForum.Site
 
             var category = _categoryService.GetCategoryById(topic.CategoryID);
 
-            string message = $@"{currentUser.FullName} created new topic {topic.Title} in category {category.Name}.";
+            string message = $@"<strong>{currentUser.FullName}</strong> created new topic <a href='/topic/{topic.ID}'>{topic.Title}</a> in category <a href='/category/'{category.ID}'>{category.Name}</a>.";
 
             var followers = _categoryService.GetFollowers(category.ID);
 

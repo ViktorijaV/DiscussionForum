@@ -7,10 +7,6 @@ namespace DiscussionForum.Services.Interfaces
     {
         void CreateNotification(Notification notification);
 
-        void ReadNotification(int ID);
-
-        IList<Notification> GetAllUsersNotifications(int userId);
-
-        IList<Notification> GetUnreadUsersNotifications(int userId);
+        IList<Notification> GetUsersNotifications(int userId);
     }
 }

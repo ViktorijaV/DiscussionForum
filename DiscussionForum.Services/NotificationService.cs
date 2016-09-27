@@ -25,41 +25,11 @@ namespace DiscussionForum.Services
             _connection.Execute(sql, new { notification.UserID, notification.Content, notification.DateCreated });
         }
 
-        public void ReadNotification(int ID)
+        public IList<Notification> GetUsersNotifications(int userId)
         {
-            var read = true;
-            var sql = $@"UPDATE Notifications
-                         SET Notifications.Read = @Read
-                         WHERE Notifications.ID = @ID";
-            _connection.Execute(sql, new { read, ID });
-        }
-
-        public IList<Notification> GetAllUsersNotifications(int userId)
-        {
-            var sql = $@"SELECT
-                         Notifications.ID              AS ID,
-                         Notifications.UserID          AS UserID,
-                         Notifications.Content         AS Content,
-                         Notifications.DateCreated     AS DateCreated,
-                         Notifications.Read            AS Read
+            var sql = $@"SELECT *
                          FROM Notifications
                          WHERE Notifications.UserID = {userId}";
-
-            var notifications = _connection.Query<Notification>(sql).ToList();
-
-            return notifications;
-        }
-
-        public IList<Notification> GetUnreadUsersNotifications(int userId)
-        {
-            var sql = $@"SELECT
-                         Notifications.ID              AS ID,
-                         Notifications.UserID          AS UserID,
-                         Notifications.Content         AS Content,
-                         Notifications.DateCreated     AS DateCreated,
-                         Notifications.Read            AS Read
-                         FROM Notifications
-                         WHERE Notifications.UserID = {userId} AND Notifications.Read = 'true'";
 
             var notifications = _connection.Query<Notification>(sql).ToList();
 
