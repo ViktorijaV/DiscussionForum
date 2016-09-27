@@ -1034,3 +1034,12 @@ table.dataTable {
     font-weight: bold;
     color: #40a8cc;
 }
+
+.adminFunctions{
+
+    color: #40a8cc;
+}
+
+.tab-pane{
+    margin-top: 15px;
+}

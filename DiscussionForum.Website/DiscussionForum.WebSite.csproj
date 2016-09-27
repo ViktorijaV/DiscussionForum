@@ -124,6 +124,7 @@
     <Content Include="Site\Scripts\bootstrap.min.js" />
     <Content Include="Site\Login.aspx" />
     <Content Include="packages.config" />
+    <Content Include="Site\Scripts\pillsScript.js" />
     <Content Include="Site\Scripts\jquery.dataTables.min.js" />
     <Content Include="Site\Scripts\jquery.min.js" />
     <Content Include="Site\Scripts\prism.min.js" />
