@@ -61,7 +61,7 @@
             <hr />
             <footer class="footer">
                 <div class="container-fluid">
-                    <p class="m-b-0 text-muted">&copy; <%: DateTime.Now.Year %> - SmartSet</p>
+ <p class="m-b-0 text-muted"> &copy; <%: DateTime.Now.Year %> - SmartSet</p>
                 </div>
             </footer>
         </div>

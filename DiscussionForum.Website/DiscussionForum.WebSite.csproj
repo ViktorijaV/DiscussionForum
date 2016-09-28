@@ -264,6 +264,7 @@
     <Content Include="Site\Home.aspx" />
     <Content Include="Site\Register.aspx" />
     <Content Include="Site\Scripts\ai.0.15.0-build58334.min.js" />
+    <Content Include="Site\TermsAndConditions.aspx" />
     <Content Include="Site\Topic.aspx" />
     <Content Include="Storage\favicon.ico" />
     <Content Include="Storage\logo.png" />
@@ -388,6 +389,13 @@
     </Compile>
     <Compile Include="Site\SiteMaster.Master.designer.cs">
       <DependentUpon>SiteMaster.Master</DependentUpon>
+    </Compile>
+    <Compile Include="Site\TermsAndConditions.aspx.cs">
+      <DependentUpon>TermsAndConditions.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Site\TermsAndConditions.aspx.designer.cs">
+      <DependentUpon>TermsAndConditions.aspx</DependentUpon>
     </Compile>
     <Compile Include="Site\Topic.aspx.cs">
       <DependentUpon>Topic.aspx</DependentUpon>

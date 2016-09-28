@@ -1068,3 +1068,27 @@ table.dataTable {
     margin-top: 30px;
     margin-bottom: 30px;
 }
+
+.terms{
+   text-decoration :none;
+   list-style:none;
+}
+
+#terms {
+margin-left:5%;
+margin-right:5%;
+
+}
+
+.tekst {
+margin-bottom:0px;
+}
+
+#terms h3, h4 {
+       color:#40a8cc; 
+}
+
+.footer {
+margin-left:40%;
+margin-right:40%;
+}

@@ -29,6 +29,8 @@ namespace DiscussionForum
             routes.MapPageRoute("AccessDeniedRute", "accessdenied", "~/Site/AccessDenied.aspx");
             routes.MapPageRoute("HomePageRoute2", "home", "~/Site/Home.aspx");
             routes.MapPageRoute("HomePageRoute", "", "~/Site/Home.aspx");
+            routes.MapPageRoute("TermsAndConditionsRoute", "terms&conditions", "~/Site/TermsAndConditons.aspx");
+
         }
     }
 }
