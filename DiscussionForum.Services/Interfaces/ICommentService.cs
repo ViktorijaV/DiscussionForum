@@ -16,5 +16,7 @@ namespace DiscussionForum.Services.Interfaces
         void CreateComment(Comment comment);
 
         IList<CommentDTO> GetComments(int topicID, int currentUserId);
+
+        void ReportComment(CommentReport report);
     }
 }

@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site/SiteMaster.Master" AutoEventWireup="true" CodeBehind="Topic.aspx.cs" Inherits="DiscussionForum.Site.Topic" MaintainScrollPositionOnPostback="true" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site/SiteMaster.Master" AutoEventWireup="true" CodeBehind="Topic.aspx.cs" Inherits="DiscussionForum.Site.Topic" MaintainScrollPositionOnPostback="true" ValidateRequest="false" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
@@ -95,47 +95,11 @@
             <asp:Button ID="btnLikeComment" runat="server" Style="display: none;" OnClick="btnLikeComment_Click" />
             <asp:Button ID="btnUnlikeComment" runat="server" Style="display: none;" OnClick="btnUnlikeComment_Click" />
             <asp:Button ID="btnEditComment" runat="server" Style="display: none;" OnClick="btnEditComment_Click" />
-
-            <!-- Modal for report topic-->
-            <div class="modal fade" id="reportTopicModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabell" aria-hidden="true">
-                <div class="modal-dialog" role="document">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h4 class="modal-title" id="myModalLabelll">Report this topic</h4>
-                        </div>
-                        <div class="modal-body">
-                            <div class="row">
-                                <div class="col-xs-12">
-                                    <div id="errorReportTopic" runat="server" class="alert alert-danger display-none"></div>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-xs-12">
-                                    <div class="form-group">
-                                        <asp:RadioButtonList ID="listReportTopic" runat="server" CssClass="radiobuttonlist" OnSelectedIndexChanged="listReportTopic_SelectedIndexChanged" AutoPostBack="True">
-                                            <asp:ListItem Text="Already exists same or similar topic" Value="Already exists same or similar topic"></asp:ListItem>
-                                            <asp:ListItem Text="It contains offensive content" Value="It contains offensive content"></asp:ListItem>
-                                            <asp:ListItem Text="This shoudn't be on SmartSet" Value="This shoudn't be on SmartSet"></asp:ListItem>
-                                        </asp:RadioButtonList>
-                                    </div>
-                                    <div id="other">
-                                        <label>Other: </label>
-                                        <asp:TextBox ID="txtOther" runat="server" CssClass="form-control form-control-input"></asp:TextBox>
-                                    </div>
-
-                                </div>
-                            </div>
-                        </div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                            <button type="button" class="btn btn-primary">Report topic</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
+            <asp:Button ID="btnReportTopic" runat="server" Style="display: none;" OnClick="btnReportTopic_Click" />
+            <asp:Button ID="btnReportComment" runat="server" Style="display: none;" OnClick="btnReportComment_Click" />
         </ContentTemplate>
     </asp:UpdatePanel>
+
     <div class="row">
         <div class="col-md-3 col-md-push-9"></div>
         <div class="col-md-9 col-md-pull-3">
@@ -150,6 +114,20 @@
                         <button id="btnCreate" class="btn btn-default" onclick="validateCreateComment(); return false;">Add comment</button>
                         <asp:Button ID="btnCreateComment" Style="display: none;" runat="server" OnClick="btnCreateComment_Click" />
                     </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--Modal for displaying message-->
+    <div class="modal fade" id="messageModal" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content alert alert-success">
+                <div class="modal-body">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                    <h4 id="messageInModal"></h4>
                 </div>
             </div>
         </div>
@@ -174,67 +152,75 @@
         </div>
     </div>
 
-    <!-- Modal for report comment-->
-    <div class="modal fade" id="reportCommentModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabellll" aria-hidden="true">
+    <!-- Modal for report topic-->
+    <div class="modal fade" id="reportTopicModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabell" aria-hidden="true">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                    <h4 class="modal-title" id="myModalLabellll">Report this comment</h4>
+                    <h4 class="modal-title" id="myModalLabelll">Report this topic</h4>
                 </div>
                 <div class="modal-body">
-
                     <div class="row">
-                        <div class="[ form-group ]">
-                            <input type="checkbox" name="fancy-checkbox-default" id="fancy-checkbox-default" />
-                            <div class="[ btn-group ]">
-                                <label for="fancy-checkbox-default" class="[ btn btn-default ]">
-                                    <span class="[ glyphicon glyphicon-ok ]"></span>
-                                    <span></span>
-                                </label>
-                                <label for="fancy-checkbox-default" class="[ btn btn-default active ]">
-                                    This comment contains offence content
-                                </label>
-                            </div>
+                        <div class="col-xs-12">
+                            <div id="errorReportTopic" runat="server" class="alert alert-danger display-none"></div>
                         </div>
-
-                        <div class="[ form-group ]">
-                            <input type="checkbox" name="fancy-checkbox-danger" id="fancy-checkbox-danger" />
-                            <div class="[ btn-group ]">
-                                <label for="fancy-checkbox-danger" class="[ btn btn-danger ]">
-                                    <span class="[ glyphicon glyphicon-ok ]"></span>
-                                    <span></span>
-                                </label>
-                                <label for="fancy-checkbox-danger" class="[ btn btn-default active ]">
-                                    TThis shouldn't be on SmartSet
-                                </label>
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-12">
+                            <div class="form-group">
+                                <asp:RadioButtonList ID="listReportTopic" runat="server" CssClass="radiobuttonlist">
+                                    <asp:ListItem Text="Already exists same or similar topic" Value="Already exists same or similar topic"></asp:ListItem>
+                                    <asp:ListItem Text="It contains offensive content" Value="It contains offensive content"></asp:ListItem>
+                                    <asp:ListItem Text="This shoudn't be on SmartSet" Value="This shoudn't be on SmartSet"></asp:ListItem>
+                                </asp:RadioButtonList>
                             </div>
-                        </div>
-
-                        <div class="[ form-group ]">
-                            <input type="checkbox" name="fancy-checkbox-warning" id="fancy-checkbox-warning" />
-                            <div class="[ btn-group ]">
-                                <label for="fancy-checkbox-warning" class="[ btn btn-warning ]">
-                                    <span class="[ glyphicon glyphicon-ok ]"></span>
-                                    <span></span>
-                                </label>
-                                <label for="fancy-checkbox-warning" class="[ btn btn-default active ]">
-                                    This is spam
-                                </label>
+                            <div id="other">
+                                <label>Other: </label>
+                                <asp:TextBox ID="txtOther" runat="server" CssClass="form-control form-control-input"></asp:TextBox>
                             </div>
-                        </div>
-
-                        <div id="otherReason">
-                            <label>Other: </label>
-                            <asp:TextBox ID="TextBox2" runat="server"></asp:TextBox>
                         </div>
                     </div>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary">Report comment</button>
+                    <button type="button" class="btn btn-primary" onclick="validateReportTopic()">Report topic</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal for report comment-->
+    <div class="modal fade" id="reportCommentModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabellll" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title" id="myModalLabellll">Report this comment</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-xs-12">
+                            <div id="errorReportComment" runat="server" class="alert alert-danger display-none"></div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-12">
+                            <div class="form-group">
+                                <asp:RadioButtonList ID="listReportComment" runat="server" CssClass="radiobuttonlist">
+                                    <asp:ListItem Text="This comment contains offence content" Value="This comment contains offence content"></asp:ListItem>
+                                    <asp:ListItem Text="This shoudn't be on SmartSet" Value="This shoudn't be on SmartSet"></asp:ListItem>
+                                    <asp:ListItem Text="This is spam" Value="This is spam"></asp:ListItem>
+                                </asp:RadioButtonList>
+                            </div>
+                            <div id="otherC">
+                                <label>Other: </label>
+                                <asp:TextBox ID="txtOtherReason" runat="server" CssClass="form-control form-control-input"></asp:TextBox>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary" onclick="validateReportComment()">Report comment</button>
                 </div>
             </div>
         </div>

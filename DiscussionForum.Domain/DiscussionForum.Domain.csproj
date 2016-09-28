@@ -49,6 +49,8 @@
     <Compile Include="DomainModel\Topic.cs" />
     <Compile Include="DomainModel\TopicFollower.cs" />
     <Compile Include="DomainModel\TopicLike.cs" />
+    <Compile Include="DomainModel\CommentReport.cs" />
+    <Compile Include="DomainModel\TopicReport.cs" />
     <Compile Include="DomainModel\User.cs" />
     <Compile Include="Interfaces\IUsernameGenerator.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

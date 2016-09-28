@@ -24,5 +24,7 @@ namespace DiscussionForum.Services.Interfaces
         void UnfollowTopic(TopicFollower topicFollower);
 
         void EditTopic(int topicID, string title, string description, DateTime date);
+
+        void ReportTopic(TopicReport report);
     }
 }

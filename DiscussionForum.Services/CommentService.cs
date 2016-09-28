@@ -82,5 +82,12 @@ namespace DiscussionForum.Services
 
             return comments;
         }
+
+        public void ReportComment(CommentReport report)
+        {
+            string query = @"INSERT INTO CommentReports (CommentID, ReporterID, Reason, DateCreated)
+                             values(@CommentID, @ReporterID, @Reason, @DateCreated)";
+            _connection.Execute(query, new { report.CommentID, report.ReporterID, report.Reason, report.DateCreated });
+        }
     }
 }

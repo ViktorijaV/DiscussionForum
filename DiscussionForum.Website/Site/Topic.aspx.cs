@@ -114,6 +114,10 @@ namespace DiscussionForum.Site
                                         <i class='fa fa-pencil faa-shake'></i>
                                     </button>";
 
+                var reportButton = @"<button class='btn btn-icon faa-parent animated-hover pull-right report-comment tool expand' data-title='Report this comment' type='button'>
+                                        <i class='fa fa-exclamation-circle faa-pulse'></i>
+                                    </button>";
+
                 var content = Server.HtmlDecode(comment.Content).Replace("\"", "'");
                 var li = $@"<li class='media'>
                                 <a class='pull-left' href='/user/{comment.CommenterUsername}'>
@@ -124,6 +128,7 @@ namespace DiscussionForum.Site
                                         <input type='hidden' class='comment-id' value='{comment.ID}'>
                                         <h4 class='media-heading'>{comment.CommenterUsername}</h4>
                                         <span>Created {TimePeriod.TimeDifference(comment.DateCreated)}</span>
+                                        {reportButton}
                                         {editButton}
                                         <br />
                                         {edited}
@@ -281,16 +286,46 @@ namespace DiscussionForum.Site
             loadComments(topicID, currentUser);
         }
 
+        protected void btnReportTopic_Click(object sender, EventArgs e)
+        {
+            var currentUser = _authenticationService.GetAuthenticatedUser();
+            int topicID = Convert.ToInt32(Page.RouteData.Values["id"]);
+            if (currentUser == null)
+                redirectToLogin(Request.RawUrl);
+            var reason = "";
+            if (listReportTopic.SelectedIndex != -1)
+                reason = listReportTopic.SelectedItem.Value;
+            if (txtOther.Text.Length > 0)
+                reason = txtOther.Text;
+
+            var report = new TopicReport(topicID, currentUser.Id, reason, DateTime.Now);
+            _topicService.ReportTopic(report);
+            listReportTopic.SelectedIndex = -1;
+            txtOther.Text = "";
+        }
+
+        protected void btnReportComment_Click(object sender, EventArgs e)
+        {
+            var currentUser = _authenticationService.GetAuthenticatedUser();
+            var commentId = int.Parse(commentID.Value);
+
+            if (currentUser == null)
+                redirectToLogin(Request.RawUrl);
+            var reason = "";
+            if (listReportComment.SelectedIndex != -1)
+                reason = listReportComment.SelectedItem.Value;
+            if (txtOtherReason.Text.Length > 0)
+                reason = txtOtherReason.Text;
+            
+            var report = new CommentReport(commentId, currentUser.Id, reason, DateTime.Now);
+            _commentService.ReportComment(report);
+            listReportComment.SelectedIndex = -1;
+            txtOtherReason.Text = "";
+        }
+
         private void redirectToLogin(string url)
         {
             Response.Redirect($"~/login?ReturnUrl={Server.UrlEncode(url)}");
-        }
-
-        protected void listReportTopic_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            if (listReportTopic.SelectedIndex != -1)
-                txtOther.Enabled = false;
-            else txtOther.Enabled = true;
         }
     }
 }

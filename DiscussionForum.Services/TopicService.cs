@@ -189,5 +189,12 @@ namespace DiscussionForum.Services
                          WHERE Topics.ID = @TopicID";
             _connection.Execute(sql, new { title, description, date, topicID });
         }
+
+        public void ReportTopic(TopicReport report)
+        {
+            string query = @"INSERT INTO TopicReports (TopicID, ReporterID, Reason, DateCreated)
+                             values(@TopicID, @ReporterID, @Reason, @DateCreated)";
+            _connection.Execute(query, new { report.TopicID, report.ReporterID, report.Reason, report.DateCreated });
+        }
     }
 }

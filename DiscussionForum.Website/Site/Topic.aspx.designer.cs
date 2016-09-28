@@ -229,31 +229,22 @@ namespace DiscussionForum.Site {
         protected global::System.Web.UI.WebControls.Button btnEditComment;
         
         /// <summary>
-        /// errorReportTopic control.
+        /// btnReportTopic control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl errorReportTopic;
+        protected global::System.Web.UI.WebControls.Button btnReportTopic;
         
         /// <summary>
-        /// listReportTopic control.
+        /// btnReportComment control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RadioButtonList listReportTopic;
-        
-        /// <summary>
-        /// txtOther control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtOther;
+        protected global::System.Web.UI.WebControls.Button btnReportComment;
         
         /// <summary>
         /// error control.
@@ -301,12 +292,57 @@ namespace DiscussionForum.Site {
         protected global::System.Web.UI.WebControls.TextBox txtContent;
         
         /// <summary>
-        /// TextBox2 control.
+        /// errorReportTopic control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBox2;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl errorReportTopic;
+        
+        /// <summary>
+        /// listReportTopic control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RadioButtonList listReportTopic;
+        
+        /// <summary>
+        /// txtOther control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtOther;
+        
+        /// <summary>
+        /// errorReportComment control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl errorReportComment;
+        
+        /// <summary>
+        /// listReportComment control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RadioButtonList listReportComment;
+        
+        /// <summary>
+        /// txtOtherReason control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtOtherReason;
     }
 }

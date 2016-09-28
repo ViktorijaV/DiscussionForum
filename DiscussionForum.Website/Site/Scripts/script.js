@@ -26,6 +26,13 @@
         initializeEditor();
     });
 
+    $(".report-comment").click(function () {
+        var id = $(this).parent().find(".comment-id").val();
+        $("[id$='commentID']").val(id);
+        $('#reportCommentModal').modal('show');
+    });
+
+
     //Text Editor
     initializeEditor();
 
@@ -142,6 +149,23 @@ function initializeEditor() {
 
 }
 
+function openMessageModal(message) {
+    $("[id$='messageInModal']").text(message);
+    $('#messageModal').modal('show');
+}
+
+function closeReportTopicModal() {
+    $("[id$='errorReportTopic']").text("");
+    $("[id$='errorReportTopic']").hide();
+    $('#reportTopicModal').modal('hide');
+}
+
+function closeReportCommentModal() {
+    $("[id$='errorReportTopic']").text("");
+    $("[id$='errorReportTopic']").hide();
+    $('#reportCommentModal').modal('hide');
+}
+
 function closeEditCommentModal() {
     $("[id$='editError']").text("");
     $("[id$='editError']").hide();
@@ -182,7 +206,6 @@ function pageLoad() {
     }
 
     $("[id$='txtContent']").val("");
-    //$("[id$='txtContent']").html($("[id$='txtContent']").text());
 
     $(".edit-comment").click(function () {
         var id = $(this).parent().find(".comment-id").val();
@@ -191,5 +214,11 @@ function pageLoad() {
         tinymce.activeEditor.remove();
         $("[id$='txtContent']").val($(this).parent().find(".media-comment").html());
         initializeEditor();
+    });
+
+    $(".report-comment").click(function () {
+        var id = $(this).parent().find(".comment-id").val();
+        $("[id$='commentID']").val(id);
+        $('#reportCommentModal').modal('show');
     });
 }

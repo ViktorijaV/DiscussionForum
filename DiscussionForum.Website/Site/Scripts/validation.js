@@ -6,6 +6,46 @@ function decodeHtml(value) {
     return $('<div/>').html(value).text();
 }
 
+function validateReportTopic() {
+    if ($("[name$='listReportTopic']:checked").length == 0 && $("[id$='txtOther']").val() == "") {
+        $("[id$='errorReportTopic']").show();
+        $("[id$='errorReportTopic']").text("Please enter some reason why you want to report this topic.");
+        return false;
+    }
+
+    if ($("[id$='txtOther']").val().length > 300) {
+        $("[id$='errorReportTopic']").show();
+        $("[id$='errorReportTopic']").text("The reason should be less than 300 charachters.");
+        return false;
+    }
+
+    $("[id$='errorReportTopic']").text("");
+    $("[id$='errorReportTopic']").hide();
+    closeReportTopicModal();
+    $("[id$='btnReportTopic']").trigger('click');
+    openMessageModal("You have reported this topic. Admins are going to look into it and decide whether to delete it.");
+}
+
+function validateReportComment() {
+    if ($("[name$='listReportComment']:checked").length == 0 && $("[id$='txtOtherReason']").val() == "") {
+        $("[id$='errorReportComment']").show();
+        $("[id$='errorReportComment']").text("Please enter some reason why you want to report this comment.");
+        return false;
+    }
+
+    if ($("[id$='txtOtherReason']").val().length > 300) {
+        $("[id$='errorReportComment']").show();
+        $("[id$='errorReportComment']").text("The reason should be less than 300 charachters.");
+        return false;
+    }
+
+    $("[id$='errorReportComment']").text("");
+    $("[id$='errorReportComment']").hide();
+    closeReportCommentModal();
+    $("[id$='btnReportComment']").trigger('click');
+    openMessageModal("You have reported this comment. Admins are going to look into it and decide whether to delete it.");
+}
+
 function validateCreateComment() {
 
     if ($("[id$='txtComment']").val() == "") {
@@ -84,7 +124,7 @@ function validateCreateTopic() {
 
     tinymce.activeEditor.remove();
     $("[id$='txtDescription']").val(encodeHtml($("[id$='txtDescription']").val()));
-    
+
     $("[id$='error']").text("");
     $("[id$='error']").hide();
     $("[id$='btnSubmit']").trigger('click');
