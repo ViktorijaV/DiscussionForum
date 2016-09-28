@@ -31,13 +31,13 @@ namespace DiscussionForum.Site.Admin {
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl Reported;
         
         /// <summary>
-        /// txtPass control.
+        /// txtUsername control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtPass;
+        protected global::System.Web.UI.WebControls.TextBox txtUsername;
         
         /// <summary>
         /// btnSave control.

@@ -6,6 +6,12 @@ using DiscussionForum.Services.Interfaces;
 using System.Configuration;
 using System.Data.SqlClient;
 using EmailService;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web.UI;
+using System.Web.UI.WebControls;
+using System.Web.Security;
+using DiscussionForum.Services.Intefraces;
 
 namespace DiscussionForum.Site.Admin
 {
@@ -15,6 +21,7 @@ namespace DiscussionForum.Site.Admin
         private ITopicService _topicService = new TopicService(new SqlConnection(ConfigurationManager.ConnectionStrings["myConnection"].ToString()));
         private FormsAuthenticationService _authenticationService = new FormsAuthenticationService(HttpContext.Current, new SqlConnection(ConfigurationManager.ConnectionStrings["myConnection"].ToString()));
         private IEmailSender _emailSender = new EmailSender();
+        private IUserService _userService = new UserService(new SqlConnection(ConfigurationManager.ConnectionStrings["myConnection"].ToString()));
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -53,7 +60,25 @@ namespace DiscussionForum.Site.Admin
 
         protected void btnSave_Click(object sender, EventArgs e)
         {
+            
+            User user = _userService.GetUserByUsername(txtUsername.Text);
 
+            if(user == null)
+            {
+                error.InnerText = "The username is not valid, please try again.";
+            } else
+            {
+                _userService.BlockUser(txtUsername.Text);
+                string email = user.Email;
+                sendEmail(email, txtUsername.Text);
+            }
+        }
+
+        private void sendEmail(string email, string username)
+        {
+            string message = $@"{username}, you have been blocked from SmartSet. You can follow the following link and read the terms and conditions of our web site. You will no longer be able to login with your account, or create a new account with your current email. 
+               <a href='http://{ConfigurationManager.AppSettings["domainName"]}/termsandconditions'>Link</a>.";
+            _emailSender.SendEmail("Blocked user", message, email);
         }
     }
 }
