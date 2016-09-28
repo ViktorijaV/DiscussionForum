@@ -32,5 +32,7 @@ namespace DiscussionForum.Services.Interfaces
         void DeleteTopic(int topicId);
 
         void DeleteTopicReport(int reportID);
+
+        IList<TopicReport> GetTopicsReports();
     }
 }

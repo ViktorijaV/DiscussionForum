@@ -216,5 +216,15 @@ namespace DiscussionForum.Services
                              WHERE ID = @ReportID";
             _connection.Execute(query, new { reportID });
         }
+
+        public IList<TopicReport> GetTopicsReports()
+        {
+            string sql = @"SELECT *
+                FROM TopicReports
+                ORDER BY TopicReports.DateCreated DESC";
+
+            var reports = _connection.Query<TopicReport>(sql).ToList();
+            return reports;
+        }
     }
 }

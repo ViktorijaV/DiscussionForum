@@ -18,6 +18,9 @@ namespace DiscussionForum.Site.Admin
 
         protected void Page_Load(object sender, EventArgs e)
         {
+
+            loadReported();
+
             if (!IsPostBack)
             {
                 var authenticatedUser = _authenticationService.GetAuthenticatedUser();
@@ -26,6 +29,8 @@ namespace DiscussionForum.Site.Admin
 
                 if (authenticatedUser.Role != "Admin")
                     Response.Redirect("/accessdenied");
+
+              
             }
         }
 
@@ -36,14 +41,19 @@ namespace DiscussionForum.Site.Admin
 
         private void loadReported()
         {
-            var topics = _topicService.GetTopics();
-           
+            var reports = _topicService.GetTopicsReports();
+
 
             Reported.InnerHtml = "";
-            foreach (var top in topics)
+            foreach (var report in reports)
             {
-                Reported.InnerHtml += $"<div class='alert alert-notification'>{top.Title}<br/><span>{TimePeriod.TimeDifference(top.DateCreated)}</span><asp:LinkButton runat='server' CssClass='btn btn-default pull- right'>&nbsp;&nbsp;Delete comment</asp:LinkButton><asp:LinkButton runat=' server' CssClass=' btn btn-default pull- right'>&nbsp;&nbsp;Delete comment</asp:LinkButton><asp:LinkButton runat='server' CssClass=' btn btn-default pull- right'>&nbsp;&nbsp;Delete report</asp:LinkButton></div>";
+                Reported.InnerHtml += $"<div class='alert alert-notification repDiv'>{report.ID}<br/><span>{TimePeriod.TimeDifference(report.DateCreated)}</span><button class='btn btn-default pull- right repButton'>Delete comment</button><button class='btn btn-default pull- right repButton'>Delete report</button></div>";
             }
+        }
+
+        protected void btnSave_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
