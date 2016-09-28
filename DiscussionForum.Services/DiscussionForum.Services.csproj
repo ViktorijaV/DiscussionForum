@@ -58,6 +58,7 @@
     <Compile Include="CommentService.cs" />
     <Compile Include="DTOs\CategoryFollowerDTO.cs" />
     <Compile Include="DTOs\CommentDTO.cs" />
+    <Compile Include="DTOs\NotificationsDTO.cs" />
     <Compile Include="DTOs\TopicDTO.cs" />
     <Compile Include="FileService.cs" />
     <Compile Include="FormsAuthenticationService.cs" />

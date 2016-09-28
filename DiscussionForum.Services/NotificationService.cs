@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using DiscussionForum.Domain.DomainModel;
 using System.Data;
 using Dapper;
+using DiscussionForum.Services.DTOs;
 
 namespace DiscussionForum.Services
 {
@@ -25,16 +26,19 @@ namespace DiscussionForum.Services
             _connection.Execute(sql, new { notification.UserID, notification.Content, notification.DateCreated });
         }
 
-        public IList<Notification> GetUsersNotifications(int userId)
+        public NotificationsDTO GetUsersNotifications(int userId, int size)
         {
-            var sql = $@"SELECT *
-                         FROM Notifications
-                         WHERE Notifications.UserID = {userId}
-                         ORDER BY Notifications.DateCreated DESC";
+            var sqlcount = $@"SELECT COUNT(*) FROM Notifications
+                              WHERE Notifications.UserID = {userId}";
+            var notifssize = _connection.Query<int>(sqlcount).FirstOrDefault();
+            var sql = $@"SELECT TOP {size} *
+                      FROM Notifications
+                      WHERE Notifications.UserID = {userId}
+                      ORDER BY Notifications.DateCreated DESC";
 
-            var notifications = _connection.Query<Notification>(sql).ToList();
+            var notifs = _connection.Query<Notification>(sql).ToList();
 
-            return notifications;
+            return new NotificationsDTO { notifications = notifs, numOfNotifications = notifssize, size = size };
         }
     }
 }

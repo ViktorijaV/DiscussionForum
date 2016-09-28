@@ -1,4 +1,5 @@
 ﻿using DiscussionForum.Domain.DomainModel;
+using DiscussionForum.Services.DTOs;
 using System.Collections.Generic;
 
 namespace DiscussionForum.Services.Interfaces
@@ -7,6 +8,6 @@ namespace DiscussionForum.Services.Interfaces
     {
         void CreateNotification(Notification notification);
 
-        IList<Notification> GetUsersNotifications(int userId);
+        NotificationsDTO GetUsersNotifications(int userId, int size);
     }
 }

@@ -19,23 +19,59 @@ namespace DiscussionForum.Site
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            var currentUser = _authenticationService.GetAuthenticatedUser();
+            if (!IsPostBack)
+            {
+                var currentUser = _authenticationService.GetAuthenticatedUser();
 
-            if (currentUser == null)
-                Response.Redirect($"login?ReturnUrl={Server.UrlEncode(Request.RawUrl)}");
+                if (currentUser == null)
+                    Response.Redirect($"/login?ReturnUrl={Server.UrlEncode(Request.RawUrl)}");
 
-            loadNotifications(currentUser.Id);
+                loadNotifications(currentUser.Id);
+            }
         }
 
         private void loadNotifications(int currentUserId)
         {
-            var notifications = _notificationService.GetUsersNotifications(currentUserId);
+            var notificationData = _notificationService.GetUsersNotifications(currentUserId, 5);
+
+            var notifications = notificationData.notifications;
+            ViewState["currentUserId"] = currentUserId;
+            ViewState["notifizationsSize"] = notificationData.numOfNotifications;
+            ViewState["size"] = notificationData.size;
 
             Notifs.InnerHtml = "";
             foreach (var notification in notifications)
             {
                 Notifs.InnerHtml += $"<div class='alert alert-notification'>{notification.Content}<br/><span>{TimePeriod.TimeDifference(notification.DateCreated)}</span></div>";
             }
+        }
+
+        private void loadMoreNotifications()
+        {
+            var currentUserId = int.Parse(ViewState["currentUserId"].ToString());
+            var notificationssize = int.Parse(ViewState["notifizationsSize"].ToString());
+            var size = int.Parse(ViewState["size"].ToString()) + 10;
+            ViewState["size"] = size;
+
+            var notificationData = _notificationService.GetUsersNotifications(currentUserId, size);
+
+            var notifications = notificationData.notifications;
+            Notifs.InnerHtml = "";
+            foreach (var notification in notifications)
+            {
+                Notifs.InnerHtml += $"<div class='alert alert-notification'>{notification.Content}<br/><span>{TimePeriod.TimeDifference(notification.DateCreated)}</span></div>";
+            }
+
+            if (size > notificationssize)
+            {
+                loadMore.Visible = false;
+                return;
+            }
+        }
+
+        protected void loadMore_Click(object sender, EventArgs e)
+        {
+            loadMoreNotifications();
         }
     }
 }
