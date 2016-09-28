@@ -217,13 +217,29 @@ namespace DiscussionForum.Services
             _connection.Execute(query, new { reportID });
         }
 
-        public IList<TopicReport> GetTopicsReports()
+        public void DeleteTopicReports(int topicId)
         {
-            string sql = @"SELECT *
-                FROM TopicReports
-                ORDER BY TopicReports.DateCreated DESC";
+            string query = @"DELETE FROM TopicReports 
+                             WHERE TopicID = @TopicID";
+            _connection.Execute(query, new { topicId });
+        }
 
-            var reports = _connection.Query<TopicReport>(sql).ToList();
+        public IList<TopicReportDTO> GetTopicsReports()
+        {
+            string sql = @"SELECT 
+                            TopicReports.ID             AS ID,
+                            TopicReports.TopicID        AS TopicID,
+                            TopicReports.ReporterID     AS ReporterID,
+                            TopicReports.Reason         AS Reason,
+                            TopicReports.DateCreated    AS DateCreated,
+                            Users.Username              AS ReporterUsername,
+                            Topics.Title                AS TopicTitle
+                            FROM TopicReports
+                            INNER JOIN Users ON Users.ID=TopicReports.ReporterID
+                            INNER JOIN Topics ON Topics.ID=TopicReports.TopicID
+                            ORDER BY TopicReports.DateCreated DESC";
+
+            var reports = _connection.Query<TopicReportDTO>(sql).ToList();
             return reports;
         }
     }

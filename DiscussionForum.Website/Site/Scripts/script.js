@@ -3,7 +3,7 @@
     //preloader
     $(window).load(function () {
         $("#loading").delay(1000).fadeOut(500);
-    })
+    });
 
     if ($("#error").text() != "") {
         $("#error").show();
@@ -188,10 +188,23 @@ function unlikeComment(button) {
     $("[id$='btnUnlikeComment']").trigger('click');
 }
 
+function deleteTopicReport() {
+    event.preventDefault();
+    $('#deleteTopicReportModal').modal('hide');
+    $("[id$='btnDeleteTopicReport']").trigger('click');
+}
+
+function deleteTopic() {
+    event.preventDefault();
+    $('#deleteTopicModal').modal('hide');
+    $("[id$='btnDeleteTopic']").trigger('click');
+}
+
 
 function pageLoad() {
 
     initializeEditor();
+    $('#deleteTopicReportModal').modal('hide');
 
     if ($("#error").text() != "") {
         $("#error").show();
@@ -220,5 +233,17 @@ function pageLoad() {
         var id = $(this).parent().find(".comment-id").val();
         $("[id$='commentID']").val(id);
         $('#reportCommentModal').modal('show');
+    });
+
+    $(".deleteTopicReport").click(function () {
+        var id = $(this).parent().find(".reportID").val();
+        $("[id$='topicReportId']").val(id);
+        $('#deleteTopicReportModal').modal('show');
+    });
+
+    $(".deleteTopic").click(function () {
+        var topicid = $(this).parent().find(".topicID").val();
+        $("[id$='topicID']").val(topicid);
+        $('#deleteTopicModal').modal('show');
     });
 }
