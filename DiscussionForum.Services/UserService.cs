@@ -18,9 +18,9 @@ namespace DiscussionForum.Services
 
         public void RegisterUser(User user)
         {
-            string query = @"INSERT INTO Users (Email, Username, Password, Confirmed, ConfirmationCode, Role, Birthdate, Datecreated, Fullname, Gender, Avatar, Bio)
-                             values(@Email, @Username, @Password, @Confirmed, @ConfirmationCode, @Role, @Birthdate, @DateCreated, @Fullname, @Gender, @Avatar, @Bio)";
-            _connection.Execute(query, new { user.Email, user.Username, user.Password, user.Confirmed, user.ConfirmationCode, user.Role, user.Birthdate, user.DateCreated, user.Fullname, user.Gender, user.Avatar, user.Bio });
+            string query = @"INSERT INTO Users (Email, Username, Password, Confirmed, ConfirmationCode, Role, Birthdate, Datecreated, Fullname, Gender, Avatar, Bio, Blocked)
+                             values(@Email, @Username, @Password, @Confirmed, @ConfirmationCode, @Role, @Birthdate, @DateCreated, @Fullname, @Gender, @Avatar, @Bio, @Blocked)";
+            _connection.Execute(query, new { user.Email, user.Username, user.Password, user.Confirmed, user.ConfirmationCode, user.Role, user.Birthdate, user.DateCreated, user.Fullname, user.Gender, user.Avatar, user.Bio, user.Blocked });
         }
 
 
@@ -46,6 +46,9 @@ namespace DiscussionForum.Services
 
             if (user.Confirmed == false)
                 return "Your account is not confirmed! Please confirm your account.";
+
+            if (user.Blocked == true)
+                return "Your account was blocked by the admins.";
 
             if (user.Password != password)
                 return "Wrong password!";
@@ -107,6 +110,13 @@ namespace DiscussionForum.Services
         public void ChangeUserConfirmationCode(string email, string code)
         {
             string sql = $"UPDATE Users SET ConfirmationCode = '{code}' WHERE Email='{email}'";
+            _connection.Execute(sql);
+        }
+
+        public void BlockUser(string username)
+        {
+            var blocked = true;
+            string sql = $"UPDATE Users SET Blocked = '{blocked}' WHERE Username='{username}'";
             _connection.Execute(sql);
         }
     }

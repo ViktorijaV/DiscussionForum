@@ -14,5 +14,6 @@ namespace DiscussionForum.Services.Intefraces
         void ChangeUserProperties(int id, string fullname, string bio, string avatar);
         void ChangePassword(int id, string newPassword);
         void ChangeUserConfirmationCode(string email, string code);
+        void BlockUser(string username);
     }
 }

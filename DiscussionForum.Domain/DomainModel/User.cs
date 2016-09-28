@@ -37,6 +37,7 @@ namespace DiscussionForum.Domain.DomainModel
             user.Birthdate = birthday;
             user.Avatar = avatarUrl;
             user.Bio = bio;
+            user.Blocked = false;
             user.Username = usernameGenerator.GenerateUsername(user.Email);
 
             return user;
@@ -86,6 +87,7 @@ namespace DiscussionForum.Domain.DomainModel
         public DateTime Birthdate { get; set; }
         public string Avatar { get; set; }
         public string Bio { get; set; }
+        public bool Blocked { get; private set; }
     }
     public enum Role
     {
