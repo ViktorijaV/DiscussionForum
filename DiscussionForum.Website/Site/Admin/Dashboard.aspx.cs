@@ -9,6 +9,7 @@ using DiscussionForum.Services;
 using DiscussionForum.Services.Interfaces;
 using System.Configuration;
 using System.Data.SqlClient;
+using EmailService;
 
 namespace DiscussionForum.Site.Admin
 {
@@ -16,10 +17,25 @@ namespace DiscussionForum.Site.Admin
 
     {
         private ITopicService _topicService = new TopicService(new SqlConnection(ConfigurationManager.ConnectionStrings["myConnection"].ToString()));
+        private FormsAuthenticationService _authenticationService = new FormsAuthenticationService(HttpContext.Current, new SqlConnection(ConfigurationManager.ConnectionStrings["myConnection"].ToString()));
+        private IEmailSender _emailSender = new EmailSender();
 
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (!IsPostBack)
+            {
+                var authenticatedUser = _authenticationService.GetAuthenticatedUser();
+                if (authenticatedUser == null)
+                    redirectToLogin(Request.RawUrl);
 
+                if (authenticatedUser.Role != "Admin")
+                    Response.Redirect("/accessdenied");
+            }
+        }
+
+        private void redirectToLogin(string url)
+        {
+            Response.Redirect($"~/login?ReturnUrl={Server.UrlEncode(url)}");
         }
 
         private void loadReported()

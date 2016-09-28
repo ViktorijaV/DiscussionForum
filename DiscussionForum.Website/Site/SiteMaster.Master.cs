@@ -20,7 +20,6 @@ namespace DiscussionForum.Site
         private IUserService _userService = new UserService(new SqlConnection(ConfigurationManager.ConnectionStrings["myConnection"].ToString()));
         private FormsAuthenticationService _authenticationService = new FormsAuthenticationService(HttpContext.Current, new SqlConnection(ConfigurationManager.ConnectionStrings["myConnection"].ToString()));
         private IEmailSender _emailSender = new EmailSender();
-        private IRecaptchaService _recaptchaService = new RecaptchaService(ConfigurationManager.AppSettings["recatchaSecretKey"]);
 
 
         protected void Page_Load(object sender, EventArgs e)
@@ -34,9 +33,7 @@ namespace DiscussionForum.Site
                     linkProfile.HRef = $"~/users/{authenticatedUser.Username}";
                     profilePic.ImageUrl = authenticatedUser.PhotoUrl;
                     panelAnonymous.Attributes.Add("style", "display:none");
-
-                    if (Request.RawUrl.StartsWith("/admin") && authenticatedUser.Role != "Admin")
-                        Response.Redirect("/accessdenied");
+                    ViewState["userRole"] = authenticatedUser.Role;
                 }
                 else
                     panelAuthorized.Attributes.Add("style", "display:none");

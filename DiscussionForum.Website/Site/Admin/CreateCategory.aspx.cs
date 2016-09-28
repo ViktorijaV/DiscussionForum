@@ -14,13 +14,26 @@ namespace DiscussionForum.Site.Admin
 
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (!IsPostBack)
+            {
+                var authenticatedUser = _authenticationService.GetAuthenticatedUser();
+                if (authenticatedUser == null)
+                    redirectToLogin(Request.RawUrl);
 
+                if (authenticatedUser.Role != "Admin")
+                    Response.Redirect("/accessdenied");
+            }
         }
 
         protected void btnSumbit_Click(object sender, EventArgs e)
         {
             var category = new DiscussionForum.Domain.DomainModel.Category(txtName.Text, txtColor.Text);
             _categoryService.CreateCategory(category);
+        }
+
+        private void redirectToLogin(string url)
+        {
+            Response.Redirect($"~/login?ReturnUrl={Server.UrlEncode(url)}");
         }
     }
 }
