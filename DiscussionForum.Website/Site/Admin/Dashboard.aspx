@@ -28,8 +28,9 @@
     <div class="tab-content">
 	    <div class="tab-pane col-xs-12 col-md-offset-3 col-md-6" id="tab1">
 	       <div class="col-xs-12">
-            <asp:Table ID="tableTopics" runat="server" class="display" CellSpacing="0" Width="100%">
-            </asp:Table>
+           <div id="Reported" runat="server">
+
+            </div>
         </div>
 	    </div>
 	    <div class="tab-pane col-xs-12 col-md-offset-3 col-md-6" id="tab2">
