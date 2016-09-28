@@ -18,5 +18,9 @@ namespace DiscussionForum.Services.Interfaces
         IList<CommentDTO> GetComments(int topicID, int currentUserId);
 
         void ReportComment(CommentReport report);
+
+        void DeleteComment(int commentID);
+
+        void DeleteCommentReport(int reportID);
     }
 }

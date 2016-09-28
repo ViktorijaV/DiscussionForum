@@ -89,5 +89,19 @@ namespace DiscussionForum.Services
                              values(@CommentID, @ReporterID, @Reason, @DateCreated)";
             _connection.Execute(query, new { report.CommentID, report.ReporterID, report.Reason, report.DateCreated });
         }
+
+        public void DeleteComment(int commentId)
+        {
+            string query = @"DELETE FROM Comments 
+                             WHERE Comments.ID = @CommentID";
+            _connection.Execute(query, new { commentId });
+        }
+
+        public void DeleteCommentReport(int reportID)
+        {
+            string query = @"DELETE FROM CommentReports 
+                             WHERE ID = @ReportID";
+            _connection.Execute(query, new { reportID });
+        }
     }
 }

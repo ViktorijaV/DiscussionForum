@@ -26,5 +26,11 @@ namespace DiscussionForum.Services.Interfaces
         void EditTopic(int topicID, string title, string description, DateTime date);
 
         void ReportTopic(TopicReport report);
+
+        void CloseTopic(int topicID);
+
+        void DeleteTopic(int topicId);
+
+        void DeleteTopicReport(int reportID);
     }
 }

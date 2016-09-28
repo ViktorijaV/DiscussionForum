@@ -193,5 +193,28 @@ namespace DiscussionForum.Services
                              values(@TopicID, @ReporterID, @Reason, @DateCreated)";
             _connection.Execute(query, new { report.TopicID, report.ReporterID, report.Reason, report.DateCreated });
         }
+
+        public void CloseTopic(int topicID)
+        {
+            bool closed = true;
+            string query = @"UPDATE Topics 
+                             SET Topics.Closed = @Closed
+                             WHERE ID = @TopicID";
+            _connection.Execute(query, new { closed, topicID });
+        }
+
+        public void DeleteTopic(int topicId)
+        {
+            string query = @"DELETE FROM Topics 
+                             WHERE ID = @TopicID";
+            _connection.Execute(query, new { topicId });
+        }
+
+        public void DeleteTopicReport(int reportID)
+        {
+            string query = @"DELETE FROM TopicReports 
+                             WHERE ID = @ReportID";
+            _connection.Execute(query, new { reportID });
+        }
     }
 }
