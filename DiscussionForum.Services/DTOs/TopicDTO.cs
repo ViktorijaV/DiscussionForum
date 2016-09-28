@@ -24,7 +24,6 @@ namespace DiscussionForum.Services.DTOs
         public int Followers { get; private set; }
         public bool CurrentUserFollows { get; private set; }
         public bool CurrentUserLikes { get; private set; }
-        public bool Reported { get; private set; }
         public bool Closed { get; private set; }
     }
 }

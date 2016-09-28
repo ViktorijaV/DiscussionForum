@@ -1,9 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Web;
-using System.Web.UI;
-using System.Web.UI.WebControls;
 using DiscussionForum.Domain.DomainModel;
 using DiscussionForum.Services;
 using DiscussionForum.Services.Interfaces;
@@ -46,7 +42,6 @@ namespace DiscussionForum.Site.Admin
             Reported.InnerHtml = "";
             foreach (var top in topics)
             {
-                if(top.Reported == true)
                 Reported.InnerHtml += $"<div class='alert alert-notification'>{top.Title}<br/><span>{TimePeriod.TimeDifference(top.DateCreated)}</span><asp:LinkButton runat='server' CssClass='btn btn-default pull- right'>&nbsp;&nbsp;Delete comment</asp:LinkButton><asp:LinkButton runat=' server' CssClass=' btn btn-default pull- right'>&nbsp;&nbsp;Delete comment</asp:LinkButton><asp:LinkButton runat='server' CssClass=' btn btn-default pull- right'>&nbsp;&nbsp;Delete report</asp:LinkButton></div>";
             }
         }

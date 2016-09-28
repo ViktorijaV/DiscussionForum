@@ -20,10 +20,10 @@ namespace DiscussionForum.Services
 
         public int CreateTopic(Topic topic)
         {
-            string query = @"INSERT INTO Topics (CreatorID, CategoryID, Title, Description, Reported, Closed, DateCreated, DateEdited, LastActivity)
-                                values(@CreatorID, @CategoryID, @Title, @Description, @Reported, @Closed, @DateCreated, @DateEdited, @LastActivity)
+            string query = @"INSERT INTO Topics (CreatorID, CategoryID, Title, Description, Closed, DateCreated, DateEdited, LastActivity)
+                                values(@CreatorID, @CategoryID, @Title, @Description, @Closed, @DateCreated, @DateEdited, @LastActivity)
                                 SELECT CAST(SCOPE_IDENTITY() as int)";
-            int id = _connection.Query<int>(query, new { topic.CreatorID, topic.CategoryID, topic.Title, topic.Description, topic.Reported, topic.Closed, topic.DateCreated, topic.DateEdited, topic.LastActivity }).FirstOrDefault();
+            int id = _connection.Query<int>(query, new { topic.CreatorID, topic.CategoryID, topic.Title, topic.Description, topic.Closed, topic.DateCreated, topic.DateEdited, topic.LastActivity }).FirstOrDefault();
 
             return id;
         }
@@ -40,7 +40,6 @@ namespace DiscussionForum.Services
                                    Topics.DateEdited        AS DateEdited,
                                    Topics.LastActivity      AS LastActivity,
                                    Topics.Description       AS Description,
-                                   Topics.Reported          AS Reported,
                                    Topics.Closed            AS Closed,
                                    Users.Avatar             AS CreatorPicture,
                                    Users.Username           AS CreatorUsername,
@@ -95,7 +94,6 @@ namespace DiscussionForum.Services
                        FROM Comments
                        WHERE Comments.TopicID = Topics.ID)
                                      AS Replies,
-                Topics.Reported      AS Reported,
                 Topics.Closed        AS Closed,
                 Users.Avatar         AS CreatorPicture,
                 Users.Username       AS CreatorUsername,
@@ -130,7 +128,6 @@ namespace DiscussionForum.Services
                        FROM Comments
                        WHERE Comments.TopicID = Topics.ID)
                                      AS Replies,
-                Topics.Reported      AS Reported,
                 Topics.Closed        AS Closed,
                 Users.Avatar         AS CreatorPicture,
                 Users.Username       AS CreatorUsername,
