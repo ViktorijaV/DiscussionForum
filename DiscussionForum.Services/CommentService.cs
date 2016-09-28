@@ -46,12 +46,12 @@ namespace DiscussionForum.Services
 
         public void CreateComment(Comment comment)
         {
-            var sql = $@"INSERT INTO Comments (TopicID, CommenterID, Content, Reported, Closed, DateCreated, DateEdited)
-                         values(@TopicID, @CommenterID, @Content, @Reported, @Closed, @DateCreated, @DateEdited)
+            var sql = $@"INSERT INTO Comments (TopicID, CommenterID, Content, DateCreated, DateEdited)
+                         values(@TopicID, @CommenterID, @Content, @DateCreated, @DateEdited)
                          UPDATE Topics
                          SET Topics.LastActivity = @DateCreated
                          WHERE Topics.ID = @TopicID";
-            _connection.Execute(sql, new { comment.TopicID, comment.CommenterID, comment.Content, comment.Reported, comment.Closed, comment.DateCreated, comment.DateEdited });
+            _connection.Execute(sql, new { comment.TopicID, comment.CommenterID, comment.Content, comment.DateCreated, comment.DateEdited });
 
         }
 

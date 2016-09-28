@@ -15,8 +15,6 @@ namespace DiscussionForum.Domain.DomainModel
             CommenterID = commenterId;
             DateCreated = DateTime.Now;
             Content = content;
-            Reported = false;
-            Closed = false;
             DateEdited = null;
         }
 
@@ -26,7 +24,5 @@ namespace DiscussionForum.Domain.DomainModel
         public DateTime DateCreated { get; private set; }
         public DateTime? DateEdited { get; private set; }
         public string Content { get; private set; }
-        public bool Reported { get; private set; }
-        public bool Closed { get; private set; }
     }
 }
