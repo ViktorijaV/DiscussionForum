@@ -18,21 +18,21 @@
     </div>
         <div id="rootwizard" class="col-xs-12 col-md-offset-3 col-md-6">
             <ul class="nav nav-pills ">
-	  	<li  class="active"><a href="#tab1" data-toggle="tab" class="adminFunctions">Reported topics</a></li>
-		<li><a href="#tab2" data-toggle="tab" class="adminFunctions">Delete user</a></li>
-		<li><a href="#tab4" data-toggle="tab" class="adminFunctions">Delete comment</a></li>
+	  	        <li class="active"><a href="#tab1" data-toggle="tab" class="adminFunctions">Reported topics</a></li>
+		        <li ><a href="#tab2" data-toggle="tab" class="adminFunctions">Delete user</a></li>
+		        <li><a href="#tab4" data-toggle="tab" class="adminFunctions">Delete comment</a></li>
             </ul>
         </div>
 
     </div>
     <div class="tab-content">
 
-	    <div class="tab-pane col-xs-12 col-md-offset-3 col-md-6" id="tab1">
-	       <div class="col-xs-12">
-           <div id="Reported" runat="server">
+	    <div class="tab-pane in active col-xs-12 col-md-offset-3 col-md-6" id="tab1">
+	        <div class="col-xs-12">
+               <div id="Reported" runat="server">
 
+               </div>
             </div>
-        </div>
 	    </div>
 
 
