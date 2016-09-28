@@ -12,7 +12,7 @@ namespace DiscussionForum.Domain.DomainModel
             Confirmed = false;
         }
 
-        public static User RegisterUser (string email, string fullName, string password, string repeatedPassword, string encryptedPassword, Gender gender, DateTime birthday, string avatarUrl, IUsernameGenerator usernameGenerator, string country = "", string faculty = "", string bio="")
+        public static User RegisterUser (string email, string fullName, string password, string repeatedPassword, string encryptedPassword, Gender gender, DateTime birthday, string avatarUrl, IUsernameGenerator usernameGenerator, string bio="")
         {
             var user = new User();
 
@@ -36,9 +36,6 @@ namespace DiscussionForum.Domain.DomainModel
             user.Gender = gender;
             user.Birthdate = birthday;
             user.Avatar = avatarUrl;
-            user.Country = country;
-            user.Faculty = faculty;
-            user.Location = null;
             user.Bio = bio;
             user.Username = usernameGenerator.GenerateUsername(user.Email);
 
@@ -89,9 +86,6 @@ namespace DiscussionForum.Domain.DomainModel
         public DateTime Birthdate { get; set; }
         public string Avatar { get; set; }
         public string Bio { get; set; }
-        public string Country { get; set; }
-        public string Location { get; set; }
-        public string Faculty { get; set; }
     }
     public enum Role
     {
