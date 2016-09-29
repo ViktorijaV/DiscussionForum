@@ -35,14 +35,14 @@
                 </div>
                 <div class="tab-pane col-xs-12 col-md-offset-3 col-md-6" id="tab3">
                     <div class="col-md-4  input-group delEm">
-                        <span class="input-group-addon">Please enter the username of the user you would like to delete below.</span>
+                        <span class="input-group-addon">Please enter the username of the user you would like to block below.</span>
                     </div>
                     <div class="col-md-8 input-group delEm">
                         <span class="input-group-addon"><i class="fa fa-unlock-alt "></i></span>
                         <asp:TextBox ID="txtUsername" CssClass="form-control form-control-input" runat="server" TextMode="SingleLine" placeholder="Username"></asp:TextBox>
                     </div>
                     <div class="col-md-8">
-                        <asp:LinkButton ID="btnSave" runat="server" CssClass="btn btn-default pull-right" OnClick="btnSave_Click"><i class="fa fa-paper-plane "></i>&nbsp;&nbsp;Delete user</asp:LinkButton>
+                        <asp:LinkButton ID="btnSave" runat="server" CssClass="btn btn-default pull-right" OnClick="btnSave_Click"><i class="fa fa-paper-plane "></i>&nbsp;&nbsp;BLock user</asp:LinkButton>
                     </div>
                 </div>
 
@@ -70,11 +70,30 @@
                         </div>
                         <div class="modal-body">
                             <asp:HiddenField ID="topicReportId" runat="server" />
-                            <h4>Are you sure you want to delte this report ?</h4>
+                            <h4>Are you sure you want to delete this report ?</h4>
                         </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                             <button type="button" class="btn btn-danger" onclick="deleteTopicReport()">Delete</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Modal for deleting comment report-->
+            <div class="modal fade" id="deleteCommentReportModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel3" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h4 class="modal-title" id="myModalLabel3">Delete report</h4>
+                        </div>
+                        <div class="modal-body">
+                            <asp:HiddenField ID="commentReportId" runat="server" />
+                            <h4>Are you sure you want to delete this report ?</h4>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                            <button type="button" class="btn btn-danger" onclick="deleteCommentReport()">Delete</button>
                         </div>
                     </div>
                 </div>
@@ -99,8 +118,29 @@
                 </div>
             </div>
 
+            <!-- Modal for deleting comment-->
+            <div class="modal fade" id="deleteCommentModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel4" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h4 class="modal-title" id="myModalLabel4">Delete comment</h4>
+                        </div>
+                        <div class="modal-body">
+                            <asp:HiddenField ID="commentID" runat="server" />
+                            <h4>Are you sure you want to delte this comment ?</h4>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                            <button type="button" class="btn btn-danger" onclick="deleteComment()">Delete</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
             <asp:Button ID="btnDeleteTopicReport" Style="display: none;" runat="server" OnClick="btnDeleteTopicReport_Click" />
+            <asp:Button ID="btnDeleteCommentReport" Style="display: none;" runat="server" OnClick="btnDeleteCommentReport_Click" />
             <asp:Button ID="btnDeleteTopic" Style="display: none;" runat="server" OnClick="btnDeleteTopic_Click" />
+            <asp:Button ID="btnDeleteComment" Style="display: none;" runat="server" OnClick="btnDeleteComment_Click" />
         </ContentTemplate>
     </asp:UpdatePanel>
 </asp:Content>

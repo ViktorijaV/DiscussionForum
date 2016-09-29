@@ -214,7 +214,9 @@ namespace DiscussionForum.Services
         public void DeleteTopic(int topicId)
         {
             string query = @"DELETE FROM Topics 
-                             WHERE ID = @TopicID";
+                             WHERE ID = @TopicID
+                             DELETE FROM TopicReports 
+                             WHERE TopicID = @TopicID";
             _connection.Execute(query, new { topicId });
         }
 
@@ -223,13 +225,6 @@ namespace DiscussionForum.Services
             string query = @"DELETE FROM TopicReports 
                              WHERE ID = @ReportID";
             _connection.Execute(query, new { reportID });
-        }
-
-        public void DeleteTopicReports(int topicId)
-        {
-            string query = @"DELETE FROM TopicReports 
-                             WHERE TopicID = @TopicID";
-            _connection.Execute(query, new { topicId });
         }
 
         public IList<TopicReportDTO> GetTopicsReports()

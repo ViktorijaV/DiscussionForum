@@ -195,12 +195,23 @@ function deleteTopicReport() {
    
 }
 
+function deleteCommentReport() {
+    event.preventDefault();
+    $('#deleteCommentReportModal').modal('hide');
+    $("[id$='btnDeleteCommentReport']").trigger('click');
+}
+
 function deleteTopic() {
     event.preventDefault();
     $('#deleteTopicModal').modal('hide');
     $("[id$='btnDeleteTopic']").trigger('click');
 }
 
+function deleteComment() {
+    event.preventDefault();
+    $('#deleteCommentModal').modal('hide');
+    $("[id$='btnDeleteComment']").trigger('click');
+}
 
 function pageLoad() {
 
@@ -242,9 +253,21 @@ function pageLoad() {
         $('#deleteTopicReportModal').modal('show');
     });
 
+    $(".deleteCommentReport").click(function () {
+        var id = $(this).parent().find(".reportCommentID").val();
+        $("[id$='commentReportId']").val(id);
+        $('#deleteCommentReportModal').modal('show');
+    });
+
     $(".deleteTopic").click(function () {
         var topicid = $(this).parent().find(".topicID").val();
         $("[id$='topicID']").val(topicid);
         $('#deleteTopicModal').modal('show');
+    });
+
+    $(".deleteComment").click(function () {
+        var commentId = $(this).parent().find(".commentID").val();
+        $("[id$='commentID']").val(commentId);
+        $('#deleteCommentModal').modal('show');
     });
 }

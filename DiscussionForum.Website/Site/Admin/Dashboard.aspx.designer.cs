@@ -103,6 +103,15 @@ namespace DiscussionForum.Site.Admin {
         protected global::System.Web.UI.WebControls.HiddenField topicReportId;
         
         /// <summary>
+        /// commentReportId control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HiddenField commentReportId;
+        
+        /// <summary>
         /// topicID control.
         /// </summary>
         /// <remarks>
@@ -110,6 +119,15 @@ namespace DiscussionForum.Site.Admin {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.HiddenField topicID;
+        
+        /// <summary>
+        /// commentID control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HiddenField commentID;
         
         /// <summary>
         /// btnDeleteTopicReport control.
@@ -121,6 +139,15 @@ namespace DiscussionForum.Site.Admin {
         protected global::System.Web.UI.WebControls.Button btnDeleteTopicReport;
         
         /// <summary>
+        /// btnDeleteCommentReport control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnDeleteCommentReport;
+        
+        /// <summary>
         /// btnDeleteTopic control.
         /// </summary>
         /// <remarks>
@@ -128,5 +155,14 @@ namespace DiscussionForum.Site.Admin {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnDeleteTopic;
+        
+        /// <summary>
+        /// btnDeleteComment control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnDeleteComment;
     }
 }

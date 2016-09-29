@@ -93,7 +93,9 @@ namespace DiscussionForum.Services
         public void DeleteComment(int commentId)
         {
             string query = @"DELETE FROM Comments 
-                             WHERE Comments.ID = @CommentID";
+                             WHERE ID = @CommentID
+                             DELETE FROM CommentReports 
+                             WHERE CommentID = @CommentID";
             _connection.Execute(query, new { commentId });
         }
 
@@ -102,6 +104,30 @@ namespace DiscussionForum.Services
             string query = @"DELETE FROM CommentReports 
                              WHERE ID = @ReportID";
             _connection.Execute(query, new { reportID });
+        }
+
+        public IList<CommentReportDTO> GetCommentReports()
+        {
+            string sql = @"SELECT 
+                            CommentReports.ID               AS ID,
+                            CommentReports.CommentID        AS CommentID,
+                            CommentReports.ReporterID       AS ReporterID,
+                            CommentReports.Reason           AS Reason,
+                            CommentReports.DateCreated      AS DateCreated,
+                            Comments.CommenterID            AS CommenterID,
+                            Comments.Content                AS CommentContent,
+                            Comments.DateCreated            AS CommentDateCreated,
+                            Users.Username                  AS ReporterUsername,
+                            Topics.ID                       AS TopicID,
+                            Topics.Title                    AS TopicTitle
+                            FROM CommentReports
+                            INNER JOIN Users ON Users.ID=CommentReports.ReporterID
+                            INNER JOIN Comments ON Comments.ID=CommentReports.CommentID
+                            INNER JOIN Topics ON Topics.ID=Comments.TopicID
+                            ORDER BY CommentReports.DateCreated DESC";
+
+            var reports = _connection.Query<CommentReportDTO>(sql).ToList();
+            return reports;
         }
     }
 }

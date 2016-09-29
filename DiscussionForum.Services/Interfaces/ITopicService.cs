@@ -33,8 +33,6 @@ namespace DiscussionForum.Services.Interfaces
 
         void DeleteTopicReport(int reportID);
 
-        void DeleteTopicReports(int topicId);
-
         IList<TopicReportDTO> GetTopicsReports();
     }
 }

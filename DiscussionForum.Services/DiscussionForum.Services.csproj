@@ -60,6 +60,7 @@
     <Compile Include="DTOs\CommentDTO.cs" />
     <Compile Include="DTOs\NotificationsDTO.cs" />
     <Compile Include="DTOs\TopicDTO.cs" />
+    <Compile Include="DTOs\CommentReportDTO.cs" />
     <Compile Include="DTOs\TopicReportDTO.cs" />
     <Compile Include="FileService.cs" />
     <Compile Include="FormsAuthenticationService.cs" />

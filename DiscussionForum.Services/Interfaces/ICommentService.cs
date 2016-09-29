@@ -22,5 +22,7 @@ namespace DiscussionForum.Services.Interfaces
         void DeleteComment(int commentID);
 
         void DeleteCommentReport(int reportID);
+
+        IList<CommentReportDTO> GetCommentReports();
     }
 }
