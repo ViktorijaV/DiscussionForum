@@ -205,7 +205,7 @@
 
     .radiobuttonlist label {
         font-size: 16px;
-        color:#00688B;
+        color: #00688B;
     }
 
 /*Buttons*/
@@ -479,16 +479,15 @@
         font-weight: bold;
     }
 
-    
 
-     .nav-pills > li.active > a,
-     .nav-pills > li.active > a:hover,
-     .nav-pills > li.active > a:focus {
-     
-        background-color:#40a8cc;
-     } 
 
-   
+.nav-pills > li.active > a,
+.nav-pills > li.active > a:hover,
+.nav-pills > li.active > a:focus {
+    background-color: #40a8cc;
+}
+
+
 
 /*Input ;*/
 
@@ -1012,22 +1011,6 @@ table.dataTable {
     height: 20px;
 }
 
-.form-group input[type="checkbox"] + .btn-group > label span:first-child {
-    display: none;
-}
-
-.form-group input[type="checkbox"] + .btn-group > label span:last-child {
-    display: block;
-}
-
-.form-group input[type="checkbox"]:checked + .btn-group > label span:first-child {
-    display: none;
-}
-
-.form-group input[type="checkbox"]:checked + .btn-group > label span:last-child {
-    display: block;
-}
-
 #other {
     margin-left: 20px;
 }
@@ -1046,53 +1029,43 @@ table.dataTable {
     color: #40a8cc;
 }
 
-.adminFunctions{
-
+.adminFunctions {
     color: #40a8cc;
 }
 
-.tab-pane{
+.tab-pane {
     margin-top: 15px;
 }
-.repButton{
+
+.repButton {
     margin-right: 10px;
-     margin-top: -10px;
+    margin-top: -10px;
     float: right;
 }
 
-.repDiv{
+.repDiv {
     padding-top: 10px;
 }
 
-.delEm{
+.delEm {
     margin-top: 30px;
     margin-bottom: 30px;
 }
 
-.terms{
-   text-decoration :none;
-   list-style:none;
+.terms {
+    text-decoration: none;
+    list-style: none;
 }
 
 #terms {
-margin-left:5%;
-margin-right:5%;
-
+    margin-left: 5%;
+    margin-right: 5%;
 }
 
 .tekst {
-margin-bottom:0px;
+    margin-bottom: 0px;
 }
 
 #terms h3, h4 {
-       color:#40a8cc; 
+    color: #40a8cc;
 }
-
-.footer {
-margin-left:5%;
-margin-right:40%;
-margin-top: 5%;
-margin-bottom: 5%;
-}
-
-

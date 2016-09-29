@@ -87,12 +87,11 @@
             <hr />
             <footer class="footer">
                 <div class="container-fluid">
-                    <p class="m-b-0 text-muted">&copy; <%: DateTime.Now.Year %> - SmartSet</p>
+                    <p class="m-b-0 text-muted">
+                        &copy; <%: DateTime.Now.Year %> - SmartSet
+                    <a href="/termsandconditions" class="pull-right">Terms and Conditions</a>
+                    </p>
                 </div>
-                <div class="container-fluid">
-                    <a href="/termsandconditions">Terms and Conditions</a>
-                </div>
-
             </footer>
         </div>
 
