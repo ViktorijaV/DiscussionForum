@@ -13,7 +13,7 @@
             </ul>
         </div>
         <div class="col-xs-12 col-sm-6 col-md-2">
-            <br />
+            <br />  
             <asp:DropDownList ID="ddlCategories" runat="server" CssClass="form-control"></asp:DropDownList>
         </div>
         <div class="col-xs-12 col-sm-6 col-md-2">
