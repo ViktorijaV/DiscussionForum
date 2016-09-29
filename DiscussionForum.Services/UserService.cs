@@ -4,6 +4,7 @@ using DiscussionForum.Domain.DomainModel;
 using Dapper;
 using DiscussionForum.Services.Intefraces;
 using System;
+using DiscussionForum.Services.DTOs;
 
 namespace DiscussionForum.Services
 {
@@ -118,6 +119,34 @@ namespace DiscussionForum.Services
             var blocked = true;
             string sql = $"UPDATE Users SET Blocked = '{blocked}' WHERE Username='{username}'";
             _connection.Execute(sql);
+        }
+
+        public UserDTO GetUserDetails(int userID)
+        {
+            var sql = $@"SELECT 
+                         Users.ID                   AS ID,
+                         Users.Email                AS Email,
+                         Users.Username             AS Username,
+                         Users.Fullname             AS Fullname,
+                         Users.Role                 AS Role,
+                         Users.Gender               AS Gender,
+                         Users.Birthdate            AS Birthdate,
+                         Users.Avatar               AS Avatar,
+                         Users.Bio                  AS Bio,
+                         Users.Blocked              AS Blocked,
+                         (SELECT COUNT(*)
+                                FROM Topics
+                                WHERE Topics.CreatorID = {userID})
+                                                  AS NumTopics,
+                         (SELECT COUNT(*)
+                          FROM Comments
+                          WHERE Comments.CommenterID = {userID})
+                                                  AS NumComments
+                         FROM Users
+                         WHERE Users.ID = '{userID}'";
+            var user = _connection.Query<UserDTO>(sql).FirstOrDefault();
+
+            return user;
         }
     }
 }

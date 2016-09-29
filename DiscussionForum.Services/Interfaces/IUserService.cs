@@ -1,4 +1,5 @@
 ﻿using DiscussionForum.Domain.DomainModel;
+using DiscussionForum.Services.DTOs;
 
 namespace DiscussionForum.Services.Intefraces
 {
@@ -10,6 +11,7 @@ namespace DiscussionForum.Services.Intefraces
         User GetUserById(int id);
         User GetUserByEmail(string email);
         User GetUserByUsername(string username);
+        UserDTO GetUserDetails(int userID);
         string ConfirmRegistration(string confirmationCode);
         void ChangeUserProperties(int id, string fullname, string bio, string avatar);
         void ChangePassword(int id, string newPassword);

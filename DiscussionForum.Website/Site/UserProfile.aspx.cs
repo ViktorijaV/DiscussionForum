@@ -29,14 +29,19 @@ namespace DiscussionForum.Site
             {
                 Response.Redirect($"/login?ReturnUrl={Request.RawUrl}");
             }
+
             if (currentUser.Id != user.ID)
                 btnEdit.Style["display"] = "none";
-            profilePicture.ImageUrl = user.Avatar;
-            username.Text = user.Username;
-            fullname.Text = user.Fullname;
-            gender.Text = user.Gender.ToString();
-            age.Text = TimePeriod.GetAge(user.Birthdate).ToString();
-            bio.Text = user.Bio;
+
+            var userDetails = _userService.GetUserDetails(user.ID);
+            profilePicture.ImageUrl = userDetails.Avatar;
+            username.Text = userDetails.Username;
+            fullname.Text = userDetails.Fullname;
+            gender.Text = userDetails.Gender.ToString();
+            age.Text = TimePeriod.GetAge(userDetails.Birthdate).ToString();
+            bio.Text = userDetails.Bio;
+            topics.Text = userDetails.NumTopics.ToString();
+            comments.Text = userDetails.NumComments.ToString();
         }
     }
 }

@@ -50,18 +50,18 @@
                         </div>
                         <div class="info">
                             <div class=" infoEl">
-                                <span class="profile-card-label">Followers</span>
+                                <span class="profile-card-label">Topics</span>
                             </div>
                             <div class="infoMain">
-                                <asp:Label ID="Label1" runat="server" CssClass="profile-card-info"></asp:Label>
+                                <asp:Label ID="topics" runat="server" CssClass="profile-card-info"></asp:Label>
                             </div>
                         </div>
                         <div class="info">
                             <div class="infoEl">
-                                <span class="profile-card-label">Following</span>
+                                <span class="profile-card-label">Comments</span>
                             </div>
                             <div class="infoMain">
-                                <asp:Label ID="Label2" runat="server" CssClass="profile-card-info"></asp:Label>
+                                <asp:Label ID="comments" runat="server" CssClass="profile-card-info"></asp:Label>
                             </div>
                         </div>
                     </div>
