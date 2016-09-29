@@ -247,6 +247,15 @@ namespace DiscussionForum.Site {
         protected global::System.Web.UI.WebControls.Button btnReportComment;
         
         /// <summary>
+        /// addcomment control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl addcomment;
+        
+        /// <summary>
         /// error control.
         /// </summary>
         /// <remarks>

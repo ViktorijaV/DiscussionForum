@@ -104,8 +104,7 @@
         <div class="col-md-3 col-md-push-9"></div>
         <div class="col-md-9 col-md-pull-3">
             <div class="row">
-                <div class="col-xs-12  topic-comments">
-
+                <div id="addcomment" class="col-xs-12  topic-comments" runat="server">
                     <div class="topic-comments-textarea">
                         <div class="topic-comments-textarea-heading">Add your comment</div>
                         <div id="error" runat="server" class="alert alert-danger alert-dismissible display-none"></div>

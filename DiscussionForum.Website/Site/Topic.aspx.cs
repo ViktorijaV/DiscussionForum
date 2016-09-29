@@ -82,6 +82,8 @@ namespace DiscussionForum.Site
 
             Followers.InnerText = topicDetails.Followers.ToString();
 
+            if (topicDetails.Closed)
+                addcomment.InnerHtml = "<h4>This topic is closed</h4>";
 
         }
 

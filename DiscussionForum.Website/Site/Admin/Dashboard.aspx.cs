@@ -101,6 +101,8 @@ namespace DiscussionForum.Site.Admin
                 _userService.BlockUser(txtUsername.Text);
                 string email = user.Email;
                 sendEmail(email, txtUsername.Text);
+                error.InnerText = "The username is not valid, please try again.";
+                error.Style.Add("display", "none");
             }
         }
 
@@ -157,9 +159,12 @@ namespace DiscussionForum.Site.Admin
             if(res == false)
             {
                 error.InnerText = "Invalid code.";
-            } else
+            }
+            else
             {
                 _topicService.CloseTopic(code);
+                error.InnerText = "";
+                error.Style.Add("display", "none");
             }
         }
     }
