@@ -188,30 +188,30 @@ function unlikeComment(button) {
     $("[id$='btnUnlikeComment']").trigger('click');
 }
 
-function deleteTopicReport() {
-    event.preventDefault();
-    $('#deleteTopicReportModal').modal('hide');
-    $("[id$='btnDeleteTopicReport']").trigger('click');
+//function deleteTopicReport() {
+//    event.preventDefault();
+//    $('#deleteTopicReportModal').modal('hide');
+//    $("[id$='btnDeleteTopicReport']").trigger('click');
    
-}
+//}
 
-function deleteCommentReport() {
-    event.preventDefault();
-    $('#deleteCommentReportModal').modal('hide');
-    $("[id$='btnDeleteCommentReport']").trigger('click');
-}
+//function deleteCommentReport() {
+//    event.preventDefault();
+//    $('#deleteCommentReportModal').modal('hide');
+//    $("[id$='btnDeleteCommentReport']").trigger('click');
+//}
 
-function deleteTopic() {
-    event.preventDefault();
-    $('#deleteTopicModal').modal('hide');
-    $("[id$='btnDeleteTopic']").trigger('click');
-}
+//function deleteTopic() {
+//    event.preventDefault();
+//    $('#deleteTopicModal').modal('hide');
+//    $("[id$='btnDeleteTopic']").trigger('click');
+//}
 
-function deleteComment() {
-    event.preventDefault();
-    $('#deleteCommentModal').modal('hide');
-    $("[id$='btnDeleteComment']").trigger('click');
-}
+//function deleteComment() {
+//    event.preventDefault();
+//    $('#deleteCommentModal').modal('hide');
+//    $("[id$='btnDeleteComment']").trigger('click');
+//}
 
 function pageLoad() {
 
@@ -247,27 +247,27 @@ function pageLoad() {
         $('#reportCommentModal').modal('show');
     });
 
-    $(".deleteTopicReport").click(function () {
-        var id = $(this).parent().find(".reportID").val();
-        $("[id$='topicReportId']").val(id);
-        $('#deleteTopicReportModal').modal('show');
-    });
+    //$(".deleteTopicReport").click(function () {
+    //    var id = $(this).parent().find(".reportID").val();
+    //    $("[id$='topicReportId']").val(id);
+    //    $('#deleteTopicReportModal').modal('show');
+    //});
 
-    $(".deleteCommentReport").click(function () {
-        var id = $(this).parent().find(".reportCommentID").val();
-        $("[id$='commentReportId']").val(id);
-        $('#deleteCommentReportModal').modal('show');
-    });
+    //$(".deleteCommentReport").click(function () {
+    //    var id = $(this).parent().find(".reportCommentID").val();
+    //    $("[id$='commentReportId']").val(id);
+    //    $('#deleteCommentReportModal').modal('show');
+    //});
 
-    $(".deleteTopic").click(function () {
-        var topicid = $(this).parent().find(".topicID").val();
-        $("[id$='topicID']").val(topicid);
-        $('#deleteTopicModal').modal('show');
-    });
+    //$(".deleteTopic").click(function () {
+    //    var topicid = $(this).parent().find(".topicID").val();
+    //    $("[id$='topicID']").val(topicid);
+    //    $('#deleteTopicModal').modal('show');
+    //});
 
-    $(".deleteComment").click(function () {
-        var commentId = $(this).parent().find(".commentID").val();
-        $("[id$='commentID']").val(commentId);
-        $('#deleteCommentModal').modal('show');
-    });
+    //$(".deleteComment").click(function () {
+    //    var commentId = $(this).parent().find(".commentID").val();
+    //    $("[id$='commentID']").val(commentId);
+    //    $('#deleteCommentModal').modal('show');
+    //});
 }
