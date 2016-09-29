@@ -47,7 +47,17 @@
                 </div>
 
                 <div class="tab-pane col-xs-12 col-md-offset-3 col-md-6" id="tab4">
-                    Tab for closing topics 
+                     <div class="col-md-4  input-group delEm">
+                        <span class="input-group-addon">Please enter the id of the topic you would like to close below.</span>
+                    </div>
+                    <div class="col-md-8 input-group delEm">
+                        <span class="input-group-addon"><i class="fa fa-unlock-alt "></i></span>
+
+                        <asp:TextBox ID="txtTopicCode" CssClass="form-control form-control-input" runat="server" TextMode="SingleLine" placeholder="ID"></asp:TextBox>
+                    </div>
+                    <div class="col-md-8">
+                        <asp:LinkButton ID="LinkButton1" runat="server" CssClass="btn btn-default pull-right" OnClick="LinkButton1_Click"><i class="fa fa-paper-plane "></i>&nbsp;&nbsp;Close topic</asp:LinkButton>
+                    </div>
                 </div>
             </div>
 

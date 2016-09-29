@@ -120,5 +120,19 @@ namespace DiscussionForum.Site.Admin
 
             loadReportedTopics();
         }
+
+        protected void LinkButton1_Click(object sender, EventArgs e)
+        {
+            int code = 0;
+            bool res = int.TryParse(txtTopicCode.Text, out code);
+
+            if(res == false)
+            {
+                error.InnerText = "Invalid code.";
+            } else
+            {
+                _topicService.CloseTopic(code);
+            }
+        }
     }
 }
