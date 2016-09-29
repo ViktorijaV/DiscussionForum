@@ -60,9 +60,13 @@
             </div>
             <hr />
             <footer class="footer">
+                
+
                 <div class="container-fluid">
  <p class="m-b-0 text-muted"> &copy; <%: DateTime.Now.Year %> - SmartSet</p>
+                    <a href="/termsandconditions">Terms and contitions</a>
                 </div>
+               
             </footer>
         </div>
     </form>
