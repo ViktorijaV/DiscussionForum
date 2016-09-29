@@ -74,7 +74,7 @@
                         </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                            <button type="button" class="btn btn-danger" onclick="deleteTopicReport()">Delete</button>
+                            <button type="button" class="btn btn-danger" onclick="deleteTopicReport()" data-dismiss="modal">Delete</button>
                         </div>
                     </div>
                 </div>
@@ -93,7 +93,7 @@
                         </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                            <button type="button" class="btn btn-danger" onclick="deleteCommentReport()">Delete</button>
+                            <button type="button" class="btn btn-danger" onclick="deleteCommentReport()" data-dismiss="modal">Delete</button>
                         </div>
                     </div>
                 </div>
@@ -112,7 +112,7 @@
                         </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                            <button type="button" class="btn btn-danger" onclick="deleteTopic()">Delete</button>
+                            <button type="button" class="btn btn-danger" onclick="deleteTopic()" data-dismiss="modal">Delete</button>
                         </div>
                     </div>
                 </div>
@@ -131,7 +131,7 @@
                         </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                            <button type="button" class="btn btn-danger" onclick="deleteComment()">Delete</button>
+                            <button type="button" class="btn btn-danger" onclick="deleteComment()" data-dismiss="modal">Delete</button>
                         </div>
                     </div>
                 </div>
