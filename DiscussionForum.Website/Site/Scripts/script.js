@@ -192,6 +192,7 @@ function deleteTopicReport() {
     event.preventDefault();
     $('#deleteTopicReportModal').modal('hide');
     $("[id$='btnDeleteTopicReport']").trigger('click');
+   
 }
 
 function deleteTopic() {

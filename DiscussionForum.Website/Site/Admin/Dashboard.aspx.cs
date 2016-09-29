@@ -106,6 +106,8 @@ namespace DiscussionForum.Site.Admin
             _topicService.DeleteTopicReport(reportId);
 
             loadReportedTopics();
+
+            
         }
 
         protected void btnDeleteTopic_Click(object sender, EventArgs e)

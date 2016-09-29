@@ -20,10 +20,18 @@ namespace DiscussionForum.Services
 
         public int CreateTopic(Topic topic)
         {
+
             string query = @"INSERT INTO Topics (CreatorID, CategoryID, Title, Description, Closed, DateCreated, DateEdited, LastActivity)
                                 values(@CreatorID, @CategoryID, @Title, @Description, @Closed, @DateCreated, @DateEdited, @LastActivity)
                                 SELECT CAST(SCOPE_IDENTITY() as int)";
-            int id = _connection.Query<int>(query, new { topic.CreatorID, topic.CategoryID, topic.Title, topic.Description, topic.Closed, topic.DateCreated, topic.DateEdited, topic.LastActivity }).FirstOrDefault();
+            int id = 0;
+            try
+            {
+                id = _connection.Query<int>(query, new { topic.CreatorID, topic.CategoryID, topic.Title, topic.Description, topic.Closed, topic.DateCreated, topic.DateEdited, topic.LastActivity }).FirstOrDefault(); 
+            } catch(Exception e)
+            {
+                return -1;
+            }
 
             return id;
         }

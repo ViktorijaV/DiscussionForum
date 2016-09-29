@@ -34,22 +34,28 @@ namespace DiscussionForum.Site
 
             int topicId = _topicService.CreateTopic(topic);
 
-            var topicFollower = new TopicFollower(topicId, currentUser.Id);
-            _topicService.FollowTopic(topicFollower);
-
-            var category = _categoryService.GetCategoryById(topic.CategoryID);
-
-            string message = $@"<strong>{currentUser.FullName}</strong> created new topic <a href='/topic/{topic.ID}'>{topic.Title}</a> in category <a href='/category/'{category.ID}'>{category.Name}</a>.";
-
-            var followers = _categoryService.GetFollowers(category.ID);
-
-            foreach(var follower in followers)
+            if(topicId == -1)
             {
-                Notification notification = new Notification(follower.FollowerID, message, DateTime.Now);
-                _notificationService.CreateNotification(notification);
+                error.InnerText = "A topic with this title already exists, please check it out, and rename your topic if necessary.";
+            } else
+            {
+                var topicFollower = new TopicFollower(topicId, currentUser.Id);
+                _topicService.FollowTopic(topicFollower);
+
+                var category = _categoryService.GetCategoryById(topic.CategoryID);
+
+                string message = $@"<strong>{currentUser.FullName}</strong> created new topic <a href='/topic/{topic.ID}'>{topic.Title}</a> in category <a href='/category/'{category.ID}'>{category.Name}</a>.";
+
+                var followers = _categoryService.GetFollowers(category.ID);
+
+                foreach (var follower in followers)
+                {
+                    Notification notification = new Notification(follower.FollowerID, message, DateTime.Now);
+                    _notificationService.CreateNotification(notification);
+                }
+
+                Response.RedirectToRoute("TopicRoute", new { id = topicId });
             }
-            
-            Response.RedirectToRoute("TopicRoute", new { id = topicId });
         }
 
         private void loadCategories()
