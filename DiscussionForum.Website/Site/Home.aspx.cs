@@ -28,7 +28,7 @@ namespace DiscussionForum.Site
         {
 
             var topics = _topicService.GetTopics();
-            
+
             foreach (var topic in topics)
             {
                 var row = new TableRow();

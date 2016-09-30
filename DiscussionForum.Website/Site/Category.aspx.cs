@@ -20,7 +20,7 @@ namespace DiscussionForum.Site
         protected void Page_Load(object sender, EventArgs e)
         {
             int categoryID = Convert.ToInt32(Page.RouteData.Values["id"]);
-           var currentUser = _authenticationService.GetAuthenticatedUser();
+            var currentUser = _authenticationService.GetAuthenticatedUser();
             loadCategory(categoryID);
             loadTopics(categoryID);
             loadFollowers(categoryID, currentUser);
@@ -28,7 +28,7 @@ namespace DiscussionForum.Site
 
         private void loadCategory(int categoryID)
         {
-            var category = _categoryService.GetCategoryById(categoryID); 
+            var category = _categoryService.GetCategoryById(categoryID);
 
             categoryName.Text = category.Name;
             categoryName.ForeColor = System.Drawing.ColorTranslator.FromHtml(category.Color);

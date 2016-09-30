@@ -1,8 +1,6 @@
-﻿using System;
-using System.Linq;
+﻿using System.Linq;
 using Dapper;
 using System.Text.RegularExpressions;
-using DiscussionForum.Domain.DomainModel;
 using System.Data;
 using DiscussionForum.Domain.Interfaces;
 

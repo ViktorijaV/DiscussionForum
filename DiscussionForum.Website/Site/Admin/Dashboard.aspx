@@ -4,7 +4,6 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
-
     <asp:UpdatePanel ID="UpdatePanel1" runat="server">
         <ContentTemplate>
             <div class="row">
@@ -22,7 +21,6 @@
                         <li><a href="#tab4" data-toggle="tab" class="adminFunctions">Close topic</a></li>
                     </ul>
                 </div>
-
             </div>
             <div class="tab-content row">
                 <div class="tab-pane col-xs-12 col-md-offset-3 col-md-6 active" id="tab1">
@@ -45,9 +43,8 @@
                         <asp:LinkButton ID="btnSave" runat="server" CssClass="btn btn-default pull-right" OnClick="btnSave_Click"><i class="fa fa-paper-plane "></i>&nbsp;&nbsp;BLock user</asp:LinkButton>
                     </div>
                 </div>
-
                 <div class="tab-pane col-xs-12 col-md-offset-3 col-md-6" id="tab4">
-                     <div class="col-md-4  input-group delEm">
+                    <div class="col-md-4  input-group delEm">
                         <span class="input-group-addon">Please enter the id of the topic you would like to close below.</span>
                     </div>
                     <div class="col-md-8 input-group delEm">
@@ -60,7 +57,6 @@
                     </div>
                 </div>
             </div>
-
             <!-- Modal for deleting topic report-->
             <div class="modal fade" id="deleteTopicReportModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
                 <div class="modal-dialog" role="document">
@@ -79,7 +75,6 @@
                     </div>
                 </div>
             </div>
-
             <!-- Modal for deleting comment report-->
             <div class="modal fade" id="deleteCommentReportModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel3" aria-hidden="true">
                 <div class="modal-dialog" role="document">
@@ -98,7 +93,6 @@
                     </div>
                 </div>
             </div>
-
             <!-- Modal for deleting topic-->
             <div class="modal fade" id="deleteTopicModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel2" aria-hidden="true">
                 <div class="modal-dialog" role="document">
@@ -117,7 +111,6 @@
                     </div>
                 </div>
             </div>
-
             <!-- Modal for deleting comment-->
             <div class="modal fade" id="deleteCommentModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel4" aria-hidden="true">
                 <div class="modal-dialog" role="document">
@@ -136,7 +129,6 @@
                     </div>
                 </div>
             </div>
-
             <asp:Button ID="btnDeleteTopicReport" Style="display: none;" runat="server" OnClick="btnDeleteTopicReport_Click" />
             <asp:Button ID="btnDeleteCommentReport" Style="display: none;" runat="server" OnClick="btnDeleteCommentReport_Click" />
             <asp:Button ID="btnDeleteTopic" Style="display: none;" runat="server" OnClick="btnDeleteTopic_Click" />

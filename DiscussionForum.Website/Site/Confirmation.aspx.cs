@@ -3,7 +3,6 @@ using DiscussionForum.Services.Intefraces;
 using System;
 using System.Configuration;
 using System.Data.SqlClient;
-using System.Web;
 
 namespace DiscussionForum.Site
 {
@@ -21,7 +20,7 @@ namespace DiscussionForum.Site
                     lblText.Text = message;
                 }
 
-                else if(Request.QueryString["message"] == "resetpassword")
+                else if (Request.QueryString["message"] == "resetpassword")
                 {
                     var message = $"<h3>You password was reset successfully. You can now <a href='/login'>Login</a> with your new password</h3>";
                     lblText.Text = message;

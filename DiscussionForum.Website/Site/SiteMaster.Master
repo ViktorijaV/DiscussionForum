@@ -12,11 +12,8 @@
     <link href="~/Site/Content/font-awesome-animation.min.css" rel="stylesheet" />
     <link href="~/Site/Content/prism.min.css" rel="stylesheet" />
     <link href="~/Site/Content/style.css" rel="stylesheet" />
-    <link href="~/Site/Content/forgotPassword.css" rel="stylesheet" />
-    <link href="~/Site/Content/profilePage.css" rel="stylesheet" />
     <link rel="shortcut icon" href="/Storage/favicon.ico" type="image/x-icon" />
     <link rel="icon" href="/Storage/favicon.ico" type="image/x-icon" />
-    <link href="~/Site/Content/Tooltip.css" rel="stylesheet" />
 
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
@@ -94,8 +91,6 @@
                 </div>
             </footer>
         </div>
-
-
         <!-- Modal  for invite users-->
         <div class="modal fade" id="inviteUser" tabindex="-1" role="dialog" aria-labelledby="myModalLab" aria-hidden="true">
             <div class="modal-dialog" role="document">
@@ -126,7 +121,6 @@
                 </div>
             </div>
         </div>
-
     </form>
 
     <script src="/Site/Scripts/jquery.min.js" type="text/javascript"></script>

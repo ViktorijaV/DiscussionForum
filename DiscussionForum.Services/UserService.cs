@@ -3,7 +3,6 @@ using System.Linq;
 using DiscussionForum.Domain.DomainModel;
 using Dapper;
 using DiscussionForum.Services.Intefraces;
-using System;
 using DiscussionForum.Services.DTOs;
 
 namespace DiscussionForum.Services
