@@ -3,7 +3,6 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-
     <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
     <asp:UpdatePanel ID="UpdatePanel1" runat="server">
         <ContentTemplate>
@@ -117,7 +116,6 @@
             </div>
         </div>
     </div>
-
     <!--Modal for displaying message-->
     <div class="modal fade" id="messageModal" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-lg">
@@ -131,7 +129,6 @@
             </div>
         </div>
     </div>
-
     <!-- Modal for edit comment-->
     <div class="modal fade" id="editCommentModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
         <div class="modal-dialog" role="document">
@@ -150,7 +147,6 @@
             </div>
         </div>
     </div>
-
     <!-- Modal for report topic-->
     <div class="modal fade" id="reportTopicModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabell" aria-hidden="true">
         <div class="modal-dialog" role="document">
@@ -187,7 +183,6 @@
             </div>
         </div>
     </div>
-
     <!-- Modal for report comment-->
     <div class="modal fade" id="reportCommentModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabellll" aria-hidden="true">
         <div class="modal-dialog" role="document">

@@ -25,7 +25,7 @@ namespace DiscussionForum.Site
             var user = _userService.GetUserByUsername(userName);
             var currentUser = _authenticationService.GetAuthenticatedUser();
 
-            if(currentUser == null)
+            if (currentUser == null)
             {
                 Response.Redirect($"/login?ReturnUrl={Request.RawUrl}");
             }

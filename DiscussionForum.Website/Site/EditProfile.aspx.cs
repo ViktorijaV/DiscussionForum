@@ -40,8 +40,8 @@ namespace DiscussionForum.Site
             var userId = int.Parse(ID.Value);
             var fullname = txtFullName.Text;
             var avatar = Avatar.Value;
-            
-            if(imageUpload.HasFile)
+
+            if (imageUpload.HasFile)
             {
                 var file = imageUpload.PostedFile;
                 if (!file.ContentType.Contains("image"))
@@ -50,7 +50,7 @@ namespace DiscussionForum.Site
                     error.Attributes.CssStyle.Remove("display");
                     return;
                 }
-                if(file.ContentLength > 2097152)
+                if (file.ContentLength > 2097152)
                 {
                     error.InnerText = "Please select an image less than .";
                     error.Attributes.CssStyle.Remove("display");

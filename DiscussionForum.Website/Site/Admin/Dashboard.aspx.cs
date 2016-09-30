@@ -6,11 +6,6 @@ using DiscussionForum.Services.Interfaces;
 using System.Configuration;
 using System.Data.SqlClient;
 using EmailService;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web.UI;
-using System.Web.UI.WebControls;
-using System.Web.Security;
 using DiscussionForum.Services.Intefraces;
 
 namespace DiscussionForum.Site.Admin

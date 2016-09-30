@@ -42,7 +42,7 @@ namespace DiscussionForum.Site
             if (!_recaptchaService.validateRecaptcha(Request.Form["g-recaptcha-response"]))
             {
                 error.InnerText = "Not Valid Recaptcha";
-              //  return;
+                //  return;
             }
 
             string message = $@"Please click on the link to confirm your registration: 
@@ -53,6 +53,6 @@ namespace DiscussionForum.Site
 
             Response.Redirect("/confirmation");
         }
-            
+
     }
 }

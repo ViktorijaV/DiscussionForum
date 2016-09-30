@@ -1,4 +1,5 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site/SiteMaster.Master" AutoEventWireup="true" CodeBehind="ForgotPassword.aspx.cs" Inherits="DiscussionForum.Site.ForgotPassword" %>
+
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
@@ -13,10 +14,10 @@
         </div>
     </div>
     <div class="col-xs-12 col-md-offset-3 col-md-4 form-group">
-            <div class="input-group message">
-                <span >Please enter your email address below and we will send you instructions for setting a new password.</span>
-            </div>
+        <div class="input-group message">
+            <span>Please enter your email address below and we will send you instructions for setting a new password.</span>
         </div>
+    </div>
     <div class="row row-separated">
         <div class="col-xs-12 col-md-offset-3 col-md-4 form-group">
             <label for="txtEmail">Email:</label>

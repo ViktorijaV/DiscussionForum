@@ -68,33 +68,33 @@
             <asp:Button ID="btnSubmit" Style="display: none;" runat="server" OnClick="btnSubmit_Click" />
         </div>
     </div>
-
-       <!-- Modal  for suggest new category-->
-        <div class="modal fade" id="suggestcategory" tabindex="-1" role="dialog" aria-labelledby="myModall" aria-hidden="true">
-            <div class="modal-dialog" role="document">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
-                        <h4 class="modal-title" id="myModall">Suggest new category</h4>
-                    </div>
-                    <div class="modal-body">
-                        <br />
-                        <div id="Invitation">
-                           Category name: 
-            <br />
-                            <br />
-                            <asp:TextBox ID="friendEmail" runat="server" CssClass="form-control form-control-input" placeholder="Friend's email"></asp:TextBox>
-                            <br />
+    <!-- Modal  for suggest new category-->
+    <div class="modal fade" id="suggestcategory" tabindex="-1" role="dialog" aria-labelledby="myModall" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                    <h4 class="modal-title" id="myModall">Suggest new category</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="row row-separated">
+                        <div class="col-xs-12">
+                            Category name:
                         </div>
-                        <br />
                     </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                        <asp:LinkButton ID="btnSave" CssClass="btn btn-primary" runat="server"><i class="fa fa-paper-plane "></i>&nbsp;&nbsp;Suggest</asp:LinkButton>
+                    <div class="row row-separated">
+                        <div class="col-xs-12">
+                            <asp:TextBox ID="friendEmail" runat="server" CssClass="form-control form-control-input" placeholder="Friend's email"></asp:TextBox>
+                        </div>
                     </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <asp:LinkButton ID="btnSave" CssClass="btn btn-primary" runat="server"><i class="fa fa-paper-plane "></i>&nbsp;&nbsp;Suggest</asp:LinkButton>
                 </div>
             </div>
         </div>
+    </div>
 </asp:Content>

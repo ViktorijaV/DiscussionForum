@@ -12,11 +12,8 @@
     <link href="~/Site/Content/font-awesome-animation.min.css" rel="stylesheet" />
     <link href="~/Site/Content/prism.min.css" rel="stylesheet" />
     <link href="~/Site/Content/style.css" rel="stylesheet" />
-    <link href="~/Site/Content/forgotPassword.css" rel="stylesheet" />
-    <link href="~/Site/Content/profilePage.css" rel="stylesheet" />
     <link rel="shortcut icon" href="/Storage/favicon.ico" type="image/x-icon" />
     <link rel="icon" href="/Storage/favicon.ico" type="image/x-icon" />
-    <link href="~/Site/Content/Tooltip.css" rel="stylesheet" />
 
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
@@ -94,8 +91,6 @@
                 </div>
             </footer>
         </div>
-
-
         <!-- Modal  for invite users-->
         <div class="modal fade" id="inviteUser" tabindex="-1" role="dialog" aria-labelledby="myModalLab" aria-hidden="true">
             <div class="modal-dialog" role="document">
@@ -126,7 +121,6 @@
                 </div>
             </div>
         </div>
-
     </form>
 
     <script src="/Site/Scripts/jquery.min.js" type="text/javascript"></script>
@@ -139,79 +133,7 @@
     <script>
         $(document).ready(function () {
             $('#rootwizard').bootstrapWizard({ 'tabClass': 'nav nav-pills' });
-            $(".deleteTopicReport").click(function () {
-                var id = $(this).parent().find(".reportID").val();
-                $("[id$='topicReportId']").val(id);
-                $('#deleteTopicReportModal').modal('show');
-            });
-
-            $(".deleteCommentReport").click(function () {
-                var id = $(this).parent().find(".reportCommentID").val();
-                $("[id$='commentReportId']").val(id);
-                $('#deleteCommentReportModal').modal('show');
-            });
-
-            $(".deleteTopic").click(function () {
-                var topicid = $(this).parent().find(".topicID").val();
-                $("[id$='topicID']").val(topicid);
-                $('#deleteTopicModal').modal('show');
-            });
-
-            $(".deleteComment").click(function () {
-                var commentId = $(this).parent().find(".commentID").val();
-                $("[id$='commentID']").val(commentId);
-                $('#deleteCommentModal').modal('show');
-            });
         });
-        function pageLoad() {
-            $(".deleteTopicReport").click(function () {
-                var id = $(this).parent().find(".reportID").val();
-                $("[id$='topicReportId']").val(id);
-                $('#deleteTopicReportModal').modal('show');
-            });
-
-            $(".deleteCommentReport").click(function () {
-                var id = $(this).parent().find(".reportCommentID").val();
-                $("[id$='commentReportId']").val(id);
-                $('#deleteCommentReportModal').modal('show');
-            });
-
-            $(".deleteTopic").click(function () {
-                var topicid = $(this).parent().find(".topicID").val();
-                $("[id$='topicID']").val(topicid);
-                $('#deleteTopicModal').modal('show');
-            });
-
-            $(".deleteComment").click(function () {
-                var commentId = $(this).parent().find(".commentID").val();
-                $("[id$='commentID']").val(commentId);
-                $('#deleteCommentModal').modal('show');
-            });
-        }
-        function deleteTopicReport() {
-            event.preventDefault();
-            $('#deleteTopicReportModal').modal('hide');
-            $("[id$='btnDeleteTopicReport']").trigger('click');
-
-        }
-
-        function deleteCommentReport() {
-            event.preventDefault();
-            $('#deleteCommentReportModal').modal('hide');
-            $("[id$='btnDeleteCommentReport']").trigger('click');
-        }
-
-        function deleteTopic() {
-            event.preventDefault();
-            $('#deleteTopicModal').modal('hide');
-            $("[id$='btnDeleteTopic']").trigger('click');
-        }
-
-        function deleteComment() {
-            event.preventDefault();
-            $('#deleteCommentModal').modal('hide');
-            $("[id$='btnDeleteComment']").trigger('click');
-        }
     </script>
 </body>
 </html>

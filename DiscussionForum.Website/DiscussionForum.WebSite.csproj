@@ -109,10 +109,7 @@
     <Content Include="Site\Confirmation.aspx" />
     <Content Include="Site\Content\bootstrap.min.css" />
     <Content Include="Site\Content\font-awesome-animation.min.css" />
-    <Content Include="Site\Content\forgotPassword.css" />
     <Content Include="Site\Content\prism.min.css" />
-    <Content Include="Site\Content\profilePage.css" />
-    <Content Include="Site\Content\Tooltip.css" />
     <Content Include="Site\CreateTopic.aspx" />
     <Content Include="Site\EditProfile.aspx" />
     <Content Include="Site\EditTopic.aspx" />
@@ -186,7 +183,6 @@
     <Content Include="Site\Fonts\font-awesome\fonts\fontawesome-webfont.ttf" />
     <Content Include="Site\Fonts\font-awesome\fonts\fontawesome-webfont.woff" />
     <Content Include="Site\Fonts\font-awesome\fonts\FontAwesome.otf" />
-    <Content Include="Site\Admin\SiteAdminMaster.Master" />
     <Content Include="Site\Scripts\tinymce\skins\lightgray\AbsoluteLayout.less" />
     <Content Include="Site\Scripts\tinymce\skins\lightgray\Animations.less" />
     <Content Include="Site\Scripts\tinymce\skins\lightgray\Arrows.less" />
@@ -294,13 +290,6 @@
     </Compile>
     <Compile Include="Site\Admin\Dashboard.aspx.designer.cs">
       <DependentUpon>Dashboard.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Site\Admin\SiteAdminMaster.Master.cs">
-      <DependentUpon>SiteAdminMaster.Master</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Site\Admin\SiteAdminMaster.Master.designer.cs">
-      <DependentUpon>SiteAdminMaster.Master</DependentUpon>
     </Compile>
     <Compile Include="Site\Category.aspx.cs">
       <DependentUpon>Category.aspx</DependentUpon>

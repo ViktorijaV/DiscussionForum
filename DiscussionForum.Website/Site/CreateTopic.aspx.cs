@@ -34,10 +34,11 @@ namespace DiscussionForum.Site
 
             int topicId = _topicService.CreateTopic(topic);
 
-            if(topicId == -1)
+            if (topicId == -1)
             {
                 error.InnerText = "A topic with this title already exists, please check it out, and rename your topic if necessary.";
-            } else
+            }
+            else
             {
                 var topicFollower = new TopicFollower(topicId, currentUser.Id);
                 _topicService.FollowTopic(topicFollower);

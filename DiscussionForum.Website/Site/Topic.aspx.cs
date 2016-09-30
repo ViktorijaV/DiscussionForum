@@ -318,7 +318,7 @@ namespace DiscussionForum.Site
                 reason = listReportComment.SelectedItem.Value;
             if (txtOtherReason.Text.Length > 0)
                 reason = txtOtherReason.Text;
-            
+
             var report = new CommentReport(commentId, currentUser.Id, reason, DateTime.Now);
             _commentService.ReportComment(report);
             listReportComment.SelectedIndex = -1;
