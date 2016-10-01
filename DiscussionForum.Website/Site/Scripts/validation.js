@@ -98,13 +98,13 @@ function validateCreateTopic() {
 
     if ($("[id$='txtTitle']").val() == "") {
         $("[id$='error']").show();
-        $("[id$='error']").text("Name is required. Please enter name.");
+        $("[id$='error']").text("Title is required. Please enter title.");
         return false;
     }
 
     if ($("[id$='txtTitle']").val().length > 50) {
         $("[id$='error']").show();
-        $("[id$='error']").text("Name is too long. Please enter name that is smaller than 50 characters.");
+        $("[id$='error']").text("Title is too long. Please enter title that is smaller than 50 characters.");
         return false;
     }
 
