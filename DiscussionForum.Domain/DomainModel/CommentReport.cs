@@ -6,6 +6,10 @@ namespace DiscussionForum.Domain.DomainModel
     {
         public CommentReport(int commentID, int reporterID, string reason, DateTime dateCreated)
         {
+            if (string.IsNullOrEmpty(reason))
+                throw new Exception("The reason for reporting is required!");
+            if (reason.Length > 300)
+                throw new Exception("The reason should be less than 300 charachters!");
             CommentID = commentID;
             ReporterID = reporterID;
             Reason = reason;

@@ -6,6 +6,10 @@ namespace DiscussionForum.Domain.DomainModel
     {
         public TopicReport(int topicID, int reporterID, string reason, DateTime dateCreated)
         {
+            if (string.IsNullOrEmpty(reason))
+                throw new Exception("The reason for reporting is required!");
+            if (reason.Length > 300)
+                throw new Exception("The reason should be less than 300 charachters!");
             TopicID = topicID;
             ReporterID = reporterID;
             Reason = reason;
@@ -19,7 +23,7 @@ namespace DiscussionForum.Domain.DomainModel
 
         public TopicReport()
         {
-            
+
         }
 
         public int ID { get; private set; }

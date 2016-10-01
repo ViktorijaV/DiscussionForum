@@ -8,6 +8,10 @@ namespace DiscussionForum.Domain.DomainModel
 
         public Comment(int topicId, int commenterId, string content)
         {
+            if (string.IsNullOrEmpty(content))
+                throw new Exception("Comment text is required!");
+            if (content.Length > 5000)
+                throw new Exception("Comment text is too long!");
             TopicID = topicId;
             CommenterID = commenterId;
             DateCreated = DateTime.Now;
